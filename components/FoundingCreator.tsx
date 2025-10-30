@@ -60,7 +60,10 @@ export default function FoundingCreator() {
   })
 
   const formValues = watch()
-  const filledFields = Object.values(formValues).filter(val => val && val !== '' && val !== false).length
+  const filledFields = Object.values(formValues).filter(val => {
+    if (typeof val === 'boolean') return val === true
+    return val && val !== ''
+  }).length
   const totalFields = 11
   const progress = (filledFields / totalFields) * 100
 
