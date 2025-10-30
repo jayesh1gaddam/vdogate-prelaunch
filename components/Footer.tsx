@@ -7,7 +7,7 @@ import { BRAND_LOGO } from '@/lib/brand'
 const footerLinks = {
   platform: [
     { label: 'How It Works', href: '#how-it-works' },
-    { label: 'For Creators', href: '#founding-creator' },
+    { label: 'For Freelancers', href: '#founding-creator' },
     { label: 'Pricing', href: '#founding-creator' },
   ],
   company: [
@@ -18,7 +18,7 @@ const footerLinks = {
   legal: [
     { label: 'Privacy Policy', href: '#' },
     { label: 'Terms of Service', href: '#' },
-    { label: 'Creator Agreement', href: '#' },
+    { label: 'Freelancer Agreement', href: '#' },
   ],
 }
 
@@ -48,7 +48,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-white/70 mb-6 text-base leading-relaxed max-w-sm">
-              The Professional Gateway to Creator Success. Empowering creators across India with video-first profiles and fair monetization.
+              India's Platform for Freelancers. No ads, no algorithm, no commission on your services. ₹3,000/month for direct client access.
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map(({ Icon, href, label }) => (

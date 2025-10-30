@@ -55,10 +55,10 @@ export default function Features() {
           className="text-center mb-16"
         >
           <h2 className="text-headline-lg md:text-display-md mb-4">
-            Built for <span className="text-gradient">Professional Creators</span>
+            Built for <span className="text-gradient">Professional Freelancers</span>
           </h2>
           <p className="text-body-lg text-neutral-gray-dark max-w-2xl mx-auto">
-            Everything you need to build, grow, and monetize your creative business
+            Everything you need to build, grow, and monetize your freelance business
           </p>
         </motion.div>
 

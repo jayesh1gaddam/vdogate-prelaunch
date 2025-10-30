@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Check, X, Rocket, Award, Star, Zap } from 'lucide-react'
 
 const comparison = [
-  { feature: 'Revenue Share', vdogate: '85% to creators', competitors: '~55% (after ads)' },
+  { feature: 'Revenue Share', vdogate: '85% to freelancers', competitors: '~55% (after ads)' },
   { feature: 'Discovery', vdogate: 'Category + Location Search', competitors: 'Algorithm-dependent' },
   { feature: 'Professional Tools', vdogate: 'Booking, leads, dashboard', competitors: 'DMs and hoping' },
   { feature: 'Audience Ownership', vdogate: 'Direct connections', competitors: 'Platform owns relationship' },
@@ -31,7 +31,7 @@ export default function CompetitiveAdvantage() {
           className="text-center mb-16"
         >
           <h2 className="text-headline-lg md:text-display-md mb-4">
-            Why Creators Choose <span className="text-gradient">VDOgate</span>
+            Why Freelancers Choose <span className="text-gradient">VDOgate</span>
           </h2>
         </motion.div>
 
@@ -100,10 +100,10 @@ export default function CompetitiveAdvantage() {
                 <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/30 shadow-lg">
                   <Rocket className="w-6 h-6 text-white drop-shadow-lg" />
                 </div>
-                <h3 className="text-headline-md bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent drop-shadow-lg">Founding Creator Advantage</h3>
+                <h3 className="text-headline-md bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent drop-shadow-lg">Founding Freelancer Advantage</h3>
               </div>
 
-              <p className="text-lg mb-6 text-white/95 drop-shadow-md">First 500 creators get:</p>
+              <p className="text-lg mb-6 text-white/95 drop-shadow-md">First 500 freelancers get:</p>
 
               <div className="grid md:grid-cols-2 gap-4 mb-6">
                 {foundingBenefits.map((benefit, index) => {

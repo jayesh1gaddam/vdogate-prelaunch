@@ -37,7 +37,7 @@ export default function HowItWorks() {
           className="text-center mb-20"
         >
           <h2 className="text-headline-lg md:text-display-md mb-4">
-            Your Gateway to Creator Success in{' '}
+            Your Gateway to Freelancer Success in{' '}
             <span className="text-gradient">3 Steps</span>
           </h2>
         </motion.div>
@@ -95,7 +95,7 @@ export default function HowItWorks() {
           className="text-center mt-16"
         >
           <p className="text-body-lg text-neutral-gray-dark mb-6">
-            Join hundreds of creators building their success story
+            Join hundreds of freelancers building their success story
           </p>
           <button
             onClick={() => document.getElementById('founding-creator')?.scrollIntoView({ behavior: 'smooth' })}

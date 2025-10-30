@@ -7,7 +7,7 @@ const problems = [
   {
     icon: Megaphone,
     title: 'Lost in the Noise',
-    description: 'Great creators struggle to reach the right audience on social platforms',
+    description: 'Great freelancers struggle to reach the right audience on social platforms',
   },
   {
     icon: TrendingDown,

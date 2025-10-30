@@ -7,11 +7,11 @@ import { ChevronDown } from 'lucide-react'
 const faqs = [
   {
     question: 'When does VDOgate launch?',
-    answer: 'We\'re targeting mid-November 2025. Founding creators get early access to set up their profiles and start building their presence before the official public launch.',
+    answer: 'We\'re targeting mid-November 2025. Founding freelancers get early access to set up their profiles and start building their presence before the official public launch.',
   },
   {
     question: 'How much does it cost?',
-    answer: 'VDOgate is completely free for creators to join. We only earn when you earn through our platform fee: 10% for regular creators, and just 5% for founding creators (95% revenue share for life).',
+    answer: 'VDOgate is completely free for freelancers to join. We only earn when you earn through our platform fee: 10% for regular freelancers, and just 5% for founding freelancers (95% revenue share for life).',
   },
   {
     question: 'What categories do you support?',
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: 'Is this only for major cities?',
-    answer: 'No! VDOgate supports creators across India. Our location filters help customers find local talent, whether you\'re in Mumbai, Bangalore, or smaller cities.',
+    answer: 'No! VDOgate supports freelancers across India. Our location filters help customers find local talent, whether you\'re in Mumbai, Bangalore, or smaller cities.',
   },
   {
     question: 'How is this different from Instagram or YouTube?',

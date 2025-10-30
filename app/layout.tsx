@@ -2,19 +2,19 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'VDOgate - Transform Your Skills Into A Thriving Business | India\'s Premier Creator Platform',
-  description: 'Join VDOgate, India\'s video-first platform where creators build professional profiles and monetize their skills. 90% revenue share.',
-  keywords: 'creator platform India, video portfolio, freelancer platform, skill monetization, creator economy',
+  title: 'VDOgate — India\'s Platform for Freelancers | No Ads, No Algorithm, 100% Earnings',
+  description: 'Discover and hire freelancers by category and location. Earn directly from clients. ₹3,000/month, no ads, no algorithm, no commission on your services.',
+  keywords: 'freelancer platform India, video portfolio, hire freelancers, freelance services, no commission platform, India freelance marketplace',
   openGraph: {
-    title: 'VDOgate - Transform Your Skills Into A Thriving Business',
-    description: 'India\'s premium video-first platform for creators. 90% revenue share. Build your professional profile today.',
+    title: 'VDOgate — India\'s Platform for Freelancers',
+    description: 'No ads, no algorithm, no commission. ₹3,000/month for direct client access. Discover freelancers by category and location.',
     type: 'website',
     locale: 'en_IN',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VDOgate - Transform Your Skills Into A Thriving Business',
-    description: 'India\'s premium video-first platform for creators. 90% revenue share.',
+    title: 'VDOgate — India\'s Platform for Freelancers',
+    description: 'No ads, no algorithm, no commission. ₹3,000/month for direct client access.',
   },
   robots: {
     index: true,

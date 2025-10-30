@@ -19,7 +19,7 @@ export default function WhoItsFor() {
           className="text-center mb-16"
         >
           <h2 className="text-headline-lg md:text-display-md mb-4">
-            Join India's <span className="text-gradient">Leading Creators</span>
+            Join India's <span className="text-gradient">Leading Freelancers</span>
           </h2>
         </motion.div>
 
@@ -37,7 +37,7 @@ export default function WhoItsFor() {
               <div className="w-12 h-12 bg-portal-gradient rounded-xl flex items-center justify-center">
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-headline-md text-portal-primary">For Creators</h3>
+              <h3 className="text-headline-md text-portal-primary">For Freelancers</h3>
             </div>
 
             <p className="text-body-lg font-semibold mb-6">Are you a:</p>
@@ -68,7 +68,7 @@ export default function WhoItsFor() {
               onClick={() => document.getElementById('founding-creator')?.scrollIntoView({ behavior: 'smooth' })}
               className="w-full px-8 py-4 bg-portal-gradient text-white rounded-xl font-semibold text-lg hover:shadow-portal transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
             >
-              Become a Founding Creator
+              Become a Founding Freelancer
               <ArrowRight className="w-5 h-5" />
             </button>
           </motion.div>
@@ -116,7 +116,7 @@ export default function WhoItsFor() {
               disabled
               className="w-full px-8 py-4 bg-neutral-gray-light text-white rounded-xl font-semibold text-lg cursor-not-allowed opacity-60 relative"
             >
-              Browse Creators
+              Browse Freelancers
               <span className="absolute -top-2 -right-2 bg-vdo-orange text-white text-xs px-3 py-1 rounded-full">
                 Coming Soon
               </span>

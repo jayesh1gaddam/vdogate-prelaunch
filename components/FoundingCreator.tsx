@@ -38,7 +38,7 @@ const categories = [
 const benefits = [
   { icon: Award, title: 'Lifetime Premium Benefits', desc: '95% revenue share forever', iconColor: 'text-yellow-400', bgColor: 'bg-yellow-400/20', hoverBg: 'group-hover:bg-yellow-400/30' },
   { icon: Zap, title: 'Launch Advantage', desc: 'Priority in search rankings', iconColor: 'text-blue-400', bgColor: 'bg-blue-400/20', hoverBg: 'group-hover:bg-blue-400/30' },
-  { icon: Users, title: 'Community Building', desc: 'Join creator community', iconColor: 'text-pink-400', bgColor: 'bg-pink-400/20', hoverBg: 'group-hover:bg-pink-400/30' },
+  { icon: Users, title: 'Community Building', desc: 'Join freelancer community', iconColor: 'text-pink-400', bgColor: 'bg-pink-400/20', hoverBg: 'group-hover:bg-pink-400/30' },
   { icon: Star, title: 'Early Revenue Opportunity', desc: 'Launch day advantages', iconColor: 'text-green-400', bgColor: 'bg-green-400/20', hoverBg: 'group-hover:bg-green-400/30' },
 ]
 
@@ -131,15 +131,15 @@ export default function FoundingCreator() {
             className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-6 py-2 mb-6"
           >
             <Sparkles className="w-5 h-5 text-vdo-orange" />
-            <span className="text-white font-semibold">Limited to 500 Creators</span>
+            <span className="text-white font-semibold">Limited to 500 Freelancers</span>
             <TrendingUp className="w-5 h-5 text-white" />
           </motion.div>
 
           <h2 className="text-headline-lg md:text-display-md mb-4 text-white drop-shadow-lg">
-            Become a <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">Founding Creator</span>
+            Become a <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">Founding Freelancer</span>
           </h2>
           <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Join the first 500 creators to build the future of India's creator economy and get lifetime premium benefits
+            Join the first 500 freelancers to build the future of India's freelance economy and get lifetime premium benefits
           </p>
         </motion.div>
 
@@ -193,8 +193,8 @@ export default function FoundingCreator() {
                   <span className="text-3xl font-bold text-white drop-shadow-lg">500</span>
                   <Star className="w-6 h-6 text-vdo-orange" />
                 </div>
-                <p className="text-lg font-semibold text-white mb-1">Founding Creators Only</p>
-                <p className="text-sm text-white/80">Secure your spot in India's premium creator platform</p>
+                <p className="text-lg font-semibold text-white mb-1">Founding Freelancers Only</p>
+                <p className="text-sm text-white/80">Secure your spot in India's premium freelancer platform</p>
 
                 {/* Progress indicator */}
                 <div className="mt-4 w-full bg-white/20 rounded-full h-2 overflow-hidden">
@@ -218,82 +218,175 @@ export default function FoundingCreator() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl border-2 border-white/50">
-              {submitted ? (
-                <div className="text-center py-12">
-                  <CheckCircle2 className="w-16 h-16 text-gate-blue mx-auto mb-4" />
-                  <h3 className="text-headline-md mb-4">Application Received!</h3>
-                  <p className="text-body-lg text-neutral-gray-dark mb-6">
-                    Thank you for applying to be a Founding Creator. We'll review your application and get back to you within 48 hours.
-                  </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="text-portal-primary font-semibold hover:underline"
+            <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden">
+              {/* Premium gradient border */}
+              <div className="absolute inset-0 bg-gradient-to-r from-portal-primary via-portal-light to-portal-lighter rounded-3xl p-[2px]">
+                <div className="bg-white rounded-3xl h-full w-full" />
+              </div>
+
+              <div className="relative z-10 p-8 md:p-10">
+                {submitted ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-12"
                   >
-                    Submit another application
-                  </button>
-                </div>
-              ) : (
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                    >
+                      <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <CheckCircle2 className="w-12 h-12 text-white" />
+                      </div>
+                    </motion.div>
+                    <motion.h3
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="text-3xl font-bold text-brand-black mb-4"
+                    >
+                      Application Received!
+                    </motion.h3>
+                    <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4 }}
+                      className="text-lg text-neutral-gray-dark mb-8 max-w-md mx-auto"
+                    >
+                      Thank you for applying to be a Founding Freelancer. We'll review your application and get back to you within <span className="font-semibold text-portal-primary">48 hours</span>.
+                    </motion.p>
+                    <motion.button
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5 }}
+                      onClick={() => setSubmitted(false)}
+                      className="text-portal-primary font-semibold hover:underline text-lg"
+                    >
+                      Submit another application
+                    </motion.button>
+                  </motion.div>
+                ) : (
                 <>
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-headline-md">Apply Now</h3>
-                    <div className="text-right">
+                  {/* Enhanced Header */}
+                  <div className="mb-8">
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <h3 className="text-3xl font-bold text-brand-black mb-2">Apply Now</h3>
+                        <p className="text-sm text-neutral-gray">Join 170+ freelancers already onboarded</p>
+                      </div>
                       <motion.div
                         key={Math.round(progress)}
-                        initial={{ scale: 1.1 }}
-                        animate={{ scale: 1 }}
-                        className="text-2xl font-bold text-portal-primary"
+                        initial={{ scale: 1.2, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        className="text-right bg-gradient-to-br from-portal-primary/10 to-portal-light/10 rounded-2xl px-4 py-3 border border-portal-primary/20"
                       >
-                        {Math.round(progress)}%
+                        <div className="text-3xl font-bold bg-gradient-to-r from-portal-primary to-portal-light bg-clip-text text-transparent">
+                          {Math.round(progress)}%
+                        </div>
+                        <div className="text-xs text-neutral-gray font-medium">Complete</div>
                       </motion.div>
-                      <div className="text-xs text-neutral-gray">Complete</div>
                     </div>
-                  </div>
 
-                  {/* Progress Bar */}
-                  <div className="mb-8">
-                    <div className="w-full h-1.5 bg-neutral-gray-lighter rounded-full overflow-hidden">
-                      <motion.div
-                        className="h-full bg-portal-gradient"
-                        initial={{ width: 0 }}
-                        animate={{ width: `${progress}%` }}
-                        transition={{ duration: 0.3, ease: 'easeOut' }}
-                      />
+                    {/* Enhanced Progress Bar */}
+                    <div className="relative">
+                      <div className="w-full h-3 bg-gradient-to-r from-neutral-gray-lighter to-neutral-background rounded-full overflow-hidden">
+                        <motion.div
+                          className="h-full bg-gradient-to-r from-portal-primary via-portal-light to-portal-lighter relative"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${progress}%` }}
+                          transition={{ duration: 0.5, ease: 'easeOut' }}
+                        >
+                          {/* Shimmer effect */}
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                            animate={{
+                              x: ['-100%', '200%']
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: 'linear'
+                            }}
+                          />
+                        </motion.div>
+                      </div>
+                      {/* Milestone markers */}
+                      <div className="flex justify-between mt-2 px-1">
+                        {[0, 25, 50, 75, 100].map((milestone) => (
+                          <div key={milestone} className="flex flex-col items-center">
+                            <motion.div
+                              className={`w-2 h-2 rounded-full ${progress >= milestone ? 'bg-portal-primary' : 'bg-neutral-gray-lighter'}`}
+                              initial={{ scale: 0 }}
+                              animate={{ scale: progress >= milestone ? 1 : 0.5 }}
+                              transition={{ duration: 0.3 }}
+                            />
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                     {/* Name */}
-                    <div>
-                      <label className="block text-sm font-semibold text-neutral-black mb-2">
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      <label className="block text-sm font-semibold text-neutral-black mb-2 flex items-center gap-2">
                         Full Name *
+                        {formValues.name && formValues.name.length >= 2 && (
+                          <motion.span
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            className="text-green-600"
+                          >
+                            <CheckCircle2 className="w-4 h-4" />
+                          </motion.span>
+                        )}
                       </label>
-                      <div className="relative">
-                        <User className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none transition-colors ${
-                          focusedField === 'name' ? 'text-portal-primary' : 'text-neutral-gray'
-                        }`} />
+                      <div className="relative group">
+                        <motion.div
+                          className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none transition-all ${
+                            focusedField === 'name' ? 'text-portal-primary scale-110' : 'text-neutral-gray scale-100'
+                          }`}
+                          animate={{
+                            scale: focusedField === 'name' ? 1.1 : 1
+                          }}
+                        >
+                          <User className="w-5 h-5" />
+                        </motion.div>
                         <input
                           {...register('name')}
                           type="text"
-                          className="w-full pl-12 pr-4 py-3 bg-neutral-background border border-neutral-gray-lighter rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-primary focus:border-portal-primary transition-all"
+                          className="w-full pl-12 pr-4 py-3.5 bg-neutral-background border-2 border-neutral-gray-lighter rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-primary/20 focus:border-portal-primary transition-all hover:border-neutral-gray hover:shadow-sm"
                           placeholder="Your full name"
                           onFocus={() => setFocusedField('name')}
                           onBlur={() => setFocusedField(null)}
                         />
+                        {/* Field highlight on focus */}
+                        {focusedField === 'name' && (
+                          <motion.div
+                            layoutId="focusIndicator"
+                            className="absolute inset-0 rounded-xl border-2 border-portal-primary pointer-events-none"
+                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                          />
+                        )}
                       </div>
                       <AnimatePresence>
                         {errors.name && (
                           <motion.p
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
                             className="text-red-500 text-sm mt-1.5 flex items-center gap-1"
                           >
-                            {errors.name.message}
+                            <span className="text-red-500">⚠</span> {errors.name.message}
                           </motion.p>
                         )}
                       </AnimatePresence>
-                    </div>
+                    </motion.div>
 
                     {/* Email */}
                     <div>
@@ -543,7 +636,7 @@ export default function FoundingCreator() {
                           {...register('challenges')}
                           rows={3}
                           className="w-full pl-12 pr-4 py-3 bg-neutral-background border border-neutral-gray-lighter rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-primary focus:border-portal-primary transition-all resize-none"
-                          placeholder="What challenges are you facing as a creator right now?"
+                          placeholder="What challenges are you facing as a freelancer right now?"
                           onFocus={() => setFocusedField('challenges')}
                           onBlur={() => setFocusedField(null)}
                         />
@@ -605,7 +698,7 @@ export default function FoundingCreator() {
                         id="agreeTerms"
                       />
                       <label htmlFor="agreeTerms" className="text-sm text-neutral-gray-dark cursor-pointer">
-                        I agree to VDOgate's Terms of Service and Privacy Policy, and consent to being contacted about the Founding Creator Programme
+                        I agree to VDOgate's Terms of Service and Privacy Policy, and consent to being contacted about the Founding Freelancer Programme
                       </label>
                     </div>
                     <AnimatePresence>
@@ -636,35 +729,109 @@ export default function FoundingCreator() {
                     </AnimatePresence>
 
                     {/* Submit */}
-                    <motion.button
-                      type="submit"
-                      disabled={isSubmitting}
-                      whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                      whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                      className="w-full px-8 py-4 bg-portal-gradient text-white rounded-xl font-semibold text-lg hover:shadow-portal transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="pt-4"
                     >
-                      <span className="relative z-10 flex items-center justify-center gap-2">
-                        {isSubmitting ? (
-                          <>
-                            <motion.div
-                              animate={{ rotate: 360 }}
-                              transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                              className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
-                            />
-                            Submitting...
-                          </>
-                        ) : (
-                          <>
-                            Submit Application
-                            <Sparkles className="w-5 h-5" />
-                          </>
+                      <motion.button
+                        type="submit"
+                        disabled={isSubmitting || progress < 100}
+                        whileHover={{ scale: (isSubmitting || progress < 100) ? 1 : 1.02, y: -2 }}
+                        whileTap={{ scale: (isSubmitting || progress < 100) ? 1 : 0.98 }}
+                        className={`w-full px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-300 relative overflow-hidden group ${
+                          progress < 100
+                            ? 'bg-neutral-gray-lighter text-neutral-gray cursor-not-allowed'
+                            : 'bg-gradient-to-r from-portal-primary via-portal-light to-portal-lighter text-white shadow-xl hover:shadow-2xl'
+                        } ${isSubmitting ? 'opacity-75 cursor-wait' : ''}`}
+                      >
+                        {/* Animated background */}
+                        {progress >= 100 && !isSubmitting && (
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0"
+                            animate={{
+                              x: ['-100%', '200%']
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: 'linear'
+                            }}
+                          />
                         )}
-                      </span>
-                      <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-                    </motion.button>
+
+                        <span className="relative z-10 flex items-center justify-center gap-3">
+                          {isSubmitting ? (
+                            <>
+                              <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                                className="w-6 h-6 border-3 border-white border-t-transparent rounded-full"
+                              />
+                              <span>Submitting Application...</span>
+                            </>
+                          ) : progress < 100 ? (
+                            <>
+                              <span>Complete all fields to submit</span>
+                              <motion.span
+                                animate={{ opacity: [0.5, 1, 0.5] }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                                className="text-sm"
+                              >
+                                ({100 - Math.round(progress)}% remaining)
+                              </motion.span>
+                            </>
+                          ) : (
+                            <>
+                              <span>Submit Application</span>
+                              <motion.div
+                                animate={{ rotate: [0, 15, -15, 0] }}
+                                transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 2 }}
+                              >
+                                <Sparkles className="w-6 h-6" />
+                              </motion.div>
+                            </>
+                          )}
+                        </span>
+
+                        {/* Ripple effect on hover */}
+                        {progress >= 100 && !isSubmitting && (
+                          <motion.div
+                            className="absolute inset-0 bg-white/10"
+                            initial={{ scale: 0, opacity: 1 }}
+                            whileHover={{ scale: 2, opacity: 0 }}
+                            transition={{ duration: 0.6 }}
+                          />
+                        )}
+                      </motion.button>
+
+                      {/* Helper text */}
+                      {progress < 100 && (
+                        <motion.p
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          className="text-center text-sm text-neutral-gray mt-3"
+                        >
+                          Fill out all required fields to enable submission
+                        </motion.p>
+                      )}
+
+                      {progress >= 100 && !isSubmitting && (
+                        <motion.p
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="text-center text-sm text-green-600 font-medium mt-3 flex items-center justify-center gap-2"
+                        >
+                          <CheckCircle2 className="w-4 h-4" />
+                          Ready to submit!
+                        </motion.p>
+                      )}
+                    </motion.div>
                   </form>
                 </>
               )}
+              </div>
             </div>
           </motion.div>
         </div>

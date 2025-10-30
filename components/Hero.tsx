@@ -73,7 +73,7 @@ export default function Hero() {
                 className="inline-flex items-center gap-2 px-3 py-1.5 bg-portal-primary/3 border border-portal-primary/8 rounded-full"
               >
                 <Sparkles className="w-3.5 h-3.5 text-portal-primary" />
-                <span className="text-xs md:text-sm font-medium text-portal-primary">India's Professional Creator Platform</span>
+                <span className="text-xs md:text-sm font-medium text-portal-primary">India's Platform for India's Freelancers</span>
               </motion.div>
 
               {/* Main Headline - Lighter & More Breathing Space */}
@@ -83,11 +83,9 @@ export default function Hero() {
                 transition={{ delay: 0.2, duration: 0.7 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.2] tracking-tight"
               >
-                <span className="text-brand-black font-light">Transform Your</span>
+                <span className="text-brand-black font-light">India's Platform for</span>
                 <br />
-                <span className="text-brand-black font-light">Skills Into a</span>
-                <br />
-                <span className="text-gradient font-semibold">Thriving Business</span>
+                <span className="text-gradient font-semibold">India's Freelancers</span>
               </motion.h1>
 
               {/* Subheadline - Lighter Color & Font Weight */}
@@ -97,28 +95,31 @@ export default function Hero() {
                 transition={{ delay: 0.3, duration: 0.7 }}
                 className="text-base md:text-lg text-neutral-gray leading-relaxed max-w-xl mx-auto lg:mx-0 font-light"
               >
-                The video-first platform where creators build professional profiles,
-                gain trust, and convert talent into consistent income.
+                Make money from your skills — not spend money to promote them.
+                <br />
+                <span className="font-semibold text-brand-black">No Ads • No Algorithm • No Commission on Your Services</span>
+                <br />
+                <span className="text-sm">Get discovered by category and location — reach clients in your area or across India.</span>
               </motion.p>
 
-              {/* Trust Indicators - Separated by vertical line */}
+              {/* Trust Indicators - Pricing Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.7 }}
                 className="flex flex-wrap items-center justify-center lg:justify-start gap-6"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-vdo-orange rounded-full" />
-                  <span className="text-base md:text-base font-semibold text-brand-gray-900">90% Creator Revenue</span>
+                <div className="inline-flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl shadow-sm">
+                  <span className="text-lg md:text-xl font-bold text-green-800">₹3,000/month</span>
+                  <span className="text-sm text-green-700">(~₹100/day)</span>
                 </div>
 
                 {/* Vertical divider */}
-                <div className="h-6 w-px bg-neutral-gray-lighter"></div>
+                <div className="h-8 w-px bg-neutral-gray-lighter"></div>
 
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-gate-blue rounded-full" />
-                  <span className="text-base md:text-base font-semibold text-brand-gray-900">₹5.7L+ Earned</span>
+                <div className="flex flex-col">
+                  <span className="text-sm font-semibold text-brand-gray-900">Fair, Transparent</span>
+                  <span className="text-sm text-neutral-gray">Income-First Platform</span>
                 </div>
               </motion.div>
 
@@ -133,7 +134,7 @@ export default function Hero() {
                   onClick={() => scrollToSection('founding-creator')}
                   className="group px-7 py-3.5 bg-portal-gradient text-white rounded-lg font-medium text-sm md:text-base hover:shadow-portal-sm transition-all duration-300 hover:scale-[1.01] flex items-center justify-center gap-2 shadow-md shadow-portal-primary/10"
                 >
-                  Join as Founding Creator
+                  Join the Platform
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
 
@@ -142,7 +143,7 @@ export default function Hero() {
                   className="group px-7 py-3.5 bg-white border border-neutral-gray-lighter text-brand-gray-900 rounded-lg font-medium text-sm md:text-base hover:border-portal-primary hover:bg-portal-primary/3 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <Play className="w-4 h-4 text-portal-primary" />
-                  See How It Works
+                  Explore VDOgate
                 </button>
               </motion.div>
             </motion.div>

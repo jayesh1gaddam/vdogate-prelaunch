@@ -12,7 +12,7 @@ const trustElements = [
   },
   {
     icon: Heart,
-    title: 'Creator-First Economics',
+    title: 'Freelancer-First Economics',
     description: '85% revenue share — we succeed when you succeed',
     color: 'from-portal-light to-portal-lighter',
   },
@@ -30,7 +30,7 @@ const creatorReviews = [
     name: 'Rahul Verma',
     role: 'Fitness Coach',
     location: 'Bangalore',
-    review: "Most platforms take 30-40% of what I earn, and I still have to fight for visibility. VDOgate gives me 85% of my earnings and connects me with people actually searching for fitness coaching. Finally, a fair deal for creators.",
+    review: "Most platforms take 30-40% of what I earn, and I still have to fight for visibility. VDOgate gives me 85% of my earnings and connects me with people actually searching for fitness coaching. Finally, a fair deal for freelancers.",
     rating: 5,
   },
   {
@@ -76,7 +76,7 @@ export default function TrustCredibility() {
           className="text-center mb-16"
         >
           <h2 className="text-headline-lg md:text-display-md mb-4">
-            Backed by Innovation, <span className="text-gradient">Trusted by Creators</span>
+            Backed by Innovation, <span className="text-gradient">Trusted by Freelancers</span>
           </h2>
         </motion.div>
 
@@ -114,8 +114,8 @@ export default function TrustCredibility() {
             transition={{ duration: 0.6 }}
             className="mb-8 text-center"
           >
-            <h3 className="text-headline-md mb-2">What Creators Are Saying</h3>
-            <p className="text-body-md text-neutral-gray-dark">Join hundreds of creators building their success</p>
+            <h3 className="text-headline-md mb-2">What Freelancers Are Saying</h3>
+            <p className="text-body-md text-neutral-gray-dark">Join hundreds of freelancers building their success</p>
           </motion.div>
 
           <div className="relative" style={{ perspective: '1000px' }}>
