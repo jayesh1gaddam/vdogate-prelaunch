@@ -1,0 +1,401 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   VDOGATE BRAND STYLES - Official Guidelines
+   ============================================ */
+
+@layer base {
+  /* TYPOGRAPHY FOUNDATION */
+  body {
+    @apply font-helvetica bg-white antialiased;
+    color: #111827;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* HEADING HIERARCHY - Official Brand Guidelines */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+    color: #111827;
+    letter-spacing: -0.01em;
+  }
+
+  /* Typography sizes are applied via Tailwind utility classes in components */
+
+  /* LINKS */
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  /* FOCUS STATES - Accessibility */
+  *:focus-visible {
+    outline: none;
+    ring: 2px solid #463DC7;
+    box-shadow: 0 0 0 2px #463DC7;
+    ring-offset: 2px;
+  }
+
+  /* SMOOTH SCROLLING */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* SELECTION COLORS */
+  ::selection {
+    background-color: #463DC7;
+    color: #FFFFFF;
+  }
+
+  ::-moz-selection {
+    background-color: #463DC7;
+    color: #FFFFFF;
+  }
+}
+
+@layer components {
+  /* ========== BUTTON SYSTEM ========== */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-brand-md font-semibold text-base transition-all duration-300 ease-out;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-portal-gradient text-white shadow-portal-sm hover:shadow-portal hover:scale-[1.02];
+  }
+
+  .btn-secondary {
+    @apply btn bg-white border-2 border-portal-primary text-portal-primary hover:bg-portal-primary/5;
+  }
+
+  .btn-vdo {
+    @apply btn bg-vdo-gradient text-white shadow-lg shadow-vdo-orange/20 hover:shadow-xl hover:shadow-vdo-orange/30;
+  }
+
+  .btn-gate {
+    @apply btn bg-gate-gradient text-white shadow-lg shadow-gate-blue/20 hover:shadow-xl hover:shadow-gate-blue/30;
+  }
+
+  .btn-lg {
+    @apply px-8 py-4 text-lg rounded-brand-lg;
+  }
+
+  .btn-sm {
+    @apply px-4 py-2 text-sm rounded-brand-sm;
+  }
+
+  /* ========== CARD SYSTEM ========== */
+  .card {
+    @apply bg-white rounded-brand-lg border border-neutral-gray-lighter transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-elevation-3 hover:-translate-y-1;
+  }
+
+  .card-portal {
+    @apply card border-portal-primary/20 hover:shadow-portal-sm hover:border-portal-primary/40;
+  }
+
+  /* ========== INPUT SYSTEM ========== */
+  .input {
+    @apply w-full px-4 py-3 rounded-brand-md border-2 border-neutral-gray-lighter bg-white transition-all duration-200;
+    @apply focus:border-portal-primary focus:ring-2 focus:ring-portal-primary/20;
+    color: #111827;
+  }
+
+  .input::placeholder {
+    color: #6B7280;
+  }
+
+  .input-error {
+    @apply border-error focus:border-error focus:ring-error/20;
+  }
+
+  /* ========== BADGE SYSTEM ========== */
+  .badge {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium;
+  }
+
+  .badge-portal {
+    @apply badge bg-portal-primary/10 text-portal-primary border border-portal-primary/20;
+  }
+
+  .badge-vdo {
+    @apply badge bg-vdo-orange/10 text-vdo-orange-dark border border-vdo-orange/20;
+  }
+
+  .badge-gate {
+    @apply badge bg-gate-blue/10 text-gate-blue border border-gate-blue/20;
+  }
+
+  .badge-success {
+    @apply badge bg-success/10 text-success border border-success/20;
+  }
+}
+
+@layer utilities {
+  /* ========== TEXT UTILITIES ========== */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-portal-gradient;
+  }
+
+  .text-gradient-vdo {
+    @apply bg-clip-text text-transparent bg-vdo-gradient;
+  }
+
+  .text-gradient-gate {
+    @apply bg-clip-text text-transparent bg-gate-gradient;
+  }
+
+  /* EMPHASIS COLORS - Brand Guidelines */
+  .text-emphasis {
+    @apply text-vdo-orange-dark font-bold;
+  }
+
+  .text-trust {
+    @apply text-gate-blue font-semibold;
+  }
+
+  /* ========== LAYOUT UTILITIES ========== */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-30;
+  }
+
+  .section-padding-sm {
+    @apply py-12 md:py-18 lg:py-22;
+  }
+
+  .section-padding-lg {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
+  }
+
+  .container-wide {
+    @apply max-w-[1440px] mx-auto px-6 md:px-8 lg:px-16;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-6 md:px-8;
+  }
+
+  /* ========== INTERACTION UTILITIES ========== */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-elevation-3;
+  }
+
+  .hover-glow-portal {
+    @apply transition-all duration-300 hover:shadow-glow-portal;
+  }
+
+  .hover-glow-vdo {
+    @apply transition-all duration-300 hover:shadow-glow-vdo;
+  }
+
+  .hover-glow-gate {
+    @apply transition-all duration-300 hover:shadow-glow-gate;
+  }
+
+  /* ========== GLASSMORPHISM ========== */
+  .glass {
+    @apply bg-white/80 backdrop-blur-brand border border-white/20;
+  }
+
+  .glass-dark {
+    background-color: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* ========== PORTAL EFFECTS ========== */
+  .portal-ring {
+    box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #463DC7;
+  }
+
+  .portal-border {
+    border: 2px solid #463DC7;
+  }
+
+  .portal-glow {
+    @apply shadow-glow-portal;
+  }
+
+  /* ========== SCROLL ANIMATIONS ========== */
+  .fade-in-up {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+
+  .fade-in-up.active {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .fade-in {
+    @apply opacity-0 transition-opacity duration-600 ease-out;
+  }
+
+  .fade-in.active {
+    @apply opacity-100;
+  }
+
+  .scale-in {
+    @apply opacity-0 scale-95 transition-all duration-500 ease-out;
+  }
+
+  .scale-in.active {
+    @apply opacity-100 scale-100;
+  }
+
+  /* ========== LOADING STATES ========== */
+  .skeleton {
+    @apply animate-pulse bg-neutral-gray-lighter rounded;
+  }
+
+  .skeleton-text {
+    @apply skeleton h-4 w-full;
+  }
+
+  .skeleton-title {
+    @apply skeleton h-8 w-3/4;
+  }
+
+  /* ========== GRID SYSTEMS ========== */
+  .grid-auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .grid-auto-fill {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  /* ========== SPACING RHYTHM ========== */
+  .stack-sm > * + * {
+    @apply mt-4;
+  }
+
+  .stack-md > * + * {
+    @apply mt-6;
+  }
+
+  .stack-lg > * + * {
+    @apply mt-8;
+  }
+
+  .stack-xl > * + * {
+    @apply mt-12;
+  }
+
+  /* ========== OVERFLOW HANDLING ========== */
+  .overflow-gradient {
+    position: relative;
+  }
+
+  .overflow-gradient::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, white);
+    pointer-events: none;
+  }
+
+  /* ========== CUSTOM SCROLLBAR ========== */
+  .scrollbar-brand::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-brand::-webkit-scrollbar-track {
+    @apply bg-neutral-gray-lighter rounded-full;
+  }
+
+  .scrollbar-brand::-webkit-scrollbar-thumb {
+    @apply bg-portal-primary rounded-full hover:bg-portal-dark;
+  }
+
+  /* ========== HERO CAROUSEL ANIMATIONS ========== */
+  @keyframes scroll-up {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  @keyframes scroll-down {
+    0% {
+      transform: translateY(-50%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .animate-scroll-up {
+    animation: scroll-up 20s linear infinite;
+  }
+
+  .animate-scroll-down {
+    animation: scroll-down 20s linear infinite;
+  }
+
+  /* ========== INFINITE SCROLL ANIMATION ========== */
+  @keyframes infinite-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-infinite-scroll {
+    animation: infinite-scroll 40s linear infinite;
+  }
+
+  .pause-animation:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a, a:visited {
+    text-decoration: underline;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+}
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
