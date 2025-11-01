@@ -566,7 +566,7 @@ export default function About() {
 
                     {/* Center dot */}
                     <div className="hidden md:flex items-center justify-center relative z-10">
-                      <div className="w-6 h-6 bg-portal-gradient rounded-full border-4 border-white shadow-lg" />
+                      <div className="w-6 h-6 bg-portal-gradient rounded-full border-[0.2px] border-white shadow-lg" />
                     </div>
 
                     <div className="flex-1" />
@@ -757,7 +757,7 @@ export default function About() {
               </a>
               <a
                 href="mailto:hello@vdogate.com"
-                className="px-8 py-4 bg-white border-2 border-portal-primary text-portal-primary rounded-xl font-semibold text-lg hover:bg-portal-primary/5 transition-all duration-300"
+                className="px-8 py-4 bg-white border-[0.2px] border-portal-primary text-portal-primary rounded-xl font-semibold text-lg hover:bg-portal-primary/5 transition-all duration-300"
               >
                 Get in Touch
               </a>

@@ -32,22 +32,17 @@ export default function Navigation() {
     setIsMobileMenuOpen(false)
     const element = document.getElementById(id)
     if (element) {
-      const offset = 100 // Account for fixed header
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-      const offsetPosition = elementPosition - offset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
+      // Use scrollIntoView with block: 'start' to respect scroll-margin-top in CSS
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
 
   const navLinks = [
-    { label: 'Home', id: 'home', href: '/' },
-    { label: 'For Creators', id: 'who-its-for', href: '/#founding-creator' },
-    { label: 'Careers', id: 'careers', href: '/careers' },
-    { label: 'About', id: 'about', href: '/about' },
+    { label: 'Home', id: 'hero', isScroll: true },
+    { label: 'Join the Platform', id: 'founding-creator', isScroll: true },
+    { label: 'Find Your Freelancer', id: 'who-its-for', isScroll: true },
+    { label: 'About', href: '/about', isScroll: false },
+    { label: 'Contact', href: '/contact', isScroll: false },
   ]
 
   return (
@@ -93,17 +88,31 @@ export default function Navigation() {
               {/* Desktop Navigation Links */}
               <div className="hidden lg:flex items-center gap-8">
                 {navLinks.map((link, index) => (
-                  <motion.a
-                    key={link.id}
-                    href={link.href}
-                    className="text-base font-medium text-neutral-black hover:text-portal-primary transition-colors duration-200 relative group"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 + 0.2 }}
-                  >
-                    {link.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-portal-gradient group-hover:w-full transition-all duration-300" />
-                  </motion.a>
+                  link.isScroll ? (
+                    <motion.button
+                      key={link.id}
+                      onClick={() => link.id && scrollToSection(link.id)}
+                      className="text-base font-medium text-neutral-black hover:text-portal-primary transition-colors duration-200 relative group"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 + 0.2 }}
+                    >
+                      {link.label}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-portal-gradient group-hover:w-full transition-all duration-300" />
+                    </motion.button>
+                  ) : (
+                    <motion.a
+                      key={link.label}
+                      href={link.href}
+                      className="text-base font-medium text-neutral-black hover:text-portal-primary transition-colors duration-200 relative group"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 + 0.2 }}
+                    >
+                      {link.label}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-portal-gradient group-hover:w-full transition-all duration-300" />
+                    </motion.a>
+                  )
                 ))}
               </div>
 
@@ -118,7 +127,7 @@ export default function Navigation() {
                   onClick={() => scrollToSection('founding-creator')}
                   className="group px-6 py-3 bg-portal-gradient text-white rounded-xl font-semibold text-base hover:shadow-portal transition-all duration-300 hover:scale-[1.02] flex items-center gap-2 shadow-portal-xs"
                 >
-                  Join Waitlist
+                  Join the Platform
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </motion.div>
@@ -172,17 +181,30 @@ export default function Navigation() {
                   {/* Navigation Links */}
                   <div className="space-y-2">
                     {navLinks.map((link, index) => (
-                      <motion.a
-                        key={link.id}
-                        href={link.href}
-                        className="w-full block text-left px-4 py-4 text-lg font-semibold text-neutral-black hover:text-portal-primary hover:bg-portal-primary/5 rounded-brand-md transition-all duration-200"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.05 }}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {link.label}
-                      </motion.a>
+                      link.isScroll ? (
+                        <motion.button
+                          key={link.id}
+                          onClick={() => link.id && scrollToSection(link.id)}
+                          className="w-full text-left px-4 py-4 text-lg font-semibold text-neutral-black hover:text-portal-primary hover:bg-portal-primary/5 rounded-brand-md transition-all duration-200"
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.05 }}
+                        >
+                          {link.label}
+                        </motion.button>
+                      ) : (
+                        <motion.a
+                          key={link.label}
+                          href={link.href}
+                          className="w-full block text-left px-4 py-4 text-lg font-semibold text-neutral-black hover:text-portal-primary hover:bg-portal-primary/5 rounded-brand-md transition-all duration-200"
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.05 }}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {link.label}
+                        </motion.a>
+                      )
                     ))}
                   </div>
 
@@ -197,7 +219,7 @@ export default function Navigation() {
                       onClick={() => scrollToSection('founding-creator')}
                       className="w-full group px-6 py-4 bg-portal-gradient text-white rounded-xl font-semibold text-base hover:shadow-portal transition-all duration-300 flex items-center justify-center gap-2 shadow-portal-xs"
                     >
-                      Join Waitlist
+                      Join the Platform
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </motion.div>
@@ -210,7 +232,7 @@ export default function Navigation() {
                     className="pt-8"
                   >
                     <p className="text-sm text-neutral-gray text-center leading-relaxed">
-                      The Professional Gateway to Creator Success
+                      India's Platform for India's Freelancers
                     </p>
                   </motion.div>
                 </div>

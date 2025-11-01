@@ -1,26 +1,38 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Video, Search, TrendingUp } from 'lucide-react'
+import { Video, MapPin, IndianRupee, ArrowRight } from 'lucide-react'
 
 const steps = [
   {
     number: '01',
     icon: Video,
-    title: 'Create Your Video Profile',
-    description: 'Upload intro videos, showcase your work, set your services',
+    title: 'Showcase Your Skills',
+    description: 'Upload short videos that highlight what you do best — whether you teach, train, design, or coach online, offline, or hybrid.',
+    detail: 'Present your talent through videos and make your work visible to potential clients.',
+    color: 'from-purple-500 to-purple-600',
+    bgColor: 'bg-purple-50',
+    borderColor: 'border-purple-200',
   },
   {
     number: '02',
-    icon: Search,
-    title: 'Get Discovered',
-    description: 'Appear in location + category searches. No algorithms, just real discovery',
+    icon: MapPin,
+    title: 'Get Discovered by Category & Location',
+    description: 'VDOgate automatically lists you under your chosen category and region, so clients nearby or across India can easily find you.',
+    detail: 'No algorithms. No ads. Just fair visibility for every freelancer.',
+    color: 'from-blue-500 to-blue-600',
+    bgColor: 'bg-blue-50',
+    borderColor: 'border-blue-200',
   },
   {
     number: '03',
-    icon: TrendingUp,
-    title: 'Grow Your Business',
-    description: 'Secure bookings, accept payments, build your reputation',
+    icon: IndianRupee,
+    title: 'Earn from Your Clients',
+    description: 'Earn directly from your clients. No fees or commission to be paid to the platform.',
+    detail: 'Everything you need to grow — all in one Indian platform where freelancers and customers connect directly, fairly, and without any fees or commission to be paid to the platform.',
+    color: 'from-green-500 to-green-600',
+    bgColor: 'bg-green-50',
+    borderColor: 'border-green-200',
   },
 ]
 
@@ -45,7 +57,7 @@ export default function HowItWorks() {
         {/* Timeline */}
         <div className="relative">
           {/* Connecting Line */}
-          <div className="hidden md:block absolute top-24 left-1/2 transform -translate-x-1/2 w-2/3 h-1 bg-gradient-to-r from-portal-primary via-portal-light to-portal-lighter" />
+          <div className="hidden md:block absolute top-24 left-1/2 transform -translate-x-1/2 w-2/3 h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-green-500" />
 
           <div className="grid md:grid-cols-3 gap-12 md:gap-8">
             {steps.map((step, index) => {
@@ -60,48 +72,58 @@ export default function HowItWorks() {
                   className="relative"
                 >
                   {/* Card */}
-                  <div className="bg-neutral-background rounded-2xl pt-2 px-8 pb-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 relative z-10">
+                  <div className={`${step.bgColor} rounded-2xl pt-2 px-8 pb-8 border ${step.borderColor} hover:shadow-xl transition-all duration-300 hover:-translate-y-2 relative z-10`}>
                     {/* Step Number */}
-                    <div className="text-right text-8xl md:text-9xl font-bold bg-gradient-to-b from-portal-primary/30 via-portal-primary/15 to-portal-primary/5 bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(70,61,199,0.15)] leading-none -mb-20">
+                    <div className={`text-right text-8xl md:text-9xl font-bold bg-gradient-to-b ${step.color} bg-clip-text text-transparent opacity-20 leading-none -mb-20`}>
                       {step.number}
                     </div>
 
                     {/* Icon */}
-                    <div className="w-16 h-16 bg-portal-gradient rounded-2xl flex items-center justify-center mb-2 shadow-portal-sm">
+                    <div className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center mb-4 shadow-lg`}>
                       <Icon className="w-8 h-8 text-white" />
                     </div>
 
                     {/* Content */}
-                    <h3 className="text-headline-sm mb-2">{step.title}</h3>
-                    <p className="text-body-md text-neutral-gray-dark">
+                    <h3 className="text-headline-sm mb-3 text-brand-black">{step.title}</h3>
+                    <p className="text-body-md text-neutral-gray-dark mb-3">
                       {step.description}
+                    </p>
+                    <p className="text-sm text-neutral-gray italic">
+                      {step.detail}
                     </p>
                   </div>
 
                   {/* Connector Dot */}
-                  <div className="hidden md:block absolute top-20 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-portal-gradient rounded-full border-4 border-white shadow-lg z-20" />
+                  <div className={`hidden md:block absolute top-20 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-br ${step.color} rounded-full border-[0.2px] border-white shadow-lg z-20`} />
+
+                  {/* Arrow Connector */}
+                  {index < steps.length - 1 && (
+                    <div className="hidden md:block absolute top-24 right-0 transform translate-x-1/2 z-30">
+                      <ArrowRight className="w-5 h-5 text-neutral-gray" />
+                    </div>
+                  )}
                 </motion.div>
               )
             })}
           </div>
         </div>
 
-        {/* Bottom CTA */}
+        {/* Closing Statement */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-16"
+          className="text-center mt-16 max-w-3xl mx-auto"
         >
-          <p className="text-body-lg text-neutral-gray-dark mb-6">
-            Join hundreds of freelancers building their success story
+          <p className="text-lg md:text-xl text-neutral-gray leading-relaxed mb-8">
+            Everything you need to grow — all in one Indian platform where freelancers and customers connect directly, fairly, and without any fees or commission to be paid to the platform.
           </p>
           <button
             onClick={() => document.getElementById('founding-creator')?.scrollIntoView({ behavior: 'smooth' })}
             className="px-8 py-4 bg-portal-gradient text-white rounded-xl font-semibold text-lg hover:shadow-portal transition-all duration-300 hover:scale-105"
           >
-            Start Your Journey
+            Join the Platform – Free Pre-Launch Registration
           </button>
         </motion.div>
       </div>

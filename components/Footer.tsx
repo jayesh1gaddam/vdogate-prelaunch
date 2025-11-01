@@ -48,7 +48,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-white/70 mb-6 text-base leading-relaxed max-w-sm">
-              India's Platform for Freelancers. No ads, no algorithm, no commission on your services. ₹3,000/month for direct client access.
+              India's Platform for India's Freelancers. Get discovered by category & location. No ads, no algorithms, no commission on your services.
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map(({ Icon, href, label }) => (

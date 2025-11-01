@@ -42,13 +42,15 @@ export default function FinalCTA() {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <h2 className="text-headline-lg md:text-display-md mb-6 text-white">
-            Your Gateway to Freelancer Success <br className="hidden md:block" />
-            <span className="text-vdo-orange">Starts Here</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
+            Join VDOgate Before Launch
           </h2>
 
-          <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
-            Join the founding freelancer program and be part of India's freelance revolution
+          <p className="text-lg md:text-xl text-white/90 mb-4 max-w-3xl mx-auto">
+            Be among the first freelancers to showcase your skills on India's platform built for India's talent
+          </p>
+          <p className="text-base md:text-lg text-white/80 mb-12 max-w-3xl mx-auto">
+            Pre-launch registration is free • Limited spots available • Subscription begins only after platform launch
           </p>
 
           {/* Dual CTA */}
@@ -61,22 +63,21 @@ export default function FinalCTA() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-white rounded-3xl p-8 md:p-10"
             >
-              <h3 className="text-headline-md mb-4">For Freelancers</h3>
-              <p className="text-body-lg text-neutral-gray-dark mb-6">
-                Join the Founding Freelancer Program
-                <br />
-                <span className="text-sm">Limited to first 500 freelancers</span>
+              <h3 className="text-2xl font-bold mb-4 text-brand-black">For Freelancers</h3>
+              <p className="text-base md:text-lg text-neutral-gray-dark mb-6">
+                Register now for free early access
               </p>
 
               <ul className="space-y-3 mb-8 text-left">
                 {[
-                  '95% lifetime revenue share',
-                  'Premium profile badge',
-                  'Launch day advantage',
+                  'Free pre-launch registration',
+                  'Early access to platform features',
+                  'No commission on your services',
+                  'Fair discovery by category & location',
                 ].map((item, index) => (
                   <li key={index} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-gate-blue flex-shrink-0" />
-                    <span className="text-body-md text-neutral-gray-dark">{item}</span>
+                    <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm md:text-base text-neutral-gray-dark">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -85,7 +86,7 @@ export default function FinalCTA() {
                 onClick={() => document.getElementById('founding-creator')?.scrollIntoView({ behavior: 'smooth' })}
                 className="w-full px-8 py-4 bg-portal-gradient text-white rounded-xl font-semibold text-lg hover:shadow-portal transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 group"
               >
-                Apply as Founding Freelancer
+                Join the Platform – Free Pre-Launch Registration
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </motion.div>
@@ -98,31 +99,33 @@ export default function FinalCTA() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8 md:p-10"
             >
-              <h3 className="text-headline-md text-white mb-4">For Learners</h3>
-              <p className="text-body-lg text-white/90 mb-6">
-                Be the first to discover amazing freelancers
-                <br />
-                <span className="text-sm">Get notified when we launch</span>
+              <h3 className="text-2xl font-bold text-white mb-4">For Customers</h3>
+              <p className="text-base md:text-lg text-white/90 mb-6">
+                Discover talented freelancers through authentic video profiles
               </p>
 
               <ul className="space-y-3 mb-8 text-left">
                 {[
-                  'Video-first freelancer profiles',
-                  'Verified professionals',
-                  'Easy booking & payments',
+                  'Browse by category & location',
+                  'Watch skills videos before hiring',
+                  'Connect directly with freelancers',
+                  'No platform fees for customers',
                 ].map((item, index) => (
                   <li key={index} className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-vdo-orange flex-shrink-0" />
-                    <span className="text-body-md text-white/90">{item}</span>
+                    <span className="text-sm md:text-base text-white/90">{item}</span>
                   </li>
                 ))}
               </ul>
 
               <button
-                onClick={() => window.open('mailto:hello@vdogate.com?subject=Join Waitlist', '_blank')}
-                className="w-full px-8 py-4 bg-white/20 backdrop-blur border border-white/30 text-white rounded-xl font-semibold text-lg hover:bg-white/30 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                disabled
+                className="w-full px-8 py-4 bg-white/20 backdrop-blur border border-white/30 text-white rounded-xl font-semibold text-lg cursor-not-allowed opacity-60 relative"
               >
-                Join Waitlist
+                Browse Freelancers
+                <span className="absolute -top-2 -right-2 bg-vdo-orange text-white text-xs px-3 py-1 rounded-full">
+                  Coming Soon
+                </span>
               </button>
             </motion.div>
           </div>

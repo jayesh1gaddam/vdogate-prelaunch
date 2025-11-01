@@ -44,6 +44,18 @@
     scroll-behavior: smooth;
   }
 
+  /* SCROLL MARGIN FOR FIXED HEADER */
+  section {
+    scroll-margin-top: 120px;
+  }
+
+  #hero,
+  #how-it-works,
+  #who-its-for,
+  #founding-creator {
+    scroll-margin-top: 120px;
+  }
+
   /* SELECTION COLORS */
   ::selection {
     background-color: #463DC7;

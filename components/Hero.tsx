@@ -23,7 +23,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white pt-10 md:pt-24 pb-12 md:pb-0">
+    <section id="hero" className="relative min-h-screen flex items-start justify-center overflow-hidden bg-white pt-[100px] md:pt-10 pb-12 md:pb-16">
       {/* Subtle Background Gradient - Even Lighter */}
       <div className="absolute inset-0 bg-gradient-to-br from-portal-primary/[0.01] via-transparent to-portal-light/[0.01]" />
 
@@ -99,28 +99,21 @@ export default function Hero() {
                 <br />
                 <span className="font-semibold text-brand-black">No Ads • No Algorithm • No Commission on Your Services</span>
                 <br />
-                <span className="text-sm">Get discovered by category and location — reach clients in your area or across India.</span>
+                <span className="text-sm">Get discovered by category and location — reach clients near you or across India.</span>
               </motion.p>
 
-              {/* Trust Indicators - Pricing Badge */}
+              {/* Early Access Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.7 }}
-                className="flex flex-wrap items-center justify-center lg:justify-start gap-6"
+                className="flex flex-wrap items-center justify-center lg:justify-start gap-4"
               >
-                <div className="inline-flex items-center gap-3 px-5 py-3 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl shadow-sm">
-                  <span className="text-lg md:text-xl font-bold text-green-800">₹3,000/month</span>
-                  <span className="text-sm text-green-700">(~₹100/day)</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-xl shadow-sm">
+                  <Sparkles className="w-4 h-4 text-orange-600" />
+                  <span className="text-sm font-semibold text-orange-800">Join now to secure early access</span>
                 </div>
-
-                {/* Vertical divider */}
-                <div className="h-8 w-px bg-neutral-gray-lighter"></div>
-
-                <div className="flex flex-col">
-                  <span className="text-sm font-semibold text-brand-gray-900">Fair, Transparent</span>
-                  <span className="text-sm text-neutral-gray">Income-First Platform</span>
-                </div>
+                <span className="text-sm text-neutral-gray">Limited pre-launch registrations</span>
               </motion.div>
 
               {/* CTAs - More Breathing Space */}
@@ -134,7 +127,7 @@ export default function Hero() {
                   onClick={() => scrollToSection('founding-creator')}
                   className="group px-7 py-3.5 bg-portal-gradient text-white rounded-lg font-medium text-sm md:text-base hover:shadow-portal-sm transition-all duration-300 hover:scale-[1.01] flex items-center justify-center gap-2 shadow-md shadow-portal-primary/10"
                 >
-                  Join the Platform
+                  Join the Waitlist – Free Pre-Launch Registration
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
 
@@ -142,8 +135,8 @@ export default function Hero() {
                   onClick={() => scrollToSection('how-it-works')}
                   className="group px-7 py-3.5 bg-white border border-neutral-gray-lighter text-brand-gray-900 rounded-lg font-medium text-sm md:text-base hover:border-portal-primary hover:bg-portal-primary/3 transition-all duration-300 flex items-center justify-center gap-2"
                 >
-                  <Play className="w-4 h-4 text-portal-primary" />
-                  Explore VDOgate
+                  Find Your Freelancer
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </motion.div>
             </motion.div>
@@ -158,6 +151,36 @@ export default function Hero() {
               <HeroCarousel />
             </motion.div>
           </div>
+
+          {/* Context Paragraph - Full Width Below */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.7 }}
+            className="mt-16 max-w-4xl mx-auto text-center"
+          >
+            <p className="text-base md:text-lg text-neutral-gray leading-relaxed mb-6">
+              Freelancers are driving India's new economy — from yoga trainers and beauticians to tutors, chefs, and digital experts.
+            </p>
+            <p className="text-base md:text-lg text-neutral-gray leading-relaxed mb-6">
+              Yet most depend on social media where algorithms and ad budgets limit opportunity.
+            </p>
+            <p className="text-base md:text-lg font-semibold text-brand-black leading-relaxed mb-8">
+              VDOgate is built for this moment — India's own platform that values skill over popularity.
+            </p>
+
+            {/* Pricing Badge */}
+            <div className="inline-flex flex-col items-center gap-3 px-6 py-4 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl shadow-sm">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl md:text-3xl font-bold text-green-800">₹3,000/month</span>
+                <span className="text-sm md:text-base text-green-700">(~₹100/day)</span>
+              </div>
+              <div className="text-center">
+                <p className="text-sm font-semibold text-green-800">Fair, Transparent, Income-First Platform</p>
+                <p className="text-xs text-green-700 mt-1">Pre-launch registration is free. Subscription begins only once the platform goes live.</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
 
@@ -179,7 +202,7 @@ export default function Hero() {
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="w-6 h-10 border-2 border-portal-primary/40 rounded-full flex items-start justify-center p-2"
+            className="w-6 h-10 border border-portal-primary/40 rounded-full flex items-start justify-center p-2"
           >
             <motion.div
               className="w-1.5 h-1.5 bg-portal-primary rounded-full"

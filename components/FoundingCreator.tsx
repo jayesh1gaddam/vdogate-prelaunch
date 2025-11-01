@@ -107,11 +107,11 @@ export default function FoundingCreator() {
   }
 
   return (
-    <section id="founding-creator" className="pt-8 pb-16 md:pt-12 md:pb-24 lg:pt-15 lg:pb-30 bg-gradient-to-br from-portal-primary/95 via-portal-light/90 to-portal-lighter/85 relative overflow-hidden">
+    <section id="founding-creator" className="py-16 md:py-24 bg-gradient-to-br from-white via-neutral-background to-portal-primary/5 relative overflow-hidden">
       {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-vdo-orange/40 to-pink-400/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-400/40 to-purple-400/40 rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-10 right-10 w-96 h-96 bg-portal-primary rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-portal-light rounded-full blur-3xl" />
       </div>
 
       <div className="container-custom relative z-10">
@@ -128,17 +128,17 @@ export default function FoundingCreator() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-6 py-2 mb-6"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-portal-primary/10 to-portal-light/10 border-[0.2px] border-portal-primary/20 rounded-full px-6 py-2 mb-6"
           >
-            <Sparkles className="w-5 h-5 text-vdo-orange" />
-            <span className="text-white font-semibold">Limited to 500 Freelancers</span>
-            <TrendingUp className="w-5 h-5 text-white" />
+            <Sparkles className="w-5 h-5 text-portal-primary" />
+            <span className="text-brand-black font-semibold">Limited to 500 Freelancers</span>
+            <TrendingUp className="w-5 h-5 text-portal-primary" />
           </motion.div>
 
-          <h2 className="text-headline-lg md:text-display-md mb-4 text-white drop-shadow-lg">
-            Become a <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">Founding Freelancer</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-brand-black">
+            Become a <span className="bg-gradient-to-r from-portal-primary to-portal-light bg-clip-text text-transparent">Founding Freelancer</span>
           </h2>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-neutral-gray max-w-2xl mx-auto leading-relaxed">
             Join the first 500 freelancers to build the future of India's freelance economy and get lifetime premium benefits
           </p>
         </motion.div>
@@ -162,15 +162,15 @@ export default function FoundingCreator() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   whileHover={{ scale: 1.02, y: -4 }}
-                  className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 cursor-pointer group hover:bg-white/15 transition-all duration-300"
+                  className="bg-white rounded-2xl p-6 cursor-pointer group hover:shadow-lg transition-all duration-300 border-[0.2px] border-neutral-gray-lighter"
                 >
                   <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 ${benefit.bgColor} ${benefit.hoverBg} rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300`}>
-                      <Icon className={`w-6 h-6 ${benefit.iconColor}`} />
+                    <div className="w-12 h-12 bg-gradient-to-br from-portal-primary to-portal-light rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300">
+                      <Icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-white mb-1">{benefit.title}</h3>
-                      <p className="text-white/90 text-sm">{benefit.desc}</p>
+                      <h3 className="text-lg font-bold text-brand-black mb-1">{benefit.title}</h3>
+                      <p className="text-neutral-gray-dark text-sm">{benefit.desc}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -182,31 +182,31 @@ export default function FoundingCreator() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 relative overflow-hidden"
+              className="bg-gradient-to-br from-portal-primary/5 to-portal-light/10 border-[0.2px] border-portal-primary/30 rounded-2xl p-6 relative overflow-hidden"
             >
               {/* Subtle animated background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/10 to-white/5 animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-r from-portal-primary/5 via-portal-light/10 to-portal-primary/5 animate-pulse" />
 
               <div className="relative z-10 text-center">
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <Users className="w-6 h-6 text-white" />
-                  <span className="text-3xl font-bold text-white drop-shadow-lg">500</span>
+                  <Users className="w-6 h-6 text-portal-primary" />
+                  <span className="text-3xl font-bold text-brand-black">500</span>
                   <Star className="w-6 h-6 text-vdo-orange" />
                 </div>
-                <p className="text-lg font-semibold text-white mb-1">Founding Freelancers Only</p>
-                <p className="text-sm text-white/80">Secure your spot in India's premium freelancer platform</p>
+                <p className="text-lg font-semibold text-brand-black mb-1">Founding Freelancers Only</p>
+                <p className="text-sm text-neutral-gray-dark">Secure your spot in India's premium freelancer platform</p>
 
                 {/* Progress indicator */}
-                <div className="mt-4 w-full bg-white/20 rounded-full h-2 overflow-hidden">
+                <div className="mt-4 w-full bg-neutral-gray-lighter rounded-full h-2 overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: '34%' }}
                     viewport={{ once: true }}
                     transition={{ duration: 1.5, delay: 0.5 }}
-                    className="h-full bg-gradient-to-r from-white to-vdo-orange rounded-full"
+                    className="h-full bg-gradient-to-r from-portal-primary to-vdo-orange rounded-full"
                   />
                 </div>
-                <p className="text-xs text-white/70 mt-2">170 spots claimed • 330 remaining</p>
+                <p className="text-xs text-neutral-gray mt-2">170 spots claimed • 330 remaining</p>
               </div>
             </motion.div>
           </motion.div>
@@ -218,13 +218,7 @@ export default function FoundingCreator() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden">
-              {/* Premium gradient border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-portal-primary via-portal-light to-portal-lighter rounded-3xl p-[2px]">
-                <div className="bg-white rounded-3xl h-full w-full" />
-              </div>
-
-              <div className="relative z-10 p-8 md:p-10">
+            <div className="bg-white rounded-3xl shadow-xl overflow-hidden border-[0.2px] border-neutral-gray-lighter p-8 md:p-10">
                 {submitted ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -360,7 +354,7 @@ export default function FoundingCreator() {
                         <input
                           {...register('name')}
                           type="text"
-                          className="w-full pl-12 pr-4 py-3.5 bg-neutral-background border-2 border-neutral-gray-lighter rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-primary/20 focus:border-portal-primary transition-all hover:border-neutral-gray hover:shadow-sm"
+                          className="w-full pl-12 pr-4 py-3.5 bg-neutral-background border-[0.2px] border-neutral-gray-lighter rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-primary/20 focus:border-portal-primary transition-all hover:border-neutral-gray hover:shadow-sm"
                           placeholder="Your full name"
                           onFocus={() => setFocusedField('name')}
                           onBlur={() => setFocusedField(null)}
@@ -369,7 +363,7 @@ export default function FoundingCreator() {
                         {focusedField === 'name' && (
                           <motion.div
                             layoutId="focusIndicator"
-                            className="absolute inset-0 rounded-xl border-2 border-portal-primary pointer-events-none"
+                            className="absolute inset-0 rounded-xl border-[0.2px] border-portal-primary pointer-events-none"
                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
                           />
                         )}
@@ -831,7 +825,6 @@ export default function FoundingCreator() {
                   </form>
                 </>
               )}
-              </div>
             </div>
           </motion.div>
         </div>

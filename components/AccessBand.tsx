@@ -25,7 +25,7 @@ export default function AccessBand() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             whileHover={{ scale: 1.02, y: -4 }}
-            className="bg-white rounded-2xl p-8 shadow-lg border-2 border-blue-100 hover:border-blue-300 hover:shadow-xl transition-all cursor-pointer"
+            className="bg-white rounded-2xl p-8 shadow-lg border-[0.2px] border-blue-100 hover:border-blue-300 hover:shadow-xl transition-all cursor-pointer"
           >
             <div className="flex items-start gap-4 mb-6">
               <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
@@ -52,7 +52,7 @@ export default function AccessBand() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             whileHover={{ scale: 1.02, y: -4 }}
-            className="bg-white rounded-2xl p-8 shadow-lg border-2 border-green-100 hover:border-green-300 hover:shadow-xl transition-all cursor-pointer"
+            className="bg-white rounded-2xl p-8 shadow-lg border-[0.2px] border-green-100 hover:border-green-300 hover:shadow-xl transition-all cursor-pointer"
           >
             <div className="flex items-start gap-4 mb-6">
               <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">

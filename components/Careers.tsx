@@ -119,7 +119,7 @@ export default function Careers() {
               </a>
               <a
                 href="mailto:careers@vdogate.com"
-                className="px-8 py-4 bg-white border-2 border-portal-primary text-portal-primary rounded-xl font-semibold text-lg hover:bg-portal-primary/5 transition-all duration-300"
+                className="px-8 py-4 bg-white border-[0.2px] border-portal-primary text-portal-primary rounded-xl font-semibold text-lg hover:bg-portal-primary/5 transition-all duration-300"
               >
                 Join Our Team
               </a>
@@ -297,7 +297,7 @@ export default function Careers() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center bg-white rounded-2xl p-12 border-2 border-portal-primary/20"
+            className="text-center bg-white rounded-2xl p-12 border-[0.2px] border-portal-primary/20"
           >
             <h3 className="text-2xl md:text-3xl font-bold mb-4 text-brand-black">
               Ready to Become an Ambassador?
