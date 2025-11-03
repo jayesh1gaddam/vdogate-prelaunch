@@ -1,9 +1,10 @@
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
+import FreelancerCategories from '@/components/FreelancerCategories'
 import ProblemSolution from '@/components/ProblemSolution'
 import HowItWorks from '@/components/HowItWorks'
 import WhoItsFor from '@/components/WhoItsFor'
-import LiveEvents from '@/components/LiveEvents'
+import PlatformPricing from '@/components/PlatformPricing'
 import FoundingCreator from '@/components/FoundingCreator'
 import FinalCTA from '@/components/FinalCTA'
 import Footer from '@/components/Footer'
@@ -14,10 +15,11 @@ export default function Home() {
     <main className="min-h-screen">
       <Navigation />
       <Hero />
+      <FreelancerCategories />
       <ProblemSolution />
       <HowItWorks />
       <WhoItsFor />
-      <LiveEvents />
+      <PlatformPricing />
       <FoundingCreator />
       <FinalCTA />
       <Footer />

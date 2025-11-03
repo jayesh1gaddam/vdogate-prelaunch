@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Award, Star, Zap, Users, CheckCircle2, Sparkles, TrendingUp, User, Mail, Phone, MapPin, Briefcase, Link as LinkIcon, MessageSquare } from 'lucide-react'
+import Image from 'next/image'
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -107,11 +108,31 @@ export default function FoundingCreator() {
   }
 
   return (
-    <section id="founding-creator" className="py-16 md:py-24 bg-gradient-to-br from-white via-neutral-background to-portal-primary/5 relative overflow-hidden">
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 right-10 w-96 h-96 bg-portal-primary rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-portal-light rounded-full blur-3xl" />
+    <section id="founding-creator" className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-rose-50/30 via-orange-50/40 to-amber-50/30">
+      {/* Premium Gradient Layers */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-orange-100/40 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-amber-100/30 via-transparent to-transparent" />
+
+      {/* Circuit Board Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <svg width="100%" height="100%">
+          <defs>
+            <pattern id="circuit" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+              <circle cx="10" cy="10" r="2" fill="#F7682B"/>
+              <line x1="10" y1="10" x2="40" y2="10" stroke="#F7682B" strokeWidth="1"/>
+              <circle cx="40" cy="10" r="2" fill="#F7682B"/>
+              <line x1="10" y1="10" x2="10" y2="40" stroke="#F7682B" strokeWidth="1"/>
+              <circle cx="10" cy="40" r="2" fill="#F7682B"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#circuit)" />
+        </svg>
+      </div>
+
+      {/* Animated Gradient Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 right-10 w-[600px] h-[600px] bg-gradient-to-br from-orange-200/30 to-rose-200/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-gradient-to-tr from-amber-200/30 to-orange-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="container-custom relative z-10">
@@ -195,6 +216,41 @@ export default function FoundingCreator() {
                 </div>
                 <p className="text-lg font-semibold text-brand-black mb-1">Founding Freelancers Only</p>
                 <p className="text-sm text-neutral-gray-dark">Secure your spot in India's premium freelancer platform</p>
+
+                {/* Community Avatar Stack */}
+                <div className="flex justify-center items-center my-4">
+                  <div className="flex -space-x-3">
+                    {[
+                      { emoji: '🧘‍♀️', color: 'from-purple-400 to-purple-600', image: '/yoga.png' },
+                      { emoji: '💄', color: 'from-pink-400 to-rose-600', image: '/makeup.png' },
+                      { emoji: '👨‍🍳', color: 'from-orange-400 to-red-600', image: '/chef.png' },
+                      { emoji: '📚', color: 'from-green-400 to-emerald-600', image: '/teacher.png' },
+                      { emoji: '💪', color: 'from-blue-400 to-cyan-600', image: '/gym.png' },
+                      { emoji: '📸', color: 'from-indigo-400 to-violet-600', image: '/photograper.png' },
+                      { emoji: '🎨', color: 'from-teal-400 to-cyan-600', image: '/chef.png' },
+                    ].map((person, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ scale: 0, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.6 + idx * 0.1, duration: 0.3 }}
+                        className={`w-12 h-12 bg-gradient-to-br ${person.color} rounded-full flex items-center justify-center border-3 border-white shadow-md hover:scale-110 hover:z-10 transition-transform cursor-pointer overflow-hidden`}
+                      >
+                        <Image src={person.image} alt="Freelancer" width={48} height={48} className="object-cover w-full h-full" />
+                      </motion.div>
+                    ))}
+                    <motion.div
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 1.3, duration: 0.3 }}
+                      className="w-12 h-12 bg-gradient-to-br from-portal-primary to-portal-light rounded-full flex items-center justify-center text-white text-xs font-bold border-3 border-white shadow-md"
+                    >
+                      +163
+                    </motion.div>
+                  </div>
+                </div>
 
                 {/* Progress indicator */}
                 <div className="mt-4 w-full bg-neutral-gray-lighter rounded-full h-2 overflow-hidden">

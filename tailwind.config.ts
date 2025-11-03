@@ -11,10 +11,10 @@ const config: Config = {
       colors: {
         // PRIMARY BRAND COLORS - Official VDOgate Brand Guidelines
         portal: {
-          primary: '#463DC7',    // Portal Blue - Innovation & Premium
-          dark: '#352780',       // Portal Dark - Deep Purple
-          light: '#6B63CF',      // Portal Light
-          lighter: '#9088D9',    // Portal Lighter
+          primary: '#F7682B',    // Portal Orange - Innovation & Energy
+          dark: '#EA580C',       // Portal Dark - Deep Orange
+          light: '#F79F2B',      // Portal Light Orange
+          lighter: '#FBB040',    // Portal Lighter Orange
         },
         vdo: {
           orange: '#F7682B',     // VDO Orange - Creativity & Energy
@@ -52,18 +52,18 @@ const config: Config = {
         },
       },
       backgroundImage: {
-        // PRIMARY PORTAL GRADIENT
-        'portal-gradient': 'linear-gradient(135deg, #463DC7 0%, #6B63CF 50%, #9088D9 100%)',
-        'portal-gradient-hover': 'linear-gradient(135deg, #352780 0%, #463DC7 50%, #6B63CF 100%)',
-        'portal-gradient-vertical': 'linear-gradient(180deg, #463DC7 0%, #6B63CF 50%, #9088D9 100%)',
+        // PRIMARY PORTAL GRADIENT - Updated to Orange Theme
+        'portal-gradient': 'linear-gradient(135deg, #F7682B 0%, #F79F2B 100%)',
+        'portal-gradient-hover': 'linear-gradient(135deg, #EA580C 0%, #F7682B 100%)',
+        'portal-gradient-vertical': 'linear-gradient(180deg, #F7682B 0%, #F79F2B 100%)',
 
         // SECONDARY GRADIENTS
         'vdo-gradient': 'linear-gradient(135deg, #F7682B 0%, #EA580C 100%)',
         'gate-gradient': 'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',
 
         // SUBTLE BACKGROUNDS
-        'portal-subtle': 'linear-gradient(135deg, rgba(70,61,199,0.05) 0%, rgba(144,136,217,0.05) 100%)',
-        'brand-mesh': 'radial-gradient(at 40% 20%, rgba(70,61,199,0.15) 0px, transparent 50%), radial-gradient(at 80% 80%, rgba(247,104,43,0.1) 0px, transparent 50%)',
+        'portal-subtle': 'linear-gradient(135deg, rgba(247,104,43,0.05) 0%, rgba(247,159,43,0.05) 100%)',
+        'brand-mesh': 'radial-gradient(at 40% 20%, rgba(247,104,43,0.15) 0px, transparent 50%), radial-gradient(at 80% 80%, rgba(247,159,43,0.1) 0px, transparent 50%)',
       },
       fontFamily: {
         // OFFICIAL TYPOGRAPHY SYSTEM
@@ -124,11 +124,11 @@ const config: Config = {
         'brand-xl': '24px',
       },
       boxShadow: {
-        // PORTAL SHADOWS
-        'portal': '0 20px 40px rgba(70, 61, 199, 0.3)',
-        'portal-md': '0 12px 24px rgba(70, 61, 199, 0.25)',
-        'portal-sm': '0 8px 16px rgba(70, 61, 199, 0.2)',
-        'portal-xs': '0 4px 8px rgba(70, 61, 199, 0.15)',
+        // PORTAL SHADOWS - Updated to Orange Theme
+        'portal': '0 20px 40px rgba(247, 104, 43, 0.3)',
+        'portal-md': '0 12px 24px rgba(247, 104, 43, 0.25)',
+        'portal-sm': '0 8px 16px rgba(247, 104, 43, 0.2)',
+        'portal-xs': '0 4px 8px rgba(247, 104, 43, 0.15)',
 
         // ELEVATION SYSTEM
         'elevation-1': '0 1px 3px rgba(0, 0, 0, 0.1)',
@@ -137,7 +137,7 @@ const config: Config = {
         'elevation-4': '0 20px 25px rgba(0, 0, 0, 0.1)',
 
         // GLOW EFFECTS
-        'glow-portal': '0 0 20px rgba(70, 61, 199, 0.4)',
+        'glow-portal': '0 0 20px rgba(247, 104, 43, 0.4)',
         'glow-vdo': '0 0 20px rgba(247, 104, 43, 0.4)',
         'glow-gate': '0 0 20px rgba(37, 99, 235, 0.4)',
       },

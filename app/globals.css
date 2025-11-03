@@ -34,8 +34,8 @@
   /* FOCUS STATES - Accessibility */
   *:focus-visible {
     outline: none;
-    ring: 2px solid #463DC7;
-    box-shadow: 0 0 0 2px #463DC7;
+    ring: 2px solid #F7682B;
+    box-shadow: 0 0 0 2px #F7682B;
     ring-offset: 2px;
   }
 
@@ -58,12 +58,12 @@
 
   /* SELECTION COLORS */
   ::selection {
-    background-color: #463DC7;
+    background-color: #F7682B;
     color: #FFFFFF;
   }
 
   ::-moz-selection {
-    background-color: #463DC7;
+    background-color: #F7682B;
     color: #FFFFFF;
   }
 }
@@ -227,11 +227,11 @@
 
   /* ========== PORTAL EFFECTS ========== */
   .portal-ring {
-    box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #463DC7;
+    box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #F7682B;
   }
 
   .portal-border {
-    border: 2px solid #463DC7;
+    border: 2px solid #F7682B;
   }
 
   .portal-glow {
@@ -379,6 +379,23 @@
 
   .pause-animation:hover {
     animation-play-state: paused;
+  }
+
+  /* ========== GRADIENT SHIMMER ANIMATION ========== */
+  @keyframes gradient-shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-gradient {
+    animation: gradient-shimmer 3s ease-in-out infinite;
   }
 }
 

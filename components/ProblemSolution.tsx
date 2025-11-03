@@ -10,11 +10,18 @@ export default function ProblemSolution() {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-neutral-background via-white to-portal-primary/5 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-64 h-64 bg-portal-primary rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-64 h-64 bg-portal-light rounded-full blur-3xl" />
+    <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-white via-indigo-50/30 to-purple-50/20">
+      {/* Premium Gradient Mesh */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/20 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-purple-100/20 via-transparent to-transparent" />
+
+      {/* Diagonal Lines Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(45deg,#f7682b05_25%,transparent_25%,transparent_75%,#f7682b05_75%,#f7682b05),linear-gradient(45deg,#f7682b05_25%,transparent_25%,transparent_75%,#f7682b05_75%,#f7682b05)] bg-[size:60px_60px] bg-[position:0_0,30px_30px]" />
+
+      {/* Animated Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-br from-indigo-200/30 to-purple-200/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gradient-to-tl from-blue-200/20 to-violet-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
       </div>
 
       <div className="container-custom relative z-10">

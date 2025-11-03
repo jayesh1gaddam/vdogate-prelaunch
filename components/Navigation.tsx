@@ -9,15 +9,32 @@ import { BRAND_LOGO } from '@/lib/brand'
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
 
-  // Handle scroll effect
+  // Handle scroll effect and navbar visibility
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      const currentScrollY = window.scrollY
+
+      // Update scrolled state
+      setIsScrolled(currentScrollY > 20)
+
+      // Show navbar when scrolling up, hide when scrolling down
+      if (currentScrollY < lastScrollY || currentScrollY < 100) {
+        // Scrolling up or near top - show navbar
+        setIsVisible(true)
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and not near top - hide navbar
+        setIsVisible(false)
+      }
+
+      setLastScrollY(currentScrollY)
     }
-    window.addEventListener('scroll', handleScroll)
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [lastScrollY])
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -50,8 +67,8 @@ export default function Navigation() {
       {/* Main Navigation */}
       <motion.nav
         initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        animate={{ y: isVisible ? 0 : -100 }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
         className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 pt-4"
       >
         <div className={`relative transition-all duration-300 rounded-2xl overflow-hidden ${

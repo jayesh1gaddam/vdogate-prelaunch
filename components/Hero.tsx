@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, Play, Sparkles } from 'lucide-react'
 import HeroCarousel from './HeroCarousel'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 export default function Hero() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -23,32 +24,50 @@ export default function Hero() {
   }, [])
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-start justify-center overflow-hidden bg-white pt-[100px] md:pt-10 pb-12 md:pb-16">
-      {/* Subtle Background Gradient - Even Lighter */}
-      <div className="absolute inset-0 bg-gradient-to-br from-portal-primary/[0.01] via-transparent to-portal-light/[0.01]" />
+    <section id="hero" className="relative min-h-screen flex items-start justify-center overflow-hidden bg-gradient-to-br from-orange-50/30 via-white to-amber-50/20 pt-[100px] md:pt-10 pb-12 md:pb-16">
+      {/* Premium Mesh Gradient Background */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-100/40 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-amber-100/30 via-transparent to-transparent" />
 
-      {/* Animated Background Elements - Much More Subtle */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+      {/* Subtle Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f7682b08_1px,transparent_1px),linear-gradient(to_bottom,#f7682b08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+
+      {/* Animated Background Orbs - More Prominent */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-1/4 -left-20 w-96 h-96 bg-portal-primary/5 rounded-full blur-3xl"
+          className="absolute top-1/4 -left-20 w-[500px] h-[500px] rounded-full blur-3xl bg-gradient-to-br from-orange-300/20 to-amber-200/20"
           animate={{
-            scale: [1, 1.05, 1],
-            opacity: [0.1, 0.15, 0.1],
+            scale: [1, 1.1, 1],
+            x: [0, 30, 0],
+            y: [0, -30, 0],
           }}
           transition={{
-            duration: 12,
+            duration: 20,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 -right-20 w-96 h-96 bg-portal-light/5 rounded-full blur-3xl"
+          className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full blur-3xl bg-gradient-to-bl from-rose-200/20 to-orange-300/20"
           animate={{
-            scale: [1.05, 1, 1.05],
-            opacity: [0.1, 0.15, 0.1],
+            scale: [1.1, 1, 1.1],
+            x: [0, -40, 0],
+            y: [0, 40, 0],
           }}
           transition={{
-            duration: 15,
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 left-1/3 w-[350px] h-[350px] rounded-full blur-3xl bg-gradient-to-tr from-amber-200/15 to-orange-200/15"
+          animate={{
+            scale: [1, 1.15, 1],
+            rotate: [0, 90, 0],
+          }}
+          transition={{
+            duration: 25,
             repeat: Infinity,
             ease: "easeInOut"
           }}
@@ -102,18 +121,39 @@ export default function Hero() {
                 <span className="text-sm">Get discovered by category and location — reach clients near you or across India.</span>
               </motion.p>
 
-              {/* Early Access Badge */}
+              {/* Community Trust Badge with Avatar Stack */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.7 }}
-                className="flex flex-wrap items-center justify-center lg:justify-start gap-4"
+                className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4"
               >
+                {/* Avatar Stack */}
+                <div className="flex items-center">
+                  <div className="flex -space-x-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center border-2 border-white shadow-md overflow-hidden">
+                      <Image src="/makeup.png" alt="Makeup Artist" width={60} height={60} className="object-cover w-full h-full" style={{ objectPosition: '55% 30%' }} />
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center border-2 border-white shadow-md overflow-hidden">
+                      <Image src="/gym.png" alt="Fitness Coach" width={60} height={60} className="object-cover w-full h-full" style={{ objectPosition: '50% 30%' }} />
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center border-2 border-white shadow-md overflow-hidden">
+                      <Image src="/chef.png" alt="Chef" width={60} height={60} className="object-cover w-full h-full" style={{ objectPosition: '50% 30%' }} />
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center border-2 border-white shadow-md overflow-hidden">
+                      <Image src="/teacher.png" alt="Teacher" width={60} height={60} className="object-cover w-full h-full" style={{ objectPosition: '45% 30%' }} />
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-xs font-bold border-2 border-white shadow-md">+500</div>
+                  </div>
+                  <p className="ml-3 text-sm font-semibold text-neutral-gray-dark">
+                    <span className="text-portal-primary font-bold">500+</span> Freelancers joining
+                  </p>
+                </div>
+
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-xl shadow-sm">
                   <Sparkles className="w-4 h-4 text-orange-600" />
-                  <span className="text-sm font-semibold text-orange-800">Join now to secure early access</span>
+                  <span className="text-sm font-semibold text-orange-800">Limited pre-launch spots</span>
                 </div>
-                <span className="text-sm text-neutral-gray">Limited pre-launch registrations</span>
               </motion.div>
 
               {/* CTAs - More Breathing Space */}
@@ -152,35 +192,6 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Context Paragraph - Full Width Below */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.7 }}
-            className="mt-16 max-w-4xl mx-auto text-center"
-          >
-            <p className="text-base md:text-lg text-neutral-gray leading-relaxed mb-6">
-              Freelancers are driving India's new economy — from yoga trainers and beauticians to tutors, chefs, and digital experts.
-            </p>
-            <p className="text-base md:text-lg text-neutral-gray leading-relaxed mb-6">
-              Yet most depend on social media where algorithms and ad budgets limit opportunity.
-            </p>
-            <p className="text-base md:text-lg font-semibold text-brand-black leading-relaxed mb-8">
-              VDOgate is built for this moment — India's own platform that values skill over popularity.
-            </p>
-
-            {/* Pricing Badge */}
-            <div className="inline-flex flex-col items-center gap-3 px-6 py-4 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl shadow-sm">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl md:text-3xl font-bold text-green-800">₹3,000/month</span>
-                <span className="text-sm md:text-base text-green-700">(~₹100/day)</span>
-              </div>
-              <div className="text-center">
-                <p className="text-sm font-semibold text-green-800">Fair, Transparent, Income-First Platform</p>
-                <p className="text-xs text-green-700 mt-1">Pre-launch registration is free. Subscription begins only once the platform goes live.</p>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
 
