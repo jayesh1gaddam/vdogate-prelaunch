@@ -77,6 +77,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Favicons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
+
         {/* PWA Meta Tags */}
         <meta name="application-name" content="VDOgate" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
