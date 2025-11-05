@@ -10,17 +10,17 @@ export const metadata: Metadata = {
   generator: 'Next.js',
   icons: {
     icon: [
-      { url: '/vdogate_app_logo.png', sizes: 'any' },
-      { url: '/vdogate_app_logo.png', sizes: '192x192', type: 'image/png' },
-      { url: '/vdogate_app_logo.png', sizes: '512x512', type: 'image/png' },
+      { url: '/icon.png', sizes: 'any' },
+      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
-      { url: '/vdogate_app_logo.png', sizes: '180x180', type: 'image/png' },
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
     other: [
       {
         rel: 'mask-icon',
-        url: '/vdogate_app_logo.png',
+        url: '/icon-512x512.png',
       },
     ],
   },
@@ -79,8 +79,9 @@ export default function RootLayout({
       <head>
         {/* Favicons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/vdogate_app_logo.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/vdogate_app_logo.png" />
+        <link rel="icon" href="/icon-192x192.png" type="image/png" sizes="192x192" />
+        <link rel="icon" href="/icon-512x512.png" type="image/png" sizes="512x512" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
         {/* PWA Meta Tags */}
         <meta name="application-name" content="VDOgate" />
