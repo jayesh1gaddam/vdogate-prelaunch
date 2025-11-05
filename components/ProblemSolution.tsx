@@ -10,7 +10,7 @@ export default function ProblemSolution() {
   }
 
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-white via-indigo-50/30 to-purple-50/20">
+    <section className="py-8 md:py-12 relative overflow-hidden bg-gradient-to-b from-white via-indigo-50/30 to-purple-50/20">
       {/* Premium Gradient Mesh */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/20 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-purple-100/20 via-transparent to-transparent" />

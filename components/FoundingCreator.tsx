@@ -108,7 +108,7 @@ export default function FoundingCreator() {
   }
 
   return (
-    <section id="founding-creator" className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-rose-50/30 via-orange-50/40 to-amber-50/30">
+    <section id="founding-creator" className="py-8 md:py-12 relative overflow-hidden bg-gradient-to-br from-rose-50/30 via-orange-50/40 to-amber-50/30">
       {/* Premium Gradient Layers */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-orange-100/40 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-amber-100/30 via-transparent to-transparent" />

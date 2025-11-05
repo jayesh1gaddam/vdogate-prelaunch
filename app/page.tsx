@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
+import PremiumMessage from '@/components/PremiumMessage'
 import FreelancerCategories from '@/components/FreelancerCategories'
 import ProblemSolution from '@/components/ProblemSolution'
 import HowItWorks from '@/components/HowItWorks'
@@ -15,6 +16,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Navigation />
       <Hero />
+      <PremiumMessage />
       <FreelancerCategories />
       <ProblemSolution />
       <HowItWorks />

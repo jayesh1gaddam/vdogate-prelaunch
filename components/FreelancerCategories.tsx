@@ -34,7 +34,7 @@ export default function FreelancerCategories() {
   ]
 
   return (
-    <section className="relative py-16 md:py-20 bg-gradient-to-br from-slate-50 via-gray-50/50 to-neutral-100/30 overflow-hidden">
+    <section className="relative py-8 md:py-10 bg-gradient-to-br from-slate-50 via-gray-50/50 to-neutral-100/30 overflow-hidden">
       {/* Premium Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_var(--tw-gradient-stops))] from-orange-100/30 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,_var(--tw-gradient-stops))] from-amber-100/20 via-transparent to-transparent" />
@@ -70,9 +70,15 @@ export default function FreelancerCategories() {
           </h2>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-neutral-gray leading-relaxed mb-8">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="text-lg md:text-xl text-neutral-gray leading-relaxed mb-10 max-w-3xl mx-auto"
+          >
             From fitness trainers to creative professionals, VDOgate connects you with skilled freelancers across every category — all in one platform.
-          </p>
+          </motion.p>
 
           {/* People Avatar Grid */}
           <div className="flex justify-center items-center gap-8 mb-8 flex-wrap">

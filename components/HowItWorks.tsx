@@ -69,7 +69,7 @@ export default function HowItWorks() {
   })
 
   return (
-    <section id="how-it-works" className="pt-8 pb-16 md:pt-12 md:pb-24 lg:pt-15 lg:pb-30 relative overflow-hidden bg-gradient-to-b from-white via-orange-50/20 to-white">
+    <section id="how-it-works" className="pt-4 pb-8 md:pt-6 md:pb-12 lg:pt-8 lg:pb-16 relative overflow-hidden bg-gradient-to-b from-white via-orange-50/20 to-white">
       {/* Subtle Wave Pattern */}
       <div className="absolute inset-0 opacity-30">
         <svg className="absolute inset-0 h-full w-full" xmlns="http://www.w3.org/2000/svg">

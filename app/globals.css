@@ -174,15 +174,15 @@
 
   /* ========== LAYOUT UTILITIES ========== */
   .section-padding {
-    @apply py-16 md:py-24 lg:py-30;
+    @apply py-8 md:py-12 lg:py-16;
   }
 
   .section-padding-sm {
-    @apply py-12 md:py-18 lg:py-22;
+    @apply py-6 md:py-9 lg:py-12;
   }
 
   .section-padding-lg {
-    @apply py-20 md:py-28 lg:py-36;
+    @apply py-10 md:py-14 lg:py-20;
   }
 
   .container-custom {
