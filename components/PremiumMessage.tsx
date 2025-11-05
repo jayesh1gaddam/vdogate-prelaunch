@@ -82,7 +82,7 @@ export default function PremiumMessage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-                className="mb-3 md:mb-4"
+                className="mb-1 md:mb-2"
               >
                 Freelancers are driving India's new economy — from
               </motion.div>
@@ -93,7 +93,7 @@ export default function PremiumMessage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-                className="mb-3 md:mb-4"
+                className="mb-1 md:mb-2"
               >
                 <span className="font-medium text-gradient">yoga trainers</span>
                 {' '}and{' '}
