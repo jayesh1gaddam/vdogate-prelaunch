@@ -19,10 +19,10 @@ export default function MobileLayoutWrapper({ children }: MobileLayoutWrapperPro
       {isMobile ? (
         <>
           {/* Mobile Navigation */}
-          <MobileNavigation showBottomNav={true} />
+          <MobileNavigation showBottomNav={false} />
 
           {/* Page Content with padding for fixed navigation */}
-          <main className="pt-16 pb-24">
+          <main className="pt-16 pb-8">
             {children}
           </main>
 

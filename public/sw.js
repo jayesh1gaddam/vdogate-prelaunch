@@ -1,7 +1,7 @@
 // VDOgate Service Worker
-// Version 1.0.0
+// Version 1.0.2
 
-const CACHE_NAME = 'vdogate-v1.0.0'
+const CACHE_NAME = 'vdogate-v1.0.2'
 const OFFLINE_URL = '/_offline'
 
 // Assets to precache
