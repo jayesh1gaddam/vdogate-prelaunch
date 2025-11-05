@@ -10,22 +10,32 @@ import FoundingCreator from '@/components/FoundingCreator'
 import FinalCTA from '@/components/FinalCTA'
 import Footer from '@/components/Footer'
 import TermsFooter from '@/components/TermsFooter'
+import PWAProvider from '@/components/PWAProvider'
+import MobileLayoutWrapper from '@/components/MobileLayoutWrapper'
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Navigation />
-      <Hero />
-      <PremiumMessage />
-      <FreelancerCategories />
-      <ProblemSolution />
-      <HowItWorks />
-      <WhoItsFor />
-      <PlatformPricing />
-      <FoundingCreator />
-      <FinalCTA />
-      <Footer />
-      <TermsFooter />
-    </main>
+    <PWAProvider>
+      <MobileLayoutWrapper>
+        <div className="min-h-screen">
+          {/* Desktop Navigation - hidden on mobile */}
+          <div className="hidden md:block">
+            <Navigation />
+          </div>
+
+          <Hero />
+          <PremiumMessage />
+          <FreelancerCategories />
+          <ProblemSolution />
+          <HowItWorks />
+          <WhoItsFor />
+          <PlatformPricing />
+          <FoundingCreator />
+          <FinalCTA />
+          <Footer />
+          <TermsFooter />
+        </div>
+      </MobileLayoutWrapper>
+    </PWAProvider>
   )
 }

@@ -428,3 +428,257 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ========================================
+   MOBILE PWA ENHANCEMENTS
+   ======================================== */
+
+/* Mobile viewport height accounting for browser bars */
+:root {
+  --vh: 1vh;
+}
+
+/* Safe area insets for notched devices */
+.safe-area-inset-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-inset-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-inset-left {
+  padding-left: env(safe-area-inset-left);
+}
+
+.safe-area-inset-right {
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Touch-optimized tap targets (minimum 48x48px) */
+.tap-target {
+  min-width: 48px;
+  min-height: 48px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  /* Touch targets */
+  button, a, [role="button"] {
+    @apply tap-target;
+  }
+
+  /* Mobile typography scale */
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  /* Mobile container */
+  .mobile-container {
+    @apply px-4 py-6;
+  }
+
+  /* Mobile section spacing */
+  .mobile-section {
+    @apply py-8;
+  }
+
+  /* Mobile card */
+  .mobile-card {
+    @apply w-full rounded-2xl p-6 shadow-lg;
+  }
+
+  /* Mobile stack */
+  .mobile-stack > * + * {
+    @apply mt-4;
+  }
+
+  /* Horizontal scroll container */
+  .horizontal-scroll {
+    @apply flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .horizontal-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .horizontal-scroll > * {
+    @apply snap-start flex-shrink-0;
+  }
+
+  /* Lighter animations for mobile */
+  .mobile-fade-in {
+    animation: mobileFadeIn 0.3s ease-out;
+  }
+
+  @keyframes mobileFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Pull to refresh indicator */
+  .pull-to-refresh {
+    @apply fixed top-0 left-0 right-0 h-16 flex items-center justify-center bg-white z-50;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-out;
+  }
+
+  .pull-to-refresh.active {
+    transform: translateY(0);
+  }
+
+  /* Bottom sheet drag handle */
+  .bottom-sheet-handle {
+    @apply w-12 h-1.5 bg-neutral-gray-light rounded-full mx-auto my-3;
+  }
+
+  /* Mobile form inputs */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea,
+  select {
+    @apply text-base;
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+
+  /* Sticky mobile header */
+  .mobile-header {
+    @apply sticky top-0 z-40 bg-white/95 backdrop-blur-lg border-b border-neutral-gray-lighter;
+  }
+
+  /* Mobile bottom navigation */
+  .mobile-bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-lg border-t border-neutral-gray-lighter;
+  }
+
+  /* Reduce motion for low-power devices */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Tablet-specific styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tablet-container {
+    @apply px-8 py-8;
+  }
+
+  .tablet-grid {
+    @apply grid grid-cols-2 gap-6;
+  }
+}
+
+/* Touch action utilities */
+.touch-pan-y {
+  touch-action: pan-y;
+}
+
+.touch-pan-x {
+  touch-action: pan-x;
+}
+
+.touch-none {
+  touch-action: none;
+}
+
+/* Smooth scrolling for mobile */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Disable text selection on interactive elements */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Active state for mobile buttons */
+@media (max-width: 768px) {
+  button:active,
+  [role="button"]:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease-out;
+  }
+}
+
+/* Mobile-optimized shadows */
+@media (max-width: 768px) {
+  .mobile-shadow-sm {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .mobile-shadow {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-shadow-lg {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* PWA display mode specific styles */
+@media (display-mode: standalone) {
+  /* Hide elements when app is installed */
+  .hide-when-installed {
+    display: none !important;
+  }
+
+  /* Show elements only when installed */
+  .show-when-installed {
+    display: block;
+  }
+}
+
+@media not (display-mode: standalone) {
+  .show-when-installed {
+    display: none;
+  }
+}
+
+/* Full viewport height for mobile (accounting for browser bars) */
+.mobile-full-height {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Prevent overscroll bounce on iOS */
+html {
+  overscroll-behavior-y: none;
+}
+
+/* Mobile-friendly focus states */
+@media (max-width: 768px) {
+  *:focus-visible {
+    outline: 3px solid #F7682B;
+    outline-offset: 2px;
+  }
+}

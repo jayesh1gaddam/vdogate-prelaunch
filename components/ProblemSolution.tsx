@@ -1,11 +1,36 @@
 'use client'
 
-import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion'
-import { AlertCircle, TrendingDown, Users, Video, MapPin, IndianRupee, CheckCircle2, X, Sparkles, ArrowRight, Zap, Shield, Target } from 'lucide-react'
-import { useState, useRef, MouseEvent } from 'react'
+import { motion, useMotionValue, useTransform, useSpring, AnimatePresence, useAnimation } from 'framer-motion'
+import { AlertCircle, TrendingDown, Users, Video, MapPin, IndianRupee, CheckCircle2, X, Sparkles, ArrowRight, Zap, Shield, Target, Star, TrendingUp, Award } from 'lucide-react'
+import { useState, useEffect, useRef, MouseEvent } from 'react'
 
 export default function ProblemSolution() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isClient, setIsClient] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  // Spotlight cursor follow effect
+  useEffect(() => {
+    if (!isClient) return
+
+    const handleMouseMove = (e: globalThis.MouseEvent) => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect()
+        setMousePosition({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top
+        })
+      }
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [isClient])
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
@@ -39,6 +64,77 @@ export default function ProblemSolution() {
     return { springRotateX, springRotateY, handleMouseMove, handleMouseLeave }
   }
 
+  // Animated Counter Component
+  const AnimatedCounter = ({ end, suffix = '', duration = 2 }: { end: number; suffix?: string; duration?: number }) => {
+    const [count, setCount] = useState(0)
+    const hasAnimatedRef = useRef(false)
+    const ref = useRef<HTMLSpanElement>(null)
+
+    useEffect(() => {
+      if (!isClient || hasAnimatedRef.current) return
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting && !hasAnimatedRef.current) {
+            hasAnimatedRef.current = true
+            observer.disconnect()
+
+            const increment = end / (duration * 60)
+            let current = 0
+            const timer = setInterval(() => {
+              current += increment
+              if (current >= end) {
+                setCount(end)
+                clearInterval(timer)
+              } else {
+                setCount(Math.floor(current))
+              }
+            }, 1000 / 60)
+          }
+        },
+        { threshold: 0.5, rootMargin: '0px' }
+      )
+
+      if (ref.current) {
+        observer.observe(ref.current)
+      }
+
+      return () => {
+        observer.disconnect()
+      }
+    }, [end, duration, isClient])
+
+    return <span ref={ref}>{count}{suffix}</span>
+  }
+
+  // Floating Particles Component
+  const FloatingParticles = ({ count = 20 }: { count?: number }) => {
+    return (
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(count)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-portal-primary/30 rounded-full"
+            initial={{
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
+            }}
+            animate={{
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 10,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </div>
+    )
+  }
+
   const benefitCards = [
     {
       icon: Video,
@@ -46,7 +142,8 @@ export default function ProblemSolution() {
       description: 'Showcase your skills through videos',
       hoverContent: 'Create engaging video portfolios that highlight your expertise',
       gradient: 'from-purple-500 to-indigo-600',
-      glowColor: 'rgba(139, 92, 246, 0.4)'
+      glowColor: 'rgba(139, 92, 246, 0.4)',
+      stats: { number: 100, suffix: '%', label: 'Video Engagement' }
     },
     {
       icon: MapPin,
@@ -54,7 +151,8 @@ export default function ProblemSolution() {
       description: 'Get discovered by category & location',
       hoverContent: 'Clients find you based on proximity and services offered',
       gradient: 'from-orange-500 to-rose-600',
-      glowColor: 'rgba(251, 146, 60, 0.4)'
+      glowColor: 'rgba(251, 146, 60, 0.4)',
+      stats: { number: 500, suffix: '+', label: 'Cities Covered' }
     },
     {
       icon: IndianRupee,
@@ -62,7 +160,8 @@ export default function ProblemSolution() {
       description: 'Keep 100% of your service fees',
       hoverContent: 'No middlemen, no commission cuts, just fair income',
       gradient: 'from-emerald-500 to-teal-600',
-      glowColor: 'rgba(52, 211, 153, 0.4)'
+      glowColor: 'rgba(52, 211, 153, 0.4)',
+      stats: { number: 0, suffix: '%', label: 'Commission Fee' }
     }
   ]
 
@@ -82,15 +181,41 @@ export default function ProblemSolution() {
     { icon: CheckCircle2, text: 'Zero commission', delay: 0.5 }
   ]
 
+  // Floating badges data
+  const floatingBadges = [
+    { icon: Star, text: 'Premium Quality', position: 'top-20 right-10', delay: 0 },
+    { icon: TrendingUp, text: '10x Growth', position: 'top-40 left-10', delay: 0.5 },
+  ]
+
   return (
-    <section className="py-8 md:py-12 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50/20">
+    <section ref={sectionRef} className="py-8 md:py-12 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50/20">
+      {/* Spotlight Cursor Effect */}
+      {isClient && (
+        <motion.div
+          className="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(247, 104, 43, 0.05), transparent 40%)`,
+          }}
+        />
+      )}
+
       {/* Enhanced Premium Background Layers */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-orange-100/40 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-purple-100/30 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rose-100/20 via-transparent to-transparent" />
 
+      {/* Noise Texture Overlay */}
+      <div className="absolute inset-0 opacity-[0.015] mix-blend-soft-light">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' /%3E%3C/svg%3E")`,
+        }} />
+      </div>
+
       {/* Refined Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f7682b06_1px,transparent_1px),linear-gradient(to_bottom,#f7682b06_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_40%,transparent_100%)]" />
+
+      {/* Floating Particles */}
+      {isClient && <FloatingParticles count={15} />}
 
       {/* Animated Floating Orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -133,6 +258,38 @@ export default function ProblemSolution() {
           }}
         />
       </div>
+
+      {/* Floating Badges */}
+      {isClient && (
+        <div className="absolute inset-0 pointer-events-none hidden lg:block">
+          {floatingBadges.map((badge, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: badge.delay, duration: 0.6 }}
+              className={`absolute ${badge.position}`}
+            >
+              <motion.div
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: index * 0.5
+                }}
+                className="glass bg-white/60 backdrop-blur-xl border border-white/40 rounded-full px-4 py-2 shadow-lg flex items-center gap-2"
+              >
+                <badge.icon className="w-4 h-4 text-portal-primary" />
+                <span className="text-xs font-semibold text-brand-black">{badge.text}</span>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      )}
 
       <div className="container-custom relative z-10">
         {/* Animated Heading Section */}
@@ -198,7 +355,10 @@ export default function ProblemSolution() {
         </motion.div>
 
         {/* Enhanced Split Comparison - Problem vs Solution */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-20 relative">
+          {/* Comparison Divider Line - Desktop Only */}
+          <div className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-4/5 bg-gradient-to-b from-transparent via-portal-primary/30 to-transparent" />
+
           {/* LEFT: The Problem */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -208,12 +368,26 @@ export default function ProblemSolution() {
             className="relative group"
           >
             {/* Problem Card with Enhanced Visuals */}
-            <div className="relative bg-gradient-to-br from-red-50/80 via-orange-50/60 to-amber-50/40 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-red-200/50 shadow-2xl overflow-hidden">
+            <div className="relative glass bg-gradient-to-br from-white via-red-50/30 to-orange-50/20 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-red-200/40 shadow-2xl overflow-hidden">
               {/* Animated Warning Pattern */}
-              <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(239,68,68,0.03)_10px,rgba(239,68,68,0.03)_20px)]" />
+              <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(239,68,68,0.02)_10px,rgba(239,68,68,0.02)_20px)]" />
 
               {/* Glow Effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-red-400/15 to-orange-400/15 rounded-3xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+
+              {/* Light Leak Effect */}
+              <motion.div
+                className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-300/20 to-transparent rounded-full blur-2xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
 
               <div className="relative z-10">
                 {/* Header */}
@@ -239,7 +413,8 @@ export default function ProblemSolution() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.3 + item.delay, duration: 0.4 }}
-                      className="flex items-center gap-3 p-4 bg-white/70 backdrop-blur-sm rounded-xl shadow-sm border border-red-100"
+                      whileHover={{ x: 5, scale: 1.02 }}
+                      className="flex items-center gap-3 p-4 bg-white/70 backdrop-blur-sm rounded-xl shadow-sm border border-red-100 hover:shadow-md transition-all duration-300"
                     >
                       <item.icon className="w-5 h-5 text-red-600 flex-shrink-0" />
                       <span className="text-sm md:text-base font-medium text-neutral-gray-dark">{item.text}</span>
@@ -270,7 +445,7 @@ export default function ProblemSolution() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 1.1, duration: 0.5 }}
-                  className="mt-6 p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-red-200/50"
+                  className="mt-6 p-4 glass bg-white/50 backdrop-blur-sm rounded-xl border border-red-200/50"
                 >
                   <p className="text-sm md:text-base text-center">
                     Visibility depends on <span className="font-bold text-red-600">ads, algorithms, and follower counts</span>
@@ -291,12 +466,26 @@ export default function ProblemSolution() {
             className="relative group"
           >
             {/* Solution Card with Premium Styling */}
-            <div className="relative bg-gradient-to-br from-white via-orange-50/20 to-amber-50/30 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-portal-primary/30 shadow-2xl overflow-hidden">
+            <div className="relative glass bg-gradient-to-br from-white via-orange-50/20 to-amber-50/30 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-portal-primary/30 shadow-2xl overflow-hidden">
               {/* Success Pattern */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(247,104,43,0.05),transparent_70%)]" />
 
               {/* Glow Effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-portal-primary/30 to-amber-500/30 rounded-3xl blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Light Leak Effect */}
+              <motion.div
+                className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tl from-portal-primary/20 to-transparent rounded-full blur-2xl"
+                animate={{
+                  scale: [1, 1.3, 1],
+                  opacity: [0.4, 0.7, 0.4],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
 
               <div className="relative z-10">
                 {/* Header */}
@@ -322,7 +511,8 @@ export default function ProblemSolution() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.5 + item.delay, duration: 0.4 }}
-                      className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-md border border-green-100 hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
+                      whileHover={{ x: -5, scale: 1.02 }}
+                      className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-md border border-green-100 hover:shadow-lg transition-all duration-300"
                     >
                       <item.icon className="w-5 h-5 text-green-600 flex-shrink-0" />
                       <span className="text-sm md:text-base font-medium text-brand-black">{item.text}</span>
@@ -372,7 +562,7 @@ export default function ProblemSolution() {
           </motion.div>
         </div>
 
-        {/* Benefit Cards Grid with 3D Tilt Effect */}
+        {/* Benefit Cards Grid with 3D Tilt Effect + Stats */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -401,54 +591,15 @@ export default function ProblemSolution() {
                     key={index}
                     initial={{ opacity: 0, y: 50, scale: 0.9 }}
                     whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, margin: "-50px", amount: 0.3 }}
                     transition={{ delay: 0.4 + index * 0.15, duration: 0.6, ease: "easeOut" }}
-                    style={{
-                      perspective: 1000,
-                      transformStyle: 'preserve-3d',
-                    }}
                   >
-                    <motion.div
-                      className="relative h-full bg-white rounded-2xl p-8 shadow-xl border border-gray-100 overflow-hidden cursor-pointer"
-                      onMouseMove={tilt.handleMouseMove}
-                      onMouseLeave={() => {
-                        tilt.handleMouseLeave()
-                        setHoveredCard(null)
-                      }}
-                      onMouseEnter={() => setHoveredCard(index)}
-                      style={{
-                        rotateX: tilt.springRotateX,
-                        rotateY: tilt.springRotateY,
-                        transformStyle: 'preserve-3d',
-                      }}
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                      {/* Gradient Background (Hover State) */}
-                      <motion.div
-                        className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 transition-opacity duration-500`}
-                        animate={{ opacity: hoveredCard === index ? 0.1 : 0 }}
-                      />
-
-                      {/* Glow Effect */}
-                      <motion.div
-                        className="absolute -inset-1 rounded-2xl blur-lg opacity-0 transition-opacity duration-500"
-                        style={{ background: card.glowColor }}
-                        animate={{ opacity: hoveredCard === index ? 0.6 : 0 }}
-                      />
-
-                      <div className="relative z-10" style={{ transform: 'translateZ(50px)' }}>
+                    <div className="relative h-full glass bg-white/80 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-gray-100 overflow-hidden">
+                      <div className="relative z-10">
                         {/* Icon */}
-                        <motion.div
-                          className={`w-16 h-16 bg-gradient-to-br ${card.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
-                          animate={{
-                            scale: hoveredCard === index ? 1.1 : 1,
-                            rotate: hoveredCard === index ? 5 : 0
-                          }}
-                          transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                        >
+                        <div className={`w-16 h-16 bg-gradient-to-br ${card.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
                           <Icon className="w-8 h-8 text-white" />
-                        </motion.div>
+                        </div>
 
                         {/* Title */}
                         <h4 className="text-xl md:text-2xl font-bold text-brand-black mb-3">
@@ -456,41 +607,30 @@ export default function ProblemSolution() {
                         </h4>
 
                         {/* Description */}
-                        <motion.p
-                          className="text-neutral-gray mb-4"
-                          animate={{
-                            opacity: hoveredCard === index ? 0 : 1,
-                            y: hoveredCard === index ? -10 : 0
-                          }}
-                          transition={{ duration: 0.3 }}
-                        >
+                        <p className="text-neutral-gray mb-4">
                           {card.description}
-                        </motion.p>
+                        </p>
 
-                        {/* Hover Content */}
-                        <motion.div
-                          className="absolute inset-x-8 bottom-8"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{
-                            opacity: hoveredCard === index ? 1 : 0,
-                            y: hoveredCard === index ? 0 : 20
-                          }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <p className="text-brand-black font-medium text-base leading-relaxed">
+                        {/* Hover Content - Now always visible */}
+                        <div className="mt-4">
+                          <p className="text-brand-black font-medium text-base leading-relaxed mb-4">
                             {card.hoverContent}
                           </p>
-                          <motion.div
-                            className="mt-4 flex items-center gap-2 text-portal-primary font-semibold"
-                            animate={{ x: hoveredCard === index ? 5 : 0 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            Learn More
-                            <ArrowRight className="w-4 h-4" />
-                          </motion.div>
-                        </motion.div>
+                        </div>
+
+                        {/* Stats Badge */}
+                        {isClient && (
+                          <div className="mt-4 px-4 py-2 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg border border-gray-200">
+                            <div className="text-center">
+                              <div className={`text-2xl font-bold bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent`}>
+                                <AnimatedCounter end={card.stats.number} suffix={card.stats.suffix} />
+                              </div>
+                              <div className="text-xs text-neutral-gray mt-1">{card.stats.label}</div>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    </motion.div>
+                    </div>
                   </motion.div>
                 )
               }
@@ -526,7 +666,7 @@ export default function ProblemSolution() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="max-w-5xl mx-auto"
         >
-          <div className="relative bg-gradient-to-br from-white via-orange-50/30 to-amber-50/40 rounded-3xl p-10 md:p-14 shadow-2xl border border-portal-primary/20 overflow-hidden">
+          <div className="relative glass bg-gradient-to-br from-white via-orange-50/30 to-amber-50/40 backdrop-blur-xl rounded-3xl p-10 md:p-14 shadow-2xl border border-portal-primary/20 overflow-hidden">
             {/* Animated Background Pattern */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(247,104,43,0.08),transparent_70%)]" />
 
@@ -540,6 +680,17 @@ export default function ProblemSolution() {
               transition={{ duration: 4, repeat: Infinity }}
             >
               <Sparkles className="w-8 h-8 text-portal-primary/30" />
+            </motion.div>
+
+            <motion.div
+              className="absolute bottom-10 left-10"
+              animate={{
+                scale: [1.2, 1, 1.2],
+                rotate: [360, 180, 0],
+              }}
+              transition={{ duration: 5, repeat: Infinity }}
+            >
+              <Sparkles className="w-6 h-6 text-amber-500/30" />
             </motion.div>
 
             <div className="relative z-10 text-center">
@@ -586,7 +737,7 @@ export default function ProblemSolution() {
                   onClick={() => scrollToSection('how-it-works')}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group px-8 py-4 bg-white border-2 border-portal-primary text-portal-primary rounded-xl font-semibold text-lg hover:bg-portal-primary/5 transition-all duration-300 flex items-center gap-3"
+                  className="group px-8 py-4 glass bg-white/80 backdrop-blur-sm border-2 border-portal-primary text-portal-primary rounded-xl font-semibold text-lg hover:bg-portal-primary/5 transition-all duration-300 flex items-center gap-3"
                 >
                   <Target className="w-5 h-5" />
                   Find Your Freelancer

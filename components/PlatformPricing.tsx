@@ -134,7 +134,7 @@ export default function PlatformPricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -164,9 +164,6 @@ export default function PlatformPricing() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="max-w-4xl mx-auto text-center mb-12"
         >
-          <p className="text-base md:text-lg text-neutral-gray leading-relaxed mb-6">
-            Freelancers are driving India's new economy — from yoga trainers and beauticians to tutors, chefs, and digital experts.
-          </p>
           <p className="text-base md:text-lg text-neutral-gray leading-relaxed mb-6">
             Yet most depend on social media where algorithms and ad budgets limit opportunity.
           </p>

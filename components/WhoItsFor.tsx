@@ -34,7 +34,7 @@ const videoThumbnails = [
 
 export default function WhoItsFor() {
   return (
-    <section id="who-its-for" className="pt-8 pb-16 md:pt-12 md:pb-24 lg:pt-15 lg:pb-30 relative overflow-hidden">
+    <section id="who-its-for" className="pt-8 pb-8 md:pt-12 md:pb-12 lg:pt-15 lg:pb-15 relative overflow-hidden">
       {/* Animated Blob Background */}
       <div className="absolute inset-0 opacity-50">
         <AnimatedBlobBg />
