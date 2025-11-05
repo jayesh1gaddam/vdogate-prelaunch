@@ -75,107 +75,46 @@ export default function PremiumMessage() {
               className="absolute right-0 top-1/2 -translate-y-1/2 h-[1px] bg-gradient-to-l from-transparent via-orange-300/50 to-orange-300/0 max-w-[80px] md:max-w-[120px] hidden lg:block"
             />
 
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-brand-black leading-relaxed tracking-wide px-4">
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
+            <div className="text-2xl md:text-3xl lg:text-4xl font-light text-brand-black leading-relaxed tracking-wide px-4">
+              {/* Line 1: Main intro */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="inline-block"
+                transition={{ delay: 0.3, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+                className="mb-3 md:mb-4"
               >
-                Freelancers are driving India's new economy — from{' '}
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
+                Freelancers are driving India's new economy — from
+              </motion.div>
+
+              {/* Line 2: yoga trainers and beauticians */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className="inline-block font-medium text-gradient"
+                transition={{ delay: 0.6, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+                className="mb-3 md:mb-4"
               >
-                yoga trainers
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="inline-block"
-              >
+                <span className="font-medium text-gradient">yoga trainers</span>
                 {' '}and{' '}
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
+                <span className="font-medium text-gradient">beauticians</span>
+              </motion.div>
+
+              {/* Line 3: to tutors, chefs, and digital experts */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.7, duration: 0.6 }}
-                className="inline-block font-medium text-gradient"
+                transition={{ delay: 0.9, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                beauticians
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-                className="inline-block"
-              >
-                {' '}to{' '}
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.9, duration: 0.6 }}
-                className="inline-block font-medium text-gradient"
-              >
-                tutors
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 1.0, duration: 0.6 }}
-                className="inline-block"
-              >
+                to{' '}
+                <span className="font-medium text-gradient">tutors</span>
                 ,{' '}
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 1.1, duration: 0.6 }}
-                className="inline-block font-medium text-gradient"
-              >
-                chefs
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 1.2, duration: 0.6 }}
-                className="inline-block"
-              >
+                <span className="font-medium text-gradient">chefs</span>
                 , and{' '}
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 1.3, duration: 0.6 }}
-                className="inline-block font-medium text-gradient"
-              >
-                digital experts
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 1.4, duration: 0.6 }}
-                className="inline-block"
-              >
-                .
-              </motion.span>
-            </h2>
+                <span className="font-medium text-gradient">digital experts</span>.
+              </motion.div>
+            </div>
 
             {/* Subtle Underline Accent */}
             <motion.div
