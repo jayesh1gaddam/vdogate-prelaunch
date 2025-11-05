@@ -18,10 +18,8 @@ export default function Home() {
     <PWAProvider>
       <MobileLayoutWrapper>
         <div className="min-h-screen">
-          {/* Desktop Navigation - hidden on mobile */}
-          <div className="hidden md:block">
-            <Navigation />
-          </div>
+          {/* Navigation - shown on both mobile and desktop */}
+          <Navigation />
 
           <Hero />
           <PremiumMessage />

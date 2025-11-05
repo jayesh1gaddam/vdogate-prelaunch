@@ -1,9 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
 import { useIsMobile, useViewportHeight } from '@/hooks/usePWA'
-import MobileNavigation from '@/components/mobile/MobileNavigation'
-import FloatingActionButton from '@/components/mobile/FloatingActionButton'
 import InstallPrompt from '@/components/mobile/InstallPrompt'
 
 interface MobileLayoutWrapperProps {
@@ -18,16 +15,10 @@ export default function MobileLayoutWrapper({ children }: MobileLayoutWrapperPro
     <>
       {isMobile ? (
         <>
-          {/* Mobile Navigation */}
-          <MobileNavigation showBottomNav={false} />
-
-          {/* Page Content with padding for fixed navigation */}
-          <main className="pt-16 pb-8">
+          {/* Page Content - Navigation is handled in page.tsx */}
+          <main>
             {children}
           </main>
-
-          {/* Floating Action Button */}
-          <FloatingActionButton />
 
           {/* PWA Install Prompt */}
           <InstallPrompt />
