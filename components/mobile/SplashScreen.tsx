@@ -41,17 +41,16 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-orange-500 via-pink-500 to-purple-600 overflow-hidden"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-b from-white via-white to-orange-500 overflow-hidden"
         >
           {/* Premium Animated Background */}
           <div className="absolute inset-0">
             {/* Large Animated Orbs */}
             <motion.div
-              className="absolute top-1/4 left-1/4 w-80 h-80 bg-white/20 rounded-full blur-3xl"
+              className="absolute bottom-0 left-1/4 w-96 h-96 bg-orange-400/30 rounded-full blur-3xl"
               animate={{
-                scale: [1, 1.3, 1],
-                x: [0, 60, 0],
-                y: [0, -60, 0],
+                scale: [1, 1.2, 1],
+                x: [0, 40, 0],
               }}
               transition={{
                 duration: 4,
@@ -60,11 +59,10 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
               }}
             />
             <motion.div
-              className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/15 rounded-full blur-2xl"
+              className="absolute bottom-0 right-1/4 w-80 h-80 bg-orange-500/20 rounded-full blur-2xl"
               animate={{
-                scale: [1.3, 1, 1.3],
-                x: [0, -50, 0],
-                y: [0, 50, 0],
+                scale: [1.2, 1, 1.2],
+                x: [0, -40, 0],
               }}
               transition={{
                 duration: 3.5,
@@ -73,10 +71,10 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
               }}
             />
             <motion.div
-              className="absolute top-1/2 right-1/3 w-48 h-48 bg-white/10 rounded-full blur-xl"
+              className="absolute bottom-10 left-1/2 w-64 h-64 bg-orange-300/25 rounded-full blur-xl"
               animate={{
-                scale: [1, 1.2, 1],
-                rotate: [0, 180, 360],
+                scale: [1, 1.3, 1],
+                x: [0, -30, 0],
               }}
               transition={{
                 duration: 5,
@@ -86,10 +84,10 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             />
 
             {/* Floating Particles */}
-            {isMounted && Array.from({ length: 20 }).map((_, i) => (
+            {isMounted && Array.from({ length: 15 }).map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1 h-1 bg-white/40 rounded-full"
+                className="absolute w-1.5 h-1.5 bg-orange-400/50 rounded-full"
                 initial={{
                   x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 100),
                   y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 100),
@@ -113,7 +111,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
 
           {/* Shimmer Effect */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-400/10 to-transparent"
             animate={{
               x: ['-100%', '100%'],
             }}
@@ -143,18 +141,18 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
               {/* Glow Effect Behind Logo */}
               <motion.div
                 animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.5, 0.8, 0.5],
+                  scale: [1, 1.15, 1],
+                  opacity: [0.3, 0.5, 0.3],
                 }}
                 transition={{
                   duration: 2,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="absolute inset-0 bg-white/30 rounded-3xl blur-2xl -z-10 scale-110"
+                className="absolute inset-0 bg-orange-500/40 rounded-3xl blur-3xl -z-10 scale-125"
               />
 
-              {/* Logo Container */}
+              {/* Logo Container - Full Image with Rounded Corners */}
               <motion.div
                 animate={{
                   y: [0, -10, 0],
@@ -164,32 +162,26 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="relative w-32 h-32 bg-white rounded-3xl flex items-center justify-center shadow-2xl shadow-black/20 overflow-hidden"
+                className="relative w-40 h-40 rounded-3xl overflow-hidden shadow-2xl shadow-orange-500/20"
               >
-                {/* Inner Glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-white" />
-
-                {/* VDOgate Logo */}
-                <div className="relative z-10 w-28 h-28">
-                  <Image
-                    src="/icon-192x192.png"
-                    alt="VDOgate Logo"
-                    width={112}
-                    height={112}
-                    className="object-contain"
-                    priority
-                    unoptimized
-                  />
-                </div>
+                {/* VDOgate Logo - Full Size */}
+                <Image
+                  src="/icon-192x192.png"
+                  alt="VDOgate Logo"
+                  fill
+                  className="object-cover"
+                  priority
+                  unoptimized
+                />
 
                 {/* Shine Effect */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent"
+                  className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent"
                   animate={{
                     rotate: [0, 360],
                   }}
                   transition={{
-                    duration: 3,
+                    duration: 4,
                     repeat: Infinity,
                     ease: "linear"
                   }}
@@ -205,19 +197,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
               className="text-center mb-3"
             >
               <motion.h1
-                animate={{
-                  textShadow: [
-                    '0 0 20px rgba(255,255,255,0.5)',
-                    '0 0 30px rgba(255,255,255,0.8)',
-                    '0 0 20px rgba(255,255,255,0.5)',
-                  ],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="text-5xl font-bold text-white mb-1 tracking-tight"
+                className="text-5xl font-bold bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent mb-1 tracking-tight"
               >
                 VDOgate
               </motion.h1>
@@ -228,7 +208,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="text-white/95 text-base font-medium tracking-wide mb-12"
+              className="text-gray-700 text-base font-medium tracking-wide mb-12"
             >
               India's Platform for Freelancers
             </motion.p>
@@ -241,9 +221,9 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
               className="relative"
             >
               {/* Animated Progress Bar */}
-              <div className="w-48 h-1 bg-white/20 rounded-full overflow-hidden backdrop-blur-sm">
+              <div className="w-48 h-1.5 bg-orange-200/40 rounded-full overflow-hidden backdrop-blur-sm">
                 <motion.div
-                  className="h-full bg-gradient-to-r from-white via-white to-white/80 rounded-full"
+                  className="h-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 rounded-full"
                   initial={{ width: '0%' }}
                   animate={{ width: '100%' }}
                   transition={{
@@ -258,10 +238,10 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
                 {[0, 1, 2].map((index) => (
                   <motion.div
                     key={index}
-                    className="w-2 h-2 bg-white rounded-full"
+                    className="w-2 h-2 bg-orange-500 rounded-full"
                     animate={{
                       scale: [1, 1.5, 1],
-                      opacity: [0.4, 1, 0.4],
+                      opacity: [0.5, 1, 0.5],
                     }}
                     transition={{
                       duration: 1.2,
@@ -282,8 +262,8 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             transition={{ delay: 1, duration: 0.5 }}
             className="absolute bottom-8 left-0 right-0 flex justify-center"
           >
-            <div className="px-6 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
-              <p className="text-white/80 text-xs font-medium">Powered by Innovation</p>
+            <div className="px-6 py-2 bg-white/80 backdrop-blur-md rounded-full border border-orange-300/30 shadow-lg">
+              <p className="text-orange-600 text-xs font-semibold">Powered by Innovation</p>
             </div>
           </motion.div>
         </motion.div>
