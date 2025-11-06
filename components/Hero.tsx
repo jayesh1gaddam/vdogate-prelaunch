@@ -24,7 +24,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50/30 via-white to-amber-50/20 pt-20 md:pt-10 pb-12 md:pb-16">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50/30 via-white to-amber-50/20 pt-8 md:pt-10 pb-12 md:pb-16">
       {/* Premium Mesh Gradient Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-100/40 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-amber-100/30 via-transparent to-transparent" />
@@ -201,7 +201,7 @@ export default function Hero() {
           initial={{ opacity: 0.6 }}
           animate={{ opacity: 0.6 }}
           exit={{ opacity: 0 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 hover:opacity-100 transition-opacity cursor-pointer"
+          className="absolute bottom-10 md:bottom-10 left-1/2 transform -translate-x-1/2 hover:opacity-100 transition-opacity cursor-pointer pwa-scroll-indicator"
           onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
         >
           <motion.div
