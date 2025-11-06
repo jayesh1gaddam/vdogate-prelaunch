@@ -10,8 +10,11 @@ interface SplashScreenProps {
 
 export default function SplashScreen({ onComplete }: SplashScreenProps) {
   const [isVisible, setIsVisible] = useState(true)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
+
     // Check if splash was already shown in this session
     const splashShown = sessionStorage.getItem('splash-shown')
 
@@ -83,18 +86,18 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             />
 
             {/* Floating Particles */}
-            {Array.from({ length: 20 }).map((_, i) => (
+            {isMounted && Array.from({ length: 20 }).map((_, i) => (
               <motion.div
                 key={i}
                 className="absolute w-1 h-1 bg-white/40 rounded-full"
                 initial={{
-                  x: Math.random() * window.innerWidth,
-                  y: Math.random() * window.innerHeight,
+                  x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 100),
+                  y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 100),
                 }}
                 animate={{
                   y: [
-                    Math.random() * window.innerHeight,
-                    Math.random() * window.innerHeight - 100,
+                    Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 100),
+                    Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 100) - 100,
                   ],
                   opacity: [0, 1, 0],
                 }}
@@ -169,12 +172,13 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
                 {/* VDOgate Logo */}
                 <div className="relative z-10 w-28 h-28">
                   <Image
-                    src="/vdogate_app_logo.png"
+                    src="/icon-192x192.png"
                     alt="VDOgate Logo"
                     width={112}
                     height={112}
                     className="object-contain"
                     priority
+                    unoptimized
                   />
                 </div>
 

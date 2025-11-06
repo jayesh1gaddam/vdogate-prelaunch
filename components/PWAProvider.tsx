@@ -8,18 +8,33 @@ export default function PWAProvider({ children }: { children: React.ReactNode })
   const isMobile = useIsMobile()
   const [showSplash, setShowSplash] = useState(false)
   const [splashComplete, setSplashComplete] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    // Only show splash on mobile devices
-    if (isMobile) {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
+
+    // Only show splash on mobile devices and when running as PWA
+    const isPWA = window.matchMedia('(display-mode: standalone)').matches ||
+                  (window.navigator as any).standalone ||
+                  document.referrer.includes('android-app://')
+
+    if (isMobile || isPWA) {
       setShowSplash(true)
     } else {
       setSplashComplete(true)
     }
-  }, [isMobile])
+  }, [isMobile, mounted])
 
   const handleSplashComplete = () => {
     setSplashComplete(true)
+  }
+
+  if (!mounted) {
+    return <div className="invisible">{children}</div>
   }
 
   return (
