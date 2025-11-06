@@ -643,6 +643,11 @@
   .mobile-shadow-lg {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
   }
+
+  /* Reduce scroll indicator gap on mobile - 20% of original */
+  .pwa-scroll-indicator {
+    bottom: 0.5rem !important;
+  }
 }
 
 /* PWA display mode specific styles */
@@ -667,11 +672,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    /* Reduce scroll indicator gap in PWA mode - 20% of original */
-    .pwa-scroll-indicator {
-      bottom: 0.5rem !important;
     }
   }
 }
