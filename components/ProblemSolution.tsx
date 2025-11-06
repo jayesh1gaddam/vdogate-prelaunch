@@ -3,6 +3,7 @@
 import { motion, useMotionValue, useTransform, useSpring, AnimatePresence, useAnimation } from 'framer-motion'
 import { AlertCircle, TrendingDown, Users, Video, MapPin, IndianRupee, CheckCircle2, X, Sparkles, ArrowRight, Zap, Shield, Target, Star, TrendingUp, Award } from 'lucide-react'
 import { useState, useEffect, useRef, MouseEvent } from 'react'
+import { fadeInUp, scaleIn, staggerContainer, staggerItem, easing, spring as springConfig, shimmerAnimation, viewportOptions } from '@/lib/animations'
 
 export default function ProblemSolution() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
@@ -294,18 +295,18 @@ export default function ProblemSolution() {
       <div className="container-custom relative z-10">
         {/* Animated Heading Section */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
           className="text-center mb-16 max-w-5xl mx-auto"
         >
           {/* Line 1 */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
             className="mb-2"
           >
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-neutral-gray">
@@ -354,32 +355,70 @@ export default function ProblemSolution() {
           </motion.p>
         </motion.div>
 
-        {/* Enhanced Split Comparison - Problem vs Solution */}
+        {/* Premium Split Comparison - Problem vs Solution */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-20 relative">
-          {/* Comparison Divider Line - Desktop Only */}
-          <div className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-4/5 bg-gradient-to-b from-transparent via-portal-primary/30 to-transparent" />
+          {/* Animated Comparison Divider Line - Desktop Only */}
+          <div className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-4/5 overflow-hidden">
+            <motion.div
+              className="w-full h-full bg-gradient-to-b from-transparent via-portal-primary/40 to-transparent"
+              animate={{
+                y: ['-100%', '100%'],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+          </div>
 
-          {/* LEFT: The Problem */}
+          {/* LEFT: The Problem - Enhanced Premium Card */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="relative group"
+            whileHover={{ scale: 1.02, y: -5 }}
+            className="relative group cursor-pointer"
           >
-            {/* Problem Card with Enhanced Visuals */}
-            <div className="relative glass bg-gradient-to-br from-white via-red-50/30 to-orange-50/20 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-red-200/40 shadow-2xl overflow-hidden">
-              {/* Animated Warning Pattern */}
-              <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(239,68,68,0.02)_10px,rgba(239,68,68,0.02)_20px)]" />
-
-              {/* Glow Effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-red-400/15 to-orange-400/15 rounded-3xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
-
-              {/* Light Leak Effect */}
+            {/* Animated Border Glow - Problem */}
+            <div className="absolute inset-0 rounded-[32px] overflow-hidden">
               <motion.div
-                className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-300/20 to-transparent rounded-full blur-2xl"
+                className="absolute inset-0"
+                style={{
+                  background: 'conic-gradient(from 0deg, transparent 0deg, transparent 300deg, rgba(239, 68, 68, 0.6) 330deg, transparent 360deg)',
+                }}
                 animate={{
-                  scale: [1, 1.2, 1],
+                  rotate: [0, 360],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+            </div>
+
+            {/* Problem Card with Enhanced Visuals */}
+            <div className="relative glass bg-gradient-to-br from-white via-red-50/40 to-orange-50/30 backdrop-blur-2xl rounded-[32px] p-8 md:p-10 border-2 border-white/60 shadow-2xl overflow-hidden m-[1px]">
+              {/* Animated Warning Pattern */}
+              <motion.div
+                className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(239,68,68,0.03)_10px,rgba(239,68,68,0.03)_20px)]"
+                animate={{
+                  backgroundPosition: ['0px 0px', '20px 20px'],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+              />
+
+              {/* Floating Glow Orbs */}
+              <motion.div
+                className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-red-400/20 to-transparent rounded-full blur-3xl"
+                animate={{
+                  scale: [1, 1.3, 1],
                   opacity: [0.3, 0.6, 0.3],
                 }}
                 transition={{
@@ -390,22 +429,41 @@ export default function ProblemSolution() {
               />
 
               <div className="relative z-10">
-                {/* Header */}
+                {/* Premium Header with Pulse */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2, duration: 0.5 }}
-                  className="flex items-center gap-3 mb-6"
+                  className="flex items-center gap-4 mb-8"
                 >
-                  <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center shadow-lg">
-                    <AlertCircle className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-red-700">The Problem</h3>
+                  <motion.div
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                    className="relative"
+                  >
+                    {/* Pulsing Ring */}
+                    <motion.div
+                      className="absolute inset-0 bg-red-500/30 rounded-2xl blur-md"
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.5, 0.8, 0.5],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    />
+                    <div className="relative w-14 h-14 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-2xl">
+                      <AlertCircle className="w-8 h-8 text-white" />
+                    </div>
+                  </motion.div>
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-red-700">The Problem</h3>
                 </motion.div>
 
-                {/* Social Media Chaos Simulation */}
-                <div className="space-y-3 mb-6">
+                {/* Enhanced Problem Points */}
+                <div className="space-y-3 mb-8">
                   {problemPoints.map((item, index) => (
                     <motion.div
                       key={index}
@@ -413,71 +471,121 @@ export default function ProblemSolution() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.3 + item.delay, duration: 0.4 }}
-                      whileHover={{ x: 5, scale: 1.02 }}
-                      className="flex items-center gap-3 p-4 bg-white/70 backdrop-blur-sm rounded-xl shadow-sm border border-red-100 hover:shadow-md transition-all duration-300"
+                      whileHover={{ x: 8, scale: 1.03 }}
+                      className="relative group/item"
                     >
-                      <item.icon className="w-5 h-5 text-red-600 flex-shrink-0" />
-                      <span className="text-sm md:text-base font-medium text-neutral-gray-dark">{item.text}</span>
+                      {/* Hover Glow */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-red-100/50 to-transparent rounded-2xl opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 blur-sm" />
+
+                      <div className="relative flex items-center gap-4 p-5 bg-white/80 backdrop-blur-md rounded-2xl shadow-md border border-red-100/60 hover:shadow-xl transition-all duration-300">
+                        <div className="w-10 h-10 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                          <item.icon className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="text-sm md:text-base font-semibold text-neutral-gray-dark">{item.text}</span>
+                      </div>
                     </motion.div>
                   ))}
                 </div>
 
-                {/* "Pay More" CTA Mockup */}
+                {/* Enhanced "Pay More" Badge */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.9, duration: 0.5 }}
-                  className="relative mt-6 p-5 bg-gradient-to-r from-red-100 to-orange-100 border-2 border-red-300 rounded-xl text-center overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  className="relative mt-8 p-6 bg-gradient-to-r from-red-100 to-orange-100 border-2 border-red-300 rounded-2xl text-center overflow-hidden shadow-lg"
                 >
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                    className="absolute top-2 right-2 w-8 h-8 border-4 border-red-400 border-t-transparent rounded-full"
+                    className="absolute top-3 right-3 w-8 h-8 border-4 border-red-400 border-t-transparent rounded-full"
                   />
-                  <p className="text-base md:text-lg font-bold text-red-700 mb-1">💸 Spend More on Ads</p>
-                  <p className="text-xs md:text-sm text-red-600">Still no guarantee of monetization</p>
+                  <p className="text-lg md:text-xl font-bold text-red-700 mb-2">💸 Spend More on Ads</p>
+                  <p className="text-sm md:text-base text-red-600 font-medium">Still no guarantee of monetization</p>
                 </motion.div>
 
-                {/* Summary Statement */}
+                {/* Enhanced Summary */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 1.1, duration: 0.5 }}
-                  className="mt-6 p-4 glass bg-white/50 backdrop-blur-sm rounded-xl border border-red-200/50"
+                  className="mt-8 p-5 glass bg-white/60 backdrop-blur-lg rounded-2xl border border-red-200/60 shadow-md"
                 >
-                  <p className="text-sm md:text-base text-center">
+                  <p className="text-sm md:text-base text-center leading-relaxed">
                     Visibility depends on <span className="font-bold text-red-600">ads, algorithms, and follower counts</span>
                     <br />
                     <span className="text-neutral-gray">— not your actual skill.</span>
                   </p>
                 </motion.div>
               </div>
+
+              {/* Shine Sweep Effect */}
+              <div className="absolute inset-0 rounded-[32px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none overflow-hidden">
+                <motion.div
+                  className="absolute -inset-full bg-gradient-to-r from-transparent via-white/20 to-transparent rotate-45"
+                  animate={{
+                    x: ['-200%', '200%'],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    ease: "easeInOut",
+                  }}
+                />
+              </div>
             </div>
           </motion.div>
 
-          {/* RIGHT: The Solution */}
+          {/* RIGHT: The Solution - Enhanced Premium Card */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-            className="relative group"
+            whileHover={{ scale: 1.02, y: -5 }}
+            className="relative group cursor-pointer"
           >
-            {/* Solution Card with Premium Styling */}
-            <div className="relative glass bg-gradient-to-br from-white via-orange-50/20 to-amber-50/30 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-portal-primary/30 shadow-2xl overflow-hidden">
-              {/* Success Pattern */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(247,104,43,0.05),transparent_70%)]" />
-
-              {/* Glow Effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-portal-primary/30 to-amber-500/30 rounded-3xl blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-
-              {/* Light Leak Effect */}
+            {/* Animated Border Glow - Solution */}
+            <div className="absolute inset-0 rounded-[32px] overflow-hidden">
               <motion.div
-                className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tl from-portal-primary/20 to-transparent rounded-full blur-2xl"
+                className="absolute inset-0"
+                style={{
+                  background: 'conic-gradient(from 0deg, transparent 0deg, transparent 300deg, rgba(247, 104, 43, 0.7) 330deg, transparent 360deg)',
+                }}
                 animate={{
-                  scale: [1, 1.3, 1],
+                  rotate: [0, 360],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "linear",
+                  delay: 0.5,
+                }}
+              />
+            </div>
+
+            {/* Solution Card with Premium Styling */}
+            <div className="relative glass bg-gradient-to-br from-white via-orange-50/30 to-amber-50/40 backdrop-blur-2xl rounded-[32px] p-8 md:p-10 border-2 border-white/60 shadow-2xl overflow-hidden m-[1px]">
+              {/* Success Pattern */}
+              <motion.div
+                className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(247,104,43,0.08),transparent_70%)]"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  opacity: [0.3, 0.5, 0.3],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+
+              {/* Floating Glow Orbs */}
+              <motion.div
+                className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tl from-portal-primary/25 to-transparent rounded-full blur-3xl"
+                animate={{
+                  scale: [1, 1.4, 1],
                   opacity: [0.4, 0.7, 0.4],
                 }}
                 transition={{
@@ -488,22 +596,41 @@ export default function ProblemSolution() {
               />
 
               <div className="relative z-10">
-                {/* Header */}
+                {/* Premium Header with Sparkle */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4, duration: 0.5 }}
-                  className="flex items-center gap-3 mb-6"
+                  className="flex items-center gap-4 mb-8"
                 >
-                  <div className="w-12 h-12 bg-portal-gradient rounded-xl flex items-center justify-center shadow-lg shadow-portal-primary/30">
-                    <Sparkles className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-gradient">The Solution</h3>
+                  <motion.div
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                    className="relative"
+                  >
+                    {/* Pulsing Ring */}
+                    <motion.div
+                      className="absolute inset-0 bg-portal-primary/30 rounded-2xl blur-md"
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.5, 0.8, 0.5],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    />
+                    <div className="relative w-14 h-14 bg-portal-gradient rounded-2xl flex items-center justify-center shadow-2xl shadow-portal-primary/40">
+                      <Sparkles className="w-8 h-8 text-white" />
+                    </div>
+                  </motion.div>
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gradient">The Solution</h3>
                 </motion.div>
 
-                {/* VDOgate Benefits */}
-                <div className="space-y-3 mb-6">
+                {/* Enhanced Solution Points */}
+                <div className="space-y-3 mb-8">
                   {solutionPoints.map((item, index) => (
                     <motion.div
                       key={index}
@@ -511,52 +638,73 @@ export default function ProblemSolution() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.5 + item.delay, duration: 0.4 }}
-                      whileHover={{ x: -5, scale: 1.02 }}
-                      className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-md border border-green-100 hover:shadow-lg transition-all duration-300"
+                      whileHover={{ x: -8, scale: 1.03 }}
+                      className="relative group/item"
                     >
-                      <item.icon className="w-5 h-5 text-green-600 flex-shrink-0" />
-                      <span className="text-sm md:text-base font-medium text-brand-black">{item.text}</span>
+                      {/* Hover Glow */}
+                      <div className="absolute inset-0 bg-gradient-to-l from-green-100/50 to-transparent rounded-2xl opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 blur-sm" />
+
+                      <div className="relative flex items-center gap-4 p-5 bg-white/90 backdrop-blur-md rounded-2xl shadow-md border border-green-100/60 hover:shadow-xl transition-all duration-300">
+                        <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                          <item.icon className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="text-sm md:text-base font-semibold text-brand-black">{item.text}</span>
+                      </div>
                     </motion.div>
                   ))}
                 </div>
 
-                {/* Promise Badge */}
+                {/* Enhanced Promise Badge */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 1.1, duration: 0.5 }}
-                  whileHover={{ scale: 1.03 }}
-                  className="relative mt-6 p-6 bg-portal-gradient rounded-2xl text-white text-center shadow-portal overflow-hidden cursor-pointer"
+                  whileHover={{ scale: 1.05 }}
+                  className="relative mt-8 p-7 bg-portal-gradient rounded-2xl text-white text-center shadow-portal-md overflow-hidden cursor-pointer"
                 >
                   <motion.div
                     animate={{
                       backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                     }}
                     transition={{ duration: 5, repeat: Infinity }}
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent"
                     style={{ backgroundSize: '200% 100%' }}
                   />
                   <div className="relative z-10">
                     <p className="text-lg md:text-xl font-bold mb-2">No Ads • No Algorithms • No Commission</p>
-                    <p className="text-sm md:text-base opacity-95">Just fair discovery and income for every freelancer</p>
+                    <p className="text-sm md:text-base opacity-95 font-medium">Just fair discovery and income for every freelancer</p>
                   </div>
                 </motion.div>
 
-                {/* Summary Statement */}
+                {/* Enhanced Summary */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 1.3, duration: 0.5 }}
-                  className="mt-6 p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200"
+                  className="mt-8 p-5 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border border-green-200/60 shadow-md"
                 >
-                  <p className="text-sm md:text-base text-center">
+                  <p className="text-sm md:text-base text-center leading-relaxed">
                     Your <span className="font-bold text-green-700">skills, portfolio, and location</span>
                     <br />
                     <span className="text-brand-black">determine your visibility — not your ad budget.</span>
                   </p>
                 </motion.div>
+              </div>
+
+              {/* Shine Sweep Effect */}
+              <div className="absolute inset-0 rounded-[32px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none overflow-hidden">
+                <motion.div
+                  className="absolute -inset-full bg-gradient-to-r from-transparent via-white/20 to-transparent rotate-45"
+                  animate={{
+                    x: ['-200%', '200%'],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    ease: "easeInOut",
+                  }}
+                />
               </div>
             </div>
           </motion.div>

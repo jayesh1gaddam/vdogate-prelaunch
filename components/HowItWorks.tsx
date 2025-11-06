@@ -1,11 +1,12 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { Video, MapPin, IndianRupee, Sparkles, ArrowRight } from 'lucide-react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { Video, MapPin, IndianRupee, Sparkles, ArrowRight, Search, Filter, MessageSquare, Users } from 'lucide-react'
 import { Timeline } from '@/components/ui/timeline'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { fadeInUp, scaleIn, easing, spring, shimmerAnimation, viewportOptions } from '@/lib/animations'
 
-const steps = [
+const freelancerSteps = [
   {
     number: '01',
     icon: Video,
@@ -38,46 +39,128 @@ const steps = [
   },
 ]
 
+const customerSteps = [
+  {
+    number: '01',
+    icon: Search,
+    title: 'Browse by Category & Location',
+    description: 'Search for freelancers in your city or across India, filtered by the service category you need.',
+    detail: 'Find verified professionals near you with authentic video profiles.',
+    color: 'from-blue-500 to-blue-600',
+    bgColor: 'bg-blue-50',
+    borderColor: 'border-blue-200',
+  },
+  {
+    number: '02',
+    icon: Users,
+    title: 'Watch Video Profiles',
+    description: 'Preview freelancer skills through their video portfolios before making any commitment.',
+    detail: 'See their work, understand their expertise, and make informed decisions.',
+    color: 'from-blue-500 to-blue-600',
+    bgColor: 'bg-blue-50',
+    borderColor: 'border-blue-200',
+  },
+  {
+    number: '03',
+    icon: MessageSquare,
+    title: 'Connect Directly',
+    description: 'Reach out to your chosen freelancer and discuss your project requirements directly.',
+    detail: 'No middleman. No platform fees. Direct communication for transparent collaboration.',
+    color: 'from-blue-500 to-blue-600',
+    bgColor: 'bg-blue-50',
+    borderColor: 'border-blue-200',
+  },
+]
+
 export default function HowItWorks() {
   const [isClient, setIsClient] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const freelancerRef = useRef<HTMLDivElement>(null)
+  const customerRef = useRef<HTMLDivElement>(null)
+  const [freelancerHeight, setFreelancerHeight] = useState(0)
+  const [customerHeight, setCustomerHeight] = useState(0)
 
   useEffect(() => {
     setIsClient(true)
+    if (freelancerRef.current) {
+      setFreelancerHeight(freelancerRef.current.getBoundingClientRect().height)
+    }
+    if (customerRef.current) {
+      setCustomerHeight(customerRef.current.getBoundingClientRect().height)
+    }
   }, [])
 
-  const timelineData = steps.map((step, stepIndex) => {
+  const { scrollYProgress: freelancerScrollProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"],
+  })
+
+  const { scrollYProgress: customerScrollProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"],
+  })
+
+  const freelancerHeightTransform = useTransform(freelancerScrollProgress, [0, 1], [0, freelancerHeight])
+  const customerHeightTransform = useTransform(customerScrollProgress, [0, 1], [0, customerHeight])
+  const opacityTransform = useTransform(freelancerScrollProgress, [0, 0.1], [0, 1])
+
+  // Render step card component with dynamic colors
+  const renderStepCard = (step: typeof freelancerSteps[0], stepIndex: number, isCustomer: boolean = false) => {
     const Icon = step.icon
-    return {
-      title: step.title,
-      content: (
-        <div>
+    const colorScheme = isCustomer ? {
+      gradient: 'from-blue-500 to-blue-600',
+      bg: 'bg-blue-50',
+      border: 'border-blue-300/40',
+      shadow: 'group-hover:shadow-[0_20px_60px_-15px_rgba(59,130,246,0.3)]',
+      shadowColor: 'shadow-blue-500/40 group-hover:shadow-blue-500/60',
+      particles: 'bg-blue-400',
+      particles2: 'bg-cyan-400',
+      glow: 'from-blue-300/20 via-cyan-300/10',
+      hoverGlow: 'from-blue-500/0 via-blue-400/20 to-cyan-400/0',
+      detailBg: 'from-blue-50/80 to-cyan-50/60',
+      detailBorder: 'border-blue-200/40',
+      sparkleColor: 'text-blue-500',
+      accentShadow: 'shadow-blue-400/50',
+      via: 'via-blue-50/40'
+    } : {
+      gradient: 'from-[#F7682B] to-[#F79F2B]',
+      bg: 'bg-orange-50',
+      border: 'border-orange-300/40',
+      shadow: 'group-hover:shadow-[0_20px_60px_-15px_rgba(247,104,43,0.3)]',
+      shadowColor: 'shadow-orange-500/40 group-hover:shadow-orange-500/60',
+      particles: 'bg-orange-400',
+      particles2: 'bg-amber-400',
+      glow: 'from-orange-300/20 via-amber-300/10',
+      hoverGlow: 'from-orange-500/0 via-orange-400/20 to-amber-400/0',
+      detailBg: 'from-orange-50/80 to-amber-50/60',
+      detailBorder: 'border-orange-200/40',
+      sparkleColor: 'text-orange-500',
+      accentShadow: 'shadow-orange-400/50',
+      via: 'via-orange-50/40'
+    }
+
+    return (
+      <div key={stepIndex} className={stepIndex < 2 ? 'mb-10 md:mb-40' : ''}>
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 30 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px", amount: 0.3 }}
-            transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
             whileHover={{
               scale: 1.02,
               transition: { duration: 0.3 }
             }}
             className="relative group cursor-pointer"
           >
-            <div className="relative glass bg-gradient-to-br from-white via-orange-50/40 to-white backdrop-blur-2xl rounded-3xl p-8 md:p-10 border-2 border-orange-300/40 shadow-2xl group-hover:shadow-[0_20px_60px_-15px_rgba(247,104,43,0.3)] transition-all duration-500 overflow-hidden">
-              {/* Multi-layer Premium Background */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(247,104,43,0.06),transparent_50%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(247,159,43,0.04),transparent_50%)]" />
-
-              {/* Mesh Gradient Overlay */}
-              <div className="absolute inset-0 opacity-40 mix-blend-overlay bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-200/20 via-amber-100/10 to-transparent" />
-
+            <div className={`relative glass bg-gradient-to-br from-white ${colorScheme.via} to-white backdrop-blur-2xl rounded-3xl p-8 md:p-10 border-2 ${colorScheme.border} shadow-2xl ${colorScheme.shadow} transition-all duration-500 overflow-hidden`}>
               {/* Enhanced Glow Effect */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-orange-500/0 via-orange-400/20 to-amber-400/0 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className={`absolute -inset-2 bg-gradient-to-r ${colorScheme.hoverGlow} rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
 
               {/* Animated Particles on Hover */}
               {isClient && (
                 <>
                   <motion.div
-                    className="absolute top-10 right-10 w-2 h-2 bg-orange-400 rounded-full"
+                    className={`absolute top-10 right-10 w-2 h-2 ${colorScheme.particles} rounded-full`}
                     animate={{
                       y: [0, -20, 0],
                       opacity: [0, 1, 0],
@@ -90,7 +173,7 @@ export default function HowItWorks() {
                     }}
                   />
                   <motion.div
-                    className="absolute bottom-20 left-10 w-1.5 h-1.5 bg-amber-400 rounded-full"
+                    className={`absolute bottom-20 left-10 w-1.5 h-1.5 ${colorScheme.particles2} rounded-full`}
                     animate={{
                       y: [0, 15, 0],
                       opacity: [0, 0.8, 0],
@@ -108,7 +191,7 @@ export default function HowItWorks() {
               {/* Pulsing Light Leak */}
               {isClient && (
                 <motion.div
-                  className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-orange-300/20 via-amber-300/10 to-transparent rounded-full blur-3xl"
+                  className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-br ${colorScheme.glow} to-transparent rounded-full blur-3xl`}
                   animate={{
                     scale: [1, 1.3, 1],
                     opacity: [0.4, 0.7, 0.4],
@@ -144,7 +227,7 @@ export default function HowItWorks() {
                     rotate: 5,
                     transition: { duration: 0.3 }
                   }}
-                  className={`relative w-24 h-24 bg-gradient-to-br ${step.color} rounded-3xl flex items-center justify-center mb-6 shadow-2xl shadow-orange-500/40 group-hover:shadow-orange-500/60 transition-shadow duration-500`}
+                  className={`relative w-24 h-24 bg-gradient-to-br ${colorScheme.gradient} rounded-3xl flex items-center justify-center mb-6 shadow-2xl ${colorScheme.shadowColor} transition-shadow duration-500`}
                 >
                   {/* Icon Inner Glow */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent rounded-3xl" />
@@ -178,12 +261,12 @@ export default function HowItWorks() {
                   <p className="text-xl md:text-2xl text-brand-black mb-5 leading-relaxed font-semibold tracking-tight">
                     {step.description}
                   </p>
-                  <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-orange-50/80 to-amber-50/60 rounded-xl border border-orange-200/40">
+                  <div className={`flex items-start gap-3 p-4 bg-gradient-to-r ${colorScheme.detailBg} rounded-xl border ${colorScheme.detailBorder}`}>
                     <motion.div
                       animate={{ rotate: [0, 5, -5, 0] }}
                       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                     >
-                      <Sparkles className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                      <Sparkles className={`w-5 h-5 ${colorScheme.sparkleColor} mt-0.5 flex-shrink-0`} />
                     </motion.div>
                     <p className="text-base md:text-lg text-neutral-gray-dark italic leading-relaxed font-medium">
                       {step.detail}
@@ -198,26 +281,25 @@ export default function HowItWorks() {
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
-                    className={`h-1.5 w-32 bg-gradient-to-r ${step.color} rounded-full shadow-lg shadow-orange-400/50`}
+                    className={`h-1.5 w-32 bg-gradient-to-r ${colorScheme.gradient} rounded-full shadow-lg ${colorScheme.accentShadow}`}
                   />
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.8, duration: 0.4, type: "spring" }}
-                    className={`w-3 h-3 bg-gradient-to-br ${step.color} rounded-full shadow-md`}
+                    className={`w-3 h-3 bg-gradient-to-br ${colorScheme.gradient} rounded-full shadow-md`}
                   />
                 </div>
               </div>
             </div>
           </motion.div>
-        </div>
-      ),
-    }
-  })
+      </div>
+    )
+  }
 
   return (
-    <section id="how-it-works" className="pt-6 pb-8 md:pt-8 md:pb-12 lg:pt-10 lg:pb-16 relative overflow-hidden bg-gradient-to-br from-white via-orange-50/30 to-amber-50/20">
+    <section id="how-it-works" className="pt-6 pb-8 md:pt-8 md:pb-12 lg:pt-10 lg:pb-16 relative overflow-hidden bg-gradient-to-br from-white via-neutral-50 to-white">
       {/* Enhanced Background Layers */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-100/30 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-amber-100/20 via-transparent to-transparent" />
@@ -300,10 +382,12 @@ export default function HowItWorks() {
               </motion.div>
             )}
 
-            <h2 className="text-headline-lg md:text-display-md mb-1">
-              Your Gateway to Freelancer Success in{' '}
-              <span className="text-gradient">3 Steps</span>
+            <h2 className="text-headline-lg md:text-display-md mb-2">
+              How <span className="text-gradient">VDOgate</span> Works
             </h2>
+            <p className="text-lg md:text-xl text-neutral-gray max-w-3xl mx-auto">
+              Simple steps for Freelancers and Customers
+            </p>
           </div>
 
           {/* Decorative Underline */}
@@ -312,13 +396,83 @@ export default function HowItWorks() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="mx-auto mt-1 h-1 w-32 bg-gradient-to-r from-orange-400 via-amber-400 to-orange-400 rounded-full"
+            className="mx-auto mt-4 h-1 w-32 bg-gradient-to-r from-orange-400 via-amber-400 to-orange-400 rounded-full"
           />
         </motion.div>
       </div>
 
-      {/* Timeline */}
-      <Timeline data={timelineData} />
+      {/* Two Column Layout */}
+      <div className="container-custom relative z-10 mt-12" ref={containerRef}>
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 relative">
+
+          {/* Vertical Separator - Hidden on Mobile */}
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px -ml-px">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-300 to-transparent" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-blue-400 shadow-lg flex items-center justify-center">
+              <div className="w-3 h-3 rounded-full bg-white" />
+            </div>
+          </div>
+
+          {/* LEFT: For Freelancers */}
+          <div className="relative" ref={freelancerRef}>
+            {/* Vertical Progress Line for Freelancers */}
+            <div
+              style={{ height: freelancerHeight + "px" }}
+              className="absolute left-0 top-0 w-[3px] bg-gradient-to-b from-transparent via-orange-200/50 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_5%,black_95%,transparent_100%)] hidden md:block"
+            >
+              {isClient && (
+                <motion.div
+                  style={{
+                    height: freelancerHeightTransform,
+                    opacity: opacityTransform,
+                  }}
+                  className="absolute inset-x-0 top-0 w-[3px] bg-gradient-to-b from-transparent via-[#F7682B] to-[#F79F2B] rounded-full"
+                />
+              )}
+            </div>
+
+            <div className="md:pl-8">
+              <div className="text-center mb-8 md:mb-12">
+                <h3 className="text-2xl md:text-3xl font-bold text-gradient mb-2">
+                  For Freelancers
+                </h3>
+                <p className="text-base text-neutral-gray">Get discovered and earn from your skills</p>
+              </div>
+              {freelancerSteps.map((step, index) => renderStepCard(step, index, false))}
+            </div>
+          </div>
+
+          {/* RIGHT: For Customers */}
+          <div className="relative" ref={customerRef}>
+            {/* Vertical Progress Line for Customers */}
+            <div
+              style={{ height: customerHeight + "px" }}
+              className="absolute left-0 top-0 w-[3px] bg-gradient-to-b from-transparent via-blue-200/50 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_5%,black_95%,transparent_100%)] hidden md:block"
+            >
+              {isClient && (
+                <motion.div
+                  style={{
+                    height: customerHeightTransform,
+                    opacity: opacityTransform,
+                  }}
+                  className="absolute inset-x-0 top-0 w-[3px] bg-gradient-to-b from-transparent via-blue-500 to-blue-600 rounded-full"
+                />
+              )}
+            </div>
+
+            <div className="md:pl-8">
+              <div className="text-center mb-8 md:mb-12">
+                <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent mb-2">
+                  For Customers
+                </h3>
+                <p className="text-base text-neutral-gray">Find and hire verified freelancers</p>
+              </div>
+              {customerSteps.map((step, index) => renderStepCard(step, index, true))}
+            </div>
+          </div>
+
+        </div>
+      </div>
 
       {/* Enhanced Closing Statement */}
       <motion.div

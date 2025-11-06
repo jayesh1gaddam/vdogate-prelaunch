@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
+import { ArrowRight, Star, TrendingUp, Sparkles } from 'lucide-react'
+import { fadeInUp, scaleIn, staggerContainer, staggerItem, viewportOptions } from '@/lib/animations'
 
 // Dynamically import 3D component to avoid SSR issues
 const RotatingText3D = dynamic(() => import('@/components/ui/rotating-text-3d'), {
@@ -25,16 +27,16 @@ export default function FreelancerCategories() {
   ]
 
   const categoryPeople = [
-    { emoji: '🧘‍♀️', name: 'Priya', role: 'Yoga', color: 'from-purple-400 to-purple-600', image: '/yoga.png' },
-    { emoji: '💄', name: 'Neha', role: 'Makeup', color: 'from-pink-400 to-rose-600', image: '/makeup.png' },
-    { emoji: '👨‍🍳', name: 'Arjun', role: 'Chef', color: 'from-orange-400 to-red-600', image: '/chef.png' },
-    { emoji: '📚', name: 'Anjali', role: 'Tutor', color: 'from-green-400 to-emerald-600', image: '/teacher.png' },
-    { emoji: '💪', name: 'Rahul', role: 'Fitness', color: 'from-blue-400 to-cyan-600', image: '/gym.png' },
-    { emoji: '📸', name: 'Vikram', role: 'Photo', color: 'from-indigo-400 to-violet-600', image: '/photograper.png' },
+    { emoji: '🧘‍♀️', name: 'Priya', role: 'Yoga Trainer', specialty: '500+ Sessions', color: 'from-purple-400 to-purple-600', image: '/yoga.png', rating: '4.9' },
+    { emoji: '💄', name: 'Neha', role: 'Makeup Artist', specialty: 'Bridal Expert', color: 'from-pink-400 to-rose-600', image: '/makeup.png', rating: '5.0' },
+    { emoji: '👨‍🍳', name: 'Arjun', role: 'Professional Chef', specialty: 'Italian Cuisine', color: 'from-orange-400 to-red-600', image: '/chef.png', rating: '4.8' },
+    { emoji: '📚', name: 'Anjali', role: 'Math Tutor', specialty: 'IIT Coaching', color: 'from-green-400 to-emerald-600', image: '/teacher.png', rating: '4.9' },
+    { emoji: '💪', name: 'Rahul', role: 'Fitness Coach', specialty: 'Weight Loss', color: 'from-blue-400 to-cyan-600', image: '/gym.png', rating: '5.0' },
+    { emoji: '📸', name: 'Vikram', role: 'Photographer', specialty: 'Weddings', color: 'from-indigo-400 to-violet-600', image: '/photograper.png', rating: '4.7' },
   ]
 
   return (
-    <section className="relative py-8 md:py-10 bg-gradient-to-br from-slate-50 via-gray-50/50 to-neutral-100/30 overflow-hidden">
+    <section className="relative py-16 md:py-24 bg-gradient-to-br from-slate-50 via-gray-50/50 to-neutral-100/30 overflow-hidden">
       {/* Premium Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_var(--tw-gradient-stops))] from-orange-100/30 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,_var(--tw-gradient-stops))] from-amber-100/20 via-transparent to-transparent" />
@@ -44,21 +46,57 @@ export default function FreelancerCategories() {
 
       {/* Animated Orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-200/20 to-rose-200/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-tl from-amber-200/20 to-orange-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <motion.div
+          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-200/20 to-rose-200/20 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-tl from-amber-200/20 to-orange-200/20 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.5, 0.3, 0.5],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
       </div>
 
       <div className="container-custom relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-4xl mx-auto"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="text-center max-w-4xl mx-auto mb-16"
         >
+          {/* Premium Badge */}
+          <motion.div
+            variants={scaleIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-portal-primary/10 to-portal-light/10 border border-portal-primary/20 rounded-full px-6 py-2 mb-8"
+          >
+            <Sparkles className="w-4 h-4 text-portal-primary" />
+            <span className="text-sm font-semibold text-portal-primary">India's Top Freelance Talent</span>
+            <TrendingUp className="w-4 h-4 text-portal-primary" />
+          </motion.div>
+
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black mb-6">
-            <div className="flex flex-col items-center justify-center gap-1">
+            <div className="flex flex-col items-center justify-center gap-2">
               <span className="whitespace-nowrap">Meet India's</span>
               <div className="w-full max-w-2xl">
                 <RotatingText3D
@@ -71,76 +109,154 @@ export default function FreelancerCategories() {
 
           {/* Description */}
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-lg md:text-xl text-neutral-gray leading-relaxed mb-10 max-w-3xl mx-auto"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            className="text-lg md:text-xl text-neutral-gray leading-relaxed max-w-3xl mx-auto"
           >
-            From fitness trainers to creative professionals, VDOgate connects you with skilled freelancers across every category — all in one platform.
+            From fitness trainers to creative professionals, VDOgate connects you with
+            <span className="font-semibold text-brand-black"> verified, skilled freelancers</span> across every category — all in one platform.
           </motion.p>
+        </motion.div>
 
-          {/* People Avatar Grid */}
-          <div className="flex justify-center items-center gap-8 mb-8 flex-wrap">
-            {categoryPeople.map((person, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                className="relative group cursor-pointer"
-              >
-                {/* Card Container */}
-                <motion.div
-                  className="relative w-24 h-24 group-hover:w-40 group-hover:h-48 transition-all duration-500 ease-out"
-                  whileHover={{ y: -10 }}
-                >
-                  {/* Stage/Platform - Color Tile */}
-                  <motion.div
-                    className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-24 bg-gradient-to-br ${person.color} rounded-2xl shadow-lg transition-all duration-500 ease-out group-hover:w-40 group-hover:h-10 group-hover:rounded-xl flex items-center justify-center`}
-                  >
-                    <p className="text-sm font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">{person.role}</p>
-                  </motion.div>
+        {/* Clean Minimal Category Cards - Portrait + Category Name Only */}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 mb-12"
+        >
+          {categoryPeople.map((person, index) => (
+            <motion.div
+              key={index}
+              variants={staggerItem}
+              whileHover={{ y: -8, scale: 1.05 }}
+              className="group relative cursor-pointer"
+            >
+              {/* Minimal Card Container */}
+              <div className="relative flex flex-col items-center">
 
-                  {/* Image Container */}
+                {/* Full Size Portrait Avatar - Allows Overflow from Top */}
+                <div className="relative w-full aspect-square mb-4">
                   <motion.div
-                    className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-24 group-hover:w-36 group-hover:h-36 transition-all duration-500 ease-out z-10"
+                    className="relative w-full h-full"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
                   >
-                    <div className="relative w-full h-full transition-all duration-500" style={{ filter: 'drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3))' }}>
-                      <div className="relative w-full h-full">
+                    {/* Animated Glow Ring */}
+                    <motion.div
+                      className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${person.color} opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500`}
+                    />
+
+                    {/* Static Border Container */}
+                    <div className="absolute inset-0 rounded-3xl overflow-hidden">
+                      {/* Animated Border Glow Effect - Moving Light Only */}
+                      <motion.div
+                        className="absolute inset-0"
+                        style={{
+                          background: `conic-gradient(from 0deg, transparent 0deg, transparent 270deg, ${person.color.includes('purple') ? '#a855f7' : person.color.includes('pink') ? '#ec4899' : person.color.includes('orange') ? '#f97316' : person.color.includes('green') ? '#10b981' : person.color.includes('blue') ? '#3b82f6' : '#8b5cf6'} 300deg, transparent 330deg, transparent 360deg)`,
+                        }}
+                        animate={{
+                          rotate: [index * 60, index * 60 + 360],
+                        }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: "linear",
+                          delay: index * 0.3,
+                        }}
+                      />
+                    </div>
+
+                    {/* Image Container with Thin Border - Fixed */}
+                    <div className="absolute inset-[0.5px] rounded-3xl overflow-visible bg-white flex items-end justify-center pb-0 shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                      <div className="relative w-full h-[120%]">
                         <Image
                           src={person.image}
                           alt={person.role}
-                          width={144}
-                          height={144}
-                          className="object-contain w-full h-full transition-all duration-500 group-hover:[mask-image:linear-gradient(to_top,transparent_0%,rgba(0,0,0,0.3)_10%,rgba(0,0,0,0.7)_20%,black_30%)]"
-                          style={{ mixBlendMode: 'normal' }}
+                          fill
+                          className="object-contain object-bottom"
                         />
                       </div>
                     </div>
 
-                    {/* Drop shadow effect */}
-                    <motion.div
-                      className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-20 h-4 bg-black/30 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500"
-                      initial={{ scale: 0.8 }}
-                      whileHover={{ scale: 1 }}
-                    />
+                    {/* Premium Shine Effect on Hover */}
+                    <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none overflow-hidden">
+                      <div className="absolute -inset-full bg-gradient-to-r from-transparent via-white/40 to-transparent rotate-45 group-hover:inset-full transition-all duration-1000" />
+                    </div>
                   </motion.div>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
+                </div>
 
-          {/* CTA Button */}
-          <motion.button
-            onClick={() => document.getElementById('founding-creator')?.scrollIntoView({ behavior: 'smooth' })}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="px-8 py-4 bg-portal-gradient text-white rounded-xl font-semibold text-lg hover:shadow-portal transition-all duration-300"
-          >
-            Explore All Categories
-          </motion.button>
+                {/* Category Name - Premium Gradient Text with Hand-Drawn Underline */}
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="w-full text-center"
+                >
+                  <h3
+                    className="text-lg md:text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-br pb-1"
+                    style={{
+                      backgroundImage: `linear-gradient(to bottom right, ${
+                        person.color.includes('purple-400') ? '#a855f7, #7c3aed' :
+                        person.color.includes('pink-400') ? '#ec4899, #be185d' :
+                        person.color.includes('orange-400') ? '#f97316, #c2410c' :
+                        person.color.includes('green-400') ? '#10b981, #059669' :
+                        person.color.includes('blue-400') ? '#3b82f6, #1d4ed8' :
+                        '#8b5cf6, #6d28d9'
+                      })`
+                    }}
+                  >
+                    {person.role}
+                  </h3>
+                  {/* Hand-Drawn Style Underline */}
+                  <svg
+                    className="w-full h-2 mx-auto"
+                    viewBox="0 0 100 8"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <defs>
+                      <linearGradient id={`gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop
+                          offset="0%"
+                          stopColor={
+                            person.color.includes('purple-400') ? '#a855f7' :
+                            person.color.includes('pink-400') ? '#ec4899' :
+                            person.color.includes('orange-400') ? '#f97316' :
+                            person.color.includes('green-400') ? '#10b981' :
+                            person.color.includes('blue-400') ? '#3b82f6' :
+                            '#8b5cf6'
+                          }
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor={
+                            person.color.includes('purple-400') ? '#7c3aed' :
+                            person.color.includes('pink-400') ? '#be185d' :
+                            person.color.includes('orange-400') ? '#c2410c' :
+                            person.color.includes('green-400') ? '#059669' :
+                            person.color.includes('blue-400') ? '#1d4ed8' :
+                            '#6d28d9'
+                          }
+                        />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M 2,5 Q 8,3 15,4.5 T 30,5 Q 40,4 50,5 T 70,4.5 Q 80,5.5 90,4 T 98,5"
+                      fill="none"
+                      stroke={`url(#gradient-${index})`}
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      opacity="0.9"
+                    />
+                  </svg>
+                </motion.div>
+
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

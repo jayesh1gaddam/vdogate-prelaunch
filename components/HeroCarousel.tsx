@@ -1,62 +1,117 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { memo, useEffect, useState } from 'react'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
 
-export default function HeroCarousel() {
-  const containerRef = useRef<HTMLDivElement>(null)
+// Interactive hero carousel with scroll-triggered zoom effect and fade borders
+const HeroCarousel = memo(function HeroCarousel() {
+  const [scrollY, setScrollY] = useState(0)
 
-  // Track scroll progress of the container
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  })
+  // Track scroll position for parallax effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
-  // Transform scroll to movement - left list moves up, right list moves down
-  const leftY = useTransform(scrollYProgress, [0, 1], [100, -100])
-  const rightY = useTransform(scrollYProgress, [0, 1], [-100, 100])
+  // Calculate zoom based on scroll (1.6 to 1.8 scale) - Much more zoomed
+  const scale = 1.6 + Math.min(scrollY * 0.0003, 0.2)
+
+  // Calculate opposite scroll effect (parallax) - graphic moves up as page scrolls down
+  const translateY = -scrollY * 0.15
 
   return (
-    <div ref={containerRef} className="relative w-full h-[700px] flex items-center justify-center">
-      {/* Main carousel container with masking */}
-      <div className="relative w-full h-full overflow-hidden rounded-3xl flex gap-6">
-        {/* Left vertical list - scrolls up on page scroll */}
-        <div className="flex-1 h-full relative overflow-hidden flex items-center justify-center">
+    <div className="relative w-full h-[700px] lg:h-[850px] xl:h-[950px] 2xl:h-[1050px] overflow-hidden rounded-3xl">
+      {/* Animated background glow */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-orange-200/30 via-amber-100/20 to-rose-200/30 rounded-3xl blur-2xl"
+        animate={{
+          scale: [1, 1.05, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      {/* SVG Graphic with scroll-triggered zoom - HEAVILY ZOOMED, scaled vertically only */}
+      <motion.div
+        className="relative w-full h-full flex items-center justify-center"
+        style={{
+          transition: 'transform 0.1s ease-out',
+        }}
+      >
+        <div
+          className="relative w-full"
+          style={{
+            height: `${scale * 100}%`,
+            transform: `translateY(${translateY}px)`,
+            transition: 'all 0.1s ease-out',
+          }}
+        >
+          <Image
+            src="/hero_graphic_corousel.svg"
+            alt="VDOgate Hero Carousel"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
+      </motion.div>
+
+      {/* Floating particles for depth */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(8)].map((_, i) => (
           <motion.div
-            style={{ y: leftY }}
-            className="w-full"
-          >
-            <img
-              src="/hero_1.svg"
-              alt="VDOgate Features - Left Carousel"
-              className="w-full h-auto"
-            />
-          </motion.div>
-        </div>
+            key={i}
+            className="absolute w-3 h-3 bg-gradient-to-br from-orange-400/30 to-amber-400/20 rounded-full blur-sm"
+            style={{
+              left: `${20 + (i % 3) * 30}%`,
+              top: `${15 + Math.floor(i / 3) * 25}%`,
+            }}
+            animate={{
+              y: [-30, 30, -30],
+              x: [-10, 10, -10],
+              opacity: [0.2, 0.6, 0.2],
+            }}
+            transition={{
+              duration: 4 + (i % 3),
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.3,
+            }}
+          />
+        ))}
+      </div>
 
-        {/* Right vertical list - scrolls down on page scroll */}
-        <div className="flex-1 h-full relative overflow-hidden flex items-center justify-center">
-          <motion.div
-            style={{ y: rightY }}
-            className="w-full"
-          >
-            <img
-              src="/hero_2.svg"
-              alt="VDOgate Features - Right Carousel"
-              className="w-full h-auto"
-            />
-          </motion.div>
-        </div>
+      {/* Professional mask fade - Top and Bottom with proper depth */}
+      <div
+        className="absolute inset-0 pointer-events-none z-10"
+        style={{
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+        }}
+      >
+        {/* This creates the mask effect on the graphic itself */}
+      </div>
 
-        {/* Gradient overlays for vanishing effect */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Top fade */}
-          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-white/60 to-transparent z-10" />
+      {/* Additional gradient overlays for seamless blending */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Top fade overlay - smooth blend with hero bg */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#fff5f0] via-[#fff5f0]/60 to-transparent z-20" />
 
-          {/* Bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/60 to-transparent z-10" />
-        </div>
+        {/* Bottom fade overlay - smooth blend with hero bg */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#fff5f0] via-[#fff5f0]/60 to-transparent z-20" />
       </div>
     </div>
   )
-}
+})
+
+HeroCarousel.displayName = 'HeroCarousel'
+
+export default HeroCarousel
