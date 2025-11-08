@@ -44,33 +44,10 @@ export default function FreelancerCategories() {
       {/* Dot Pattern Overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(circle,#f7682b15_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]" />
 
-      {/* Animated Orbs */}
+      {/* Animated Orbs - Optimized with CSS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-200/20 to-rose-200/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-tl from-amber-200/20 to-orange-200/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.5, 0.3, 0.5],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-        />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-200/20 to-rose-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-tl from-amber-200/20 to-orange-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '1s' }} />
       </div>
 
       <div className="container-custom relative z-10">
@@ -145,30 +122,9 @@ export default function FreelancerCategories() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
                   >
-                    {/* Animated Glow Ring */}
-                    <motion.div
-                      className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${person.color} opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500`}
-                    />
-
-                    {/* Static Border Container */}
-                    <div className="absolute inset-0 rounded-3xl overflow-hidden">
-                      {/* Animated Border Glow Effect - Moving Light Only */}
-                      <motion.div
-                        className="absolute inset-0"
-                        style={{
-                          background: `conic-gradient(from 0deg, transparent 0deg, transparent 270deg, ${person.color.includes('purple') ? '#a855f7' : person.color.includes('pink') ? '#ec4899' : person.color.includes('orange') ? '#f97316' : person.color.includes('green') ? '#10b981' : person.color.includes('blue') ? '#3b82f6' : '#8b5cf6'} 300deg, transparent 330deg, transparent 360deg)`,
-                        }}
-                        animate={{
-                          rotate: [index * 60, index * 60 + 360],
-                        }}
-                        transition={{
-                          duration: 4,
-                          repeat: Infinity,
-                          ease: "linear",
-                          delay: index * 0.3,
-                        }}
-                      />
-                    </div>
+                    {/* Static Gradient Border - Optimized */}
+                    <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${person.color} opacity-0 group-hover:opacity-40 transition-opacity duration-300`} />
+                    <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${person.color} opacity-20 blur-sm`} />
 
                     {/* Image Container with Thin Border - Fixed */}
                     <div className="absolute inset-[0.5px] rounded-3xl overflow-visible bg-white flex items-end justify-center pb-0 shadow-xl group-hover:shadow-2xl transition-all duration-500">

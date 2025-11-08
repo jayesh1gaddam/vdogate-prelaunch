@@ -215,49 +215,14 @@ export default function ProblemSolution() {
       {/* Refined Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f7682b06_1px,transparent_1px),linear-gradient(to_bottom,#f7682b06_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_40%,transparent_100%)]" />
 
-      {/* Floating Particles */}
-      {isClient && <FloatingParticles count={15} />}
+      {/* Floating Particles - Reduced for performance */}
+      {isClient && <FloatingParticles count={5} />}
 
-      {/* Animated Floating Orbs */}
+      {/* Animated Floating Orbs - Optimized with CSS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-20 left-10 w-[500px] h-[500px] rounded-full blur-3xl bg-gradient-to-br from-orange-300/20 to-amber-200/15"
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 right-10 w-[600px] h-[600px] rounded-full blur-3xl bg-gradient-to-tl from-purple-300/20 to-indigo-200/15"
-          animate={{
-            scale: [1.1, 1, 1.1],
-            x: [0, -40, 0],
-            y: [0, 40, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 left-1/3 w-[400px] h-[400px] rounded-full blur-3xl bg-gradient-to-br from-rose-300/15 to-pink-200/10"
-          animate={{
-            scale: [1, 1.15, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
+        <div className="absolute top-20 left-10 w-[500px] h-[500px] rounded-full blur-3xl bg-gradient-to-br from-orange-300/20 to-amber-200/15 animate-pulse" style={{ animationDuration: '25s' }} />
+        <div className="absolute top-1/2 right-10 w-[600px] h-[600px] rounded-full blur-3xl bg-gradient-to-tl from-purple-300/20 to-indigo-200/15 animate-pulse" style={{ animationDuration: '20s' }} />
+        <div className="absolute bottom-20 left-1/3 w-[400px] h-[400px] rounded-full blur-3xl bg-gradient-to-br from-rose-300/15 to-pink-200/10 animate-pulse" style={{ animationDuration: '30s' }} />
       </div>
 
       {/* Floating Badges */}
@@ -381,52 +346,18 @@ export default function ProblemSolution() {
             whileHover={{ scale: 1.02, y: -5 }}
             className="relative group cursor-pointer"
           >
-            {/* Animated Border Glow - Problem */}
+            {/* Static Border Glow - Problem - Optimized */}
             <div className="absolute inset-0 rounded-[32px] overflow-hidden">
-              <motion.div
-                className="absolute inset-0"
-                style={{
-                  background: 'conic-gradient(from 0deg, transparent 0deg, transparent 300deg, rgba(239, 68, 68, 0.6) 330deg, transparent 360deg)',
-                }}
-                animate={{
-                  rotate: [0, 360],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              />
+              <div className="absolute inset-0 bg-gradient-to-br from-red-400/20 to-transparent" />
             </div>
 
             {/* Problem Card with Enhanced Visuals */}
             <div className="relative glass bg-gradient-to-br from-white via-red-50/40 to-orange-50/30 backdrop-blur-2xl rounded-[32px] p-8 md:p-10 border-2 border-white/60 shadow-2xl overflow-hidden m-[1px]">
-              {/* Animated Warning Pattern */}
-              <motion.div
-                className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(239,68,68,0.03)_10px,rgba(239,68,68,0.03)_20px)]"
-                animate={{
-                  backgroundPosition: ['0px 0px', '20px 20px'],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              />
+              {/* Static Warning Pattern - Optimized */}
+              <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(239,68,68,0.03)_10px,rgba(239,68,68,0.03)_20px)]" />
 
-              {/* Floating Glow Orbs */}
-              <motion.div
-                className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-red-400/20 to-transparent rounded-full blur-3xl"
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
+              {/* Floating Glow Orbs - Optimized */}
+              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-red-400/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
 
               <div className="relative z-10">
                 {/* Premium Header with Pulse */}
@@ -546,54 +477,18 @@ export default function ProblemSolution() {
             whileHover={{ scale: 1.02, y: -5 }}
             className="relative group cursor-pointer"
           >
-            {/* Animated Border Glow - Solution */}
+            {/* Static Border Glow - Solution - Optimized */}
             <div className="absolute inset-0 rounded-[32px] overflow-hidden">
-              <motion.div
-                className="absolute inset-0"
-                style={{
-                  background: 'conic-gradient(from 0deg, transparent 0deg, transparent 300deg, rgba(247, 104, 43, 0.7) 330deg, transparent 360deg)',
-                }}
-                animate={{
-                  rotate: [0, 360],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "linear",
-                  delay: 0.5,
-                }}
-              />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-transparent" />
             </div>
 
             {/* Solution Card with Premium Styling */}
             <div className="relative glass bg-gradient-to-br from-white via-orange-50/30 to-amber-50/40 backdrop-blur-2xl rounded-[32px] p-8 md:p-10 border-2 border-white/60 shadow-2xl overflow-hidden m-[1px]">
-              {/* Success Pattern */}
-              <motion.div
-                className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(247,104,43,0.08),transparent_70%)]"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
+              {/* Success Pattern - Optimized */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(247,104,43,0.08),transparent_70%)]" />
 
-              {/* Floating Glow Orbs */}
-              <motion.div
-                className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tl from-portal-primary/25 to-transparent rounded-full blur-3xl"
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.4, 0.7, 0.4],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
+              {/* Floating Glow Orbs - Optimized */}
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tl from-portal-primary/25 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '5s' }} />
 
               <div className="relative z-10">
                 {/* Premium Header with Sparkle */}
@@ -788,93 +683,240 @@ export default function ProblemSolution() {
           </div>
         </motion.div>
 
-        {/* Value Proposition Statement */}
+        {/* Value Proposition Statement - Enhanced */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="max-w-4xl mx-auto text-center mb-16"
+          className="max-w-6xl mx-auto mb-20"
         >
-          <p className="text-xl md:text-2xl text-neutral-gray leading-relaxed mb-6">
-            Freelancers spend valuable time and money chasing reach instead of serving clients, and many never qualify for monetization because platforms demand high followers or long watch-times before allowing income.
-          </p>
-          <p className="text-2xl md:text-3xl font-bold text-brand-black leading-relaxed">
-            VDOgate is India's first video-first platform where freelancers promote their services through videos, get discovered by category and location, and{' '}
-            <span className="text-gradient">earn directly from clients</span>{' '}
-            — without middlemen, agencies, or commission cuts.
-          </p>
+          <div className="relative">
+            {/* Main Container */}
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Left: Problem Statement with Visual */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                className="relative"
+              >
+                <div className="relative glass bg-gradient-to-br from-red-50 via-white to-orange-50/30 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-red-200/40 shadow-elevation-3 overflow-hidden">
+                  {/* Background decoration */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-300/20 to-transparent rounded-full blur-2xl" />
+                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tl from-orange-300/20 to-transparent rounded-full blur-2xl" />
+
+                  {/* Icon */}
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
+                    className="relative w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg"
+                  >
+                    <AlertCircle className="w-8 h-8 text-white" />
+                  </motion.div>
+
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <h4 className="text-lg md:text-xl font-bold text-red-700 mb-4 uppercase tracking-wide">The Problem</h4>
+                    <p className="text-lg md:text-xl text-neutral-gray-dark leading-relaxed">
+                      Freelancers spend valuable time and money chasing reach instead of serving clients, and many never qualify for monetization because platforms demand high followers or long watch-times before allowing income.
+                    </p>
+                  </div>
+
+                  {/* Bottom accent */}
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6, duration: 0.6 }}
+                    className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-500 to-orange-500 rounded-b-3xl"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Right: Solution Statement with Visual */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="relative"
+              >
+                <div className="relative glass bg-gradient-to-br from-orange-50 via-white to-amber-50/30 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-orange-200/40 shadow-elevation-3 overflow-hidden">
+                  {/* Background decoration */}
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-orange-300/20 to-transparent rounded-full blur-3xl" />
+                  <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tl from-amber-300/20 to-transparent rounded-full blur-3xl" />
+
+                  {/* Icon */}
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6, type: "spring", stiffness: 200 }}
+                    className="relative w-16 h-16 bg-portal-gradient rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-portal-primary/40"
+                  >
+                    <Sparkles className="w-8 h-8 text-white" />
+                  </motion.div>
+
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <h4 className="text-lg md:text-xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent mb-4 uppercase tracking-wide">The VDOgate Solution</h4>
+                    <p className="text-lg md:text-xl font-semibold text-brand-black leading-relaxed mb-4">
+                      VDOgate is India's first video-first platform where freelancers promote their services through videos, get discovered by category and location, and{' '}
+                      <span className="text-gradient">earn directly from clients</span>{' '}
+                      — without middlemen, agencies, or commission cuts.
+                    </p>
+
+                    {/* Feature Pills */}
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-orange-100 to-amber-100 border border-orange-200 rounded-full">
+                        <Video className="w-3.5 h-3.5 text-orange-600" />
+                        <span className="text-xs font-semibold text-orange-800">Video-First</span>
+                      </div>
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-orange-100 to-amber-100 border border-orange-200 rounded-full">
+                        <MapPin className="w-3.5 h-3.5 text-orange-600" />
+                        <span className="text-xs font-semibold text-orange-800">Location-Based</span>
+                      </div>
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-orange-100 to-amber-100 border border-orange-200 rounded-full">
+                        <IndianRupee className="w-3.5 h-3.5 text-orange-600" />
+                        <span className="text-xs font-semibold text-orange-800">Zero Commission</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom accent with shimmer */}
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.8, duration: 0.6 }}
+                    className="absolute bottom-0 left-0 right-0 h-1.5 bg-portal-gradient rounded-b-3xl overflow-hidden"
+                  >
+                    <motion.div
+                      animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
+                      style={{ backgroundSize: '200% 100%' }}
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Connecting Element */}
+            <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+              <motion.div
+                initial={{ scale: 0, rotate: 0 }}
+                whileInView={{ scale: 1, rotate: 180 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.7, duration: 0.6, type: "spring" }}
+                className="w-12 h-12 bg-white rounded-full shadow-elevation-3 border-4 border-orange-200 flex items-center justify-center"
+              >
+                <ArrowRight className="w-6 h-6 text-portal-primary" />
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Enhanced CTA Section */}
+        {/* Enhanced CTA Section - Redesigned */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="max-w-5xl mx-auto"
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="max-w-6xl mx-auto"
         >
-          <div className="relative glass bg-gradient-to-br from-white via-orange-50/30 to-amber-50/40 backdrop-blur-xl rounded-3xl p-10 md:p-14 shadow-2xl border border-portal-primary/20 overflow-hidden">
-            {/* Animated Background Pattern */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(247,104,43,0.08),transparent_70%)]" />
+          {/* Main Hero CTA Card */}
+          <div className="relative bg-gradient-to-br from-portal-primary via-orange-500 to-amber-500 rounded-3xl overflow-hidden shadow-2xl shadow-portal-primary/30">
+            {/* Premium Background Patterns */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.15),transparent_50%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.1),transparent_50%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%]" style={{ animation: 'shimmer 3s infinite' }} />
 
-            {/* Floating Sparkles */}
-            <motion.div
-              className="absolute top-10 right-10"
-              animate={{
-                scale: [1, 1.2, 1],
-                rotate: [0, 180, 360],
-              }}
-              transition={{ duration: 4, repeat: Infinity }}
-            >
-              <Sparkles className="w-8 h-8 text-portal-primary/30" />
-            </motion.div>
+            {/* Animated Orbs - Optimized */}
+            <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '4s' }} />
+            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '5s' }} />
 
-            <motion.div
-              className="absolute bottom-10 left-10"
-              animate={{
-                scale: [1.2, 1, 1.2],
-                rotate: [360, 180, 0],
-              }}
-              transition={{ duration: 5, repeat: Infinity }}
-            >
-              <Sparkles className="w-6 h-6 text-amber-500/30" />
-            </motion.div>
+            {/* Content */}
+            <div className="relative z-10 px-8 md:px-12 lg:px-16 py-12 md:py-16 lg:py-20">
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md border border-white/40 rounded-full mb-8"
+              >
+                <Star className="w-4 h-4 text-white fill-white" />
+                <span className="text-sm font-bold text-white">India's First Video-First Freelance Platform</span>
+              </motion.div>
 
-            <div className="relative z-10 text-center">
+              {/* Main Headline */}
               <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black leading-tight mb-4"
+                className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6"
               >
                 VDOgate is India's gateway where customers discover your talents
               </motion.h3>
 
+              {/* Subtitle */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="text-xl md:text-2xl text-gradient font-semibold mb-8"
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="text-xl md:text-2xl lg:text-3xl text-white/95 font-semibold mb-12 max-w-4xl"
               >
                 Fairly, transparently, and without algorithm bias.
               </motion.p>
 
-              {/* Multi-Path CTA Buttons */}
+              {/* Feature Grid */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                transition={{ delay: 0.6, duration: 0.6 }}
+                className="grid md:grid-cols-3 gap-4 mb-12"
+              >
+                <div className="flex items-center gap-3 px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Video className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-sm md:text-base font-semibold text-white">Video Profiles</span>
+                </div>
+                <div className="flex items-center gap-3 px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-sm md:text-base font-semibold text-white">Location-Based</span>
+                </div>
+                <div className="flex items-center gap-3 px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <IndianRupee className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-sm md:text-base font-semibold text-white">Zero Commission</span>
+                </div>
+              </motion.div>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.7, duration: 0.6 }}
+                className="flex flex-col sm:flex-row gap-4 mb-8"
               >
                 <motion.button
                   onClick={() => scrollToSection('founding-creator')}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group px-8 py-4 bg-portal-gradient text-white rounded-xl font-semibold text-lg shadow-portal hover:shadow-portal-md transition-all duration-300 flex items-center gap-3"
+                  className="group px-8 py-4 bg-white text-portal-primary rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3"
                 >
                   <Zap className="w-5 h-5 group-hover:rotate-12 transition-transform" />
                   Join as Founding Creator – Free
@@ -885,7 +927,7 @@ export default function ProblemSolution() {
                   onClick={() => scrollToSection('how-it-works')}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group px-8 py-4 glass bg-white/80 backdrop-blur-sm border-2 border-portal-primary text-portal-primary rounded-xl font-semibold text-lg hover:bg-portal-primary/5 transition-all duration-300 flex items-center gap-3"
+                  className="group px-8 py-4 bg-white/10 backdrop-blur-md border-2 border-white/40 text-white rounded-xl font-bold text-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-3"
                 >
                   <Target className="w-5 h-5" />
                   Find Your Freelancer
@@ -897,19 +939,19 @@ export default function ProblemSolution() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 1.0, duration: 0.6 }}
-                className="flex flex-wrap items-center justify-center gap-6 mt-8 text-sm text-neutral-gray"
+                transition={{ delay: 0.8, duration: 0.6 }}
+                className="flex flex-wrap items-center justify-start gap-6 text-sm text-white/90"
               >
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" />
+                  <CheckCircle2 className="w-4 h-4 text-white" />
                   <span>No credit card required</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-blue-600" />
+                  <Shield className="w-4 h-4 text-white" />
                   <span>Secure platform</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-portal-primary" />
+                  <Sparkles className="w-4 h-4 text-white" />
                   <span>500+ creators joining</span>
                 </div>
               </motion.div>

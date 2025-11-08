@@ -2,9 +2,8 @@
 
 import { memo, useEffect, useState } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 
-// Interactive hero carousel with scroll-triggered zoom effect and fade borders
+// Interactive hero carousel with scroll-triggered zoom effect and fade borders - Performance optimized
 const HeroCarousel = memo(function HeroCarousel() {
   const [scrollY, setScrollY] = useState(0)
 
@@ -25,33 +24,18 @@ const HeroCarousel = memo(function HeroCarousel() {
 
   return (
     <div className="relative w-full h-[700px] lg:h-[850px] xl:h-[950px] 2xl:h-[1050px] overflow-hidden rounded-3xl">
-      {/* Animated background glow */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-orange-200/30 via-amber-100/20 to-rose-200/30 rounded-3xl blur-2xl"
-        animate={{
-          scale: [1, 1.05, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
+      {/* Animated background glow - Optimized with CSS */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-200/30 via-amber-100/20 to-rose-200/30 rounded-3xl blur-2xl animate-pulse" style={{ animationDuration: '4s' }} />
 
       {/* SVG Graphic with scroll-triggered zoom - HEAVILY ZOOMED, scaled vertically only */}
-      <motion.div
-        className="relative w-full h-full flex items-center justify-center"
-        style={{
-          transition: 'transform 0.1s ease-out',
-        }}
-      >
+      <div className="relative w-full h-full flex items-center justify-center">
         <div
           className="relative w-full"
           style={{
             height: `${scale * 100}%`,
             transform: `translateY(${translateY}px)`,
             transition: 'all 0.1s ease-out',
+            willChange: 'transform',
           }}
         >
           <Image
@@ -62,28 +46,19 @@ const HeroCarousel = memo(function HeroCarousel() {
             priority
           />
         </div>
-      </motion.div>
+      </div>
 
-      {/* Floating particles for depth */}
+      {/* Floating particles for depth - Reduced for performance */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <motion.div
+        {[...Array(3)].map((_, i) => (
+          <div
             key={i}
-            className="absolute w-3 h-3 bg-gradient-to-br from-orange-400/30 to-amber-400/20 rounded-full blur-sm"
+            className="absolute w-3 h-3 bg-gradient-to-br from-orange-400/30 to-amber-400/20 rounded-full blur-sm animate-float"
             style={{
-              left: `${20 + (i % 3) * 30}%`,
-              top: `${15 + Math.floor(i / 3) * 25}%`,
-            }}
-            animate={{
-              y: [-30, 30, -30],
-              x: [-10, 10, -10],
-              opacity: [0.2, 0.6, 0.2],
-            }}
-            transition={{
-              duration: 4 + (i % 3),
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.3,
+              left: `${25 + i * 25}%`,
+              top: `${20 + i * 25}%`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${4 + i}s`,
             }}
           />
         ))}

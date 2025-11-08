@@ -7,6 +7,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Award, Star, Zap, Users, CheckCircle2, Sparkles, TrendingUp, User, Mail, Phone, MapPin, Briefcase, Link as LinkIcon, MessageSquare } from 'lucide-react'
 import Image from 'next/image'
+import { useIsMobile, usePlatform } from '@/hooks/usePWA'
+import { fadeInUp, scaleIn, staggerContainer, staggerItem, hoverLift, spring, shimmerAnimation } from '@/lib/animations'
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -37,7 +39,7 @@ const categories = [
 ]
 
 const benefits = [
-  { icon: Award, title: 'Lifetime Premium Benefits', desc: '95% revenue share forever', iconColor: 'text-yellow-400', bgColor: 'bg-yellow-400/20', hoverBg: 'group-hover:bg-yellow-400/30' },
+  { icon: Award, title: 'Lifetime Premium Benefits', desc: 'Exclusive founding member perks', iconColor: 'text-yellow-400', bgColor: 'bg-yellow-400/20', hoverBg: 'group-hover:bg-yellow-400/30' },
   { icon: Zap, title: 'Launch Advantage', desc: 'Priority in search rankings', iconColor: 'text-blue-400', bgColor: 'bg-blue-400/20', hoverBg: 'group-hover:bg-blue-400/30' },
   { icon: Users, title: 'Community Building', desc: 'Join freelancer community', iconColor: 'text-pink-400', bgColor: 'bg-pink-400/20', hoverBg: 'group-hover:bg-pink-400/30' },
   { icon: Star, title: 'Early Revenue Opportunity', desc: 'Launch day advantages', iconColor: 'text-green-400', bgColor: 'bg-green-400/20', hoverBg: 'group-hover:bg-green-400/30' },
@@ -47,6 +49,10 @@ export default function FoundingCreator() {
   const [submitted, setSubmitted] = useState(false)
   const [focusedField, setFocusedField] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const isMobile = useIsMobile()
+  const { isStandalone } = usePlatform()
+  const isMobilePWA = isMobile || isStandalone
+
   const {
     register,
     handleSubmit,
@@ -138,17 +144,17 @@ export default function FoundingCreator() {
       <div className="container-custom relative z-10">
         {/* Headline */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            variants={scaleIn}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-portal-primary/10 to-portal-light/10 border-[0.2px] border-portal-primary/20 rounded-full px-6 py-2 mb-6"
           >
             <Sparkles className="w-5 h-5 text-portal-primary" />
@@ -171,7 +177,7 @@ export default function FoundingCreator() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="flex flex-col gap-6"
           >
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon
@@ -184,6 +190,7 @@ export default function FoundingCreator() {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   whileHover={{ scale: 1.02, y: -4 }}
                   className="bg-white rounded-2xl p-6 cursor-pointer group hover:shadow-lg transition-all duration-300 border-[0.2px] border-neutral-gray-lighter"
+                  style={{ order: isMobilePWA ? 1 : 0 }}
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-portal-primary to-portal-light rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300">
@@ -204,6 +211,7 @@ export default function FoundingCreator() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="bg-gradient-to-br from-portal-primary/5 to-portal-light/10 border-[0.2px] border-portal-primary/30 rounded-2xl p-6 relative overflow-hidden"
+              style={{ order: isMobilePWA ? 0 : 1 }}
             >
               {/* Subtle animated background */}
               <div className="absolute inset-0 bg-gradient-to-r from-portal-primary/5 via-portal-light/10 to-portal-primary/5 animate-pulse" />
@@ -342,24 +350,11 @@ export default function FoundingCreator() {
                     <div className="relative">
                       <div className="w-full h-3 bg-gradient-to-r from-neutral-gray-lighter to-neutral-background rounded-full overflow-hidden">
                         <motion.div
-                          className="h-full bg-gradient-to-r from-portal-primary via-portal-light to-portal-lighter relative"
+                          className="h-full bg-gradient-to-r from-portal-primary via-portal-light to-portal-lighter"
                           initial={{ width: 0 }}
                           animate={{ width: `${progress}%` }}
                           transition={{ duration: 0.5, ease: 'easeOut' }}
-                        >
-                          {/* Shimmer effect */}
-                          <motion.div
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                            animate={{
-                              x: ['-100%', '200%']
-                            }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              ease: 'linear'
-                            }}
-                          />
-                        </motion.div>
+                        />
                       </div>
                       {/* Milestone markers */}
                       <div className="flex justify-between mt-2 px-1">
@@ -790,26 +785,12 @@ export default function FoundingCreator() {
                         disabled={isSubmitting || progress < 100}
                         whileHover={{ scale: (isSubmitting || progress < 100) ? 1 : 1.02, y: -2 }}
                         whileTap={{ scale: (isSubmitting || progress < 100) ? 1 : 0.98 }}
-                        className={`w-full px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-300 relative overflow-hidden group ${
+                        className={`w-full px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-300 relative group ${
                           progress < 100
                             ? 'bg-neutral-gray-lighter text-neutral-gray cursor-not-allowed'
                             : 'bg-gradient-to-r from-portal-primary via-portal-light to-portal-lighter text-white shadow-xl hover:shadow-2xl'
                         } ${isSubmitting ? 'opacity-75 cursor-wait' : ''}`}
                       >
-                        {/* Animated background */}
-                        {progress >= 100 && !isSubmitting && (
-                          <motion.div
-                            className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0"
-                            animate={{
-                              x: ['-100%', '200%']
-                            }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              ease: 'linear'
-                            }}
-                          />
-                        )}
 
                         <span className="relative z-10 flex items-center justify-center gap-3">
                           {isSubmitting ? (

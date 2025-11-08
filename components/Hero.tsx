@@ -14,17 +14,24 @@ export default function Hero() {
     element?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // Track scroll to hide scroll indicator
+  // Track scroll to hide scroll indicator - throttled for performance
   useEffect(() => {
+    let ticking = false
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50)
+          ticking = false
+        })
+        ticking = true
+      }
     }
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50/30 via-white to-amber-50/20 pt-8 md:pt-10 pb-12 md:pb-16">
+    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50/30 via-white to-amber-50/20">
       {/* Premium Mesh Gradient Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-100/40 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-amber-100/30 via-transparent to-transparent" />
@@ -32,51 +39,16 @@ export default function Hero() {
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f7682b08_1px,transparent_1px),linear-gradient(to_bottom,#f7682b08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
-      {/* Animated Background Orbs - More Prominent */}
+      {/* Static Background Orbs - No animations for better performance */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-1/4 -left-20 w-[500px] h-[500px] rounded-full blur-3xl bg-gradient-to-br from-orange-300/20 to-amber-200/20"
-          animate={{
-            scale: [1, 1.1, 1],
-            x: [0, 30, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full blur-3xl bg-gradient-to-bl from-rose-200/20 to-orange-300/20"
-          animate={{
-            scale: [1.1, 1, 1.1],
-            x: [0, -40, 0],
-            y: [0, 40, 0],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 left-1/3 w-[350px] h-[350px] rounded-full blur-3xl bg-gradient-to-tr from-amber-200/15 to-orange-200/15"
-          animate={{
-            scale: [1, 1.15, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] rounded-full blur-3xl bg-gradient-to-br from-orange-300/20 to-amber-200/20" />
+        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full blur-3xl bg-gradient-to-bl from-rose-200/20 to-orange-300/20" />
+        <div className="absolute bottom-1/4 left-1/3 w-[350px] h-[350px] rounded-full blur-3xl bg-gradient-to-tr from-amber-200/15 to-orange-200/15" />
       </div>
 
       <div className="container-custom relative z-10 w-full">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="max-w-[1600px] mx-auto">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 xl:gap-20 items-center">
             {/* Left Column - Content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -84,23 +56,12 @@ export default function Hero() {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="lg:col-span-7 text-center lg:text-left space-y-6 md:space-y-8 lg:space-y-10"
             >
-              {/* Tagline */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.6 }}
-                className="inline-flex items-center gap-2 px-3 py-1.5 bg-portal-primary/3 border border-portal-primary/8 rounded-full"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-portal-primary" />
-                <span className="text-xs md:text-sm font-medium text-portal-primary">India's Platform for India's Freelancers</span>
-              </motion.div>
-
               {/* Main Headline - Lighter & More Breathing Space */}
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.7 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.2] tracking-tight"
+                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-semibold leading-[1.2] tracking-tight"
               >
                 <span className="text-brand-black font-light">India's Platform for</span>
                 <br />
@@ -112,7 +73,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.7 }}
-                className="text-base md:text-lg text-neutral-gray leading-relaxed max-w-xl mx-auto lg:mx-0 font-light"
+                className="text-base md:text-lg xl:text-xl 2xl:text-2xl text-neutral-gray leading-relaxed max-w-xl xl:max-w-2xl 2xl:max-w-3xl mx-auto lg:mx-0 font-light"
               >
                 Make money from your skills — not spend money to promote them.
                 <br />
@@ -195,39 +156,16 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll Indicator - Hides after scrolling */}
+      {/* Scroll Indicator - Hides after scrolling - Optimized with CSS animation */}
       {!isScrolled && (
-        <motion.div
-          initial={{ opacity: 0.6 }}
-          animate={{ opacity: 0.6 }}
-          exit={{ opacity: 0 }}
-          className="absolute bottom-10 md:bottom-10 left-1/2 transform -translate-x-1/2 hover:opacity-100 transition-opacity cursor-pointer pwa-scroll-indicator"
+        <div
+          className="absolute bottom-10 md:bottom-10 left-1/2 transform -translate-x-1/2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer pwa-scroll-indicator"
           onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
         >
-          <motion.div
-            animate={{
-              y: [0, 8, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="w-6 h-10 border border-portal-primary/40 rounded-full flex items-start justify-center p-2"
-          >
-            <motion.div
-              className="w-1.5 h-1.5 bg-portal-primary rounded-full"
-              animate={{
-                y: [0, 14, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          </motion.div>
-        </motion.div>
+          <div className="w-6 h-10 border border-portal-primary/40 rounded-full flex items-start justify-center p-2 animate-bounce-slow">
+            <div className="w-1.5 h-1.5 bg-portal-primary rounded-full animate-scroll-dot" />
+          </div>
+        </div>
       )}
     </section>
   )
