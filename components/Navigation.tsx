@@ -12,24 +12,33 @@ export default function Navigation() {
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
 
-  // Handle scroll effect and navbar visibility
+  // Handle scroll effect and navbar visibility with debounce
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      const currentScrollY = window.scrollY
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY
 
-      // Update scrolled state
-      setIsScrolled(currentScrollY > 20)
+          // Update scrolled state
+          setIsScrolled(currentScrollY > 20)
 
-      // Show navbar when scrolling up, hide when scrolling down
-      if (currentScrollY < lastScrollY || currentScrollY < 100) {
-        // Scrolling up or near top - show navbar
-        setIsVisible(true)
-      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down and not near top - hide navbar
-        setIsVisible(false)
+          // Show navbar when scrolling up, hide when scrolling down
+          if (currentScrollY < lastScrollY || currentScrollY < 100) {
+            // Scrolling up or near top - show navbar
+            setIsVisible(true)
+          } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // Scrolling down and not near top - hide navbar
+            setIsVisible(false)
+          }
+
+          setLastScrollY(currentScrollY)
+          ticking = false
+        })
+
+        ticking = true
       }
-
-      setLastScrollY(currentScrollY)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -55,11 +64,11 @@ export default function Navigation() {
   }
 
   const navLinks = [
-    { label: 'Home', id: 'hero', isScroll: true },
-    { label: 'Join the Platform', id: 'founding-creator', isScroll: true },
-    { label: 'Find Your Freelancer', id: 'who-its-for', isScroll: true },
+    { label: 'Home', href: '/', isScroll: false },
     { label: 'About', href: '/about', isScroll: false },
-    { label: 'Contact', href: '/contact', isScroll: false },
+    { label: 'Blog', href: '/blog', isScroll: false },
+    { label: 'Careers', href: '/careers', isScroll: false },
+    { label: 'Ambassador', href: '/ambassador', isScroll: false },
   ]
 
   return (
@@ -105,31 +114,17 @@ export default function Navigation() {
               {/* Desktop Navigation Links */}
               <div className="hidden lg:flex items-center gap-8">
                 {navLinks.map((link, index) => (
-                  link.isScroll ? (
-                    <motion.button
-                      key={link.id}
-                      onClick={() => link.id && scrollToSection(link.id)}
-                      className="text-base font-medium text-neutral-black hover:text-portal-primary transition-colors duration-200 relative group"
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 + 0.2 }}
-                    >
-                      {link.label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-portal-gradient group-hover:w-full transition-all duration-300" />
-                    </motion.button>
-                  ) : (
-                    <motion.a
-                      key={link.label}
-                      href={link.href}
-                      className="text-base font-medium text-neutral-black hover:text-portal-primary transition-colors duration-200 relative group"
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 + 0.2 }}
-                    >
-                      {link.label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-portal-gradient group-hover:w-full transition-all duration-300" />
-                    </motion.a>
-                  )
+                  <motion.a
+                    key={link.label}
+                    href={link.href}
+                    className="text-base font-medium text-neutral-black hover:text-portal-primary transition-colors duration-200 relative group"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 + 0.2 }}
+                  >
+                    {link.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-portal-gradient group-hover:w-full transition-all duration-300" />
+                  </motion.a>
                 ))}
               </div>
 
@@ -198,30 +193,17 @@ export default function Navigation() {
                   {/* Navigation Links */}
                   <div className="space-y-2">
                     {navLinks.map((link, index) => (
-                      link.isScroll ? (
-                        <motion.button
-                          key={link.id}
-                          onClick={() => link.id && scrollToSection(link.id)}
-                          className="w-full text-left px-4 py-4 text-lg font-semibold text-neutral-black hover:text-portal-primary hover:bg-portal-primary/5 rounded-brand-md transition-all duration-200"
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.05 }}
-                        >
-                          {link.label}
-                        </motion.button>
-                      ) : (
-                        <motion.a
-                          key={link.label}
-                          href={link.href}
-                          className="w-full block text-left px-4 py-4 text-lg font-semibold text-neutral-black hover:text-portal-primary hover:bg-portal-primary/5 rounded-brand-md transition-all duration-200"
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.05 }}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {link.label}
-                        </motion.a>
-                      )
+                      <motion.a
+                        key={link.label}
+                        href={link.href}
+                        className="w-full block text-left px-4 py-4 text-lg font-semibold text-neutral-black hover:text-portal-primary hover:bg-portal-primary/5 rounded-brand-md transition-all duration-200"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {link.label}
+                      </motion.a>
                     ))}
                   </div>
 
