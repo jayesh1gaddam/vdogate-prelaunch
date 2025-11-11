@@ -48,7 +48,7 @@ export const fadeInUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: duration.fast, ease: easing.snappy }
+    transition: { duration: duration.fast, ease: easing.snappy as any }
   }
 }
 
@@ -57,7 +57,7 @@ export const fadeInDown: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: duration.fast, ease: easing.snappy }
+    transition: { duration: duration.fast, ease: easing.snappy as any }
   }
 }
 
@@ -69,7 +69,7 @@ export const scaleIn: Variants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: duration.normal, ease: easing.default }
+    transition: { duration: duration.normal, ease: easing.default as any }
   }
 }
 
@@ -77,7 +77,7 @@ export const scaleOnHover = {
   rest: { scale: 1 },
   hover: {
     scale: 1.02,
-    transition: { duration: duration.fast, ease: easing.snappy }
+    transition: { duration: duration.fast, ease: easing.snappy as any }
   }
 }
 
@@ -100,7 +100,7 @@ export const staggerItem: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: duration.fast, ease: easing.snappy }
+    transition: { duration: duration.fast, ease: easing.snappy as any }
   }
 }
 
@@ -121,13 +121,13 @@ export const hoverLift = {
   hover: {
     y: -8,
     scale: 1.02,
-    transition: { duration: duration.fast, ease: easing.snappy }
+    transition: { duration: duration.fast, ease: easing.snappy as any }
   }
 }
 
 export const tapScale = {
   scale: 0.98,
-  transition: { duration: 0.1, ease: easing.snappy }
+  transition: { duration: 0.1, ease: easing.snappy as any }
 }
 
 // ============================================
@@ -149,7 +149,7 @@ export const mobileOptimized: Variants = {
     opacity: 1,
     transition: {
       duration: 0.2,  // Faster on mobile
-      ease: easing.snappy
+      ease: easing.snappy as any
     }
   }
 }
@@ -163,7 +163,7 @@ export const pulseAnimation = {
   transition: {
     duration: 2,
     repeat: Infinity,
-    ease: easing.gentle,
+    ease: easing.gentle as any,
   }
 }
 
@@ -281,7 +281,7 @@ export const cardAnimation: Variants = {
     transition: {
       delay: custom * 0.1,
       duration: duration.normal,
-      ease: easing.default
+      ease: easing.default as any
     }
   })
 }
@@ -293,7 +293,7 @@ export const navSlideIn: Variants = {
   hidden: { y: -100 },
   visible: {
     y: 0,
-    transition: { duration: duration.normal, ease: easing.default }
+    transition: { duration: duration.normal, ease: easing.default as any }
   }
 }
 
