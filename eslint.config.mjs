@@ -1,4 +1,4 @@
-import next from 'eslint-config-next/core-web-vitals';
+import next from 'eslint-config-next/core-web-vitals.js';
 
 // Flat config for ESLint v9+
 const config = [

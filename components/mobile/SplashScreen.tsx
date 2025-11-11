@@ -10,7 +10,7 @@ interface SplashScreenProps {
 
 export default function SplashScreen({ onComplete }: SplashScreenProps) {
   const [isVisible, setIsVisible] = useState(true)
-  const onCompleteRef = useRef<SplashScreenProps['onComplete']>()
+  const onCompleteRef = useRef<SplashScreenProps['onComplete']>(undefined)
   useEffect(() => { onCompleteRef.current = onComplete }, [onComplete])
 
   // Deterministic PRNG: mulberry32
