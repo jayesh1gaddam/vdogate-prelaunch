@@ -16,9 +16,9 @@ const formSchema = z.object({
   phone: z.string().min(10, 'Phone number must be at least 10 digits'),
   category: z.string().min(1, 'Please select a category'),
   city: z.string().min(2, 'City is required'),
-  instagram: z.string().optional().or(z.literal('')),
-  youtube: z.string().optional().or(z.literal('')),
-  portfolio: z.string().url('Invalid URL').optional().or(z.literal('')),
+  instagram: z.string().optional(),
+  youtube: z.string().optional(),
+  portfolio: z.union([z.string().url('Invalid URL'), z.literal('')]).optional(),
   why: z.string().min(20, 'Please provide at least 20 characters'),
   challenges: z.string().min(20, 'Please describe your challenges (at least 20 characters)'),
   incomeGoal: z.string().min(1, 'Please select your monthly income goal'),
@@ -391,33 +391,18 @@ export default function FoundingCreator() {
                           </motion.span>
                         )}
                       </label>
-                      <div className="relative group">
-                        <motion.div
-                          className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none transition-all ${
-                            focusedField === 'name' ? 'text-portal-primary scale-110' : 'text-neutral-gray scale-100'
-                          }`}
-                          animate={{
-                            scale: focusedField === 'name' ? 1.1 : 1
-                          }}
-                        >
-                          <User className="w-5 h-5" />
-                        </motion.div>
+                      <div className="relative">
+                        <User className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none transition-colors ${
+                          focusedField === 'name' ? 'text-portal-primary' : 'text-neutral-gray'
+                        }`} />
                         <input
                           {...register('name')}
                           type="text"
-                          className="w-full pl-12 pr-4 py-3.5 bg-neutral-background border-[0.2px] border-neutral-gray-lighter rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-primary/20 focus:border-portal-primary transition-all hover:border-neutral-gray hover:shadow-sm"
+                          className="w-full pl-12 pr-4 py-3 bg-neutral-background border border-neutral-gray-lighter rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-primary focus:border-portal-primary transition-all"
                           placeholder="Your full name"
                           onFocus={() => setFocusedField('name')}
                           onBlur={() => setFocusedField(null)}
                         />
-                        {/* Field highlight on focus */}
-                        {focusedField === 'name' && (
-                          <motion.div
-                            layoutId="focusIndicator"
-                            className="absolute inset-0 rounded-xl border-[0.2px] border-portal-primary pointer-events-none"
-                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                          />
-                        )}
                       </div>
                       <AnimatePresence>
                         {errors.name && (
