@@ -94,7 +94,7 @@ export default function LiveEvents() {
               Additional Features (Add-Ons)
             </h3>
             <p className="text-sm md:text-base text-neutral-gray">
-              Expand your income opportunities with these optional features
+              Unlock additional features at affordable prices to grow your business
             </p>
           </div>
 

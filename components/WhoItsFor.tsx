@@ -1,8 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Play, MapPin, Filter, Users, Search, Video, CheckCircle2, Zap, Target, Sparkles, DollarSign, Rocket, MapPinned, Award } from 'lucide-react'
-import AnimatedBlobBg from '@/components/ui/animated-blob-bg'
+import { Play, MapPin, Filter, Users, Search, Video, CheckCircle2, Zap, Target, Sparkles, IndianRupee, Rocket, MapPinned, Award } from 'lucide-react'
 import Image from 'next/image'
 
 const categories = [
@@ -33,9 +32,9 @@ const videoThumbnails = [
 ]
 
 const customerFeatures = [
-  { icon: Search, text: 'Browse by category & location', color: 'text-blue-500' },
-  { icon: Video, text: 'Watch authentic video profiles', color: 'text-purple-500' },
-  { icon: CheckCircle2, text: 'Connect with verified talent', color: 'text-green-500' },
+  { icon: MapPin, text: 'Location-based search across India', color: 'text-blue-500' },
+  { icon: Users, text: 'Huge directory of all categories', color: 'text-purple-500' },
+  { icon: CheckCircle2, text: 'Free access - browse & connect', color: 'text-green-500' },
 ]
 
 const freelancerFeatures = [
@@ -47,10 +46,40 @@ const freelancerFeatures = [
 export default function WhoItsFor() {
   return (
     <section id="who-its-for" className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-white via-neutral-50/50 to-white">
-      {/* Animated Blob Background */}
-      <div className="absolute inset-0 opacity-30">
-        <AnimatedBlobBg />
+      {/* Lightweight Animated Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Animated gradient orbs */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl animate-float" style={{ ['--animation-duration' as any]: '20s' }} />
+        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-bl from-orange-200/20 to-amber-200/20 rounded-full blur-3xl animate-float-delayed" style={{ ['--animation-duration' as any]: '25s' }} />
+        <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-gradient-to-tr from-purple-200/15 to-pink-200/15 rounded-full blur-3xl animate-float" style={{ ['--animation-duration' as any]: '30s' }} />
+        
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30" />
+        
+        {/* Radial gradient overlays */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-100/15 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-orange-100/15 via-transparent to-transparent" />
       </div>
+      
+      {/* Add animation keyframes */}
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(30px, -30px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        @keyframes float-delayed {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(-30px, 30px) scale(0.9); }
+          66% { transform: translate(20px, -20px) scale(1.1); }
+        }
+        .animate-float {
+          animation: float var(--animation-duration, 20s) ease-in-out infinite;
+        }
+        .animate-float-delayed {
+          animation: float-delayed var(--animation-duration, 25s) ease-in-out infinite;
+        }
+      `}</style>
 
       {/* Enhanced Headline Section */}
       <motion.div
@@ -175,6 +204,7 @@ export default function WhoItsFor() {
                             fill
                             className="object-cover"
                             style={{ objectPosition: 'center 20%' }}
+                            loading="lazy"
                           />
                           {/* Gradient overlays for readability */}
                           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
@@ -198,25 +228,11 @@ export default function WhoItsFor() {
                         </div>
 
                         {/* Center - Play Button (Instagram/TikTok Style) */}
-                        <motion.div
-                          className="absolute inset-0 flex items-center justify-center z-10"
-                          whileHover={{ scale: 1.15 }}
-                          whileTap={{ scale: 0.9 }}
-                        >
-                          <motion.div
-                            className="w-16 h-16 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover/card:bg-blue-500 transition-all duration-300"
-                            animate={{
-                              scale: [1, 1.05, 1],
-                            }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              ease: "easeInOut"
-                            }}
-                          >
+                        <div className="absolute inset-0 flex items-center justify-center z-10">
+                          <div className="w-16 h-16 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover/card:bg-blue-500 group-hover/card:scale-110 transition-all duration-300">
                             <Play className="w-7 h-7 text-slate-900 group-hover/card:text-white ml-1 transition-colors" fill="currentColor" />
-                          </motion.div>
-                        </motion.div>
+                          </div>
+                        </div>
 
                         {/* Bottom Section - Profile Info (YouTube/Instagram Style) */}
                         <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
@@ -244,37 +260,25 @@ export default function WhoItsFor() {
 
                             {/* Engagement Bar - Instagram Style */}
                             <div className="flex items-center gap-3 text-white/90">
-                              <motion.button
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="flex items-center gap-1 hover:text-red-400 transition-colors"
-                              >
+                              <button type="button" className="flex items-center gap-1 hover:text-red-400 hover:scale-110 transition-all">
                                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                   <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                                 </svg>
-                                <span className="text-[10px] font-semibold drop-shadow-md">{(Math.random() * 100 + 50).toFixed(0)}</span>
-                              </motion.button>
+                                <span className="text-[10px] font-semibold drop-shadow-md">{String(50 + ((index * 37) % 101))}</span>
+                              </button>
 
-                              <motion.button
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="flex items-center gap-1 hover:text-blue-400 transition-colors"
-                              >
+                              <button type="button" className="flex items-center gap-1 hover:text-blue-400 hover:scale-110 transition-all">
                                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                   <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
                                 </svg>
-                                <span className="text-[10px] font-semibold drop-shadow-md">{(Math.random() * 20 + 5).toFixed(0)}</span>
-                              </motion.button>
+                                <span className="text-[10px] font-semibold drop-shadow-md">{String(5 + ((index * 17) % 21))}</span>
+                              </button>
 
-                              <motion.button
-                                whileHover={{ scale: 1.1, rotate: 15 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="ml-auto hover:text-yellow-400 transition-colors"
-                              >
+                              <button type="button" className="ml-auto hover:text-yellow-400 hover:scale-110 transition-all">
                                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                   <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
                                 </svg>
-                              </motion.button>
+                              </button>
                             </div>
                           </div>
                         </div>
@@ -398,27 +402,20 @@ export default function WhoItsFor() {
 
                       {/* Top - Category Badge */}
                       <div className="absolute top-3 left-3 right-3 z-10">
-                        <motion.div
-                          animate={{ scale: [1, 1.05, 1] }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                          className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-md rounded-lg px-3 py-1.5 border border-white/20"
-                        >
+                        <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5 border border-white/20">
                           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                           <span className="text-[10px] font-bold text-white uppercase tracking-wide">Yoga & Fitness</span>
-                        </motion.div>
+                        </div>
                       </div>
 
                       {/* Center - Upload Indicator */}
                       <div className="absolute inset-0 flex items-center justify-center z-10">
-                        <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          className="flex flex-col items-center gap-2"
-                        >
-                          <div className="w-16 h-16 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-2xl">
+                        <div className="flex flex-col items-center gap-2 hover:scale-110 transition-transform">
+                          <div className="w-16 h-16 rounded-full bg-white/95 flex items-center justify-center shadow-2xl">
                             <Video className="w-8 h-8 text-orange-500" />
                           </div>
                           <span className="text-xs font-bold text-white drop-shadow-lg">Upload Your Video</span>
-                        </motion.div>
+                        </div>
                       </div>
 
                       {/* Bottom - Profile Info */}
@@ -458,18 +455,7 @@ export default function WhoItsFor() {
 
                       {/* Pulsing Indicator */}
                       <div className="absolute top-1/2 right-4 -translate-y-1/2 z-10">
-                        <motion.div
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.5, 1, 0.5],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                          className="w-3 h-3 bg-orange-500 rounded-full shadow-lg shadow-orange-500/50"
-                        />
+                        <div className="w-3 h-3 bg-orange-500 rounded-full shadow-lg shadow-orange-500/50 animate-pulse" />
                       </div>
                     </div>
                   </motion.div>
@@ -487,10 +473,10 @@ export default function WhoItsFor() {
                   </h4>
                   <div className="grid grid-cols-2 gap-3">
                     {[
-                      { icon: DollarSign, title: 'Zero Commission', desc: 'Keep 100% earnings', color: 'text-green-500' },
+                      { icon: IndianRupee, title: 'Zero Commission', desc: 'Keep 100% earnings', color: 'text-green-500' },
                       { icon: Rocket, title: 'Quick Setup', desc: '5 min to go live', color: 'text-orange-500' },
                       { icon: MapPinned, title: 'Local Reach', desc: 'City-based discovery', color: 'text-blue-500' },
-                      { icon: Award, title: 'Premium Tools', desc: 'Free forever', color: 'text-purple-500' },
+                      { icon: Award, title: 'Premium Tools', desc: 'Analytics, Growth guide', color: 'text-purple-500' },
                     ].map((benefit, index) => {
                       const Icon = benefit.icon
                       return (
@@ -513,23 +499,7 @@ export default function WhoItsFor() {
                 </div>
 
                 {/* Enhanced CTA with Steps */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="relative bg-gradient-to-r from-orange-500/10 to-amber-500/10 border-2 border-orange-500/30 rounded-2xl p-5 overflow-hidden group/cta cursor-pointer hover:border-orange-500/50 transition-all"
-                >
-                  {/* Shimmer Effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/10 to-transparent"
-                    animate={{
-                      x: ['-100%', '200%'],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                  />
+                <div className="relative bg-gradient-to-r from-orange-500/10 to-amber-500/10 border-2 border-orange-500/30 rounded-2xl p-5 overflow-hidden group/cta cursor-pointer hover:border-orange-500/50 hover:scale-[1.02] transition-all">
 
                   <div className="relative z-10 space-y-3">
                     <div className="flex items-center justify-between">
@@ -538,7 +508,7 @@ export default function WhoItsFor() {
                     </div>
 
                     <div className="space-y-2">
-                      {['Upload video', 'Select category & location', 'Go live & get clients'].map((step, index) => (
+                      {['Upload video', 'Select category and location (offline/online/hybrid)', 'Go live & get clients'].map((step, index) => (
                         <div key={index} className="flex items-center gap-2">
                           <div className="w-6 h-6 rounded-full bg-portal-gradient text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
                             {index + 1}
@@ -554,7 +524,7 @@ export default function WhoItsFor() {
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -600,31 +570,25 @@ export default function WhoItsFor() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.button
+                <button
+                  type="button"
                   onClick={() => document.getElementById('founding-creator')?.scrollIntoView({ behavior: 'smooth' })}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group px-10 py-5 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 flex items-center justify-center gap-3"
+                  className="group px-10 py-5 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-orange-500/50 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
                 >
-                  Join as Freelancer — Free Pre-Launch
-                  <motion.div
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    →
-                  </motion.div>
-                </motion.button>
+                  Join as Founding Freelancer
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </button>
 
-                <motion.button
+                <button
+                  type="button"
                   disabled
-                  whileHover={{ scale: 1.05 }}
-                  className="relative px-10 py-5 bg-white/10 backdrop-blur-md text-white/60 rounded-2xl font-bold text-lg cursor-not-allowed border-2 border-white/20"
+                  className="relative px-10 py-5 bg-white/10 text-white/60 rounded-2xl font-bold text-lg cursor-not-allowed border-2 border-white/20"
                 >
-                  Browse Freelancers
+                  Find my freelancer
                   <span className="absolute -top-3 -right-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
                     Coming Soon
                   </span>
-                </motion.button>
+                </button>
               </div>
             </div>
           </div>

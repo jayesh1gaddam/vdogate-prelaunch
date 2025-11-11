@@ -1,0 +1,38 @@
+
+> vdogate-prelaunch-@1.0.0 build
+> npx next build
+
+   ▲ Next.js 15.5.6
+   - Environments: .env.local
+   - Experiments (use with caution):
+     ✓ optimizeCss
+     · optimizePackageImports
+
+   Creating an optimized production build ...
+> [PWA] Compile server
+> [PWA] Compile server
+> [PWA] Compile client (static)
+> [PWA] Auto register service worker with: /Users/jayeshgaddam/Desktop/vdogate-prelaunch/node_modules/next-pwa/register.js
+> [PWA] Service worker: /Users/jayeshgaddam/Desktop/vdogate-prelaunch/public/sw.js
+> [PWA]   url: /sw.js
+> [PWA]   scope: /
+> [PWA] Fallback to precache routes when fetch failed from cache or network:
+> [PWA]   document (page): /offline
+ ✓ Compiled successfully in 3.3s
+   Linting and checking validity of types ...
+Failed to compile.
+
+./lib/animations.ts:42:44
+Type error: Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+  Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+    Type 'number[]' is not assignable to type 'Easing[]'.
+      Type 'number' is not assignable to type 'Easing'.
+
+[0m [90m 40 |[39m   visible[33m:[39m {
+ [90m 41 |[39m     opacity[33m:[39m [35m1[39m[33m,[39m
+[31m[1m>[22m[39m[90m 42 |[39m     transition[33m:[39m { duration[33m:[39m duration[33m.[39mfast[33m,[39m ease[33m:[39m easing[33m.[39msnappy }
+ [90m    |[39m                                            [31m[1m^[22m[39m
+ [90m 43 |[39m   }
+ [90m 44 |[39m }
+ [90m 45 |[39m[0m
+Next.js build worker exited with code: 1 and signal: null

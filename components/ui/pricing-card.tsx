@@ -1,127 +1,40 @@
 'use client'
 
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { IndianRupee, Check, Info, Sparkles } from 'lucide-react'
-import { useRef, useState } from 'react'
 import AnimatedCounter from './animated-counter'
-import FloatingParticles from './floating-particles'
 
 export default function PricingCard() {
-  const [isHovered, setIsHovered] = useState(false)
-  const cardRef = useRef<HTMLDivElement>(null)
-
-  // Mouse tracking for 3D effect
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [7, -7]), {
-    stiffness: 150,
-    damping: 20,
-  })
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-7, 7]), {
-    stiffness: 150,
-    damping: 20,
-  })
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return
-
-    const rect = cardRef.current.getBoundingClientRect()
-    const centerX = rect.left + rect.width / 2
-    const centerY = rect.top + rect.height / 2
-
-    mouseX.set((e.clientX - centerX) / rect.width)
-    mouseY.set((e.clientY - centerY) / rect.height)
-  }
-
-  const handleMouseLeave = () => {
-    mouseX.set(0)
-    mouseY.set(0)
-    setIsHovered(false)
-  }
 
   const features = [
-    { icon: Check, text: '85% Revenue Share — Keep What You Earn', highlight: '85%' },
-    { icon: Check, text: 'Zero Commission on Services', highlight: '0%' },
+    { icon: Check, text: 'Fair Pricing — Keep What You Earn', highlight: '' },
+    { icon: Check, text: 'Zero Commission on Services', highlight: '' },
     { icon: Check, text: 'Searchable by Category & Location', highlight: '' },
     { icon: Check, text: 'Video Profile Showcase', highlight: '' },
     { icon: Check, text: 'Direct Client Connections', highlight: '' },
   ]
 
   return (
-    <div className="relative" style={{ perspective: '1000px' }}>
-      {/* Floating Particles Background */}
-      <FloatingParticles count={15} />
-
-      {/* Animated Background Orbs */}
-      <div className="absolute inset-0 opacity-40 pointer-events-none">
-        <motion.div
-          className="absolute top-0 left-1/4 w-64 h-64 rounded-full blur-3xl bg-gradient-to-br from-emerald-300/30 to-green-400/30"
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 30, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-1/4 w-72 h-72 rounded-full blur-3xl bg-gradient-to-tl from-orange-300/30 to-amber-400/30"
-          animate={{
-            scale: [1.1, 1, 1.1],
-            x: [0, -30, 0],
-            y: [0, 20, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
+    <div className="relative">
+      {/* Lightweight Static Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full blur-3xl bg-gradient-to-br from-emerald-200/20 to-green-300/20 animate-pulse" style={{ animationDuration: '8s' }} />
+        <div className="absolute bottom-0 right-1/4 w-72 h-72 rounded-full blur-3xl bg-gradient-to-tl from-orange-200/15 to-amber-300/15 animate-pulse" style={{ animationDuration: '10s' }} />
       </div>
 
       {/* Main Pricing Card */}
       <motion.div
-        ref={cardRef}
-        className="relative max-w-2xl mx-auto"
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: 'preserve-3d',
-        }}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={handleMouseLeave}
+        className="relative max-w-2xl mx-auto group"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        {/* Animated Border Gradient */}
-        <div className="absolute -inset-[2px] rounded-3xl opacity-75">
-          <motion.div
-            className="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-500"
-            animate={{
-              background: [
-                'linear-gradient(90deg, #10b981, #22c55e, #10b981)',
-                'linear-gradient(180deg, #10b981, #22c55e, #10b981)',
-                'linear-gradient(270deg, #10b981, #22c55e, #10b981)',
-                'linear-gradient(360deg, #10b981, #22c55e, #10b981)',
-              ],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-          />
-        </div>
+        {/* Simple Border Gradient */}
+        <div className="absolute -inset-[2px] rounded-3xl bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-500 opacity-75" />
 
         {/* Card Content */}
-        <div className="relative bg-white/80 backdrop-blur-2xl rounded-3xl p-8 md:p-12 shadow-2xl overflow-hidden">
+        <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-2xl overflow-hidden hover:shadow-3xl transition-shadow duration-300">
           {/* Decorative Elements */}
           <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-emerald-100/50 to-transparent rounded-full -translate-y-1/2 translate-x-1/2" />
           <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-green-100/50 to-transparent rounded-full translate-y-1/2 -translate-x-1/2" />
@@ -149,7 +62,7 @@ export default function PricingCard() {
             >
               <IndianRupee className="w-10 h-10 md:w-12 md:h-12 text-emerald-600 mb-2" />
               <span className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                <AnimatedCounter to={3000} duration={2000} />
+                <AnimatedCounter to={2999} duration={2000} />
               </span>
               <span className="text-2xl md:text-3xl font-semibold text-gray-600">/month</span>
             </motion.div>
@@ -184,12 +97,15 @@ export default function PricingCard() {
                   <Check className="w-4 h-4 text-emerald-600" />
                 </div>
                 <span className="text-base text-gray-700 font-medium">
-                  {feature.text.split(feature.highlight)[0]}
-                  {feature.highlight && (
-                    <span className="text-emerald-600 font-bold">{feature.highlight}</span>
+                  {feature.highlight ? (
+                    <>
+                      {feature.text.split(feature.highlight)[0]}
+                      <span className="text-emerald-600 font-bold">{feature.highlight}</span>
+                      {feature.text.split(feature.highlight)[1]}
+                    </>
+                  ) : (
+                    feature.text
                   )}
-                  {feature.highlight && feature.text.split(feature.highlight)[1]}
-                  {!feature.highlight && feature.text}
                 </span>
               </motion.div>
             ))}
@@ -216,15 +132,6 @@ export default function PricingCard() {
             </div>
           </motion.div>
 
-          {/* Pulsing Glow Effect */}
-          {isHovered && (
-            <motion.div
-              className="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-400/20 to-green-400/20 blur-xl pointer-events-none"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0.3, 0.6, 0.3] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          )}
         </div>
       </motion.div>
     </div>

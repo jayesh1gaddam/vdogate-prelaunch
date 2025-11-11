@@ -7,11 +7,11 @@ import Footer from '@/components/Footer'
 
 export default function AmbassadorPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-blue-50">
+    <main className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-blue-50 safe-top safe-bottom">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4">
+      <section className="pt-32 pb-16 px-4 md:px-6">
         <div className="container-custom max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -53,7 +53,7 @@ export default function AmbassadorPage() {
       </section>
 
       {/* Role Section */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 md:px-6">
         <div className="container-custom max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -104,7 +104,7 @@ export default function AmbassadorPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 md:px-6 bg-white">
         <div className="container-custom max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <motion.div
@@ -142,7 +142,7 @@ export default function AmbassadorPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 md:px-6">
         <div className="container-custom max-w-4xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

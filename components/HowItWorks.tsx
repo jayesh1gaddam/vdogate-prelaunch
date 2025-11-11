@@ -61,14 +61,14 @@ export default function HowItWorks() {
     : { from: 'from-blue-500', to: 'to-cyan-500', bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-200' }
 
   return (
-    <section id="how-it-works" className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-orange-50/30">
+    <section id="how-it-works" className={`relative py-16 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-neutral-50 via-white ${activeTab === 'freelancers' ? 'to-orange-50/30' : 'to-blue-50/30'}`}>
       {/* Premium Background Elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-100/20 via-transparent to-transparent" />
+      <div className={`absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] ${activeTab === 'freelancers' ? 'from-orange-100/20' : 'from-blue-100/20'} via-transparent to-transparent`} />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f7682b03_1px,transparent_1px),linear-gradient(to_bottom,#f7682b03_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
       {/* Floating Orbs - Optimized with CSS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-10 w-64 h-64 rounded-full blur-3xl bg-gradient-to-br from-orange-200/30 to-amber-200/20 animate-pulse" style={{ animationDuration: '20s' }} />
+        <div className={`absolute top-20 right-10 w-64 h-64 rounded-full blur-3xl ${activeTab === 'freelancers' ? 'bg-gradient-to-br from-orange-200/30 to-amber-200/20' : 'bg-gradient-to-br from-blue-200/30 to-cyan-200/20'} animate-pulse`} style={{ animationDuration: '20s' }} />
         <div className="absolute bottom-20 left-10 w-80 h-80 rounded-full blur-3xl bg-gradient-to-tr from-blue-200/20 to-cyan-200/20 animate-pulse" style={{ animationDuration: '18s' }} />
       </div>
 
@@ -79,25 +79,25 @@ export default function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200/50 rounded-full mb-6"
+            className={`inline-flex items-center gap-2 px-4 py-2 ${activeTab === 'freelancers' ? 'bg-gradient-to-r from-orange-50 to-amber-50 border-orange-200/50' : 'bg-gradient-to-r from-blue-50 to-cyan-50 border-blue-200/50'} border rounded-full mb-6`}
           >
-            <Sparkles className="w-4 h-4 text-orange-600" />
-            <span className="text-sm font-semibold text-orange-800">Simple & Transparent Process</span>
+            <Sparkles className={`w-4 h-4 ${activeTab === 'freelancers' ? 'text-orange-600' : 'text-blue-600'}`} />
+            <span className={`text-sm font-semibold ${activeTab === 'freelancers' ? 'text-orange-800' : 'text-blue-800'}`}>Simple & Transparent Process</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-black mb-6 tracking-tight">
-            How <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">VDOgate</span> Works
+            How <span className={`bg-gradient-to-r ${activeTab === 'freelancers' ? 'from-orange-500 to-amber-500' : 'from-blue-500 to-cyan-500'} bg-clip-text text-transparent`}>VDOgate</span> Works
           </h2>
 
           <p className="text-lg md:text-xl text-neutral-gray max-w-2xl mx-auto leading-relaxed">
-            Simple steps for Freelancers and Customers
+            Lifetime free for customers. Easy earnings for freelancers.
           </p>
         </motion.div>
 
@@ -107,50 +107,115 @@ export default function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="flex justify-center mb-16"
+          className="flex flex-col items-center mb-16"
         >
-          <div className="inline-flex bg-white rounded-2xl p-2 shadow-elevation-2 border border-neutral-gray-lighter">
-            <button
+          <p className="text-xs font-semibold text-neutral-gray mb-3">Choose your path:</p>
+          <div
+            className="flex flex-col sm:flex-row gap-3 w-full max-w-xl px-4"
+            role="tablist"
+            aria-label="How it works tabs"
+          >
+            <motion.button
               onClick={() => setActiveTab('freelancers')}
-              className={`relative px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 ${
+              whileHover={{ scale: 1.02, y: -1 }}
+              whileTap={{ scale: 0.98 }}
+              className={`relative flex-1 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md overflow-hidden ${
                 activeTab === 'freelancers'
-                  ? 'text-white'
-                  : 'text-neutral-gray-dark hover:text-brand-black'
+                  ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-orange-500/30'
+                  : 'bg-white text-neutral-gray-dark border-2 border-orange-200 hover:border-orange-400 shadow-neutral-gray-lighter/50'
               }`}
+              role="tab"
+              aria-selected={activeTab === 'freelancers'}
+              id="tab-freelancers"
+              aria-controls="panel-freelancers"
+              tabIndex={activeTab === 'freelancers' ? 0 : -1}
+              onKeyDown={(e) => {
+                if (e.key === 'ArrowRight' || e.key === 'End') {
+                  setActiveTab('customers')
+                  document.getElementById('tab-customers')?.focus()
+                } else if (e.key === 'Home') {
+                  setActiveTab('freelancers')
+                  document.getElementById('tab-freelancers')?.focus()
+                }
+              }}
             >
               {activeTab === 'freelancers' && (
                 <motion.div
-                  layoutId="activeTab"
-                  className="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl shadow-portal-sm"
+                  layoutId="activeBorder"
+                  className="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
-              <span className="relative z-10 flex items-center gap-2">
-                <Video className="w-5 h-5" />
-                For Freelancers
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                <Video className="w-4 h-4" />
+                <span className="flex flex-col items-start">
+                  <span>For Freelancers</span>
+                  <span className={`text-[10px] font-normal ${activeTab === 'freelancers' ? 'text-white/90' : 'text-neutral-gray'}`}>
+                    Showcase & Earn
+                  </span>
+                </span>
               </span>
-            </button>
+              {activeTab === 'freelancers' && (
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="absolute top-1.5 right-1.5 w-4 h-4 bg-white/20 rounded-full flex items-center justify-center"
+                >
+                  <CheckCircle2 className="w-3 h-3 text-white" />
+                </motion.div>
+              )}
+            </motion.button>
 
-            <button
+            <motion.button
               onClick={() => setActiveTab('customers')}
-              className={`relative px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 ${
+              whileHover={{ scale: 1.02, y: -1 }}
+              whileTap={{ scale: 0.98 }}
+              className={`relative flex-1 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md overflow-hidden ${
                 activeTab === 'customers'
-                  ? 'text-white'
-                  : 'text-neutral-gray-dark hover:text-brand-black'
+                  ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-blue-500/30'
+                  : 'bg-white text-neutral-gray-dark border-2 border-blue-200 hover:border-blue-400 shadow-neutral-gray-lighter/50'
               }`}
+              role="tab"
+              aria-selected={activeTab === 'customers'}
+              id="tab-customers"
+              aria-controls="panel-customers"
+              tabIndex={activeTab === 'customers' ? 0 : -1}
+              onKeyDown={(e) => {
+                if (e.key === 'ArrowLeft' || e.key === 'Home') {
+                  setActiveTab('freelancers')
+                  document.getElementById('tab-freelancers')?.focus()
+                } else if (e.key === 'End') {
+                  setActiveTab('customers')
+                  document.getElementById('tab-customers')?.focus()
+                }
+              }}
             >
               {activeTab === 'customers' && (
                 <motion.div
-                  layoutId="activeTab"
-                  className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl shadow-lg shadow-blue-500/30"
+                  layoutId="activeBorder"
+                  className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
-              <span className="relative z-10 flex items-center gap-2">
-                <Search className="w-5 h-5" />
-                For Customers
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                <Search className="w-4 h-4" />
+                <span className="flex flex-col items-start">
+                  <span>For Customers</span>
+                  <span className={`text-[10px] font-normal ${activeTab === 'customers' ? 'text-white/90' : 'text-neutral-gray'}`}>
+                    Find & Hire
+                  </span>
+                </span>
               </span>
-            </button>
+              {activeTab === 'customers' && (
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="absolute top-1.5 right-1.5 w-4 h-4 bg-white/20 rounded-full flex items-center justify-center"
+                >
+                  <CheckCircle2 className="w-3 h-3 text-white" />
+                </motion.div>
+              )}
+            </motion.button>
           </div>
         </motion.div>
 
@@ -163,6 +228,9 @@ export default function HowItWorks() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
             className="grid md:grid-cols-3 gap-8"
+            id={activeTab === 'freelancers' ? 'panel-freelancers' : 'panel-customers'}
+            role="tabpanel"
+            aria-labelledby={activeTab === 'freelancers' ? 'tab-freelancers' : 'tab-customers'}
           >
             {activeSteps.map((step, index) => {
               const Icon = step.icon
@@ -247,11 +315,11 @@ export default function HowItWorks() {
           transition={{ delay: 0.5, duration: 0.6 }}
           className="mt-20 max-w-4xl mx-auto"
         >
-          <div className="relative bg-gradient-to-br from-white via-orange-50/30 to-white rounded-3xl p-8 md:p-12 shadow-elevation-3 border border-orange-200/40 overflow-hidden">
+          <div className={`relative bg-gradient-to-br from-white ${activeTab === 'freelancers' ? 'via-orange-50/30 border-orange-200/40' : 'via-blue-50/30 border-blue-200/40'} to-white rounded-3xl p-8 md:p-12 shadow-elevation-3 border overflow-hidden`}>
             {/* Background Decoration */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(247,104,43,0.05),transparent_70%)]" />
-            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-orange-300/20 to-transparent rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tl from-amber-300/20 to-transparent rounded-full blur-3xl" />
+            <div className={`absolute inset-0 ${activeTab === 'freelancers' ? 'bg-[radial-gradient(circle_at_50%_50%,rgba(247,104,43,0.05),transparent_70%)]' : 'bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_70%)]'}`} />
+            <div className={`absolute top-0 right-0 w-40 h-40 ${activeTab === 'freelancers' ? 'bg-gradient-to-br from-orange-300/20' : 'bg-gradient-to-br from-blue-300/20'} to-transparent rounded-full blur-3xl`} />
+            <div className={`absolute bottom-0 left-0 w-40 h-40 ${activeTab === 'freelancers' ? 'bg-gradient-to-tl from-amber-300/20' : 'bg-gradient-to-tl from-cyan-300/20'} to-transparent rounded-full blur-3xl`} />
 
             <div className="relative z-10 text-center">
               <motion.div
@@ -259,23 +327,29 @@ export default function HowItWorks() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6, duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-orange-200 rounded-full mb-6"
+                className={`inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border ${activeTab === 'freelancers' ? 'border-orange-200' : 'border-blue-200'} rounded-full mb-6`}
               >
-                <Star className="w-4 h-4 text-orange-600 fill-orange-600" />
-                <span className="text-sm font-semibold text-orange-800">Everything You Need in One Platform</span>
+                <Star className={`w-4 h-4 ${activeTab === 'freelancers' ? 'text-orange-600 fill-orange-600' : 'text-blue-600 fill-blue-600'}`} />
+                <span className={`text-sm font-semibold ${activeTab === 'freelancers' ? 'text-orange-800' : 'text-blue-800'}`}>Everything You Need in One Platform</span>
               </motion.div>
 
               <p className="text-lg md:text-xl text-neutral-gray-dark leading-relaxed mb-8 max-w-3xl mx-auto">
-                Everything you need to grow — all in one Indian platform where freelancers and customers connect directly, fairly, and without any fees or commission to be paid to the platform.
+                {activeTab === 'freelancers' 
+                  ? "Join India's first truly fair freelance marketplace — where your talent matters more than your ad spend, and every connection you make is yours to keep."
+                  : "Find talented professionals who are ready to deliver quality work — browse authentic video portfolios and hire with confidence, completely free."}
               </p>
 
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('founding-creator')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl font-semibold text-lg shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all duration-300 inline-flex items-center gap-2"
+                className={`group relative px-8 py-4 ${activeTab === 'freelancers' ? 'bg-gradient-to-r from-orange-500 to-amber-500 shadow-orange-500/30 hover:shadow-orange-500/40' : 'bg-gradient-to-r from-blue-500 to-cyan-500 shadow-blue-500/30 hover:shadow-blue-500/40'} text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-2`}
               >
-                <span className="relative z-10">Join the Platform – Free Pre-Launch Registration</span>
+                <span className="relative z-10">
+                  {activeTab === 'freelancers' 
+                    ? 'Activate 30-days freelancer trial' 
+                    : 'Start finding freelancers now'}
+                </span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
               </motion.button>
 
@@ -286,8 +360,12 @@ export default function HowItWorks() {
                 transition={{ delay: 0.8, duration: 0.6 }}
                 className="mt-6 flex items-center justify-center gap-2 text-sm text-neutral-gray"
               >
-                <Sparkles className="w-4 h-4 text-orange-500" />
-                <span>Join 500+ freelancers already registered</span>
+                <Sparkles className={`w-4 h-4 ${activeTab === 'freelancers' ? 'text-orange-500' : 'text-blue-500'}`} />
+                <span>
+                  {activeTab === 'freelancers' 
+                    ? 'Join 500+ freelancers already registered' 
+                    : 'Trusted by businesses across India'}
+                </span>
               </motion.p>
             </div>
           </div>

@@ -250,7 +250,7 @@ export default function FinalCTA() {
             transition={{ delay: 0.2, duration: 0.7 }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent leading-tight">
-              Join VDOgate Before Launch
+              Join India's Platform for India's Freelancers
             </h2>
           </motion.div>
 
@@ -262,7 +262,9 @@ export default function FinalCTA() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-xl md:text-2xl text-white/90 mb-4 max-w-3xl mx-auto font-light leading-relaxed"
           >
-            Be among the first freelancers to showcase your skills on India's platform built for India's talent
+            Make money from your skills — not spend money to promote them.
+            <br />
+            <span className="font-semibold">No Ads • No Algorithm • No Commission on Your Services</span>
           </motion.p>
 
           {/* Info Text with Icons */}
@@ -279,13 +281,13 @@ export default function FinalCTA() {
             </span>
             <span className="hidden md:inline text-white/40">•</span>
             <span className="flex items-center gap-2 text-sm md:text-base">
-              <TrendingUp className="w-4 h-4 text-orange-400" />
-              Limited spots available
+              <Users className="w-4 h-4 text-purple-400" />
+              Join the first 500 freelancers
             </span>
             <span className="hidden md:inline text-white/40">•</span>
             <span className="flex items-center gap-2 text-sm md:text-base">
-              <Users className="w-4 h-4 text-purple-400" />
-              Subscription begins only after platform launch
+              <TrendingUp className="w-4 h-4 text-orange-400" />
+              ₹3,000/month subscription starts after launch
             </span>
           </motion.div>
 
@@ -345,16 +347,16 @@ export default function FinalCTA() {
                   </div>
 
                   <p className="text-base md:text-lg text-neutral-gray-dark mb-8 leading-relaxed">
-                    Register now for free early access
+                    Be among the first 500 freelancers to build the future of India's freelance economy
                   </p>
 
                   {/* Benefits List with Enhanced Design */}
                   <ul className="space-y-4 mb-8 text-left">
                     {[
-                      { text: 'Free pre-launch registration', icon: CheckCircle2, color: 'text-green-600' },
-                      { text: 'Early access to platform features', icon: Zap, color: 'text-orange-600' },
-                      { text: 'No commission on your services', icon: Shield, color: 'text-purple-600' },
-                      { text: 'Fair discovery by category & location', icon: TrendingUp, color: 'text-blue-600' },
+                      { text: 'Free pre-launch registration — no credit card required', icon: CheckCircle2, color: 'text-green-600' },
+                      { text: 'Video-first platform — showcase your skills authentically', icon: Zap, color: 'text-orange-600' },
+                      { text: 'Zero commission — keep 100% of your service fees', icon: Shield, color: 'text-purple-600' },
+                      { text: 'Fair discovery by category & location — no ads needed', icon: TrendingUp, color: 'text-blue-600' },
                     ].map((item, index) => (
                       <motion.li
                         key={index}
@@ -392,7 +394,7 @@ export default function FinalCTA() {
                       }}
                     />
                     <span className="relative z-10 flex items-center justify-center gap-2">
-                      Join the Platform – Free Pre-Launch Registration
+                      Join the Waitlist – Free Pre-Launch Registration
                       <ArrowRight className="w-5 h-5 group-hover/button:translate-x-2 transition-transform duration-300" />
                     </span>
                   </motion.button>

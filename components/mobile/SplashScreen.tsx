@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Image from 'next/image'
 
 interface SplashScreenProps {
@@ -10,29 +10,77 @@ interface SplashScreenProps {
 
 export default function SplashScreen({ onComplete }: SplashScreenProps) {
   const [isVisible, setIsVisible] = useState(true)
-  const [isMounted, setIsMounted] = useState(false)
+  const onCompleteRef = useRef<SplashScreenProps['onComplete']>()
+  useEffect(() => { onCompleteRef.current = onComplete }, [onComplete])
+
+  // Deterministic PRNG: mulberry32
+  const rng = (seed: number) => {
+    return () => {
+      seed |= 0
+      seed = (seed + 0x6D2B79F5) | 0
+      let t = Math.imul(seed ^ (seed >>> 15), 1 | seed)
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+    }
+  }
+
+  const particles = useMemo(() => {
+    const COUNT = 15
+    const seedBase = 424242
+    return Array.from({ length: COUNT }).map((_, i) => {
+      const r = rng(seedBase + i)
+      const leftVW = r() * 100 // 0-100 vw
+      const topVH = r() * 100 // 0-100 vh
+      const y1 = r() * 100
+      const y2 = r() * 100 - 10
+      const duration = r() * 3 + 2
+      const delay = r() * 2
+      return { leftVW, topVH, y1, y2, duration, delay }
+    })
+  }, [])
 
   useEffect(() => {
-    setIsMounted(true)
+    // Check if splash was already shown (using localStorage with version)
+    const SPLASH_VERSION = 'v1.0.0' // Update version to re-show splash after updates
+    try {
+      const splashData = localStorage.getItem('vdogate-splash')
+      const parsed = splashData ? JSON.parse(splashData) : null
 
-    // Check if splash was already shown in this session
-    const splashShown = sessionStorage.getItem('splash-shown')
+      // Show splash if:
+      // - Never shown before
+      // - Version mismatch (after app update)
+      // - Shown more than 24 hours ago
+      const shouldShowSplash = !parsed ||
+        parsed.version !== SPLASH_VERSION ||
+        (Date.now() - parsed.timestamp > 24 * 60 * 60 * 1000)
 
-    if (splashShown) {
+      if (!shouldShowSplash) {
+        setIsVisible(false)
+        onCompleteRef.current?.()
+        return
+      }
+
+      // Save splash state IMMEDIATELY before starting timer
+      // This ensures state is saved even if component unmounts
+      localStorage.setItem('vdogate-splash', JSON.stringify({
+        version: SPLASH_VERSION,
+        timestamp: Date.now()
+      }))
+
+      // Show splash for 2.5 seconds then fade out
+      const timer = setTimeout(() => {
+        setIsVisible(false)
+        onCompleteRef.current?.()
+      }, 2500)
+
+      return () => clearTimeout(timer)
+    } catch (error) {
+      // If localStorage fails, just skip splash
+      console.warn('localStorage unavailable:', error)
       setIsVisible(false)
-      onComplete?.()
-      return
+      onCompleteRef.current?.()
     }
-
-    // Show splash for 2.5 seconds then fade out
-    const timer = setTimeout(() => {
-      setIsVisible(false)
-      sessionStorage.setItem('splash-shown', 'true')
-      onComplete?.()
-    }, 2500)
-
-    return () => clearTimeout(timer)
-  }, [onComplete])
+  }, [])
 
   return (
     <AnimatePresence>
@@ -84,26 +132,23 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             />
 
             {/* Floating Particles */}
-            {isMounted && Array.from({ length: 15 }).map((_, i) => (
+            {particles.map((p, i) => (
               <motion.div
                 key={i}
                 className="absolute w-1.5 h-1.5 bg-orange-400/50 rounded-full"
                 initial={{
-                  x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 100),
-                  y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 100),
+                  x: `${p.leftVW}vw`,
+                  y: `${p.topVH}vh`,
                 }}
                 animate={{
-                  y: [
-                    Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 100),
-                    Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 100) - 100,
-                  ],
+                  y: [`${p.y1}vh`, `${p.y2}vh`],
                   opacity: [0, 1, 0],
                 }}
                 transition={{
-                  duration: Math.random() * 3 + 2,
+                  duration: p.duration,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  delay: Math.random() * 2,
+                  delay: p.delay,
                 }}
               />
             ))}
@@ -210,7 +255,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
               transition={{ delay: 0.6, duration: 0.6 }}
               className="text-gray-700 text-base font-medium tracking-wide mb-12"
             >
-              India's Platform for Freelancers
+              India&apos;s Platform for Freelancers
             </motion.p>
 
             {/* Premium Loading Indicator */}

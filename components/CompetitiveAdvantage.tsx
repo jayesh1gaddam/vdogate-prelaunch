@@ -4,15 +4,16 @@ import { motion } from 'framer-motion'
 import { Check, X, Rocket, Award, Star, Zap } from 'lucide-react'
 
 const comparison = [
-  { feature: 'Revenue Share', vdogate: '85% to freelancers', competitors: '~55% (after ads)' },
-  { feature: 'Discovery', vdogate: 'Category + Location Search', competitors: 'Algorithm-dependent' },
+  { feature: 'For Customers', vdogate: 'Free - Browse & Connect', competitors: 'Limited search / Paid' },
+  { feature: 'Pricing Model', vdogate: 'No hidden fees', competitors: 'High commissions + ads' },
+  { feature: 'Discovery', vdogate: 'Location + Category Search', competitors: 'Algorithm-dependent' },
   { feature: 'Professional Tools', vdogate: 'Booking, leads, dashboard', competitors: 'DMs and hoping' },
-  { feature: 'Audience Ownership', vdogate: 'Direct connections', competitors: 'Platform owns relationship' },
+  { feature: 'Directory Size', vdogate: 'All categories nationwide', competitors: 'Limited categories' },
   { feature: 'Business Focus', vdogate: 'Built for monetization', competitors: 'Built for engagement' },
 ]
 
 const foundingBenefits = [
-  { icon: Award, text: 'Lifetime 95% revenue share (vs standard 90%)' },
+  { icon: Award, text: 'Lifetime premium benefits' },
   { icon: Star, text: 'Premium profile badge' },
   { icon: Zap, text: 'Priority in search results' },
   { icon: Rocket, text: 'Free featured listing (3 months)' },
@@ -31,8 +32,11 @@ export default function CompetitiveAdvantage() {
           className="text-center mb-16"
         >
           <h2 className="text-headline-lg md:text-display-md mb-4">
-            Why Freelancers Choose <span className="text-gradient">VDOgate</span>
+            Why <span className="text-gradient">VDOgate</span> Stands Out
           </h2>
+          <p className="text-body-lg text-neutral-gray-dark max-w-3xl mx-auto">
+            Built for freelancers to grow their business — <span className="font-semibold text-blue-600">completely free</span> for customers to discover and connect with verified talent
+          </p>
         </motion.div>
 
         {/* Comparison Table */}

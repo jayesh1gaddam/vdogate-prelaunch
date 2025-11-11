@@ -6,8 +6,8 @@ import { TrendingUp, Shield, Users, Zap } from 'lucide-react'
 const features = [
   {
     icon: TrendingUp,
-    title: '85% Revenue Share',
-    description: 'Keep more of what you earn',
+    title: 'Fair Pricing',
+    description: 'Transparent costs, no surprises',
     color: 'from-emerald-400 to-green-500',
     bgColor: 'from-emerald-50 to-green-50',
   },

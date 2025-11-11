@@ -1,17 +1,46 @@
+import dynamic from 'next/dynamic'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import PremiumMessage from '@/components/PremiumMessage'
-import FreelancerCategories from '@/components/FreelancerCategories'
-import ProblemSolution from '@/components/ProblemSolution'
-import HowItWorks from '@/components/HowItWorks'
-import WhoItsFor from '@/components/WhoItsFor'
-import PlatformPricing from '@/components/PlatformPricing'
-import FoundingCreator from '@/components/FoundingCreator'
-import FinalCTA from '@/components/FinalCTA'
-import Footer from '@/components/Footer'
-import TermsFooter from '@/components/TermsFooter'
 import PWAProvider from '@/components/PWAProvider'
 import MobileLayoutWrapper from '@/components/MobileLayoutWrapper'
+
+// Lazy load below-fold components with loading states
+const FreelancerCategories = dynamic(() => import('@/components/FreelancerCategories'), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
+})
+
+const ProblemSolution = dynamic(() => import('@/components/ProblemSolution'), {
+  loading: () => <div className="h-96 bg-white animate-pulse" />
+})
+
+const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
+})
+
+const WhoItsFor = dynamic(() => import('@/components/WhoItsFor'), {
+  loading: () => <div className="h-96 bg-white animate-pulse" />
+})
+
+const PlatformPricing = dynamic(() => import('@/components/PlatformPricing'), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
+})
+
+const FoundingCreator = dynamic(() => import('@/components/FoundingCreator'), {
+  loading: () => <div className="h-96 bg-white animate-pulse" />
+})
+
+const FinalCTA = dynamic(() => import('@/components/FinalCTA'), {
+  loading: () => <div className="h-64 bg-gray-50 animate-pulse" />
+})
+
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <div className="h-96 bg-white animate-pulse" />
+})
+
+const TermsFooter = dynamic(() => import('@/components/TermsFooter'), {
+  loading: () => <div className="h-32 bg-gray-50 animate-pulse" />
+})
 
 export default function Home() {
   return (
@@ -21,8 +50,11 @@ export default function Home() {
           {/* Navigation - shown on both mobile and desktop */}
           <Navigation />
 
+          {/* Above-fold content - loaded immediately */}
           <Hero />
           <PremiumMessage />
+
+          {/* Below-fold content - lazy loaded */}
           <FreelancerCategories />
           <ProblemSolution />
           <HowItWorks />

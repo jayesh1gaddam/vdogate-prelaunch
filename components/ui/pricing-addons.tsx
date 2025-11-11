@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Video, Ticket, MessageCircle } from 'lucide-react'
+import { Video, Ticket } from 'lucide-react'
 
 const addons = [
   {
@@ -19,14 +19,6 @@ const addons = [
     color: 'from-blue-400 to-cyan-500',
     bgColor: 'from-blue-50 to-cyan-50',
     borderColor: 'border-blue-200',
-  },
-  {
-    icon: MessageCircle,
-    title: '1-to-1 Customer Chat*',
-    description: 'Offer personalized consultations, coaching sessions, or meetings with customers',
-    color: 'from-emerald-400 to-green-500',
-    bgColor: 'from-emerald-50 to-green-50',
-    borderColor: 'border-emerald-200',
   },
 ]
 
@@ -57,12 +49,12 @@ export default function PricingAddons() {
           Expand Your Income Opportunities
         </h3>
         <p className="text-base md:text-lg text-neutral-gray max-w-2xl mx-auto">
-          Expand your income opportunities with these optional features
+          Unlock additional features at affordable prices to grow your business
         </p>
       </motion.div>
 
       {/* Addons Grid */}
-      <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         {addons.map((addon, index) => {
           const Icon = addon.icon
           return (
@@ -115,7 +107,7 @@ export default function PricingAddons() {
         className="mt-10 text-center max-w-4xl mx-auto"
       >
         <p className="text-sm md:text-base text-neutral-gray-dark leading-relaxed mb-4">
-          All add-ons require the base <span className="font-bold text-emerald-600">₹3,000/month subscription</span> • Use one, two, or all three to maximize your income
+          All add-ons require the base <span className="font-bold text-emerald-600">₹3,000/month subscription</span> • Use one or both to maximize your income
         </p>
         <p className="text-sm md:text-base text-neutral-gray">
           <span className="font-semibold text-brand-black">Pre-launch registration is free.</span> Subscription begins only once the platform goes live.

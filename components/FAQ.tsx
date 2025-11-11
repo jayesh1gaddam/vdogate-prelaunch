@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     question: 'How much does it cost?',
-    answer: 'VDOgate is completely free for freelancers to join. We only earn when you earn through our platform fee: 10% for regular freelancers, and just 5% for founding freelancers (95% revenue share for life).',
+    answer: 'Joining VDOgate is free for freelancers. Premium features and future paid tiers (like advanced tools and membership benefits) will have special pricing. Founding freelancers receive lifetime premium benefits and exclusive discounts.',
   },
   {
     question: 'What categories do you support?',

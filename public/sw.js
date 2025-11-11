@@ -1,212 +1,127 @@
-// VDOgate Service Worker
-// Version 1.0.3
+/**
+ * Copyright 2018 Google Inc. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-const CACHE_NAME = 'vdogate-v1.0.3'
-const OFFLINE_URL = '/_offline'
+// If the loader is already loaded, just stop.
+if (!self.define) {
+  let registry = {};
 
-// Assets to precache
-const PRECACHE_ASSETS = [
-  '/',
-  '/manifest.json',
-  '/vdogate_app_logo.png',
-]
+  // Used for `eval` and `importScripts` where we can't get script URL by other means.
+  // In both cases, it's safe to use a global var because those functions are synchronous.
+  let nextDefineUri;
 
-// Cache strategies
-const CACHE_STRATEGIES = {
-  // Cache first, fallback to network (for static assets)
-  CACHE_FIRST: 'cache-first',
-  // Network first, fallback to cache (for dynamic content)
-  NETWORK_FIRST: 'network-first',
-  // Network only (for critical API calls)
-  NETWORK_ONLY: 'network-only',
-  // Cache only (for precached assets)
-  CACHE_ONLY: 'cache-only',
-  // Stale while revalidate (for images)
-  STALE_WHILE_REVALIDATE: 'stale-while-revalidate',
-}
-
-// Install event - precache assets
-self.addEventListener('install', (event) => {
-  console.log('[SW] Install event')
-
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log('[SW] Precaching app shell')
-      return cache.addAll(PRECACHE_ASSETS)
-    }).then(() => {
-      return self.skipWaiting()
-    })
-  )
-})
-
-// Activate event - clean up old caches
-self.addEventListener('activate', (event) => {
-  console.log('[SW] Activate event')
-
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('[SW] Deleting old cache:', cacheName)
-            return caches.delete(cacheName)
+  const singleRequire = (uri, parentUri) => {
+    // Ensure we only append .js if not already present
+    const urlObj = new URL(uri, parentUri);
+    if (!urlObj.pathname.endsWith('.js')) {
+      urlObj.pathname += '.js';
+    }
+    uri = urlObj.href;
+    return registry[uri] || (
+      registry[uri] = new Promise((resolve, reject) => {
+          if ("document" in self) {
+            const script = document.createElement("script");
+            script.src = uri;
+            script.onload = () => {
+              script.onload = null;
+              script.onerror = null;
+              resolve();
+            };
+            script.onerror = (err) => {
+              script.onload = null;
+              script.onerror = null;
+              script.remove();
+              // Remove failed promise from registry to allow retry
+              delete registry[uri];
+              reject(new Error(`Failed to load script ${uri}: ${err?.message || 'unknown error'}`));
+            };
+            document.head.appendChild(script);
+          } else {
+            nextDefineUri = uri;
+            try {
+              importScripts(uri);
+              resolve();
+            } catch (e) {
+              nextDefineUri = undefined;
+              // Remove failed promise from registry to allow retry
+              delete registry[uri];
+              reject(e);
+            }
           }
         })
-      )
-    }).then(() => {
-      return self.clients.claim()
-    })
-  )
-})
 
-// Fetch event - handle requests with appropriate strategies
-self.addEventListener('fetch', (event) => {
-  const { request } = event
-  const url = new URL(request.url)
+      .then(() => {
+        let promise = registry[uri];
+        if (!promise) {
+          throw new Error(`Module ${uri} didn't register its module`);
+        }
+        return promise;
+      })
+      .catch((err) => {
+        // Remove failed promise from registry to allow retry
+        delete registry[uri];
+        throw err;
+      })
+    );
+  };
 
-  // Skip cross-origin requests
-  if (url.origin !== location.origin) {
-    return
-  }
-
-  // Handle navigation requests
-  if (request.mode === 'navigate') {
-    event.respondWith(
-      fetch(request)
-        .catch(() => {
-          return caches.match(OFFLINE_URL)
-        })
-    )
-    return
-  }
-
-  // Handle API requests (network first)
-  if (url.pathname.startsWith('/api/')) {
-    event.respondWith(networkFirst(request))
-    return
-  }
-
-  // Handle images (stale while revalidate)
-  if (request.destination === 'image') {
-    event.respondWith(staleWhileRevalidate(request))
-    return
-  }
-
-  // Handle static assets (cache first)
-  if (
-    request.destination === 'script' ||
-    request.destination === 'style' ||
-    request.destination === 'font'
-  ) {
-    event.respondWith(cacheFirst(request))
-    return
-  }
-
-  // Default strategy (network first)
-  event.respondWith(networkFirst(request))
-})
-
-// Cache first strategy
-async function cacheFirst(request) {
-  const cache = await caches.open(CACHE_NAME)
-  const cached = await cache.match(request)
-
-  if (cached) {
-    return cached
-  }
+  self.define = (depsNames, factory) => {
+    const uri = nextDefineUri || ("document" in self ? document.currentScript.src : "") || location.href;
+    if (registry[uri]) {
+      // Module is already loading or loaded.
+      return;
+    }
+    let exports = {};
+    const require = depUri => singleRequire(depUri, uri);
+    const specialDeps = {
+      module: { uri },
+      exports,
+      require
+    };
+    registry[uri] = Promise.all(depsNames.map(
+      depName => specialDeps[depName] || require(depName)
+    )).then(deps => {
+      factory(...deps);
+      return exports;
+    });
+  };
+}
+define(['./workbox-e43f5367'], (function (workbox) { 'use strict';
 
   try {
-    const response = await fetch(request)
-    if (response.ok) {
-      cache.put(request, response.clone())
-    }
-    return response
-  } catch (error) {
-    console.error('[SW] Cache first failed:', error)
-    throw error
+    importScripts("fallback-development.js");
+  } catch (e) {
+    self.fallback = undefined;
   }
-}
-
-// Network first strategy
-async function networkFirst(request) {
-  const cache = await caches.open(CACHE_NAME)
-
-  try {
-    const response = await fetch(request)
-    if (response.ok) {
-      cache.put(request, response.clone())
-    }
-    return response
-  } catch (error) {
-    const cached = await cache.match(request)
-    if (cached) {
-      return cached
-    }
-    throw error
+  // Only force activation in local development
+  if (self.location && (self.location.hostname === 'localhost' || self.location.hostname === '127.0.0.1')) {
+    self.skipWaiting();
   }
-}
+  workbox.clientsClaim();
+  workbox.registerRoute("/", new workbox.NetworkFirst({
+    "cacheName": "start-url",
+    plugins: [{
+      handlerDidError: async ({
+        request
+      }) => self.fallback ? self.fallback(request) : Response.error()
+    }]
+  }), 'GET');
+  workbox.registerRoute(/.*/i, new workbox.NetworkOnly({
+    "cacheName": "dev",
+    plugins: [{
+      handlerDidError: async ({
+        request
+      }) => self.fallback ? self.fallback(request) : Response.error()
+    }]
+  }), 'GET');
 
-// Stale while revalidate strategy
-async function staleWhileRevalidate(request) {
-  const cache = await caches.open(CACHE_NAME)
-  const cached = await cache.match(request)
-
-  const fetchPromise = fetch(request).then((response) => {
-    if (response.ok) {
-      cache.put(request, response.clone())
-    }
-    return response
-  })
-
-  return cached || fetchPromise
-}
-
-// Handle messages from clients
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting()
-  }
-})
-
-// Background sync for form submissions
-self.addEventListener('sync', (event) => {
-  if (event.tag === 'sync-form') {
-    event.waitUntil(syncFormData())
-  }
-})
-
-async function syncFormData() {
-  // Retrieve form data from IndexedDB and sync when online
-  console.log('[SW] Syncing form data')
-  // Implementation would depend on your form data storage strategy
-}
-
-// Push notifications (future implementation)
-self.addEventListener('push', (event) => {
-  const data = event.data ? event.data.json() : {}
-
-  const options = {
-    body: data.body || 'New notification from VDOgate',
-    icon: '/vdogate_app_logo.png',
-    badge: '/vdogate_app_logo.png',
-    vibrate: [200, 100, 200],
-    data: {
-      url: data.url || '/',
-    },
-  }
-
-  event.waitUntil(
-    self.registration.showNotification(data.title || 'VDOgate', options)
-  )
-})
-
-// Notification click handler
-self.addEventListener('notificationclick', (event) => {
-  event.notification.close()
-
-  event.waitUntil(
-    clients.openWindow(event.notification.data.url)
-  )
-})
-
-console.log('[SW] Service Worker loaded successfully')
+}));

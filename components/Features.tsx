@@ -12,8 +12,8 @@ const features = [
   },
   {
     icon: Compass,
-    title: 'Smart Discovery',
-    description: 'Category + location filters help customers find exactly what they need',
+    title: 'Location-Based Discovery',
+    description: 'Free for customers — browse huge directory by category + location across India',
     color: 'from-gate-blue to-gate-blue-light',
   },
   {
@@ -24,8 +24,8 @@ const features = [
   },
   {
     icon: PieChart,
-    title: '90% Revenue Share',
-    description: 'Keep what you earn. We take just 10% — lowest in the industry',
+    title: 'Fair Pricing Model',
+    description: 'Transparent pricing with no hidden fees or surprise charges',
     color: 'from-portal-light to-portal-lighter',
   },
   {
@@ -55,10 +55,10 @@ export default function Features() {
           className="text-center mb-16"
         >
           <h2 className="text-headline-lg md:text-display-md mb-4">
-            Built for <span className="text-gradient">Professional Freelancers</span>
+            Built for <span className="text-gradient">Freelancers</span> and <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">Customers</span>
           </h2>
           <p className="text-body-lg text-neutral-gray-dark max-w-2xl mx-auto">
-            Everything you need to build, grow, and monetize your freelance business
+            Everything you need to grow your business or find the perfect freelancer — location-based, video-first, and completely free for customers
           </p>
         </motion.div>
 

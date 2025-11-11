@@ -19,7 +19,7 @@ const milestones = [
   {
     year: 'Q2 2025',
     title: 'Founding Creators Program',
-    description: 'Pre-launch registration opens for founding creators with lifetime benefits and 95% revenue share',
+    description: 'Pre-launch registration opens for founding creators: 95% revenue share, early access to features, priority support, lifetime premium tools access',
   },
   {
     year: 'Q3 2025',
@@ -56,19 +56,19 @@ const coreValues = [
 ]
 
 const stats = [
-  { number: '85%', label: 'Creator Revenue Share' },
+  { number: '500+', label: 'Founding Creator Spots' },
   { number: 'Q3 2025', label: 'Expected Launch' },
-  { number: '500', label: 'Founding Creator Spots' },
-  { number: '0', label: 'Hidden Fees' },
+  { number: '0%', label: 'Platform Commission on Creator Earnings' },
+  { number: '100%', label: 'Creator Earnings Retained & Content Control' },
 ]
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white safe-top safe-bottom">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-br from-portal-primary/5 via-white to-portal-light/5 relative overflow-hidden">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 px-4 md:px-6 bg-gradient-to-br from-portal-primary/5 via-white to-portal-light/5 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-72 h-72 bg-portal-primary rounded-full blur-3xl" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-portal-light rounded-full blur-3xl" />
@@ -98,14 +98,14 @@ export default function About() {
 
             <p className="text-lg md:text-xl text-neutral-gray-dark mb-8 leading-relaxed">
               We're building a platform where creators are discovered by their skills, not their follower count.
-              Where revenue share is fair. Where algorithms don't decide your reach. <strong>Coming Soon.</strong>
+              Where creators are valued fairly. Where algorithms don't decide your reach. <strong>Coming Soon.</strong>
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Founding Team Foreword Section */}
-      <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-portal-primary/[0.02] to-transparent" />
 
         <div className="container-custom relative z-10">
@@ -195,7 +195,7 @@ export default function About() {
                   </motion.div>
 
                   <p className="text-lg">
-                    <strong className="text-brand-black">VDOgate is different by design.</strong> We built search-based discovery because skills should speak louder than follower counts. We offer 85% revenue share (95% for founding creators) because creators deserve fair compensation. We focus on local, service-based creators because that's where real business happens—not in viral moments, but in genuine client relationships.
+                    <strong className="text-brand-black">VDOgate is different by design.</strong> We built search-based discovery because skills should speak louder than follower counts. We prioritize creator success with fair compensation and transparent pricing. We focus on local, service-based creators because that's where real business happens—not in viral moments, but in genuine client relationships.
                   </p>
 
                   <p className="text-lg">
@@ -290,8 +290,8 @@ export default function About() {
                 <p className="text-neutral-gray-dark">Creators already registered for founding spots</p>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-portal-primary/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div className="text-3xl font-bold text-portal-primary mb-2">85-95%</div>
-                <p className="text-neutral-gray-dark">Revenue share—highest in the industry</p>
+                <div className="text-3xl font-bold text-portal-primary mb-2">100%</div>
+                <p className="text-neutral-gray-dark">100% of creator earnings retained</p>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-gate-blue/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="text-3xl font-bold text-gate-blue mb-2">Q3 2025</div>
@@ -303,7 +303,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-white">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
             <motion.div
@@ -344,7 +344,7 @@ export default function About() {
       </section>
 
       {/* The Problem Section */}
-      <section className="py-16 md:py-24 bg-neutral-background">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-neutral-background">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -407,7 +407,7 @@ export default function About() {
       </section>
 
       {/* Our Solution Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -433,8 +433,8 @@ export default function About() {
               },
               {
                 icon: TrendingUp,
-                title: '85% Revenue Share',
-                description: 'Keep 85% of what you earn. We only succeed when you succeed, which keeps our incentives aligned with yours.',
+                title: 'Transparent Platform Fee',
+                description: '₹3,000/month subscription for unlimited services. 0% commission on your service earnings. Free during pre-launch for founding creators.',
               },
               {
                 icon: Heart,
@@ -480,7 +480,7 @@ export default function About() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-16 md:py-24 bg-neutral-background">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-neutral-background">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -522,7 +522,7 @@ export default function About() {
       </section>
 
       {/* Our Journey Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -579,7 +579,7 @@ export default function About() {
       </section>
 
       {/* What to Expect Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-portal-primary via-portal-light to-portal-lighter relative overflow-hidden">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-gradient-to-br from-portal-primary via-portal-light to-portal-lighter relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-72 h-72 bg-white rounded-full blur-3xl" />
@@ -666,7 +666,7 @@ export default function About() {
                   <div>
                     <h4 className="text-white font-bold text-lg mb-2">Pre-Launch Registration (Now Open)</h4>
                     <p className="text-white/80 leading-relaxed">
-                      Founding creators can register now to secure lifetime premium benefits and 95% revenue share
+                      Founding creators can register now to secure exclusive lifetime premium benefits
                     </p>
                   </div>
                 </motion.div>
@@ -733,7 +733,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

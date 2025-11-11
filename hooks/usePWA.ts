@@ -18,11 +18,9 @@ import {
  * Hook for network status detection
  */
 export function useNetworkStatus() {
-  const [online, setOnline] = useState(true)
+  const [online, setOnline] = useState<boolean>(() => isOnline())
 
   useEffect(() => {
-    setOnline(isOnline())
-
     const handleOnline = () => setOnline(true)
     const handleOffline = () => setOnline(false)
 
@@ -43,11 +41,9 @@ export function useNetworkStatus() {
  */
 export function useInstallPrompt() {
   const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null)
-  const [isInstalled, setIsInstalled] = useState(false)
+  const [isInstalled, setIsInstalled] = useState<boolean>(() => checkIsStandalone())
 
   useEffect(() => {
-    setIsInstalled(checkIsStandalone())
-
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault()
       const promptEvent = e as BeforeInstallPromptEvent
@@ -93,14 +89,13 @@ export function useInstallPrompt() {
  * Hook for device type detection
  */
 export function useDeviceType() {
-  const [deviceType, setDeviceType] = useState<'mobile' | 'tablet' | 'desktop'>('desktop')
+  const [deviceType, setDeviceType] = useState<'mobile' | 'tablet' | 'desktop'>(() => getDeviceType())
 
   useEffect(() => {
     const updateDeviceType = () => {
       setDeviceType(getDeviceType())
     }
 
-    updateDeviceType()
     window.addEventListener('resize', updateDeviceType)
 
     return () => {
@@ -120,12 +115,10 @@ export function useDeviceType() {
  * Hook for mobile detection
  */
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false)
-
+  const [isMobile, setIsMobile] = useState<boolean>(() => checkIsMobile())
   useEffect(() => {
-    setIsMobile(checkIsMobile())
+    // No-op effect to keep hook shape consistent; computation done in initializer
   }, [])
-
   return isMobile
 }
 
@@ -133,19 +126,11 @@ export function useIsMobile() {
  * Hook for platform detection
  */
 export function usePlatform() {
-  const [platform, setPlatform] = useState({
-    isIOS: false,
-    isAndroid: false,
-    isStandalone: false,
-  })
-
-  useEffect(() => {
-    setPlatform({
-      isIOS: checkIsIOS(),
-      isAndroid: checkIsAndroid(),
-      isStandalone: checkIsStandalone(),
-    })
-  }, [])
+  const [platform] = useState(() => ({
+    isIOS: checkIsIOS(),
+    isAndroid: checkIsAndroid(),
+    isStandalone: checkIsStandalone(),
+  }))
 
   return platform
 }

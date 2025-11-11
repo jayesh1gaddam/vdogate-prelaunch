@@ -14,7 +14,7 @@ const trustElements = [
   {
     icon: Heart,
     title: 'Freelancer-First Economics',
-    description: '85% revenue share — we succeed when you succeed',
+    description: 'Fair pricing and transparent terms — we succeed when you succeed',
     color: 'from-portal-light to-portal-lighter',
   },
 ]

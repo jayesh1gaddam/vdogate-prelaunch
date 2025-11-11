@@ -1,7 +1,21 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
+function getSafeMetadataBase(): URL {
+  const fallback = 'https://vdogate.com'
+  const raw = process.env.NEXT_PUBLIC_SITE_URL
+  if (!raw) {
+    return new URL(fallback)
+  }
+  try {
+    return new URL(raw)
+  } catch {
+    return new URL(fallback)
+  }
+}
+
 export const metadata: Metadata = {
+  metadataBase: getSafeMetadataBase(),
   title: 'VDOgate — India\'s Platform for Freelancers | No Ads, No Algorithm, 100% Earnings',
   description: 'Discover and hire freelancers by category and location. Earn directly from clients. ₹3,000/month, no ads, no algorithm, no commission on your services.',
   keywords: 'freelancer platform India, video portfolio, hire freelancers, freelance services, no commission platform, India freelance marketplace',

@@ -68,11 +68,11 @@ const perks = [
 
 export default function Careers() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white safe-top safe-bottom">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-br from-portal-primary/5 via-white to-portal-light/5 relative overflow-hidden">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 px-4 md:px-6 bg-gradient-to-br from-portal-primary/5 via-white to-portal-light/5 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-72 h-72 bg-portal-primary rounded-full blur-3xl" />
@@ -129,7 +129,7 @@ export default function Careers() {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -173,7 +173,7 @@ export default function Careers() {
       </section>
 
       {/* Ambassador Programme Section */}
-      <section id="ambassador-programme" className="py-16 md:py-24 bg-neutral-background">
+      <section id="ambassador-programme" className="py-16 md:py-24 px-4 md:px-6 bg-neutral-background">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -323,7 +323,7 @@ export default function Careers() {
       </section>
 
       {/* Perks & Benefits Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -361,7 +361,7 @@ export default function Careers() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-portal-primary via-portal-light to-portal-lighter relative overflow-hidden">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-gradient-to-br from-portal-primary via-portal-light to-portal-lighter relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />

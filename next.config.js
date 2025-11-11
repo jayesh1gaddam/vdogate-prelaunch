@@ -2,7 +2,11 @@ const withPWA = require('next-pwa')({
   dest: 'public',
   register: true,
   skipWaiting: true,
+  // Disable PWA in development to avoid caching during local work
   disable: process.env.NODE_ENV === 'development',
+  fallbacks: {
+    document: '/offline',  // Offline fallback page
+  },
   runtimeCaching: [
     {
       urlPattern: /^https:\/\/fonts\.(?:gstatic)\.com\/.*/i,
@@ -170,16 +174,105 @@ const withPWA = require('next-pwa')({
 const nextConfig = {
   images: {
     remotePatterns: [
+      // Restrict to specific trusted domains only
       {
         protocol: 'https',
-        hostname: '**',
+        hostname: 'vdogate.com',
       },
     ],
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    // Make image TTL configurable; default to 7 days to be safer
+    minimumCacheTTL: Number.parseInt(process.env.NEXT_IMAGE_MIN_CACHE_TTL || '', 10) || (60 * 60 * 24 * 7),
+    dangerouslyAllowSVG: true,
+    // Use 'inline' to allow images to render in-page instead of forcing download
+    contentDispositionType: 'inline',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  // Optimize for mobile
+  // Performance optimizations
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
+  productionBrowserSourceMaps: false,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
+  // Security headers
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'origin-when-cross-origin'
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=(self)'
+          },
+        ],
+      },
+    ]
+  },
+  // Experimental: enable performance optimizations for CSS and package imports
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: ['framer-motion', 'lucide-react'],
+  },
+  // Optimize chunks
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          default: false,
+          vendors: false,
+          // Vendor chunk for framer-motion
+          framerMotion: {
+            name: 'framer-motion',
+            test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
+            priority: 40,
+            reuseExistingChunk: true,
+          },
+          // Vendor chunk for icons
+          icons: {
+            name: 'icons',
+            test: /[\\/]node_modules[\\/](lucide-react)[\\/]/,
+            priority: 30,
+            reuseExistingChunk: true,
+          },
+          // Common chunks
+          commons: {
+            name: 'commons',
+            minChunks: 2,
+            priority: 20,
+            reuseExistingChunk: true,
+          },
+        },
+      }
+    }
+    return config
+  },
 }
 
 module.exports = withPWA(nextConfig)

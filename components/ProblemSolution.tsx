@@ -150,7 +150,7 @@ export default function ProblemSolution() {
       icon: MapPin,
       title: 'Location-Based Discovery',
       description: 'Get discovered by category & location',
-      hoverContent: 'Clients find you based on proximity and services offered',
+      hoverContent: 'Clients find you based on location and services offered',
       gradient: 'from-orange-500 to-rose-600',
       glowColor: 'rgba(251, 146, 60, 0.4)',
       stats: { number: 500, suffix: '+', label: 'Cities Covered' }
@@ -171,7 +171,8 @@ export default function ProblemSolution() {
     { icon: TrendingDown, text: 'Algorithm changes', delay: 0.2 },
     { icon: Users, text: 'Follower count matters more than skill', delay: 0.3 },
     { icon: X, text: 'Pay to boost visibility', delay: 0.4 },
-    { icon: X, text: 'Commission on every sale', delay: 0.5 }
+    { icon: X, text: 'Commission on every sale', delay: 0.5 },
+    { icon: AlertCircle, text: 'Bidding wars among freelancers on other platforms', delay: 0.6 }
   ]
 
   const solutionPoints = [
@@ -179,7 +180,8 @@ export default function ProblemSolution() {
     { icon: CheckCircle2, text: 'Fair discovery system', delay: 0.2 },
     { icon: CheckCircle2, text: 'Skill-based visibility', delay: 0.3 },
     { icon: CheckCircle2, text: 'No ads needed', delay: 0.4 },
-    { icon: CheckCircle2, text: 'Zero commission', delay: 0.5 }
+    { icon: CheckCircle2, text: 'Zero commission', delay: 0.5 },
+    { icon: CheckCircle2, text: 'Direct client connections', delay: 0.6 }
   ]
 
   // Floating badges data
@@ -321,7 +323,7 @@ export default function ProblemSolution() {
         </motion.div>
 
         {/* Premium Split Comparison - Problem vs Solution */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-20 relative">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-20 relative items-stretch">
           {/* Animated Comparison Divider Line - Desktop Only */}
           <div className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-4/5 overflow-hidden">
             <motion.div
@@ -344,7 +346,7 @@ export default function ProblemSolution() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
             whileHover={{ scale: 1.02, y: -5 }}
-            className="relative group cursor-pointer"
+            className="relative group cursor-pointer h-full"
           >
             {/* Static Border Glow - Problem - Optimized */}
             <div className="absolute inset-0 rounded-[32px] overflow-hidden">
@@ -352,14 +354,14 @@ export default function ProblemSolution() {
             </div>
 
             {/* Problem Card with Enhanced Visuals */}
-            <div className="relative glass bg-gradient-to-br from-white via-red-50/40 to-orange-50/30 backdrop-blur-2xl rounded-[32px] p-8 md:p-10 border-2 border-white/60 shadow-2xl overflow-hidden m-[1px]">
+            <div className="relative glass bg-gradient-to-br from-white via-red-50/40 to-orange-50/30 backdrop-blur-2xl rounded-[32px] p-8 md:p-10 border-2 border-white/60 shadow-2xl overflow-hidden m-[1px] flex flex-col min-h-[420px] md:min-h-[600px] lg:min-h-[680px] h-full">
               {/* Static Warning Pattern - Optimized */}
               <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(239,68,68,0.03)_10px,rgba(239,68,68,0.03)_20px)]" />
 
               {/* Floating Glow Orbs - Optimized */}
               <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-red-400/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
 
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col h-full">
                 {/* Premium Header with Pulse */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -390,11 +392,11 @@ export default function ProblemSolution() {
                       <AlertCircle className="w-8 h-8 text-white" />
                     </div>
                   </motion.div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-red-700">The Problem</h3>
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-red-700">The Common Problem</h3>
                 </motion.div>
 
                 {/* Enhanced Problem Points */}
-                <div className="space-y-3 mb-8">
+                <div className="space-y-3 mb-8 flex-1">
                   {problemPoints.map((item, index) => (
                     <motion.div
                       key={index}
@@ -424,16 +426,35 @@ export default function ProblemSolution() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.9, duration: 0.5 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="relative mt-8 p-6 bg-gradient-to-r from-red-100 to-orange-100 border-2 border-red-300 rounded-2xl text-center overflow-hidden shadow-lg"
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  className="relative mt-8 p-6 bg-gradient-to-br from-red-50 via-red-100 to-orange-100 border-2 border-red-300/60 rounded-2xl overflow-hidden shadow-lg group/badge"
                 >
+                  {/* Subtle animated background gradient */}
                   <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                    className="absolute top-3 right-3 w-8 h-8 border-4 border-red-400 border-t-transparent rounded-full"
+                    animate={{
+                      backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                    }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0 bg-gradient-to-r from-red-200/30 via-orange-200/30 to-red-200/30 opacity-50"
+                    style={{ backgroundSize: '200% 100%' }}
                   />
-                  <p className="text-lg md:text-xl font-bold text-red-700 mb-2">💸 Spend More on Ads</p>
-                  <p className="text-sm md:text-base text-red-600 font-medium">Still no guarantee of monetization</p>
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-center gap-3 mb-3">
+                      <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-md">
+                        <TrendingDown className="w-5 h-5 text-white" />
+                      </div>
+                      <p className="text-lg md:text-xl font-bold text-red-700">Spend More on Ads</p>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-red-600">
+                      <X className="w-4 h-4" />
+                      <p className="text-sm md:text-base font-semibold">Still no guarantee of results</p>
+                    </div>
+                    <div className="mt-3 pt-3 border-t border-red-300/40">
+                      <p className="text-xs text-red-500 font-medium">The endless cycle of paid promotion</p>
+                    </div>
+                  </div>
                 </motion.div>
 
                 {/* Enhanced Summary */}
@@ -475,7 +496,7 @@ export default function ProblemSolution() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
             whileHover={{ scale: 1.02, y: -5 }}
-            className="relative group cursor-pointer"
+            className="relative group cursor-pointer h-full"
           >
             {/* Static Border Glow - Solution - Optimized */}
             <div className="absolute inset-0 rounded-[32px] overflow-hidden">
@@ -483,14 +504,14 @@ export default function ProblemSolution() {
             </div>
 
             {/* Solution Card with Premium Styling */}
-            <div className="relative glass bg-gradient-to-br from-white via-orange-50/30 to-amber-50/40 backdrop-blur-2xl rounded-[32px] p-8 md:p-10 border-2 border-white/60 shadow-2xl overflow-hidden m-[1px]">
+            <div className="relative glass bg-gradient-to-br from-white via-orange-50/30 to-amber-50/40 backdrop-blur-2xl rounded-[32px] p-8 md:p-10 border-2 border-white/60 shadow-2xl overflow-hidden m-[1px] flex flex-col min-h-[420px] md:min-h-[600px] lg:min-h-[680px] h-full">
               {/* Success Pattern - Optimized */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(247,104,43,0.08),transparent_70%)]" />
 
               {/* Floating Glow Orbs - Optimized */}
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tl from-portal-primary/25 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '5s' }} />
 
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col h-full">
                 {/* Premium Header with Sparkle */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -521,11 +542,11 @@ export default function ProblemSolution() {
                       <Sparkles className="w-8 h-8 text-white" />
                     </div>
                   </motion.div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gradient">The Solution</h3>
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gradient">The VDOgate Solution</h3>
                 </motion.div>
 
                 {/* Enhanced Solution Points */}
-                <div className="space-y-3 mb-8">
+                <div className="space-y-3 mb-8 flex-1">
                   {solutionPoints.map((item, index) => (
                     <motion.div
                       key={index}
@@ -555,20 +576,34 @@ export default function ProblemSolution() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 1.1, duration: 0.5 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="relative mt-8 p-7 bg-portal-gradient rounded-2xl text-white text-center shadow-portal-md overflow-hidden cursor-pointer"
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  className="relative mt-8 p-6 bg-portal-gradient rounded-2xl overflow-hidden shadow-lg group/badge"
                 >
+                  {/* Subtle animated background gradient */}
                   <motion.div
                     animate={{
                       backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                     }}
-                    transition={{ duration: 5, repeat: Infinity }}
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent"
+                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0 bg-gradient-to-r from-orange-400/20 via-amber-400/20 to-orange-400/20 opacity-50"
                     style={{ backgroundSize: '200% 100%' }}
                   />
+                  
+                  {/* Content */}
                   <div className="relative z-10">
-                    <p className="text-lg md:text-xl font-bold mb-2">No Ads • No Algorithms • No Commission</p>
-                    <p className="text-sm md:text-base opacity-95 font-medium">Just fair discovery and income for every freelancer</p>
+                    <div className="flex items-center justify-center gap-3 mb-3">
+                      <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-md">
+                        <Sparkles className="w-5 h-5 text-white" />
+                      </div>
+                      <p className="text-lg md:text-xl font-bold text-white">Earn More, Keep More</p>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-white/95">
+                      <CheckCircle2 className="w-4 h-4" />
+                      <p className="text-sm md:text-base font-semibold">100% of your service fees, guaranteed</p>
+                    </div>
+                    <div className="mt-3 pt-3 border-t border-white/20">
+                      <p className="text-xs text-white/90 font-medium">No hidden fees, no commission cuts</p>
+                    </div>
                   </div>
                 </motion.div>
 
@@ -625,60 +660,55 @@ export default function ProblemSolution() {
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {benefitCards.map((card, index) => {
-              const CardComponent = () => {
-                const tilt = useCardTilt()
-                const Icon = card.icon
+              const Icon = card.icon
 
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true, margin: "-50px", amount: 0.3 }}
-                    transition={{ delay: 0.4 + index * 0.15, duration: 0.6, ease: "easeOut" }}
-                  >
-                    <div className="relative h-full glass bg-white/80 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-gray-100 overflow-hidden">
-                      <div className="relative z-10">
-                        {/* Icon */}
-                        <div className={`w-16 h-16 bg-gradient-to-br ${card.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
-                          <Icon className="w-8 h-8 text-white" />
-                        </div>
-
-                        {/* Title */}
-                        <h4 className="text-xl md:text-2xl font-bold text-brand-black mb-3">
-                          {card.title}
-                        </h4>
-
-                        {/* Description */}
-                        <p className="text-neutral-gray mb-4">
-                          {card.description}
-                        </p>
-
-                        {/* Hover Content - Now always visible */}
-                        <div className="mt-4">
-                          <p className="text-brand-black font-medium text-base leading-relaxed mb-4">
-                            {card.hoverContent}
-                          </p>
-                        </div>
-
-                        {/* Stats Badge */}
-                        {isClient && (
-                          <div className="mt-4 px-4 py-2 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg border border-gray-200">
-                            <div className="text-center">
-                              <div className={`text-2xl font-bold bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent`}>
-                                <AnimatedCounter end={card.stats.number} suffix={card.stats.suffix} />
-                              </div>
-                              <div className="text-xs text-neutral-gray mt-1">{card.stats.label}</div>
-                            </div>
-                          </div>
-                        )}
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 + index * 0.15, duration: 0.6, ease: "easeOut" }}
+                >
+                  <div className="relative h-full glass bg-white/80 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-gray-100 overflow-hidden">
+                    <div className="relative z-10">
+                      {/* Icon */}
+                      <div className={`w-16 h-16 bg-gradient-to-br ${card.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
+                        <Icon className="w-8 h-8 text-white" />
                       </div>
-                    </div>
-                  </motion.div>
-                )
-              }
 
-              return <CardComponent key={index} />
+                      {/* Title */}
+                      <h4 className="text-xl md:text-2xl font-bold text-brand-black mb-3">
+                        {card.title}
+                      </h4>
+
+                      {/* Description */}
+                      <p className="text-neutral-gray mb-4">
+                        {card.description}
+                      </p>
+
+                      {/* Hover Content - Now always visible */}
+                      <div className="mt-4">
+                        <p className="text-brand-black font-medium text-base leading-relaxed mb-4">
+                          {card.hoverContent}
+                        </p>
+                      </div>
+
+                      {/* Stats Badge */}
+                      {isClient && (
+                        <div className="mt-4 px-4 py-2 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg border border-gray-200">
+                          <div className="text-center">
+                            <div className={`text-2xl font-bold bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent`}>
+                              <AnimatedCounter end={card.stats.number} suffix={card.stats.suffix} />
+                            </div>
+                            <div className="text-xs text-neutral-gray mt-1">{card.stats.label}</div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+              )
             })}
           </div>
         </motion.div>
@@ -919,7 +949,7 @@ export default function ProblemSolution() {
                   className="group px-8 py-4 bg-white text-portal-primary rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3"
                 >
                   <Zap className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-                  Join as Founding Creator – Free
+                  Join as a founding freelancer
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
 
@@ -930,7 +960,7 @@ export default function ProblemSolution() {
                   className="group px-8 py-4 bg-white/10 backdrop-blur-md border-2 border-white/40 text-white rounded-xl font-bold text-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-3"
                 >
                   <Target className="w-5 h-5" />
-                  Find Your Freelancer
+                  Find My Freelancer
                 </motion.button>
               </motion.div>
 
