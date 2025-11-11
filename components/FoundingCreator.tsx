@@ -45,6 +45,7 @@ const whyJoinOptions = [
   'Struggling with client discovery on current platforms',
   'Looking for fair pricing without high commission fees',
   'Want to showcase my skills through video instead of just text',
+  'Want to connect with local clients in my city',
   'Other',
 ]
 
