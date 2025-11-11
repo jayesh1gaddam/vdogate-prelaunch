@@ -22,8 +22,8 @@ const formSchema = z.object({
     (val) => !val || val === '' || z.string().url().safeParse(val).success,
     { message: 'Invalid URL' }
   ).transform(val => val || undefined).optional(),
-  why: z.string().min(20, 'Please provide at least 20 characters'),
-  challenges: z.string().min(20, 'Please describe your challenges (at least 20 characters)'),
+  why: z.string().min(1, 'Please select at least one reason'),
+  challenges: z.string().min(1, 'Please select at least one challenge'),
   incomeGoal: z.string().min(1, 'Please select your monthly income goal'),
   agreeTerms: z.boolean().refine(val => val === true, 'You must agree to the terms'),
 })
@@ -39,6 +39,32 @@ const categories = [
   'Photography & Videography',
   'Education & Training',
   'Other',
+]
+
+const whyJoinOptions = [
+  'Want to grow my freelance business and get more clients',
+  'Struggling with client discovery on current platforms',
+  'Looking for fair pricing without high commission fees',
+  'Want to showcase my skills through video instead of just text',
+  'Interested in being part of an India-focused platform',
+  'Want lifetime premium benefits as a founding member',
+  'Seeking better visibility without paying for ads',
+  'Looking for a platform that values freelancers',
+  'Want to connect with local clients in my city',
+  'Other (will specify in additional comments)',
+]
+
+const challengesOptions = [
+  'Difficulty finding clients consistently',
+  'High commission fees eating into my earnings',
+  'Too much competition on existing platforms',
+  'Hard to stand out without paying for ads or promotions',
+  'Payment delays or issues with clients',
+  'Lack of local/India-specific opportunities',
+  'Difficulty showcasing my work effectively',
+  'Low rates due to global competition',
+  'Platform algorithms make it hard to get discovered',
+  'Other (will specify in additional comments)',
 ]
 
 const benefits = [
@@ -631,26 +657,24 @@ export default function FoundingCreator() {
 
                     {/* Why */}
                     <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <label className="block text-sm font-semibold text-neutral-black">
-                          Why do you want to join? *
-                        </label>
-                        <span className={`text-xs font-medium transition-colors ${
-                          (formValues.why?.length || 0) >= 20 ? 'text-gate-blue' : 'text-neutral-gray'
-                        }`}>
-                          {formValues.why?.length || 0} / 20 min
-                        </span>
-                      </div>
+                      <label className="block text-sm font-semibold text-neutral-black mb-2">
+                        Why do you want to join? *
+                      </label>
                       <div className="relative">
-                        <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-neutral-gray pointer-events-none" />
-                        <textarea
+                        <MessageSquare className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-gray pointer-events-none z-10" />
+                        <select
                           {...register('why')}
-                          rows={4}
-                          className="w-full pl-12 pr-4 py-3 bg-neutral-background border border-neutral-gray-lighter rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-primary focus:border-portal-primary transition-all resize-none"
-                          placeholder="Tell us about your goals and why VDOgate is right for you..."
+                          className="w-full pl-12 pr-4 py-3 bg-neutral-background border border-neutral-gray-lighter rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-primary focus:border-portal-primary transition-all appearance-none cursor-pointer"
                           onFocus={() => setFocusedField('why')}
                           onBlur={() => setFocusedField(null)}
-                        />
+                        >
+                          <option value="">Select your primary reason...</option>
+                          {whyJoinOptions.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                       <AnimatePresence>
                         {errors.why && (
@@ -668,26 +692,24 @@ export default function FoundingCreator() {
 
                     {/* Current Challenges */}
                     <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <label className="block text-sm font-semibold text-neutral-black">
-                          Current Challenges *
-                        </label>
-                        <span className={`text-xs font-medium transition-colors ${
-                          (formValues.challenges?.length || 0) >= 20 ? 'text-gate-blue' : 'text-neutral-gray'
-                        }`}>
-                          {formValues.challenges?.length || 0} / 20 min
-                        </span>
-                      </div>
+                      <label className="block text-sm font-semibold text-neutral-black mb-2">
+                        Current Challenges *
+                      </label>
                       <div className="relative">
-                        <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-neutral-gray pointer-events-none" />
-                        <textarea
+                        <MessageSquare className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-gray pointer-events-none z-10" />
+                        <select
                           {...register('challenges')}
-                          rows={3}
-                          className="w-full pl-12 pr-4 py-3 bg-neutral-background border border-neutral-gray-lighter rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-primary focus:border-portal-primary transition-all resize-none"
-                          placeholder="What challenges are you facing as a freelancer right now?"
+                          className="w-full pl-12 pr-4 py-3 bg-neutral-background border border-neutral-gray-lighter rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-primary focus:border-portal-primary transition-all appearance-none cursor-pointer"
                           onFocus={() => setFocusedField('challenges')}
                           onBlur={() => setFocusedField(null)}
-                        />
+                        >
+                          <option value="">Select your biggest challenge...</option>
+                          {challengesOptions.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                       <AnimatePresence>
                         {errors.challenges && (
