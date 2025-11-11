@@ -330,20 +330,15 @@ export default function FinalCTA() {
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Header with Icon */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center gap-3">
-                      <motion.div
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
-                        className="w-12 h-12 bg-gradient-to-br from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg"
-                      >
-                        <Sparkles className="w-6 h-6 text-white" />
-                      </motion.div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-brand-black">For Freelancers</h3>
-                    </div>
-                    <div className="px-3 py-1.5 bg-gradient-to-r from-orange-100 to-pink-100 rounded-full">
-                      <span className="text-xs font-bold text-orange-700 uppercase tracking-wide">Free Access</span>
-                    </div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <motion.div
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                      className="w-12 h-12 bg-gradient-to-br from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg"
+                    >
+                      <Sparkles className="w-6 h-6 text-white" />
+                    </motion.div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-brand-black">For Freelancers</h3>
                   </div>
 
                   <p className="text-base md:text-lg text-neutral-gray-dark mb-8 leading-relaxed">
