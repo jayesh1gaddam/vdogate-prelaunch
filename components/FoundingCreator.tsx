@@ -42,29 +42,17 @@ const categories = [
 ]
 
 const whyJoinOptions = [
-  'Want to grow my freelance business and get more clients',
   'Struggling with client discovery on current platforms',
   'Looking for fair pricing without high commission fees',
   'Want to showcase my skills through video instead of just text',
-  'Interested in being part of an India-focused platform',
-  'Want lifetime premium benefits as a founding member',
-  'Seeking better visibility without paying for ads',
-  'Looking for a platform that values freelancers',
-  'Want to connect with local clients in my city',
-  'Other (will specify in additional comments)',
+  'Other',
 ]
 
 const challengesOptions = [
   'Difficulty finding clients consistently',
   'High commission fees eating into my earnings',
-  'Too much competition on existing platforms',
   'Hard to stand out without paying for ads or promotions',
-  'Payment delays or issues with clients',
-  'Lack of local/India-specific opportunities',
-  'Difficulty showcasing my work effectively',
-  'Low rates due to global competition',
-  'Platform algorithms make it hard to get discovered',
-  'Other (will specify in additional comments)',
+  'Other',
 ]
 
 const benefits = [
