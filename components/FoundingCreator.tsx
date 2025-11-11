@@ -16,9 +16,12 @@ const formSchema = z.object({
   phone: z.string().min(10, 'Phone number must be at least 10 digits'),
   category: z.string().min(1, 'Please select a category'),
   city: z.string().min(2, 'City is required'),
-  instagram: z.string().optional(),
-  youtube: z.string().optional(),
-  portfolio: z.union([z.string().url('Invalid URL'), z.literal('')]).optional(),
+  instagram: z.string().transform(val => val || undefined).optional(),
+  youtube: z.string().transform(val => val || undefined).optional(),
+  portfolio: z.string().refine(
+    (val) => !val || val === '' || z.string().url().safeParse(val).success,
+    { message: 'Invalid URL' }
+  ).transform(val => val || undefined).optional(),
   why: z.string().min(20, 'Please provide at least 20 characters'),
   challenges: z.string().min(20, 'Please describe your challenges (at least 20 characters)'),
   incomeGoal: z.string().min(1, 'Please select your monthly income goal'),
@@ -62,17 +65,32 @@ export default function FoundingCreator() {
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      category: '',
+      city: '',
+      instagram: '',
+      youtube: '',
+      portfolio: '',
+      why: '',
+      challenges: '',
+      incomeGoal: '',
       agreeTerms: false,
     },
   })
 
   const formValues = watch()
-  const filledFields = Object.values(formValues).filter(val => {
+
+  // Only count required fields for progress calculation
+  const requiredFieldNames = ['name', 'email', 'phone', 'category', 'city', 'why', 'challenges', 'incomeGoal', 'agreeTerms']
+  const filledRequiredFields = requiredFieldNames.filter(fieldName => {
+    const val = formValues[fieldName as keyof FormData]
     if (typeof val === 'boolean') return val === true
     return val && val !== ''
   }).length
-  const totalFields = 11
-  const progress = (filledFields / totalFields) * 100
+  const totalRequiredFields = requiredFieldNames.length // 9 required fields
+  const progress = (filledRequiredFields / totalRequiredFields) * 100
 
   const onSubmit = async (data: FormData) => {
     try {
