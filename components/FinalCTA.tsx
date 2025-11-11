@@ -287,7 +287,7 @@ export default function FinalCTA() {
             <span className="hidden md:inline text-white/40">•</span>
             <span className="flex items-center gap-2 text-sm md:text-base">
               <TrendingUp className="w-4 h-4 text-orange-400" />
-              ₹3,000/month subscription starts after launch
+              ₹2,999/month subscription starts after launch
             </span>
           </motion.div>
 
@@ -394,7 +394,7 @@ export default function FinalCTA() {
                       }}
                     />
                     <span className="relative z-10 flex items-center justify-center gap-2">
-                      Join the Waitlist – Free Pre-Launch Registration
+                      Activate 30-day freelancer trial
                       <ArrowRight className="w-5 h-5 group-hover/button:translate-x-2 transition-transform duration-300" />
                     </span>
                   </motion.button>
@@ -507,7 +507,7 @@ export default function FinalCTA() {
                       className="w-full px-8 py-5 bg-slate-700/50 backdrop-blur border-2 border-slate-600/50 text-slate-300 rounded-2xl font-bold text-base md:text-lg cursor-not-allowed relative overflow-hidden shadow-inner"
                     >
                       <span className="flex items-center justify-center gap-2">
-                        Browse Freelancers
+                        Find my freelancer
                       </span>
                     </button>
                     <motion.div
