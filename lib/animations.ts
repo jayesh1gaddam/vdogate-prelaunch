@@ -39,7 +39,7 @@ export const fadeIn: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { duration: duration.fast, ease: easing.snappy }
+    transition: { duration: duration.fast, ease: easing.snappy as any }
   }
 }
 
