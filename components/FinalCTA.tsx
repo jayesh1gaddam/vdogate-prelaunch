@@ -238,7 +238,7 @@ export default function FinalCTA() {
           {/* Floating Badges */}
           <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
             <PulsingBadge icon={Sparkles} text="Limited Spots" color="bg-gradient-to-r from-orange-500 to-pink-500 text-white" />
-            <PulsingBadge icon={Zap} text="Free Pre-Launch" color="bg-gradient-to-r from-purple-500 to-indigo-500 text-white" />
+            <PulsingBadge icon={Zap} text="1 month free trial" color="bg-gradient-to-r from-purple-500 to-indigo-500 text-white" />
             <PulsingBadge icon={Award} text="Early Access" color="bg-gradient-to-r from-cyan-500 to-blue-500 text-white" />
           </div>
 

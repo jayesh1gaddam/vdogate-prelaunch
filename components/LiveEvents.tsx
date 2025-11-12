@@ -161,7 +161,7 @@ export default function LiveEvents() {
           {/* Add-Ons Note */}
           <div className="mt-6 text-center">
             <p className="text-xs md:text-sm text-neutral-gray-dark">
-              All add-ons require the base ₹3,000/month subscription • Use one, two, or all three to maximize your income
+              All add-ons require the base ₹2,999/month subscription • Use one, two, or all three to maximize your income
             </p>
           </div>
         </motion.div>

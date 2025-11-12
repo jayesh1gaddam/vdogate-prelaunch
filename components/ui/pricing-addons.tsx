@@ -107,10 +107,10 @@ export default function PricingAddons() {
         className="mt-10 text-center max-w-4xl mx-auto"
       >
         <p className="text-sm md:text-base text-neutral-gray-dark leading-relaxed mb-4">
-          All add-ons require the base <span className="font-bold text-emerald-600">₹3,000/month subscription</span> • Use one or both to maximize your income
+          All add-ons require the base <span className="font-bold text-emerald-600">₹2,999/month subscription</span> • Use one or both to maximize your income
         </p>
         <p className="text-sm md:text-base text-neutral-gray">
-          <span className="font-semibold text-brand-black">Pre-launch registration is free.</span> Subscription begins only once the platform goes live.
+          <span className="font-semibold text-brand-black">Pre-launch registration is free</span> - Followed by one month free trial
         </p>
       </motion.div>
     </div>
