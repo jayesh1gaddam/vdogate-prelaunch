@@ -1,10 +1,12 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 import { Calendar, Clock, ArrowLeft, Share2, Bookmark, Twitter, Facebook, Linkedin, Link2, User, TrendingUp, Eye, MessageCircle, Heart, ChevronRight } from 'lucide-react'
 import Navigation from '@/components/Navigation'
 import { fadeInUp, staggerContainer, staggerItem, viewportOptions } from '@/lib/animations'
-import type { Metadata } from 'next'
 import DOMPurify from 'isomorphic-dompurify'
 import CopyLinkButton from '@/components/blog/CopyLinkButton'
 
@@ -12,375 +14,297 @@ import CopyLinkButton from '@/components/blog/CopyLinkButton'
 const blogPosts = [
   {
     id: 1,
-    title: 'How to Build a Successful Freelance Career in India',
-    excerpt: 'Learn the essential strategies to establish yourself as a freelancer and grow your business in the Indian market. Discover proven tactics from successful freelancers.',
-    category: 'Career Growth',
+    title: 'How Can a Freelancer Without an Establishment Promote Themselves?',
+    excerpt: 'Most freelancers start with only their skills and a laptop — but how do they promote themselves without ads, agencies, or an office? Here\'s the reality and the way forward.',
+    category: 'Freelancing',
     author: 'VDOgate Team',
     authorBio: 'Platform Insights',
     authorImage: null,
-    date: '2025-01-10',
+    date: '2025-11-12',
     readTime: '5 min read',
-    views: '2.4k',
-    image: '/makeup.png',
+    views: '1.2k',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop',
     featured: true,
     content: `
-      <p>Building a successful freelance career in India requires more than just skills—it demands strategic planning, consistent effort, and the right mindset. In this comprehensive guide, we'll walk you through the essential steps to establish yourself as a thriving freelancer in the Indian market.</p>
+      <div class="blog-intro mb-12 pb-8 border-b-2 border-neutral-gray-lighter">
+        <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-gray-dark">Not every freelancer starts with a studio, an office, or a team. Most begin with just <strong>a skill, a laptop, and determination</strong> — but soon hit a wall: visibility. How do you promote yourself as a <strong>freelancer in India</strong> when you don't have an establishment, clients, or ad budget?</p>
+      </div>
 
-      <h2>1. Define Your Niche and Expertise</h2>
-      <p>The first step to freelancing success is identifying your unique value proposition. Rather than being a generalist, focus on a specific niche where you can truly excel. Whether it's graphic design, content writing, web development, or digital marketing, specialization helps you:</p>
+      <h2>The Visibility Struggle: What's Broken Today</h2>
+      <p>The internet promised opportunity for everyone. But in practice, <strong>online visibility for freelancers</strong> has become a <strong>pay-to-play game</strong>. Independent professionals are told to run ads, pay to boost profiles, or post endlessly to feed algorithms. It's exhausting — and unfair.</p>
+
+      <p>A graphic designer spends more time chasing reach than designing. A yoga instructor shares free content hoping for clients. A makeup artist struggles to find local clients. The problem isn't talent — it's <strong>the lack of affordable visibility for skilled professionals</strong>.</p>
+
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
+
+      <h2>Why Traditional Platforms Fail Freelancers</h2>
+      <p>Most digital platforms were never designed for <strong>independent service providers</strong> — they were built for advertisers or marketplace commissions. Visibility depends on budgets, not skill. Freelancers who can't pay remain invisible to potential clients searching for services.</p>
+
+      <p>That's why platforms like <a href="/" class="text-portal-primary font-semibold hover:underline">VDOgate</a> are revolutionizing how freelancers connect with clients — through authentic <strong>video profiles</strong> that showcase real skills, not paid promotions.</p>
+
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
+
+      <h2>What Freelancers Actually Need for Success</h2>
+      <p>Freelancers don't need "viral." They need <em>visibility that converts into paying clients.</em> A fair marketplace where:</p>
       <ul>
-        <li>Stand out in a crowded marketplace</li>
-        <li>Command higher rates for your expertise</li>
-        <li>Build a stronger portfolio and reputation</li>
-        <li>Attract clients who value specialized skills</li>
+        <li><strong>Talent and skill speak louder than advertising budgets</strong></li>
+        <li><strong>Video profiles showcase expertise directly to local clients</strong></li>
+        <li><strong>Service providers connect with clients without platform commissions</strong></li>
       </ul>
+      <p>When discovery becomes merit-based rather than budget-based, sustainable freelance growth follows naturally. <a href="/#founding-creator" class="text-portal-primary font-semibold hover:underline">Join VDOgate as a Founding Creator</a> to build your client base without expensive ads.</p>
 
-      <h2>2. Build a Strong Online Presence</h2>
-      <p>In today's digital age, your online presence is your storefront. Create a professional profile on VDOgate and other platforms where your potential clients hang out. Key elements include:</p>
-      <ul>
-        <li><strong>Professional profile:</strong> Invest in a high-quality video introduction that showcases your personality and expertise</li>
-        <li><strong>Portfolio:</strong> Showcase your best work with detailed case studies</li>
-        <li><strong>Social proof:</strong> Collect and display testimonials from satisfied clients</li>
-        <li><strong>Consistency:</strong> Maintain a consistent brand across all platforms</li>
-      </ul>
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
-      <h2>3. Set Competitive Yet Fair Pricing</h2>
-      <p>Pricing is one of the most challenging aspects of freelancing. Research market rates in your niche and location, but don't undervalue your services. Consider:</p>
-      <ul>
-        <li>Your experience level and expertise</li>
-        <li>The complexity and value of your work</li>
-        <li>Local market conditions and client budgets</li>
-        <li>Your operating costs and desired income</li>
-      </ul>
+      <h2>Video Profiles: The New Digital Storefront for Freelancers</h2>
+      <p>Your screen is now your storefront. A hairstylist can demonstrate a cutting technique, a dance coach can teach a routine, a business consultant can share insights — all through <strong>professional video profiles</strong>. It's affordable, direct, and authentic.</p>
 
-      <blockquote>
-        "Don't compete on price—compete on value. The right clients will always appreciate quality work."
-      </blockquote>
+      <p>Unlike text-based portfolios or static images, <strong>video profiles on VDOgate</strong> allow potential clients to see your personality, communication style, and expertise before reaching out. This builds trust and filters for serious inquiries.</p>
 
-      <h2>4. Master Client Communication</h2>
-      <p>Effective communication is the backbone of successful client relationships. Always:</p>
-      <ul>
-        <li>Respond promptly to inquiries and messages</li>
-        <li>Set clear expectations from the beginning</li>
-        <li>Keep clients updated on project progress</li>
-        <li>Be transparent about challenges and timelines</li>
-        <li>Ask for feedback and implement improvements</li>
-      </ul>
+      <div class="bg-gradient-to-r from-orange-50 to-amber-50 border-l-4 border-portal-primary p-8 rounded-r-2xl my-12 shadow-sm">
+        <p class="text-lg font-semibold text-brand-black mb-2">Key Insight for Freelancers</p>
+        <p class="text-base text-neutral-gray-dark mb-0">Video-based discovery replaces expensive advertising with authenticity, helping freelancers in India build sustainable client relationships without ongoing marketing costs.</p>
+      </div>
 
-      <h2>5. Deliver Consistent Quality</h2>
-      <p>Your reputation is your most valuable asset as a freelancer. Consistently delivering high-quality work will lead to:</p>
-      <ul>
-        <li>Repeat clients and long-term relationships</li>
-        <li>Positive reviews and referrals</li>
-        <li>Premium pricing opportunities</li>
-        <li>A sustainable freelance business</li>
-      </ul>
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
-      <h2>6. Invest in Continuous Learning</h2>
-      <p>The freelance landscape is constantly evolving. Stay ahead by:</p>
-      <ul>
-        <li>Learning new skills and tools in your niche</li>
-        <li>Following industry trends and best practices</li>
-        <li>Networking with other freelancers</li>
-        <li>Taking courses and attending workshops</li>
-      </ul>
+      <h2>Conclusion: The Future of Freelance Marketing</h2>
+      <p>Tomorrow's most successful <strong>freelancers and independent professionals</strong> won't have the biggest ad budgets or fancy offices — they'll have the strongest <strong>video presence and authentic client connections</strong>. <strong>Change is coming to India's freelance economy — one video profile at a time.</strong></p>
 
-      <h2>Conclusion</h2>
-      <p>Building a successful freelance career in India is a journey that requires patience, persistence, and continuous improvement. By focusing on these fundamental strategies and leveraging platforms like VDOgate, you can create a thriving freelance business that provides both financial stability and professional satisfaction.</p>
-
-      <p>Ready to start your freelance journey? Join VDOgate today and connect with clients across India who are looking for talented professionals like you.</p>
+      <p>Ready to showcase your skills without paying for ads? <a href="/#founding-creator" class="text-portal-primary font-semibold hover:underline">Create your free video profile on VDOgate</a> and connect with clients in your city today.</p>
     `
   },
   {
     id: 2,
-    title: 'Video Profiles: Why They Matter for Freelancers',
-    excerpt: 'Discover how video profiles can help you stand out and win more clients in the competitive freelance marketplace.',
-    category: 'Platform Tips',
+    title: 'The Hidden Costs of Freelancing: Commissions, Algorithms & Paid Visibility',
+    excerpt: 'Freelancing promises freedom, but hidden costs like commissions and ad spend quietly eat away at real income.',
+    category: 'Freelancing',
     author: 'VDOgate Team',
     authorBio: 'Platform Insights',
     authorImage: null,
-    date: '2025-01-08',
-    readTime: '4 min read',
-    views: '1.8k',
-    image: '/gym.png',
+    date: '2025-11-13',
+    readTime: '6 min read',
+    views: '980',
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop',
     content: `
-      <p>In the competitive world of freelancing, standing out from the crowd is essential. While traditional text profiles and portfolios have their place, video profiles are revolutionizing how freelancers connect with potential clients. Here's why video profiles matter and how they can transform your freelance career.</p>
+      <div class="blog-intro mb-12 pb-8 border-b-2 border-neutral-gray-lighter">
+        <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-gray-dark">Freelancing sounds like freedom — no boss, no fixed hours, no ceiling on income. But for <strong>freelancers in India</strong> and worldwide, behind that freedom lie <strong>commissions, ad spends, and algorithm games</strong> that quietly drain earnings from <strong>independent professionals</strong>.</p>
+      </div>
 
-      <h2>The Power of Video in Building Trust</h2>
-      <p>Video allows potential clients to see and hear you, creating a personal connection that text and images alone cannot achieve. When clients can see your face, hear your voice, and observe your body language, they're more likely to trust you with their projects.</p>
+      <h2>The Unseen Expenses</h2>
+      <p>Every <strong>freelancer in India</strong> depends on platforms — job boards, <strong>freelance marketplaces</strong>, social media — but each has a cost, even if it doesn't look like one. <strong>Service providers</strong> struggle to maintain profitability when platform fees consume their hard-earned income.</p>
 
-      <h2>Key Benefits of Video Profiles</h2>
-      <ul>
-        <li><strong>Showcase Your Personality:</strong> Let your unique character shine through</li>
-        <li><strong>Demonstrate Communication Skills:</strong> Show clients you can articulate ideas clearly</li>
-        <li><strong>Build Credibility:</strong> Video makes you more memorable and trustworthy</li>
-        <li><strong>Stand Out:</strong> Most freelancers still rely on text-only profiles</li>
-      </ul>
+      <div class="overflow-x-auto my-12">
+        <table class="w-full border-collapse rounded-lg overflow-hidden shadow-sm">
+          <thead class="bg-gradient-to-r from-orange-50 to-amber-50">
+            <tr>
+              <th class="px-6 py-4 text-left font-bold text-brand-black border border-neutral-gray-lighter">Platform Type</th>
+              <th class="px-6 py-4 text-left font-bold text-brand-black border border-neutral-gray-lighter">What You Pay</th>
+              <th class="px-6 py-4 text-left font-bold text-brand-black border border-neutral-gray-lighter">How You Lose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white hover:bg-neutral-background/50 transition-colors">
+              <td class="px-6 py-4 border border-neutral-gray-lighter font-medium">Job Portals</td>
+              <td class="px-6 py-4 border border-neutral-gray-lighter text-portal-primary font-semibold">10–20% commission</td>
+              <td class="px-6 py-4 border border-neutral-gray-lighter">Competing for the lowest rate</td>
+            </tr>
+            <tr class="bg-neutral-background/30 hover:bg-neutral-background/50 transition-colors">
+              <td class="px-6 py-4 border border-neutral-gray-lighter font-medium">Freelance Marketplaces</td>
+              <td class="px-6 py-4 border border-neutral-gray-lighter text-portal-primary font-semibold">Service fee</td>
+              <td class="px-6 py-4 border border-neutral-gray-lighter">Platform owns your client relationship</td>
+            </tr>
+            <tr class="bg-white hover:bg-neutral-background/50 transition-colors">
+              <td class="px-6 py-4 border border-neutral-gray-lighter font-medium">Social Media</td>
+              <td class="px-6 py-4 border border-neutral-gray-lighter text-portal-primary font-semibold">Ad spend or boosts</td>
+              <td class="px-6 py-4 border border-neutral-gray-lighter">Paid reach replaces organic growth</td>
+            </tr>
+            <tr class="bg-neutral-background/30 hover:bg-neutral-background/50 transition-colors">
+              <td class="px-6 py-4 border border-neutral-gray-lighter font-medium">Video Sites</td>
+              <td class="px-6 py-4 border border-neutral-gray-lighter text-portal-primary font-semibold">Monetization thresholds</td>
+              <td class="px-6 py-4 border border-neutral-gray-lighter">Delayed earnings, dependence on visibility metrics</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h2>Creating an Effective Video Profile</h2>
-      <p>Keep it concise (60-90 seconds), speak clearly, dress professionally, and most importantly, be authentic. Share your expertise, passion, and what makes you unique.</p>
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
-      <blockquote>
-        "A well-crafted video profile can increase your client inquiries by up to 300%."
-      </blockquote>
+      <h2>The Algorithm Tax</h2>
+      <p>Even without paying upfront, <strong>Indian freelancers</strong> and <strong>service providers</strong> pay a hidden price — <strong>algorithmic dependence</strong>. What's seen or ignored depends on invisible filters that reward paid reach. For <strong>independent professionals</strong> trying to connect with <strong>local clients in India</strong>, this creates an unfair disadvantage.</p>
 
-      <h2>Conclusion</h2>
-      <p>Video profiles are no longer optional—they're essential for freelancers who want to succeed in today's market. Start creating your video profile on VDOgate today and watch your freelance business grow.</p>
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
+
+      <h2>Why It Persists</h2>
+      <p>Traditional <strong>freelance platforms</strong> profit from keeping creators chasing visibility. Engagement benefits the platform — not the freelancer. <strong>Views don't equal clients; likes don't equal income.</strong> This is especially challenging for <strong>service providers</strong> seeking <strong>direct client connections</strong> without intermediaries.</p>
+
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
+
+      <h2>From Algorithms to Authenticity</h2>
+      <p>Video shifts the power back. Platforms like <a href="/" class="text-portal-primary font-semibold hover:underline">VDOgate</a> use <strong>video-based discovery</strong> to show the <em>real person behind the skill</em>, without relying on paid promotion. <strong>Video profiles</strong> allow <strong>local clients</strong> to discover authentic talent. Clients trust faces, not feeds.</p>
+
+      <div class="bg-gradient-to-r from-orange-50 to-amber-50 border-l-4 border-portal-primary p-8 rounded-r-2xl my-12 shadow-sm">
+        <p class="text-lg font-semibold text-brand-black mb-2">Key Takeaway for Indian Freelancers</p>
+        <p class="text-base text-neutral-gray-dark mb-0">True freedom begins when visibility stops being for sale. Commission-free platforms with video profiles enable direct client connections without algorithmic barriers.</p>
+      </div>
+
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
+
+      <h2>Conclusion: Breaking Free from Hidden Costs</h2>
+      <p><strong>Freelancers in India</strong> and <strong>independent professionals</strong> worldwide don't need to keep paying rent to the landlords of digital attention. <strong>True freedom begins when visibility stops being for sale.</strong></p>
+
+      <p>The future of freelancing is <strong>commission-free</strong>, built on <strong>video-based discovery</strong> and <strong>direct client connections</strong>. Ready to keep 100% of what you earn? <a href="/#founding-creator" class="text-portal-primary font-semibold hover:underline">Join VDOgate as a Founding Creator</a> and connect with <strong>local clients in India</strong> through your authentic <strong>video profile</strong> — no commissions, no ad spend, no algorithm games.</p>
     `
   },
   {
     id: 3,
-    title: 'Top 10 In-Demand Freelance Services in 2025',
-    excerpt: 'Explore the most sought-after freelance services this year and how you can capitalize on these opportunities.',
-    category: 'Industry Trends',
+    title: 'Why Most Freelancers Struggle to Be Seen Without Paying for Ads',
+    excerpt: 'Visibility today has become a paid privilege — but skill, not ad spend, should decide who gets discovered.',
+    category: 'Visibility',
     author: 'VDOgate Team',
-    authorBio: 'Market Research',
+    authorBio: 'Platform Insights',
     authorImage: null,
-    date: '2025-01-05',
-    readTime: '6 min read',
-    views: '3.2k',
-    image: '/teacher.png',
+    date: '2025-11-14',
+    readTime: '5 min read',
+    views: '1.5k',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
     content: `
-      <p>The freelance economy is booming, and certain services are in higher demand than ever. Whether you're just starting out or looking to pivot your freelance career, understanding market trends is crucial. Here are the top 10 most in-demand freelance services in 2025.</p>
+      <div class="blog-intro mb-12 pb-8 border-b-2 border-neutral-gray-lighter">
+        <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-gray-dark">Posting daily, engaging with comments, and still invisible? You're not alone. For <strong>freelancers in India</strong> and <strong>independent professionals</strong> worldwide, visibility has quietly turned into a <strong>paid privilege</strong>, where success depends less on skill and more on spend.</p>
+      </div>
 
-      <h2>1. Video Editing and Production</h2>
-      <p>With the explosion of video content across social media and business platforms, skilled video editors are in high demand. From YouTube creators to corporate marketing teams, everyone needs quality video content.</p>
+      <h2>The Death of Organic Reach</h2>
+      <p>A few years ago, a great post could reach thousands. Today, organic visibility on major social platforms has dropped to <strong>single digits</strong>. <strong>Service providers</strong> and <strong>freelancers in India</strong> must now "pay to play" to connect with <strong>local clients</strong>.</p>
 
-      <h2>2. Social Media Management</h2>
-      <p>Businesses of all sizes need help managing their social media presence. If you understand platforms like Instagram, LinkedIn, and emerging social networks, this could be your niche.</p>
+      <div class="overflow-x-auto my-12">
+        <table class="w-full border-collapse rounded-lg overflow-hidden shadow-sm">
+          <thead class="bg-gradient-to-r from-orange-50 to-amber-50">
+            <tr>
+              <th class="px-6 py-4 text-left font-bold text-brand-black border border-neutral-gray-lighter">Platform Type</th>
+              <th class="px-6 py-4 text-left font-bold text-brand-black border border-neutral-gray-lighter">Avg. Organic Reach</th>
+              <th class="px-6 py-4 text-left font-bold text-brand-black border border-neutral-gray-lighter">Trend</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white hover:bg-neutral-background/50 transition-colors">
+              <td class="px-6 py-4 border border-neutral-gray-lighter font-medium">Social Media</td>
+              <td class="px-6 py-4 border border-neutral-gray-lighter text-portal-primary font-semibold">5–8%</td>
+              <td class="px-6 py-4 border border-neutral-gray-lighter">Declining</td>
+            </tr>
+            <tr class="bg-neutral-background/30 hover:bg-neutral-background/50 transition-colors">
+              <td class="px-6 py-4 border border-neutral-gray-lighter font-medium">Professional Networks</td>
+              <td class="px-6 py-4 border border-neutral-gray-lighter text-portal-primary font-semibold">4–6%</td>
+              <td class="px-6 py-4 border border-neutral-gray-lighter">Declining</td>
+            </tr>
+            <tr class="bg-white hover:bg-neutral-background/50 transition-colors">
+              <td class="px-6 py-4 border border-neutral-gray-lighter font-medium">Video Platforms</td>
+              <td class="px-6 py-4 border border-neutral-gray-lighter text-portal-primary font-semibold">Algorithm-based</td>
+              <td class="px-6 py-4 border border-neutral-gray-lighter">Competitive</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h2>3. Content Writing and Copywriting</h2>
-      <p>Quality content remains king. Businesses need blog posts, website copy, email campaigns, and more. Specialized niches like SEO writing and technical writing command premium rates.</p>
+      <p><strong>Indian freelancers</strong> and <strong>service providers</strong> who once relied on discovery now face a wall — built by ad models that reward budgets, not merit. Finding <strong>local clients in India</strong> becomes nearly impossible without paid advertising.</p>
 
-      <h2>4. Web Development</h2>
-      <p>From simple landing pages to complex web applications, developers are always in demand. Skills in popular frameworks like React, Next.js, and WordPress are particularly valuable.</p>
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
-      <h2>5. Graphic Design</h2>
-      <p>Visual content drives engagement. Logo design, brand identity, social media graphics, and UI/UX design are consistently sought-after services.</p>
+      <h2>The Trap</h2>
+      <p>Traditional <strong>freelance platforms</strong> promote the idea that visibility equals success. But visibility without conversion is vanity. <strong>Independent professionals</strong> might pay for thousands of impressions — and gain no paying <strong>local clients</strong>.</p>
 
-      <h2>6. Digital Marketing</h2>
-      <p>SEO, PPC advertising, email marketing, and marketing strategy consulting are essential for businesses looking to grow online.</p>
+      <div class="bg-gradient-to-r from-orange-50 to-amber-50 border-l-4 border-portal-primary p-8 rounded-r-2xl my-12 shadow-sm">
+        <p class="text-lg font-semibold text-brand-black mb-2">Key Insight for Service Providers</p>
+        <p class="text-base text-neutral-gray-dark mb-0">Visibility without conversion is vanity — you might pay for thousands of impressions and gain no paying clients. Real success comes from direct client connections, not paid reach.</p>
+      </div>
 
-      <h2>7. Virtual Assistance</h2>
-      <p>As more businesses embrace remote work, virtual assistants who can handle administrative tasks, scheduling, and customer service are increasingly valuable.</p>
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
-      <h2>8. Photography and Videography</h2>
-      <p>Professional visual content for products, events, real estate, and personal branding continues to be in high demand across India.</p>
+      <h2>Who Benefits?</h2>
+      <p>Not <strong>freelancers in India</strong>. Ad systems are made for brands with budgets. Solo <strong>service providers</strong> can't afford to pay for every click. The promise of equal opportunity on traditional <strong>freelance marketplaces</strong> becomes an illusion.</p>
 
-      <h2>9. Mobile App Development</h2>
-      <p>With mobile-first becoming the norm, app developers skilled in iOS, Android, and cross-platform development are highly sought after.</p>
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
-      <h2>10. Online Tutoring and Coaching</h2>
-      <p>Education has moved online, creating opportunities for tutors, skill trainers, and life coaches to connect with students and clients remotely.</p>
+      <h2>The Shift: Purposeful Reach Through Video</h2>
+      <p>The new question for <strong>independent professionals</strong> is: <strong>Where can I show my skill directly?</strong> On <a href="/" class="text-portal-primary font-semibold hover:underline">VDOgate</a>, your work speaks through <strong>video profiles</strong> — teaching, showing, demonstrating. <strong>Video-based discovery</strong> means you don't chase algorithms. Your expertise becomes your marketing, and <strong>local clients</strong> can find you based on authentic skill showcase.</p>
 
-      <h2>How to Capitalize on These Trends</h2>
-      <p>Choose a service that aligns with your skills and interests, invest in learning and improvement, build a strong portfolio, and leverage platforms like VDOgate to connect with clients.</p>
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
-      <h2>Conclusion</h2>
-      <p>The freelance market in 2025 offers tremendous opportunities across diverse services. By positioning yourself in one of these high-demand areas and continuously improving your skills, you can build a thriving freelance career.</p>
+      <h2>Conclusion: Skill Over Spend</h2>
+      <p>Visibility should be earned through skill, not spend. <strong>Soon, freelancers in India won't need to boost posts to be seen — they'll just need to show their skill.</strong></p>
+
+      <p>The future belongs to <strong>independent professionals</strong> who leverage <strong>video profiles</strong> for authentic client discovery. Ready to be found by <strong>local clients in India</strong> based on your real skills? <a href="/#founding-creator" class="text-portal-primary font-semibold hover:underline">Create your free video profile on VDOgate</a> and experience <strong>commission-free</strong>, <strong>video-based discovery</strong> that puts talent first — no ads required.</p>
     `
   },
   {
     id: 4,
-    title: 'Pricing Your Freelance Services: A Complete Guide',
-    excerpt: 'Master the art of pricing your services competitively while ensuring you earn what you deserve.',
-    category: 'Business Tips',
+    title: 'Can You Really Grow Without Paying a Platform or Middleman?',
+    excerpt: 'Modern freelancing is filled with middlemen — platforms, agencies, aggregators. Can real independence exist without them?',
+    category: 'Self-Promotion',
     author: 'VDOgate Team',
-    authorBio: 'Business Strategy',
+    authorBio: 'Platform Insights',
     authorImage: null,
-    date: '2025-01-03',
-    readTime: '7 min read',
-    views: '2.1k',
-    image: '/chef.png',
+    date: '2025-11-15',
+    readTime: '6 min read',
+    views: '1.8k',
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop',
     content: `
-      <p>Pricing is one of the most challenging aspects of freelancing. Set your rates too low, and you'll struggle to make a living. Price too high, and you might scare away potential clients. This comprehensive guide will help you find the sweet spot.</p>
+      <div class="blog-intro mb-12 pb-8 border-b-2 border-neutral-gray-lighter">
+        <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-gray-dark">Growing your freelance career without paying a platform or agency seems impossible — but why should it be? For <strong>freelancers in India</strong> and <strong>independent professionals</strong> everywhere, if your skill creates value, why must a middleman profit from every connection?</p>
+      </div>
 
-      <h2>Understanding Your Value</h2>
-      <p>Before setting any prices, you need to understand the true value you provide to clients. Consider the problems you solve, the time you save them, and the revenue you help them generate.</p>
+      <h2>The Middleman Economy</h2>
+      <p><strong>Service providers</strong> and <strong>freelancers in India</strong> often rely on traditional <strong>freelance platforms</strong> that charge fees or commissions to manage visibility. They promise convenience but create <strong>dependency</strong>. The freelancer's relationship with <strong>local clients</strong> becomes the platform's asset, not yours.</p>
 
-      <h2>Pricing Models Explained</h2>
-      <h3>Hourly Pricing</h3>
-      <p>Charging by the hour is straightforward but can limit your earnings as you get faster at your work. Best for ongoing projects with uncertain scope.</p>
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
-      <h3>Project-Based Pricing</h3>
-      <p>Fixed prices for defined deliverables. This model rewards efficiency and is preferred by many clients who want budget certainty.</p>
+      <h2>How Value Gets Captured</h2>
+      <ol>
+        <li>You join a <strong>freelance marketplace</strong> for free.</li>
+        <li>You build reputation and connections with <strong>local clients in India</strong>.</li>
+        <li>The system monetizes your connections — via commissions, listings, or ads.</li>
+      </ol>
+      <p>Soon, the <strong>direct client connections</strong> you built belong to the intermediary. As an <strong>independent professional</strong>, you lose control over your most valuable asset.</p>
 
-      <h3>Value-Based Pricing</h3>
-      <p>Pricing based on the value you deliver rather than time spent. This is the most profitable model but requires confidence and clear communication.</p>
+      <div class="bg-gradient-to-r from-orange-50 to-amber-50 border-l-4 border-portal-primary p-8 rounded-r-2xl my-12 shadow-sm">
+        <p class="text-lg font-semibold text-brand-black mb-2">Key Insight for Indian Freelancers</p>
+        <p class="text-base text-neutral-gray-dark mb-0">The client relationship you built belongs to the intermediary — not to you. True independence means owning your connections with local clients.</p>
+      </div>
 
-      <h3>Retainer Agreements</h3>
-      <p>Monthly fees for ongoing services. Provides stable income and builds long-term client relationships.</p>
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
-      <h2>Calculating Your Rates</h2>
-      <p>Start by determining your desired annual income, add your business expenses, account for non-billable time, and divide by your available billable hours.</p>
-
-      <blockquote>
-        "Your pricing should reflect your expertise, not your desperation for work."
-      </blockquote>
-
-      <h2>Research Market Rates</h2>
-      <p>Understand what others charge in your niche and location. Use this as a baseline, not a ceiling. Your unique experience and value proposition can justify premium pricing.</p>
-
-      <h2>Communicating Your Prices</h2>
-      <p>Be confident when discussing rates. Explain the value you provide, not just what you do. Be prepared to justify your pricing with examples of past results.</p>
-
-      <h2>When to Raise Your Rates</h2>
+      <h2>What Real Independence Means</h2>
+      <p>True independence for <strong>service providers</strong> and <strong>freelancers in India</strong> is when they:</p>
       <ul>
-        <li>You're consistently booked with more demand than you can handle</li>
-        <li>You've gained significant experience or new skills</li>
-        <li>Your results speak for themselves with proven ROI</li>
-        <li>You want to work with higher-quality clients</li>
+        <li>Own <strong>direct client connections</strong> with <strong>local clients</strong></li>
+        <li>Control how their work is seen through authentic <strong>video profiles</strong></li>
+        <li>Keep 100% of what they earn — <strong>commission-free</strong></li>
       </ul>
+      <p><strong>Freelance platforms</strong> like <a href="/" class="text-portal-primary font-semibold hover:underline">VDOgate</a> should enable, not mediate. A fair system is a bridge, not a toll booth. <strong>Video-based discovery</strong> creates transparency without intermediaries taking a cut.</p>
 
-      <h2>Conclusion</h2>
-      <p>Pricing your freelance services is both an art and a science. Start with a solid foundation based on your costs and desired income, research market rates, and don't be afraid to adjust as you gain experience and confidence. Remember, the right clients will value quality work and be willing to pay fair prices.</p>
-    `
-  },
-  {
-    id: 5,
-    title: 'Building Trust with Clients: Best Practices',
-    excerpt: 'Learn how to establish credibility and build long-term relationships with your clients.',
-    category: 'Client Relations',
-    author: 'VDOgate Team',
-    authorBio: 'Client Success',
-    authorImage: null,
-    date: '2025-01-01',
-    readTime: '5 min read',
-    views: '1.5k',
-    image: '/yoga.png',
-    content: `
-      <p>Trust is the foundation of any successful freelance relationship. Without it, even the most skilled freelancer will struggle to retain clients and grow their business. Here's how to build and maintain trust with every client interaction.</p>
+      <div class="bg-gradient-to-r from-orange-50 to-amber-50 border-l-4 border-portal-primary p-8 rounded-r-2xl my-12 shadow-sm">
+        <p class="text-lg font-semibold text-brand-black mb-2">Key Insight</p>
+        <p class="text-base text-neutral-gray-dark mb-0">Platforms should enable, not mediate. A fair system is a bridge, not a toll booth. Commission-free platforms empower independent professionals.</p>
+      </div>
 
-      <h2>Start with Clear Communication</h2>
-      <p>From your first conversation, be clear about what you can deliver, when you can deliver it, and what it will cost. Ambiguity breeds mistrust, while clarity builds confidence.</p>
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
-      <h2>Under-Promise and Over-Deliver</h2>
-      <p>Set realistic expectations and then exceed them. If you say you'll deliver in a week, aim to finish in five days. This simple practice creates delighted clients who become loyal advocates.</p>
+      <h2>The Road Ahead: Video-Based Discovery</h2>
+      <p>Imagine showing your skill through authentic <strong>video profiles</strong>, <strong>local clients in India</strong> connecting directly, and payments flowing transparently — <strong>without gatekeepers</strong>. That's where freelancing is headed.</p>
 
-      <h2>Be Responsive and Available</h2>
-      <p>Quick responses to messages show you value your clients' time. Even if you can't immediately address their concern, acknowledge receipt and provide a timeline for when you'll have a detailed response.</p>
+      <p>On <a href="/" class="text-portal-primary font-semibold hover:underline">VDOgate</a>, <strong>independent professionals</strong> create compelling <strong>video profiles</strong> that showcase their expertise to <strong>local clients</strong>. No commissions. No algorithms. Just <strong>direct client connections</strong> based on authentic skill and <strong>video-based discovery</strong>.</p>
 
-      <h2>Maintain Professional Standards</h2>
-      <ul>
-        <li>Use professional communication tools and methods</li>
-        <li>Keep detailed records of agreements and conversations</li>
-        <li>Present work professionally with proper formatting and polish</li>
-        <li>Meet deadlines consistently or communicate early if issues arise</li>
-      </ul>
+      <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
-      <h2>Show Expertise Without Arrogance</h2>
-      <p>Clients hire you for your expertise, so share your knowledge freely. Offer suggestions and improvements, but always respect their final decisions and preferences.</p>
+      <h2>Conclusion: The Stage, Not the Middleman</h2>
+      <p><strong>Freelancers in India</strong> and <strong>independent professionals</strong> don't need another middleman — they need a stage. Because when the middleman disappears, <strong>authentic growth finally begins.</strong></p>
 
-      <blockquote>
-        "Trust is earned in drops and lost in buckets. Guard it carefully."
-      </blockquote>
-
-      <h2>Handle Mistakes Gracefully</h2>
-      <p>Everyone makes mistakes. When you do, acknowledge it quickly, take responsibility, and fix it without excuses. Clients remember how you handle problems more than the problems themselves.</p>
-
-      <h2>Request and Act on Feedback</h2>
-      <p>Regularly ask clients how you're doing and what you could improve. Then actually implement their suggestions. This shows you value their input and are committed to excellence.</p>
-
-      <h2>Conclusion</h2>
-      <p>Building trust takes time and consistent effort, but it's the most valuable investment you can make in your freelance career. Trusted freelancers enjoy repeat business, referrals, premium rates, and the satisfaction of genuine client relationships.</p>
-    `
-  },
-  {
-    id: 6,
-    title: 'SEO for Freelancers: Get Found by Local Clients',
-    excerpt: 'Optimize your online presence to attract more local clients and grow your freelance business.',
-    category: 'Marketing',
-    author: 'VDOgate Team',
-    authorBio: 'Digital Marketing',
-    authorImage: null,
-    date: '2024-12-28',
-    readTime: '8 min read',
-    views: '2.7k',
-    image: '/photograper.png',
-    content: `
-      <p>In the digital age, being found online is crucial for freelance success. While global freelance platforms are great, local clients often prefer working with nearby professionals. Here's how to optimize your online presence for local discovery.</p>
-
-      <h2>Understanding Local SEO</h2>
-      <p>Local SEO focuses on appearing in search results when people in your geographic area look for services you offer. For freelancers, this means showing up when someone searches for "web developer in Mumbai" or "freelance photographer Delhi."</p>
-
-      <h2>Optimize Your VDOgate Profile</h2>
-      <p>Your VDOgate profile is a powerful local SEO tool. Make sure to:</p>
-      <ul>
-        <li>Include your city and service areas in your profile</li>
-        <li>Use location-specific keywords naturally in your description</li>
-        <li>Showcase local projects and client testimonials</li>
-        <li>Keep your profile complete and updated</li>
-      </ul>
-
-      <h2>Create Location-Specific Content</h2>
-      <p>If you serve multiple locations, create content that mentions those areas. Blog about local industry trends, showcase local projects, and engage with local business communities online.</p>
-
-      <h2>Leverage Google Business Profile</h2>
-      <p>Even as a freelancer, you can create a Google Business Profile. This helps you appear in Google Maps and local search results. Include accurate information, regular updates, and encourage satisfied clients to leave reviews.</p>
-
-      <h2>Build Local Citations</h2>
-      <p>List your freelance business in local directories and industry-specific platforms. Consistency in your name, address, and phone number (NAP) across all platforms boosts local SEO.</p>
-
-      <h2>Use Keywords Strategically</h2>
-      <p>Research what local clients are searching for. Use tools like Google Keyword Planner to find popular search terms combining your service with your location.</p>
-
-      <blockquote>
-        "Local SEO isn't about gaming the system—it's about making it easy for nearby clients who need your services to find you."
-      </blockquote>
-
-      <h2>Gather and Showcase Reviews</h2>
-      <p>Reviews are crucial for local SEO and building trust. Actively request reviews from satisfied clients on VDOgate, Google, and other relevant platforms. Respond to all reviews, positive and negative, professionally.</p>
-
-      <h2>Mobile Optimization</h2>
-      <p>Most local searches happen on mobile devices. Ensure your online presence, especially your website and portfolio, looks great and loads fast on smartphones.</p>
-
-      <h2>Engage on Social Media Locally</h2>
-      <p>Use location tags in your posts, engage with local businesses and potential clients, and share content relevant to your local community.</p>
-
-      <h2>Conclusion</h2>
-      <p>Local SEO for freelancers is about being visible when nearby clients are looking for your services. By optimizing your VDOgate profile, creating location-specific content, and building a strong local online presence, you can attract more clients from your area and grow your freelance business sustainably.</p>
+      <p>The future belongs to <strong>service providers</strong> who control their own destinies. Ready to own your client relationships and keep 100% of your earnings? <a href="/#founding-creator" class="text-portal-primary font-semibold hover:underline">Join VDOgate as a Founding Creator</a> and experience true independence through <strong>commission-free</strong>, <strong>video-based discovery</strong>. Connect with <strong>local clients</strong> directly, showcase your skills through authentic <strong>video profiles</strong>, and build a sustainable freelance career without middlemen taking their cut.</p>
     `
   },
 ]
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
-  // Await params for Next.js 15 compatibility
-  const resolvedParams = await params
-  const idNum = parseInt(resolvedParams.id, 10)
-  const post = Number.isFinite(idNum) ? blogPosts.find(p => p.id === idNum) : undefined
-  if (!post) {
-    return {
-      title: 'Post Not Found | VDOgate Blog'
-    }
-  }
-  const site = process.env.NEXT_PUBLIC_SITE_URL || 'https://vdogate.com'
-  const absoluteImage = new URL(post.image, site).toString()
-  const title = post.title
-  const description = post.excerpt
-  const images = [{ url: absoluteImage, width: 1200, height: 630, alt: post.title }]
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: 'article',
-      images,
-      publishedTime: new Date(post.date).toISOString()
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: images.map(i => i.url)
-    }
-  }
-}
-
-export default async function BlogPostPage({ params }: { params: Promise<{ id: string }> }) {
-  // Await params for Next.js 15 compatibility
-  const resolvedParams = await params
-  const postId = parseInt(resolvedParams.id, 10)
+export default function BlogPostPage() {
+  const params = useParams()
+  const postId = parseInt(params.id as string, 10)
   if (!Number.isFinite(postId)) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
@@ -579,15 +503,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
                   transition={{ delay: 0.1 }}
                   className="prose prose-lg max-w-none
                     prose-headings:font-bold prose-headings:text-brand-black prose-headings:tracking-tight
-                    prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:leading-tight
-                    prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                    prose-p:text-neutral-gray-dark prose-p:leading-relaxed prose-p:mb-6 prose-p:text-lg
-                    prose-a:text-portal-primary prose-a:no-underline hover:prose-a:underline
-                    prose-strong:text-brand-black prose-strong:font-semibold
-                    prose-ul:my-6 prose-ul:space-y-2
-                    prose-li:text-neutral-gray-dark prose-li:leading-relaxed
+                    prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:leading-tight prose-h2:font-extrabold
+                    prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:font-bold
+                    prose-p:text-neutral-gray-dark prose-p:leading-[1.8] prose-p:mb-6 prose-p:text-lg
+                    prose-a:text-portal-primary prose-a:no-underline hover:prose-a:underline prose-a:font-medium
+                    prose-strong:text-brand-black prose-strong:font-bold
+                    prose-em:text-portal-primary prose-em:font-medium prose-em:not-italic
+                    prose-ul:my-8 prose-ul:space-y-3 prose-ul:list-disc prose-ul:pl-6
+                    prose-ol:my-8 prose-ol:space-y-3 prose-ol:list-decimal prose-ol:pl-6
+                    prose-li:text-neutral-gray-dark prose-li:leading-[1.8] prose-li:text-lg prose-li:pl-2
                     prose-blockquote:border-l-4 prose-blockquote:border-portal-primary prose-blockquote:bg-orange-50/30 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:not-italic prose-blockquote:my-8
-                    prose-blockquote:text-brand-black prose-blockquote:font-medium prose-blockquote:text-xl"
+                    prose-blockquote:text-brand-black prose-blockquote:font-medium prose-blockquote:text-xl
+                    prose-table:my-8 prose-table:w-full prose-table:border-collapse
+                    prose-thead:bg-orange-50
+                    prose-th:px-4 prose-th:py-3 prose-th:text-left prose-th:font-bold prose-th:text-brand-black prose-th:border prose-th:border-neutral-gray-lighter
+                    prose-td:px-4 prose-td:py-3 prose-td:text-neutral-gray-dark prose-td:border prose-td:border-neutral-gray-lighter
+                    prose-tr:even:bg-neutral-background/30"
                   dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
                 />
 
