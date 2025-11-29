@@ -206,10 +206,10 @@ export default function Careers() {
                 The VDOgate Ambassador Programme is designed for creators, entrepreneurs, and community leaders who believe in empowering creators with fair monetization and authentic discovery. As an ambassador, you'll play a crucial role in shaping our platform while building your own brand alongside VDOgate's growth.
               </p>
               <p className="text-lg">
-                We're looking for passionate individuals who understand the challenges creators face with algorithms, unfair revenue splits, and platform dependency. Whether you're a content creator, educator, consultant, or community builder—if you believe creators deserve better, this programme is for you.
+                We're looking for passionate individuals who understand the challenges creators face with algorithms, unfair revenue splits, and platform dependency. Whether you're a content creator, educator, consultant, or community builder, if you believe creators deserve better, this programme is for you.
               </p>
               <p className="text-lg">
-                Ambassadors aren't just users; they're partners in our mission. You'll get exclusive access to our team, influence product decisions, and help us spread the word about a platform that puts creators first. This is your chance to be part of something bigger—a movement to give creators the tools and respect they deserve.
+                Ambassadors aren't just users; they're partners in our mission. You'll get exclusive access to our team, influence product decisions, and help us spread the word about a platform that puts creators first. This is your chance to be part of something bigger, a movement to give creators the tools and respect they deserve.
               </p>
             </div>
           </motion.div>

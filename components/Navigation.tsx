@@ -66,9 +66,8 @@ export default function Navigation() {
   const navLinks = [
     { label: 'Home', href: '/', isScroll: false },
     { label: 'About', href: '/about', isScroll: false },
-    { label: 'Blog', href: '/blog', isScroll: false },
+    { label: 'Resources', href: '/resources', isScroll: false },
     { label: 'Careers', href: '/careers', isScroll: false },
-    { label: 'Ambassador', href: '/ambassador', isScroll: false },
   ]
 
   return (
@@ -80,11 +79,10 @@ export default function Navigation() {
         transition={{ duration: 0.3, ease: 'easeInOut' }}
         className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 pt-4"
       >
-        <div className={`relative transition-all duration-300 rounded-2xl overflow-hidden ${
-          isScrolled
-            ? 'bg-white/90 backdrop-blur-brand shadow-elevation-3 border border-neutral-gray-lighter/20'
-            : 'bg-white/60 backdrop-blur-sm border border-white/40'
-        }`}>
+        <div className={`relative transition-all duration-300 rounded-2xl overflow-hidden ${isScrolled
+          ? 'bg-white/90 backdrop-blur-brand shadow-elevation-3 border border-neutral-gray-lighter/20'
+          : 'bg-white/60 backdrop-blur-sm border border-white/40'
+          }`}>
           {/* Ambient Color Gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-portal-primary/[0.03] via-transparent to-portal-light/[0.03] pointer-events-none" />
 

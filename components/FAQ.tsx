@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: 'How is this different from Instagram or YouTube?',
-    answer: 'VDOgate is a professional platform built specifically for service monetization with integrated booking and payment tools. Unlike social media, there are no algorithms controlling your visibility—customers find you through direct category and location searches.',
+    answer: 'VDOgate is a professional platform built specifically for service monetization with integrated booking and payment tools. Unlike social media, there are no algorithms controlling your visibility, customers find you through direct category and location searches.',
   },
 ]
 
@@ -69,9 +69,8 @@ export default function FAQ() {
                   {faq.question}
                 </span>
                 <ChevronDown
-                  className={`w-6 h-6 text-gate-blue flex-shrink-0 transition-transform duration-300 ${
-                    openIndex === index ? 'rotate-180' : ''
-                  }`}
+                  className={`w-6 h-6 text-gate-blue flex-shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''
+                    }`}
                 />
               </button>
 

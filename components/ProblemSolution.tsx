@@ -167,21 +167,21 @@ export default function ProblemSolution() {
   ]
 
   const problemPoints = [
-    { icon: AlertCircle, text: 'Lost in the feed', delay: 0.1 },
-    { icon: TrendingDown, text: 'Algorithm changes', delay: 0.2 },
-    { icon: Users, text: 'Follower count matters more than skill', delay: 0.3 },
-    { icon: X, text: 'Pay to boost visibility', delay: 0.4 },
-    { icon: X, text: 'Commission on every sale', delay: 0.5 },
-    { icon: AlertCircle, text: 'Bidding wars among freelancers on other platforms', delay: 0.6 }
+    { icon: AlertCircle, text: 'Visibility depends on followers & paid ads', delay: 0.1 },
+    { icon: TrendingDown, text: 'Algorithms suppress reach', delay: 0.2 },
+    { icon: X, text: 'High commissions reduce earnings', delay: 0.3 },
+    { icon: Users, text: 'Buyers can\'t evaluate skill from text', delay: 0.4 },
+    { icon: X, text: 'No direct contact', delay: 0.5 },
+    { icon: AlertCircle, text: 'No transparency, no trust', delay: 0.6 }
   ]
 
   const solutionPoints = [
-    { icon: CheckCircle2, text: 'Featured by category', delay: 0.1 },
-    { icon: CheckCircle2, text: 'Fair discovery system', delay: 0.2 },
-    { icon: CheckCircle2, text: 'Skill-based visibility', delay: 0.3 },
-    { icon: CheckCircle2, text: 'No ads needed', delay: 0.4 },
-    { icon: CheckCircle2, text: 'Zero commission', delay: 0.5 },
-    { icon: CheckCircle2, text: 'Direct client connections', delay: 0.6 }
+    { icon: CheckCircle2, text: 'Skill-based discovery, not trend based', delay: 0.1 },
+    { icon: CheckCircle2, text: 'No ads, no algorithms, no boosting or suppression', delay: 0.2 },
+    { icon: CheckCircle2, text: 'Zero commission on direct services', delay: 0.3 },
+    { icon: CheckCircle2, text: 'Video-first identity, real proof builds trust', delay: 0.4 },
+    { icon: CheckCircle2, text: 'Direct communication, no middlemen', delay: 0.5 },
+    { icon: CheckCircle2, text: 'Free viewer access drives organic exposure', delay: 0.6 }
   ]
 
   // Floating badges data
@@ -317,7 +317,7 @@ export default function ProblemSolution() {
           >
             Across India, millions of freelancers depend on social media to find clients.
             <span className="block mt-2 font-semibold text-brand-black">
-              But visibility shouldn't cost you — it should earn you.
+              But visibility shouldn't cost you, it should earn you.
             </span>
           </motion.p>
         </motion.div>
@@ -438,7 +438,7 @@ export default function ProblemSolution() {
                     className="absolute inset-0 bg-gradient-to-r from-red-200/30 via-orange-200/30 to-red-200/30 opacity-50"
                     style={{ backgroundSize: '200% 100%' }}
                   />
-                  
+
                   {/* Content */}
                   <div className="relative z-10">
                     <div className="flex items-center justify-center gap-3 mb-3">
@@ -588,7 +588,7 @@ export default function ProblemSolution() {
                     className="absolute inset-0 bg-gradient-to-r from-orange-400/20 via-amber-400/20 to-orange-400/20 opacity-50"
                     style={{ backgroundSize: '200% 100%' }}
                   />
-                  
+
                   {/* Content */}
                   <div className="relative z-10">
                     <div className="flex items-center justify-center gap-3 mb-3">
@@ -798,6 +798,10 @@ export default function ProblemSolution() {
                       VDOgate is India's first video-first platform where freelancers promote their services through videos, get discovered by category and location, and{' '}
                       <span className="text-gradient">earn directly from clients</span>{' '}
                       — without middlemen, agencies, or commission cuts.
+                    </p>
+
+                    <p className="text-base md:text-lg text-portal-primary font-bold italic mb-4">
+                      Your work decides your visibility <br /> not platform politics.
                     </p>
 
                     {/* Feature Pills */}

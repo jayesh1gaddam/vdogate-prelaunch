@@ -93,7 +93,7 @@ export default function FreelancerCategories() {
             className="text-lg md:text-xl text-neutral-gray leading-relaxed max-w-3xl mx-auto"
           >
             From fitness trainers to creative professionals, VDOgate connects you with
-            <span className="font-semibold text-brand-black"> verified, skilled freelancers</span> across every category — all in one platform.
+            <span className="font-semibold text-brand-black"> verified, skilled freelancers</span> across every category, all in one platform.
           </motion.p>
         </motion.div>
 
@@ -153,14 +153,13 @@ export default function FreelancerCategories() {
                   <h3
                     className="text-lg md:text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-br pb-1"
                     style={{
-                      backgroundImage: `linear-gradient(to bottom right, ${
-                        person.color.includes('purple-400') ? '#a855f7, #7c3aed' :
-                        person.color.includes('pink-400') ? '#ec4899, #be185d' :
-                        person.color.includes('orange-400') ? '#f97316, #c2410c' :
-                        person.color.includes('green-400') ? '#10b981, #059669' :
-                        person.color.includes('blue-400') ? '#3b82f6, #1d4ed8' :
-                        '#8b5cf6, #6d28d9'
-                      })`
+                      backgroundImage: `linear-gradient(to bottom right, ${person.color.includes('purple-400') ? '#a855f7, #7c3aed' :
+                          person.color.includes('pink-400') ? '#ec4899, #be185d' :
+                            person.color.includes('orange-400') ? '#f97316, #c2410c' :
+                              person.color.includes('green-400') ? '#10b981, #059669' :
+                                person.color.includes('blue-400') ? '#3b82f6, #1d4ed8' :
+                                  '#8b5cf6, #6d28d9'
+                        })`
                     }}
                   >
                     {person.role}
@@ -178,22 +177,22 @@ export default function FreelancerCategories() {
                           offset="0%"
                           stopColor={
                             person.color.includes('purple-400') ? '#a855f7' :
-                            person.color.includes('pink-400') ? '#ec4899' :
-                            person.color.includes('orange-400') ? '#f97316' :
-                            person.color.includes('green-400') ? '#10b981' :
-                            person.color.includes('blue-400') ? '#3b82f6' :
-                            '#8b5cf6'
+                              person.color.includes('pink-400') ? '#ec4899' :
+                                person.color.includes('orange-400') ? '#f97316' :
+                                  person.color.includes('green-400') ? '#10b981' :
+                                    person.color.includes('blue-400') ? '#3b82f6' :
+                                      '#8b5cf6'
                           }
                         />
                         <stop
                           offset="100%"
                           stopColor={
                             person.color.includes('purple-400') ? '#7c3aed' :
-                            person.color.includes('pink-400') ? '#be185d' :
-                            person.color.includes('orange-400') ? '#c2410c' :
-                            person.color.includes('green-400') ? '#059669' :
-                            person.color.includes('blue-400') ? '#1d4ed8' :
-                            '#6d28d9'
+                              person.color.includes('pink-400') ? '#be185d' :
+                                person.color.includes('orange-400') ? '#c2410c' :
+                                  person.color.includes('green-400') ? '#059669' :
+                                    person.color.includes('blue-400') ? '#1d4ed8' :
+                                      '#6d28d9'
                           }
                         />
                       </linearGradient>

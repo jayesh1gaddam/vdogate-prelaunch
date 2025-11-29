@@ -54,7 +54,7 @@ export default function LiveEvents() {
                 'Profile listing by category & location',
                 'Upload unlimited skills videos',
                 'Connect directly with clients',
-                'Get discovered fairly — no ads needed',
+                'Get discovered fairly, no ads needed',
                 'No commission on your services',
                 'Keep 100% of what you earn from clients',
               ].map((feature, index) => (

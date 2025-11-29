@@ -52,15 +52,15 @@ export default function WhoItsFor() {
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl animate-float" style={{ ['--animation-duration' as any]: '20s' }} />
         <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-bl from-orange-200/20 to-amber-200/20 rounded-full blur-3xl animate-float-delayed" style={{ ['--animation-duration' as any]: '25s' }} />
         <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-gradient-to-tr from-purple-200/15 to-pink-200/15 rounded-full blur-3xl animate-float" style={{ ['--animation-duration' as any]: '30s' }} />
-        
+
         {/* Subtle grid pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30" />
-        
+
         {/* Radial gradient overlays */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-100/15 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-orange-100/15 via-transparent to-transparent" />
       </div>
-      
+
       {/* Add animation keyframes */}
       <style jsx>{`
         @keyframes float {
@@ -109,7 +109,7 @@ export default function WhoItsFor() {
             Built for <span className="text-gradient">Freelancers</span> and <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">Customers</span>
           </h2>
           <p className="text-lg md:text-xl text-neutral-gray max-w-3xl mx-auto leading-relaxed">
-            One platform, two powerful experiences — connecting talent with opportunity across India
+            One platform, two powerful experiences, connecting talent with opportunity across India
           </p>
         </div>
       </motion.div>
@@ -155,7 +155,7 @@ export default function WhoItsFor() {
                 </h3>
 
                 <p className="text-base md:text-lg text-neutral-gray-dark leading-relaxed mb-6">
-                  Discover verified freelancers through authentic video profiles — filtered by category and location
+                  Discover verified freelancers through authentic video profiles, filtered by category and location
                 </p>
 
                 {/* Features List */}
@@ -342,7 +342,7 @@ export default function WhoItsFor() {
                 </h3>
 
                 <p className="text-base md:text-lg text-neutral-gray-dark leading-relaxed mb-6">
-                  Upload your skills video and get automatically listed — customers find you by category and location
+                  Upload your skills video and get automatically listed, customers find you by category and location
                 </p>
 
                 {/* Features List */}
@@ -566,7 +566,7 @@ export default function WhoItsFor() {
 
               <p className="text-lg md:text-xl text-slate-300 leading-relaxed mb-10 max-w-3xl mx-auto">
                 Whether you're offering services or searching for talent, VDOgate connects you
-                <span className="font-semibold text-white"> directly, fairly, and transparently</span> — without middlemen
+                <span className="font-semibold text-white"> directly, fairly, and transparently</span>, without middlemen
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

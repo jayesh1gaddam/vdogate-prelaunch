@@ -1,24 +1,35 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Video, Ticket } from 'lucide-react'
+import { Video, Eye, Database, Sparkles } from 'lucide-react'
 
 const addons = [
   {
     icon: Video,
-    title: 'Live Events*',
-    description: 'Host live workshops, webinars, or training sessions for your audience',
+    title: 'Additional Video Upload Minutes',
+    description: 'Increase portfolio beyond 40 minutes',
+    pricing: '₹25 per additional 10 minutes',
     color: 'from-purple-400 to-indigo-500',
     bgColor: 'from-purple-50 to-indigo-50',
     borderColor: 'border-purple-200',
   },
   {
-    icon: Ticket,
-    title: 'Ticketed Shows*',
-    description: 'Organize paid performances, exhibitions, or shows and sell tickets directly',
+    icon: Eye,
+    title: 'Additional Viewer Delivery / Watch-Time',
+    description: 'Increase viewer consumption beyond 4,000 mins',
+    pricing: '₹125 per additional 1,000 minutes',
     color: 'from-blue-400 to-cyan-500',
     bgColor: 'from-blue-50 to-cyan-50',
     borderColor: 'border-blue-200',
+  },
+  {
+    icon: Database,
+    title: 'Additional Storage',
+    description: 'Retain more video content permanently',
+    pricing: 'Pricing aligned with capacity usage model',
+    color: 'from-green-400 to-emerald-500',
+    bgColor: 'from-green-50 to-emerald-50',
+    borderColor: 'border-green-200',
   },
 ]
 
@@ -41,20 +52,20 @@ export default function PricingAddons() {
           className="inline-block mb-4"
         >
           <div className="px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 border border-purple-200 rounded-full">
-            <span className="text-sm font-bold text-purple-700 uppercase tracking-wide">Additional Features (Add-Ons)</span>
+            <span className="text-sm font-bold text-purple-700 uppercase tracking-wide">Add-Ons (Optional — Pay Only If You Grow)</span>
           </div>
         </motion.div>
 
         <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-black mb-4">
           Expand Your Income Opportunities
         </h3>
-        <p className="text-base md:text-lg text-neutral-gray max-w-2xl mx-auto">
-          Unlock additional features at affordable prices to grow your business
+        <p className="text-base md:text-lg text-neutral-gray max-w-2xl mx-auto mb-6">
+          Add-ons allow scaling without forcing all subscribers to pay higher fixed pricing.
         </p>
       </motion.div>
 
       {/* Addons Grid */}
-      <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
         {addons.map((addon, index) => {
           const Icon = addon.icon
           return (
@@ -84,9 +95,12 @@ export default function PricingAddons() {
                 <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-3">
                   {addon.title}
                 </h4>
-                <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-4">
                   {addon.description}
                 </p>
+                <div className="px-4 py-2 bg-white/80 backdrop-blur-sm rounded-lg border border-gray-200">
+                  <p className="text-sm font-bold text-gray-900">{addon.pricing}</p>
+                </div>
               </div>
 
               {/* Hover Shine Effect */}
@@ -98,16 +112,58 @@ export default function PricingAddons() {
         })}
       </div>
 
+      {/* Why Add-Ons Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.4 }}
+        className="max-w-4xl mx-auto mb-10"
+      >
+        <div className="glass bg-gradient-to-br from-white via-indigo-50/30 to-purple-50/20 backdrop-blur-xl rounded-3xl p-8 border-2 border-indigo-200/40 shadow-xl">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+              <Sparkles className="w-6 h-6 text-white" />
+            </div>
+            <h4 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Why Add-Ons?</h4>
+          </div>
+
+          <ul className="space-y-3">
+            {[
+              'Keep subscription cost low',
+              'Support high-growth creators only when needed',
+              'No forced upgrades',
+              'No penalties for growing fast'
+            ].map((item, index) => (
+              <li key={index} className="flex items-start gap-3">
+                <div className="w-5 h-5 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span className="text-base text-neutral-gray-dark">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-6 pt-6 border-t border-indigo-200">
+            <p className="text-center text-lg font-bold text-indigo-900 italic">
+              Start with essentials. Expand only when success demands.
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
       {/* Bottom Notice */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.5 }}
-        className="mt-10 text-center max-w-4xl mx-auto"
+        className="text-center max-w-4xl mx-auto"
       >
         <p className="text-sm md:text-base text-neutral-gray-dark leading-relaxed mb-4">
-          All add-ons require the base <span className="font-bold text-emerald-600">₹2,999/month subscription</span> • Use one or both to maximize your income
+          All add-ons require the base <span className="font-bold text-emerald-600">₹2,999/month subscription</span> • Use as needed to maximize your income
         </p>
         <p className="text-sm md:text-base text-neutral-gray">
           <span className="font-semibold text-brand-black">Pre-launch registration is free</span> - Followed by one month free trial

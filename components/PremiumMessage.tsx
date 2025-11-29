@@ -84,7 +84,7 @@ export default function PremiumMessage() {
                 transition={{ delay: 0.3, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
                 className="mb-1 md:mb-2"
               >
-                Freelancers are driving India's new economy — from
+                Freelancers are driving India's new economy, from
               </motion.div>
 
               {/* Line 2: yoga trainers and beauticians */}

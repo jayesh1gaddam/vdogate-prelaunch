@@ -13,7 +13,7 @@ const features = [
   {
     icon: Compass,
     title: 'Location-Based Discovery',
-    description: 'Free for customers — browse huge directory by category + location across India',
+    description: 'Free for customers, browse huge directory by category + location across India',
     color: 'from-gate-blue to-gate-blue-light',
   },
   {
@@ -58,7 +58,7 @@ export default function Features() {
             Built for <span className="text-gradient">Freelancers</span> and <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">Customers</span>
           </h2>
           <p className="text-body-lg text-neutral-gray-dark max-w-2xl mx-auto">
-            Everything you need to grow your business or find the perfect freelancer — location-based, video-first, and completely free for customers
+            Everything you need to grow your business or find the perfect freelancer, location-based, video-first, and completely free for customers
           </p>
         </motion.div>
 

@@ -1,17 +1,47 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { IndianRupee, Check, Info, Sparkles } from 'lucide-react'
+import { IndianRupee, Check, Info, Sparkles, Video, Eye, MessageSquare, TrendingUp } from 'lucide-react'
 import AnimatedCounter from './animated-counter'
 
 export default function PricingCard() {
 
-  const features = [
-    { icon: Check, text: 'Fair Pricing — Keep What You Earn', highlight: '' },
-    { icon: Check, text: 'Zero Commission on Services', highlight: '' },
-    { icon: Check, text: 'Searchable by Category & Location', highlight: '' },
-    { icon: Check, text: 'Video Profile Showcase', highlight: '' },
-    { icon: Check, text: 'Direct Client Connections', highlight: '' },
+  const entitlements = [
+    {
+      icon: Video,
+      category: 'Video Portfolio',
+      color: 'from-purple-500 to-indigo-600',
+      items: [
+        'Upload up to 40 minutes of video each month',
+        'Videos stored & visible for 2 months',
+        'If total remains within 40 minutes, videos are never purged',
+        'Exceeding 40 minutes auto-removes only the oldest video'
+      ]
+    },
+    {
+      icon: TrendingUp,
+      category: 'Discovery',
+      color: 'from-orange-500 to-amber-600',
+      items: [
+        'Based on category & location (online / offline / hybrid)',
+        'No algorithms, no suppression, no ad boosting'
+      ]
+    },
+    {
+      icon: Eye,
+      category: 'Viewer Delivery',
+      color: 'from-blue-500 to-cyan-600',
+      items: ['4,000 minutes of viewer watch time per month']
+    },
+    {
+      icon: MessageSquare,
+      category: 'Earnings & Communication',
+      color: 'from-green-500 to-emerald-600',
+      items: [
+        'Direct buyer messaging',
+        'Zero commission on direct services'
+      ]
+    }
   ]
 
   return (
@@ -24,7 +54,7 @@ export default function PricingCard() {
 
       {/* Main Pricing Card */}
       <motion.div
-        className="relative max-w-2xl mx-auto group"
+        className="relative max-w-4xl mx-auto group"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -48,8 +78,10 @@ export default function PricingCard() {
             transition={{ delay: 0.2 }}
           >
             <Sparkles className="w-4 h-4 text-emerald-600" />
-            <span className="text-sm font-bold text-emerald-700">Simple, Transparent Pricing</span>
+            <span className="text-sm font-bold text-emerald-700">₹2,999/month, All core features included</span>
           </motion.div>
+
+          <p className="text-base text-neutral-gray mb-6">No hidden fees. No forced upgrades.</p>
 
           {/* Main Price Display */}
           <div className="mb-8 relative z-10">
@@ -82,33 +114,40 @@ export default function PricingCard() {
             </motion.div>
           </div>
 
-          {/* Features List */}
-          <div className="space-y-3 mb-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                className="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/50 transition-colors duration-200 group"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 + index * 0.1 }}
-              >
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Check className="w-4 h-4 text-emerald-600" />
-                </div>
-                <span className="text-base text-gray-700 font-medium">
-                  {feature.highlight ? (
-                    <>
-                      {feature.text.split(feature.highlight)[0]}
-                      <span className="text-emerald-600 font-bold">{feature.highlight}</span>
-                      {feature.text.split(feature.highlight)[1]}
-                    </>
-                  ) : (
-                    feature.text
-                  )}
-                </span>
-              </motion.div>
-            ))}
+          {/* Subscriber Entitlements */}
+          <div className="mb-8">
+            <h3 className="text-xl md:text-2xl font-bold text-brand-black mb-6 text-center">Subscriber Entitlements</h3>
+
+            <div className="space-y-6">
+              {entitlements.map((entitlement, index) => {
+                const Icon = entitlement.icon
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6 + index * 0.1 }}
+                    className="border-l-4 border-emerald-500 pl-6 py-3"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className={`w-10 h-10 bg-gradient-to-br ${entitlement.color} rounded-xl flex items-center justify-center shadow-md`}>
+                        <Icon className="w-5 h-5 text-white" />
+                      </div>
+                      <h4 className="text-lg font-bold text-brand-black">{entitlement.category}</h4>
+                    </div>
+                    <ul className="space-y-2">
+                      {entitlement.items.map((item, itemIndex) => (
+                        <li key={itemIndex} className="flex items-start gap-2 text-sm text-neutral-gray-dark">
+                          <Check className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )
+              })}
+            </div>
           </div>
 
           {/* Bottom Notice */}

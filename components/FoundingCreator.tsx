@@ -157,11 +157,11 @@ export default function FoundingCreator() {
         <svg width="100%" height="100%">
           <defs>
             <pattern id="circuit" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="2" fill="#F7682B"/>
-              <line x1="10" y1="10" x2="40" y2="10" stroke="#F7682B" strokeWidth="1"/>
-              <circle cx="40" cy="10" r="2" fill="#F7682B"/>
-              <line x1="10" y1="10" x2="10" y2="40" stroke="#F7682B" strokeWidth="1"/>
-              <circle cx="10" cy="40" r="2" fill="#F7682B"/>
+              <circle cx="10" cy="10" r="2" fill="#F7682B" />
+              <line x1="10" y1="10" x2="40" y2="10" stroke="#F7682B" strokeWidth="1" />
+              <circle cx="40" cy="10" r="2" fill="#F7682B" />
+              <line x1="10" y1="10" x2="10" y2="40" stroke="#F7682B" strokeWidth="1" />
+              <circle cx="10" cy="40" r="2" fill="#F7682B" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#circuit)" />
@@ -191,7 +191,7 @@ export default function FoundingCreator() {
             className="inline-flex items-center gap-2 bg-gradient-to-r from-portal-primary/10 to-portal-light/10 border-[0.2px] border-portal-primary/20 rounded-full px-6 py-2 mb-6"
           >
             <Sparkles className="w-5 h-5 text-portal-primary" />
-            <span className="text-brand-black font-semibold">Limited to 500 Freelancers</span>
+            <span className="text-brand-black font-semibold">Limited 500 Seats Only</span>
             <TrendingUp className="w-5 h-5 text-portal-primary" />
           </motion.div>
 
@@ -199,7 +199,7 @@ export default function FoundingCreator() {
             Become a <span className="bg-gradient-to-r from-portal-primary to-portal-light bg-clip-text text-transparent">Founding Freelancer</span>
           </h2>
           <p className="text-lg md:text-xl text-neutral-gray max-w-2xl mx-auto leading-relaxed">
-            Join the first 500 freelancers to build the future of India's freelance economy and get lifetime premium benefits
+            Founders Badge • Recognition • Early access • Special rewards
           </p>
         </motion.div>
 
@@ -316,48 +316,48 @@ export default function FoundingCreator() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden border-[0.2px] border-neutral-gray-lighter p-8 md:p-10">
-                {submitted ? (
+              {submitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-12"
+                >
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="text-center py-12"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
                   >
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                    >
-                      <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                        <CheckCircle2 className="w-12 h-12 text-white" />
-                      </div>
-                    </motion.div>
-                    <motion.h3
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 }}
-                      className="text-3xl font-bold text-brand-black mb-4"
-                    >
-                      Application Received!
-                    </motion.h3>
-                    <motion.p
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4 }}
-                      className="text-lg text-neutral-gray-dark mb-8 max-w-md mx-auto"
-                    >
-                      Thank you for applying to be a Founding Freelancer. We'll review your application and get back to you within <span className="font-semibold text-portal-primary">48 hours</span>.
-                    </motion.p>
-                    <motion.button
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5 }}
-                      onClick={() => setSubmitted(false)}
-                      className="text-portal-primary font-semibold hover:underline text-lg"
-                    >
-                      Submit another application
-                    </motion.button>
+                    <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                      <CheckCircle2 className="w-12 h-12 text-white" />
+                    </div>
                   </motion.div>
-                ) : (
+                  <motion.h3
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-3xl font-bold text-brand-black mb-4"
+                  >
+                    Application Received!
+                  </motion.h3>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="text-lg text-neutral-gray-dark mb-8 max-w-md mx-auto"
+                  >
+                    Thank you for applying to be a Founding Freelancer. We'll review your application and get back to you within <span className="font-semibold text-portal-primary">48 hours</span>.
+                  </motion.p>
+                  <motion.button
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    onClick={() => setSubmitted(false)}
+                    className="text-portal-primary font-semibold hover:underline text-lg"
+                  >
+                    Submit another application
+                  </motion.button>
+                </motion.div>
+              ) : (
                 <>
                   {/* Enhanced Header */}
                   <div className="mb-8">
@@ -425,9 +425,8 @@ export default function FoundingCreator() {
                         )}
                       </label>
                       <div className="relative">
-                        <User className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none transition-colors ${
-                          focusedField === 'name' ? 'text-portal-primary' : 'text-neutral-gray'
-                        }`} />
+                        <User className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none transition-colors ${focusedField === 'name' ? 'text-portal-primary' : 'text-neutral-gray'
+                          }`} />
                         <input
                           {...register('name')}
                           type="text"
@@ -799,11 +798,10 @@ export default function FoundingCreator() {
                         disabled={isSubmitting || progress < 100}
                         whileHover={{ scale: (isSubmitting || progress < 100) ? 1 : 1.02, y: -2 }}
                         whileTap={{ scale: (isSubmitting || progress < 100) ? 1 : 0.98 }}
-                        className={`w-full px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-300 relative group ${
-                          progress < 100
+                        className={`w-full px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-300 relative group ${progress < 100
                             ? 'bg-neutral-gray-lighter text-neutral-gray cursor-not-allowed'
                             : 'bg-gradient-to-r from-portal-primary via-portal-light to-portal-lighter text-white shadow-xl hover:shadow-2xl'
-                        } ${isSubmitting ? 'opacity-75 cursor-wait' : ''}`}
+                          } ${isSubmitting ? 'opacity-75 cursor-wait' : ''}`}
                       >
 
                         <span className="relative z-10 flex items-center justify-center gap-3">

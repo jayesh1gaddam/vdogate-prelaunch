@@ -8,23 +8,30 @@ const freelancerSteps = [
   {
     number: '01',
     icon: Video,
-    title: 'Showcase Your Skills',
-    description: 'Upload short videos that highlight what you do best — whether you teach, train, design, or coach online, offline, or hybrid.',
-    detail: 'Present your talent through videos and make your work visible to potential clients.',
+    title: 'Upload Videos, Show Real Skill',
+    description: 'Upload videos that showcase your real skills and build trust with potential clients.',
+    detail: 'Show real skill and build trust through authentic video demonstrations.',
   },
   {
     number: '02',
     icon: MapPin,
     title: 'Get Discovered by Category & Location',
-    description: 'VDOgate automatically lists you under your chosen category and region, so clients nearby or across India can easily find you.',
-    detail: 'No algorithms. No ads. Just fair visibility for every freelancer.',
+    description: 'Get discovered by category & location (online / offline / hybrid).',
+    detail: 'No ads, no algorithms, no boosting or suppression. Fair discovery for everyone.',
   },
   {
     number: '03',
+    icon: MessageSquare,
+    title: 'Connect Directly',
+    description: 'Connect directly with clients, no middlemen, no commission.',
+    detail: 'Direct communication and zero commission on your services.',
+  },
+  {
+    number: '04',
     icon: IndianRupee,
-    title: 'Earn from Your Clients',
-    description: 'Earn directly from your clients. No fees or commission to be paid to the platform.',
-    detail: 'Everything you need to grow — all in one Indian platform where freelancers and customers connect directly, fairly, and without any fees or commission to be paid to the platform.',
+    title: 'Host Optional Paid Live Events',
+    description: 'Monetize instantly through live workshops, training, coaching, and more.',
+    detail: 'Host optional paid live events, monetize instantly with 85% revenue share.',
   },
 ]
 
@@ -119,11 +126,10 @@ export default function HowItWorks() {
               onClick={() => setActiveTab('freelancers')}
               whileHover={{ scale: 1.02, y: -1 }}
               whileTap={{ scale: 0.98 }}
-              className={`relative flex-1 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md overflow-hidden ${
-                activeTab === 'freelancers'
-                  ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-orange-500/30'
-                  : 'bg-white text-neutral-gray-dark border-2 border-orange-200 hover:border-orange-400 shadow-neutral-gray-lighter/50'
-              }`}
+              className={`relative flex-1 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md overflow-hidden ${activeTab === 'freelancers'
+                ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-orange-500/30'
+                : 'bg-white text-neutral-gray-dark border-2 border-orange-200 hover:border-orange-400 shadow-neutral-gray-lighter/50'
+                }`}
               role="tab"
               aria-selected={activeTab === 'freelancers'}
               id="tab-freelancers"
@@ -170,11 +176,10 @@ export default function HowItWorks() {
               onClick={() => setActiveTab('customers')}
               whileHover={{ scale: 1.02, y: -1 }}
               whileTap={{ scale: 0.98 }}
-              className={`relative flex-1 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md overflow-hidden ${
-                activeTab === 'customers'
-                  ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-blue-500/30'
-                  : 'bg-white text-neutral-gray-dark border-2 border-blue-200 hover:border-blue-400 shadow-neutral-gray-lighter/50'
-              }`}
+              className={`relative flex-1 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md overflow-hidden ${activeTab === 'customers'
+                ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-blue-500/30'
+                : 'bg-white text-neutral-gray-dark border-2 border-blue-200 hover:border-blue-400 shadow-neutral-gray-lighter/50'
+                }`}
               role="tab"
               aria-selected={activeTab === 'customers'}
               id="tab-customers"
@@ -334,8 +339,8 @@ export default function HowItWorks() {
               </motion.div>
 
               <p className="text-lg md:text-xl text-neutral-gray-dark leading-relaxed mb-8 max-w-3xl mx-auto">
-                {activeTab === 'freelancers' 
-                  ? "Join India's first truly fair freelance marketplace — where your talent matters more than your ad spend, and every connection you make is yours to keep."
+                {activeTab === 'freelancers'
+                  ? "One platform. Two sides. Freelancers showcase. Buyers discover. Everyone wins."
                   : "Find talented professionals who are ready to deliver quality work — browse authentic video portfolios and hire with confidence, completely free."}
               </p>
 
@@ -346,8 +351,8 @@ export default function HowItWorks() {
                 className={`group relative px-8 py-4 ${activeTab === 'freelancers' ? 'bg-gradient-to-r from-orange-500 to-amber-500 shadow-orange-500/30 hover:shadow-orange-500/40' : 'bg-gradient-to-r from-blue-500 to-cyan-500 shadow-blue-500/30 hover:shadow-blue-500/40'} text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-2`}
               >
                 <span className="relative z-10">
-                  {activeTab === 'freelancers' 
-                    ? 'Activate 30-days freelancer trial' 
+                  {activeTab === 'freelancers'
+                    ? 'Activate 30-days freelancer trial'
                     : 'Start finding freelancers now'}
                 </span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
@@ -362,8 +367,8 @@ export default function HowItWorks() {
               >
                 <Sparkles className={`w-4 h-4 ${activeTab === 'freelancers' ? 'text-orange-500' : 'text-blue-500'}`} />
                 <span>
-                  {activeTab === 'freelancers' 
-                    ? 'Join 500+ freelancers already registered' 
+                  {activeTab === 'freelancers'
+                    ? 'Join 500+ freelancers already registered'
                     : 'Trusted by businesses across India'}
                 </span>
               </motion.p>

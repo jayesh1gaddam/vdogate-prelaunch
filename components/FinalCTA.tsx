@@ -250,7 +250,7 @@ export default function FinalCTA() {
             transition={{ delay: 0.2, duration: 0.7 }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent leading-tight">
-              Join India's Platform for India's Freelancers
+              Showcase. Connect. Earn. Your way.
             </h2>
           </motion.div>
 
@@ -348,10 +348,10 @@ export default function FinalCTA() {
                   {/* Benefits List with Enhanced Design */}
                   <ul className="space-y-4 mb-8 text-left">
                     {[
-                      { text: 'Free pre-launch registration — no credit card required', icon: CheckCircle2, color: 'text-green-600' },
-                      { text: 'Video-first platform — showcase your skills authentically', icon: Zap, color: 'text-orange-600' },
-                      { text: 'Zero commission — keep 100% of your service fees', icon: Shield, color: 'text-purple-600' },
-                      { text: 'Fair discovery by category & location — no ads needed', icon: TrendingUp, color: 'text-blue-600' },
+                      { text: 'Free pre-launch registration, no credit card required', icon: CheckCircle2, color: 'text-green-600' },
+                      { text: 'Video-first platform, showcase your skills authentically', icon: Zap, color: 'text-orange-600' },
+                      { text: 'Zero commission, keep 100% of your service fees', icon: Shield, color: 'text-purple-600' },
+                      { text: 'Fair discovery by category & location, no ads needed', icon: TrendingUp, color: 'text-blue-600' },
                     ].map((item, index) => (
                       <motion.li
                         key={index}
@@ -389,7 +389,7 @@ export default function FinalCTA() {
                       }}
                     />
                     <span className="relative z-10 flex items-center justify-center gap-2">
-                      Activate 30-day freelancer trial
+                      Join as Founding Freelancer
                       <ArrowRight className="w-5 h-5 group-hover/button:translate-x-2 transition-transform duration-300" />
                     </span>
                   </motion.button>
@@ -502,7 +502,7 @@ export default function FinalCTA() {
                       className="w-full px-8 py-5 bg-slate-700/50 backdrop-blur border-2 border-slate-600/50 text-slate-300 rounded-2xl font-bold text-base md:text-lg cursor-not-allowed relative overflow-hidden shadow-inner"
                     >
                       <span className="flex items-center justify-center gap-2">
-                        Find my freelancer
+                        Find My Freelancer
                       </span>
                     </button>
                     <motion.div

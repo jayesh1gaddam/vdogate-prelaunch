@@ -4,6 +4,9 @@ import Hero from '@/components/Hero'
 import PremiumMessage from '@/components/PremiumMessage'
 import PWAProvider from '@/components/PWAProvider'
 import MobileLayoutWrapper from '@/components/MobileLayoutWrapper'
+import SeeRealSkills from '@/components/SeeRealSkills'
+import LiveEventsPricing from '@/components/LiveEventsPricing'
+import ForInfluencers from '@/components/ForInfluencers'
 
 // Lazy load below-fold components with loading states
 const FreelancerCategories = dynamic(() => import('@/components/FreelancerCategories'), {
@@ -55,11 +58,14 @@ export default function Home() {
           <PremiumMessage />
 
           {/* Below-fold content - lazy loaded */}
+          <SeeRealSkills />
           <FreelancerCategories />
           <ProblemSolution />
           <HowItWorks />
           <WhoItsFor />
           <PlatformPricing />
+          <LiveEventsPricing />
+          <ForInfluencers />
           <FoundingCreator />
           <FinalCTA />
           <Footer />

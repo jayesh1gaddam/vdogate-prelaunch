@@ -35,7 +35,7 @@ export default function CompetitiveAdvantage() {
             Why <span className="text-gradient">VDOgate</span> Stands Out
           </h2>
           <p className="text-body-lg text-neutral-gray-dark max-w-3xl mx-auto">
-            Built for freelancers to grow their business — <span className="font-semibold text-blue-600">completely free</span> for customers to discover and connect with verified talent
+            Built for freelancers to grow their business, <span className="font-semibold text-blue-600">completely free</span> for customers to discover and connect with verified talent
           </p>
         </motion.div>
 
@@ -62,9 +62,8 @@ export default function CompetitiveAdvantage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className={`grid grid-cols-3 gap-4 p-6 ${
-                index !== comparison.length - 1 ? 'border-b border-neutral-gray-lighter' : ''
-              }`}
+              className={`grid grid-cols-3 gap-4 p-6 ${index !== comparison.length - 1 ? 'border-b border-neutral-gray-lighter' : ''
+                }`}
             >
               <div className="font-medium text-neutral-black">{row.feature}</div>
               <div className="flex items-center justify-center gap-2 text-gate-blue font-semibold text-center">

@@ -54,7 +54,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="lg:col-span-7 text-center lg:text-left space-y-6 md:space-y-8 lg:space-y-10"
+              className="lg:col-span-7 text-center lg:text-left space-y-6 md:space-y-8 lg:space-y-10 pt-12 lg:pt-24"
             >
               {/* Main Headline - Lighter & More Breathing Space */}
               <motion.h1
@@ -75,11 +75,13 @@ export default function Hero() {
                 transition={{ delay: 0.3, duration: 0.7 }}
                 className="text-base md:text-lg xl:text-xl 2xl:text-2xl text-neutral-gray leading-relaxed max-w-xl xl:max-w-2xl 2xl:max-w-3xl mx-auto lg:mx-0 font-light"
               >
-                Make money from your skills — not spend money to promote them.
+                Make money from your skills <br /> not spend money to promote them.
                 <br />
                 <span className="font-semibold text-brand-black">No Ads • No Algorithm • No Commission on Your Services</span>
                 <br />
                 <span className="text-sm">Get discovered by category and location — reach clients near you or across India.</span>
+                <br />
+                <span className="text-sm font-semibold text-portal-primary">Free for buyers & viewers, always.</span>
               </motion.p>
 
               {/* Community Trust Badge with Avatar Stack */}
@@ -128,7 +130,7 @@ export default function Hero() {
                   onClick={() => scrollToSection('founding-creator')}
                   className="group px-7 py-3.5 bg-portal-gradient text-white rounded-lg font-medium text-sm md:text-base hover:shadow-portal-sm transition-all duration-300 hover:scale-[1.01] flex items-center justify-center gap-2 shadow-md shadow-portal-primary/10"
                 >
-                  Join the Waitlist – Free Pre-Launch Registration
+                  Join as Founding Freelancer
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
 
@@ -136,7 +138,7 @@ export default function Hero() {
                   onClick={() => scrollToSection('how-it-works')}
                   className="group px-7 py-3.5 bg-white border border-neutral-gray-lighter text-brand-gray-900 rounded-lg font-medium text-sm md:text-base hover:border-portal-primary hover:bg-portal-primary/3 transition-all duration-300 flex items-center justify-center gap-2"
                 >
-                  Find Your Freelancer
+                  Find My Freelancer
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </motion.div>

@@ -167,7 +167,7 @@ export default function About() {
                   className="space-y-6 text-neutral-gray-dark leading-relaxed"
                 >
                   <p className="text-lg">
-                    We started VDOgate because we've seen it firsthand—talented creators, skilled professionals, passionate educators—all struggling to turn their expertise into sustainable income. Not because they lack skills, but because the platforms they depend on have broken incentives.
+                    We started VDOgate because we've seen it firsthand, talented creators, skilled professionals, passionate educators—all struggling to turn their expertise into sustainable income. Not because they lack skills, but because the platforms they depend on have broken incentives.
                   </p>
 
                   <p className="text-lg">
@@ -195,11 +195,11 @@ export default function About() {
                   </motion.div>
 
                   <p className="text-lg">
-                    <strong className="text-brand-black">VDOgate is different by design.</strong> We built search-based discovery because skills should speak louder than follower counts. We prioritize creator success with fair compensation and transparent pricing. We focus on local, service-based creators because that's where real business happens—not in viral moments, but in genuine client relationships.
+                    <strong className="text-brand-black">VDOgate is different by design.</strong> We built search-based discovery because skills should speak louder than follower counts. We prioritize creator success with fair compensation and transparent pricing. We focus on local, service-based creators because that's where real business happens, not in viral moments, but in genuine client relationships.
                   </p>
 
                   <p className="text-lg">
-                    We're not building another social media platform. We're building a professional gateway—a place where creators can build sustainable businesses, where clients find experts they can trust, and where algorithms don't decide your worth.
+                    We're not building another social media platform. We're building a professional gateway, a place where creators can build sustainable businesses, where clients find experts they can trust, and where algorithms don't decide your worth.
                   </p>
 
                   {/* Interactive Promise Section */}
@@ -243,11 +243,11 @@ export default function About() {
                   </motion.div>
 
                   <p className="text-lg">
-                    This is personal for us. We're not building VDOgate as spectators—we're building it as believers in the creator economy who refuse to accept the status quo. Every feature, every decision, every line of code is guided by one question: <em>Is this good for creators?</em>
+                    This is personal for us. We're not building VDOgate as spectators, we're building it as believers in the creator economy who refuse to accept the status quo. Every feature, every decision, every line of code is guided by one question: <em>Is this good for creators?</em>
                   </p>
 
                   <p className="text-lg">
-                    <strong className="text-brand-black">If you're a creator who's tired of algorithm dependence, unfair revenue splits, and platforms that don't respect your work—VDOgate is for you.</strong> Join us as a founding creator and let's build something better, together.
+                    <strong className="text-brand-black">If you're a creator who's tired of algorithm dependence, unfair revenue splits, and platforms that don't respect your work, VDOgate is for you.</strong> Join us as a founding creator and let's build something better, together.
                   </p>
                 </motion.div>
               </div>
@@ -295,7 +295,7 @@ export default function About() {
               </div>
               <div className="bg-white rounded-2xl p-6 border border-gate-blue/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="text-3xl font-bold text-gate-blue mb-2">Q3 2025</div>
-                <p className="text-neutral-gray-dark">Launch date—join the waiting list now</p>
+                <p className="text-neutral-gray-dark">Launch date, join the waiting list now</p>
               </div>
             </motion.div>
           </motion.div>
@@ -319,7 +319,7 @@ export default function About() {
               <h2 className="text-3xl font-bold mb-4 text-brand-black">Our Mission</h2>
               <p className="text-neutral-gray-dark leading-relaxed text-lg">
                 To empower skill-based creators across India with a platform that offers fair monetization,
-                authentic discovery, and professional tools—helping them build sustainable businesses from their expertise.
+                authentic discovery, and professional tools, helping them build sustainable businesses from their expertise.
               </p>
             </motion.div>
 
@@ -360,7 +360,7 @@ export default function About() {
             <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg">
               <div className="prose prose-lg max-w-none">
                 <p className="text-neutral-gray-dark leading-relaxed mb-6">
-                  Talented creators across India—makeup artists, fitness coaches, photographers, educators, consultants—struggle to convert their skills into sustainable income. They're stuck in a broken system:
+                  Talented creators across India, makeup artists, fitness coaches, photographers, educators, consultants—struggle to convert their skills into sustainable income. They're stuck in a broken system:
                 </p>
 
                 <div className="space-y-6 my-8">
@@ -398,7 +398,7 @@ export default function About() {
                 </div>
 
                 <p className="text-neutral-gray-dark leading-relaxed">
-                  VDOgate changes this. We're built on search-based discovery, fair revenue sharing, and professional tools that help creators focus on what they do best—serving clients and building their business.
+                  VDOgate changes this. We're built on search-based discovery, fair revenue sharing, and professional tools that help creators focus on what they do best, serving clients and building their business.
                 </p>
               </div>
             </div>
@@ -429,7 +429,7 @@ export default function About() {
               {
                 icon: Users,
                 title: 'Search-Based Discovery',
-                description: 'Clients find you by location and category—no algorithms, no follower count requirements. Your skills speak for themselves.',
+                description: 'Clients find you by location and category, no algorithms, no follower count requirements. Your skills speak for themselves.',
               },
               {
                 icon: TrendingUp,
@@ -444,7 +444,7 @@ export default function About() {
               {
                 icon: Shield,
                 title: 'Professional Tools',
-                description: 'Payment processing, booking management, lead generation—everything you need to run your creator business.',
+                description: 'Payment processing, booking management, lead generation, everything you need to run your creator business.',
               },
               {
                 icon: Target,
@@ -535,7 +535,7 @@ export default function About() {
               Our <span className="text-gradient">Roadmap</span>
             </h2>
             <p className="text-lg text-neutral-gray-dark max-w-3xl mx-auto">
-              From vision to launch—our journey to empower creators across India
+              From vision to launch, our journey to empower creators across India
             </p>
           </motion.div>
 
@@ -552,9 +552,8 @@ export default function About() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className={`flex items-center gap-8 ${
-                      index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                    }`}
+                    className={`flex items-center gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                      }`}
                   >
                     <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
                       <div className="bg-white rounded-2xl p-6 shadow-lg border border-neutral-gray-lighter">
