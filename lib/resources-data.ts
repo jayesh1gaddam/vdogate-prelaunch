@@ -227,6 +227,7 @@ export const SAMPLE_RESOURCES: Resource[] = [
         tags: ['Subscription', 'Pricing', 'Core Features'],
         date: '2025-11-01',
         question: 'How does the ₹2,999/month subscription work?',
+        excerpt: 'The ₹2,999/month subscription includes 40 mins video upload, 2-month storage, 4,000 mins viewer delivery, and zero commission on direct services.',
         answer: 'The ₹2,999/month subscription (₹100/day) includes: (1) Upload up to 40 minutes of video monthly, (2) Videos stored for 2 months (never purged if within 40 min total), (3) 4,000 minutes of viewer watch time per month, (4) Discovery by category & location with no algorithms, (5) Direct buyer messaging, and (6) Zero commission on all direct services. This is a pre-launch offer for Founding Freelancers.',
         helpful: 342
     },
@@ -239,6 +240,7 @@ export const SAMPLE_RESOURCES: Resource[] = [
         tags: ['Live Events', 'Pricing', '85% Revenue'],
         date: '2025-11-01',
         question: 'What are the live events pricing details?',
+        excerpt: 'Live events have a ₹199 activation fee. You set the ticket price (min ₹99/hr). You keep 85% of revenue, platform fee is 15%. Payouts in 4 days.',
         answer: 'Live events have a ₹199 activation fee per event. You decide the duration and set the ticket price (minimum ₹99/hour). VDOgate takes 15% platform fee, you keep 85%. Payouts are released within 4 days post-event after statutory deductions (TDS, etc.). Full refund to attendees if event fails due to technical issues.',
         helpful: 289
     },
@@ -251,6 +253,7 @@ export const SAMPLE_RESOURCES: Resource[] = [
         tags: ['Discovery', 'Visibility', 'No Algorithm'],
         date: '2025-11-01',
         question: 'How do I get discovered by clients on VDOgate?',
+        excerpt: 'Discovery is based on category and location only. No algorithms or paid boosting. Your video portfolio showcases your real skills to local clients.',
         answer: 'VDOgate lists you by category and location only. There are no algorithms, no paid promotions, and no follower-based ranking. Clients find you by browsing your category or searching by location (online/offline/hybrid). Your video portfolio helps them see your real skills. Your work decides your visibility — not platform politics.',
         helpful: 418
     },
@@ -263,6 +266,7 @@ export const SAMPLE_RESOURCES: Resource[] = [
         tags: ['Video Upload', 'Storage', 'Limits'],
         date: '2025-11-01',
         question: 'What happens if I exceed 40 minutes of video uploads?',
+        excerpt: 'If you exceed 40 minutes, the oldest video is removed to stay within limits. If you stay within 40 minutes total, videos are never purged.',
         answer: 'If your total video portfolio exceeds 40 minutes, the system automatically removes only the oldest video to bring you back within the limit. If you stay within 40 minutes total, your videos are never purged. You can purchase additional upload minutes (₹25 per 10 minutes) if you need more.',
         helpful: 256
     },
@@ -275,6 +279,7 @@ export const SAMPLE_RESOURCES: Resource[] = [
         tags: ['Zero Commission', 'Earnings', 'Direct Services'],
         date: '2025-11-01',
         question: 'Does VDOgate take commission on my services?',
+        excerpt: 'No commission on direct services. You keep 100% of earnings. We only charge the monthly subscription. Live events have a 15% platform fee.',
         answer: 'No. VDOgate charges zero commission on direct services. You communicate directly with clients and handle payments yourself. We only charge the ₹2,999/month subscription. For live events, we take 15% platform fee (you keep 85%), but direct 1-on-1 services have zero commission.',
         helpful: 395
     },
@@ -287,6 +292,7 @@ export const SAMPLE_RESOURCES: Resource[] = [
         tags: ['Founding Freelancer', 'Pre-Launch', 'Benefits'],
         date: '2025-11-01',
         question: 'What is the Founding Freelancer program?',
+        excerpt: 'Limited to first 500 freelancers. Includes Founders Badge, early access, and special rewards. Registration is free during pre-launch.',
         answer: 'The Founding Freelancer program is limited to the first 500 freelancers who join VDOgate pre-launch. Benefits include: Founders Badge on your profile, early access to new features, recognition in our community, and special rewards. Registration is free during pre-launch.',
         helpful: 312
     },
