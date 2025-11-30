@@ -641,77 +641,7 @@ export default function ProblemSolution() {
         </div>
 
         {/* Benefit Cards Grid with 3D Tilt Effect + Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-20"
-        >
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-brand-black"
-          >
-            How <span className="text-gradient">VDOgate Works</span> For You
-          </motion.h3>
-
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {benefitCards.map((card, index) => {
-              const Icon = card.icon
-
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 + index * 0.15, duration: 0.6, ease: "easeOut" }}
-                >
-                  <div className="relative h-full glass bg-white/80 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-gray-100 overflow-hidden">
-                    <div className="relative z-10">
-                      {/* Icon */}
-                      <div className={`w-16 h-16 bg-gradient-to-br ${card.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-
-                      {/* Title */}
-                      <h4 className="text-xl md:text-2xl font-bold text-brand-black mb-3">
-                        {card.title}
-                      </h4>
-
-                      {/* Description */}
-                      <p className="text-neutral-gray mb-4">
-                        {card.description}
-                      </p>
-
-                      {/* Hover Content - Now always visible */}
-                      <div className="mt-4">
-                        <p className="text-brand-black font-medium text-base leading-relaxed mb-4">
-                          {card.hoverContent}
-                        </p>
-                      </div>
-
-                      {/* Stats Badge */}
-                      {isClient && (
-                        <div className="mt-4 px-4 py-2 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg border border-gray-200">
-                          <div className="text-center">
-                            <div className={`text-2xl font-bold bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent`}>
-                              <AnimatedCounter end={card.stats.number} suffix={card.stats.suffix} />
-                            </div>
-                            <div className="text-xs text-neutral-gray mt-1">{card.stats.label}</div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-              )
-            })}
-          </div>
-        </motion.div>
+        {/* Removed benefit cards section */}
 
         {/* Value Proposition Statement - Enhanced */}
         <motion.div
@@ -751,9 +681,21 @@ export default function ProblemSolution() {
                   {/* Content */}
                   <div className="relative z-10">
                     <h4 className="text-lg md:text-xl font-bold text-red-700 mb-4 uppercase tracking-wide">The Problem</h4>
-                    <p className="text-lg md:text-xl text-neutral-gray-dark leading-relaxed">
-                      Freelancers spend valuable time and money chasing reach instead of serving clients, and many never qualify for monetization because platforms demand high followers or long watch-times before allowing income.
-                    </p>
+                    <ul className="space-y-3">
+                      {[
+                        'You have the skill, but no budget to advertise.',
+                        'Platforms hide you unless you pay for "boosts".',
+                        'You compete with thousands of text-only profiles.',
+                        'Middlemen take a cut of your hard-earned money.'
+                      ].map((item, index) => (
+                        <li key={index} className="flex items-start gap-3">
+                          <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <X className="w-4 h-4 text-red-600" />
+                          </div>
+                          <span className="text-lg text-neutral-gray-dark">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
                   {/* Bottom accent */}
@@ -794,13 +736,23 @@ export default function ProblemSolution() {
                   {/* Content */}
                   <div className="relative z-10">
                     <h4 className="text-lg md:text-xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent mb-4 uppercase tracking-wide">The VDOgate Solution</h4>
-                    <p className="text-lg md:text-xl font-semibold text-brand-black leading-relaxed mb-4">
-                      VDOgate is India's first video-first platform where freelancers promote their services through videos, get discovered by category and location, and{' '}
-                      <span className="text-gradient">earn directly from clients</span>{' '}
-                      — without middlemen, agencies, or commission cuts.
-                    </p>
+                    <ul className="space-y-3">
+                      {[
+                        'Showcase your skills with engaging video profiles.',
+                        'Get discovered by clients in your local area.',
+                        'Connect directly with clients, no middlemen.',
+                        'Keep 100% of your service fees, always.'
+                      ].map((item, index) => (
+                        <li key={index} className="flex items-start gap-3">
+                          <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <CheckCircle2 className="w-4 h-4 text-green-600" />
+                          </div>
+                          <span className="text-lg text-brand-black">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-                    <p className="text-base md:text-lg text-portal-primary font-bold italic mb-4">
+                    <p className="text-base md:text-lg text-portal-primary font-bold italic mt-4">
                       Your work decides your visibility <br /> not platform politics.
                     </p>
 

@@ -21,9 +21,7 @@ const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
   loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
 })
 
-const WhoItsFor = dynamic(() => import('@/components/WhoItsFor'), {
-  loading: () => <div className="h-96 bg-white animate-pulse" />
-})
+
 
 const PlatformPricing = dynamic(() => import('@/components/PlatformPricing'), {
   loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
@@ -62,7 +60,6 @@ export default function Home() {
           <FreelancerCategories />
           <ProblemSolution />
           <HowItWorks />
-          <WhoItsFor />
           <PlatformPricing />
           <LiveEventsPricing />
           <ForInfluencers />

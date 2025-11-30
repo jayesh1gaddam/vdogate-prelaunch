@@ -84,7 +84,7 @@ export default function PremiumMessage() {
                 transition={{ delay: 0.3, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
                 className="mb-1 md:mb-2"
               >
-                Freelancers are driving India's new economy, from
+                The freelance struggle is real
               </motion.div>
 
               {/* Line 2: yoga trainers and beauticians */}
@@ -95,9 +95,7 @@ export default function PremiumMessage() {
                 transition={{ delay: 0.6, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
                 className="mb-1 md:mb-2"
               >
-                <span className="font-medium text-gradient">yoga trainers</span>
-                {' '}and{' '}
-                <span className="font-medium text-gradient">beauticians</span>
+                <span className="font-medium text-gradient">Spending money to make money</span>
               </motion.div>
 
               {/* Line 3: to tutors, chefs, and digital experts */}
@@ -107,12 +105,7 @@ export default function PremiumMessage() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.9, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                to{' '}
-                <span className="font-medium text-gradient">tutors</span>
-                ,{' '}
-                <span className="font-medium text-gradient">chefs</span>
-                , and{' '}
-                <span className="font-medium text-gradient">digital experts</span>.
+                <span className="font-medium text-gradient">VDOgate changes everything</span>
               </motion.div>
             </div>
 

@@ -38,11 +38,13 @@ export default function PlatformPricing() {
             </div>
           </motion.div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black mb-4">
-            Simple, Transparent Pricing
+          <h2 className="text-4xl md:text-5xl font-bold text-brand-black mb-6">
+            One Simple Subscription.
+            <br />
+            <span className="text-gradient">The World Is Your Market.</span>
           </h2>
-          <p className="text-lg md:text-xl text-neutral-gray max-w-3xl mx-auto">
-            Built for freelancers, by people who understand the value of your work
+          <p className="text-xl text-neutral-gray max-w-2xl mx-auto">
+            Everything you need to showcase your skills and get hired.
           </p>
         </motion.div>
 

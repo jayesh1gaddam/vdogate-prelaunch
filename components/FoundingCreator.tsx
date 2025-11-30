@@ -196,10 +196,10 @@ export default function FoundingCreator() {
           </motion.div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-brand-black">
-            Become a <span className="bg-gradient-to-r from-portal-primary to-portal-light bg-clip-text text-transparent">Founding Freelancer</span>
+            Become a Founding Freelancer
           </h2>
-          <p className="text-lg md:text-xl text-neutral-gray max-w-2xl mx-auto leading-relaxed">
-            Founders Badge • Recognition • Early access • Special rewards
+          <p className="text-xl text-neutral-gray max-w-2xl mx-auto mb-8">
+            Join the exclusive group of early adopters. Limited to first 500 freelancers.
           </p>
         </motion.div>
 
@@ -799,8 +799,8 @@ export default function FoundingCreator() {
                         whileHover={{ scale: (isSubmitting || progress < 100) ? 1 : 1.02, y: -2 }}
                         whileTap={{ scale: (isSubmitting || progress < 100) ? 1 : 0.98 }}
                         className={`w-full px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-300 relative group ${progress < 100
-                            ? 'bg-neutral-gray-lighter text-neutral-gray cursor-not-allowed'
-                            : 'bg-gradient-to-r from-portal-primary via-portal-light to-portal-lighter text-white shadow-xl hover:shadow-2xl'
+                          ? 'bg-neutral-gray-lighter text-neutral-gray cursor-not-allowed'
+                          : 'bg-gradient-to-r from-portal-primary via-portal-light to-portal-lighter text-white shadow-xl hover:shadow-2xl'
                           } ${isSubmitting ? 'opacity-75 cursor-wait' : ''}`}
                       >
 

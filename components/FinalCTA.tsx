@@ -388,9 +388,9 @@ export default function FinalCTA() {
                         ease: "linear"
                       }}
                     />
-                    <span className="relative z-10 flex items-center justify-center gap-2">
+                    <span className="relative z-10 flex items-center gap-2">
                       Join as Founding Freelancer
-                      <ArrowRight className="w-5 h-5 group-hover/button:translate-x-2 transition-transform duration-300" />
+                      <ArrowRight className="w-5 h-5 group-hover/button:translate-x-1 transition-transform" />
                     </span>
                   </motion.button>
                 </div>

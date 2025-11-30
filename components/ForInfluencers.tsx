@@ -39,8 +39,10 @@ export default function ForInfluencers() {
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                         No Ads = No Ad-Revenue Model Here
                     </h2>
-                    <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                        Use live events to monetize directly and instantly
+                    <p className="text-lg md:text-xl text-neutral-gray max-w-3xl mx-auto leading-relaxed">
+                        VDOgate is 100% ad-free. No ad revenue. No "views for pennies".
+                        <br />
+                        Instead, monetize your true influence through paid live events and direct fan engagement.
                     </p>
                 </motion.div>
 

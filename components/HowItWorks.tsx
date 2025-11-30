@@ -224,92 +224,79 @@ export default function HowItWorks() {
           </div>
         </motion.div>
 
-        {/* Steps Grid */}
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-            className="grid md:grid-cols-3 gap-8"
-            id={activeTab === 'freelancers' ? 'panel-freelancers' : 'panel-customers'}
-            role="tabpanel"
-            aria-labelledby={activeTab === 'freelancers' ? 'tab-freelancers' : 'tab-customers'}
-          >
-            {activeSteps.map((step, index) => {
-              const Icon = step.icon
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {activeSteps.map((step, index) => {
+            const Icon = step.icon
 
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.15, duration: 0.6 }}
-                  className="group relative"
-                >
-                  {/* Connection Line (except last card) */}
-                  {index < activeSteps.length - 1 && (
-                    <div className="hidden md:block absolute top-20 left-full w-8 h-0.5 bg-gradient-to-r from-neutral-300 to-transparent z-0" />
-                  )}
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
+                className="group relative"
+              >
+                {/* Connection Line (except last card) */}
+                {index < activeSteps.length - 1 && (
+                  <div className="hidden md:block absolute top-20 left-full w-8 h-0.5 bg-gradient-to-r from-neutral-300 to-transparent z-0" />
+                )}
 
-                  {/* Card */}
-                  <div className="relative h-full bg-white rounded-3xl p-8 shadow-elevation-2 border border-neutral-gray-lighter hover:shadow-elevation-4 transition-all duration-300 hover:-translate-y-2">
-                    {/* Number Badge */}
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.15 + 0.2, type: "spring", stiffness: 200 }}
-                      className={`absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br ${activeColor.from} ${activeColor.to} rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg rotate-12 group-hover:rotate-0 transition-transform duration-300`}
-                    >
-                      {step.number}
-                    </motion.div>
+                {/* Card */}
+                <div className="relative h-full bg-white rounded-3xl p-8 shadow-elevation-2 border border-neutral-gray-lighter hover:shadow-elevation-4 transition-all duration-300 hover:-translate-y-2">
+                  {/* Number Badge */}
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.15 + 0.2, type: "spring", stiffness: 200 }}
+                    className={`absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br ${activeColor.from} ${activeColor.to} rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg rotate-12 group-hover:rotate-0 transition-transform duration-300`}
+                  >
+                    {step.number}
+                  </motion.div>
 
-                    {/* Icon */}
-                    <motion.div
-                      initial={{ scale: 0, rotate: -180 }}
-                      whileInView={{ scale: 1, rotate: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.15 + 0.3, type: "spring", stiffness: 150 }}
-                      className={`relative w-20 h-20 bg-gradient-to-br ${activeColor.from} ${activeColor.to} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent rounded-2xl" />
-                      <Icon className="w-10 h-10 text-white relative z-10" />
-                    </motion.div>
+                  {/* Icon */}
+                  <motion.div
+                    initial={{ scale: 0, rotate: -180 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.15 + 0.3, type: "spring", stiffness: 150 }}
+                    className={`relative w-20 h-20 bg-gradient-to-br ${activeColor.from} ${activeColor.to} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent rounded-2xl" />
+                    <Icon className="w-10 h-10 text-white relative z-10" />
+                  </motion.div>
 
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-brand-black mb-4 leading-tight">
-                      {step.title}
-                    </h3>
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-brand-black mb-4 leading-tight">
+                    {step.title}
+                  </h3>
 
-                    {/* Description */}
-                    <p className="text-base text-neutral-gray-dark leading-relaxed mb-4">
-                      {step.description}
+                  {/* Description */}
+                  <p className="text-base text-neutral-gray-dark leading-relaxed mb-4">
+                    {step.description}
+                  </p>
+
+                  {/* Detail with Icon */}
+                  <div className={`flex items-start gap-3 p-4 ${activeColor.bg} rounded-xl border ${activeColor.border}`}>
+                    <CheckCircle2 className={`w-5 h-5 ${activeColor.text} flex-shrink-0 mt-0.5`} />
+                    <p className="text-sm text-neutral-gray-dark leading-relaxed">
+                      {step.detail}
                     </p>
-
-                    {/* Detail with Icon */}
-                    <div className={`flex items-start gap-3 p-4 ${activeColor.bg} rounded-xl border ${activeColor.border}`}>
-                      <CheckCircle2 className={`w-5 h-5 ${activeColor.text} flex-shrink-0 mt-0.5`} />
-                      <p className="text-sm text-neutral-gray-dark leading-relaxed">
-                        {step.detail}
-                      </p>
-                    </div>
-
-                    {/* Decorative Bottom Accent */}
-                    <motion.div
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.15 + 0.4, duration: 0.6 }}
-                      className={`absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r ${activeColor.from} ${activeColor.to} rounded-b-3xl`}
-                    />
                   </div>
-                </motion.div>
-              )
-            })}
-          </motion.div>
+
+                  {/* Decorative Bottom Accent */}
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.15 + 0.4, duration: 0.6 }}
+                    className={`absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r ${activeColor.from} ${activeColor.to} rounded-b-3xl`}
+                  />
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
 
         {/* Bottom CTA Section */}
@@ -375,7 +362,7 @@ export default function HowItWorks() {
             </div>
           </div>
         </motion.div>
-      </div>
-    </section>
+      </div >
+    </section >
   )
 }

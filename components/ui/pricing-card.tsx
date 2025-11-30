@@ -110,7 +110,7 @@ export default function PricingCard() {
               <div className="px-4 py-2 bg-emerald-100 rounded-xl border-2 border-emerald-200">
                 <span className="font-bold">₹100/day</span>
               </div>
-              <span className="font-medium">to reach all of India</span>
+              <span className="font-medium">to reach the world</span>
             </motion.div>
           </div>
 

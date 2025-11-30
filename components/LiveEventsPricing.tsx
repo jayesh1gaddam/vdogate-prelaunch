@@ -92,45 +92,29 @@ export default function LiveEventsPricing() {
                             <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Pricing & Earnings</h3>
                         </div>
 
-                        <div className="space-y-4">
+                        <div className="space-y-4 mb-8">
                             <div className="flex items-start gap-3 p-4 bg-white/80 rounded-xl">
                                 <CheckCircle2 className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
-                                <div>
-                                    <p className="font-semibold text-brand-black">Freelancer decides duration</p>
-                                    <p className="text-sm text-neutral-gray">You control how long your event runs</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl">
-                                <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                                <div>
-                                    <p className="font-semibold text-green-800">Minimum event ticket price: ₹99 per hour</p>
-                                    <p className="text-sm text-green-700">Set your value, go higher as you grow</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-3 p-4 bg-white/80 rounded-xl">
-                                <Calendar className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
                                 <div>
                                     <p className="font-semibold text-brand-black">Event activation fee: ₹199 per event</p>
                                     <p className="text-sm text-neutral-gray">One-time fee per event you create</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div className="p-6 bg-gradient-to-br from-purple-100 to-pink-100 border-2 border-purple-300 rounded-2xl">
-                                <div className="flex items-center justify-between mb-3">
-                                    <div>
-                                        <p className="text-sm text-purple-700 font-medium">Platform fee</p>
-                                        <p className="text-3xl font-bold text-purple-900">15%</p>
-                                    </div>
-                                    <div className="text-right">
-                                        <p className="text-sm text-green-700 font-medium">You keep</p>
-                                        <p className="text-4xl font-bold text-green-800">85%</p>
-                                    </div>
+                        <div className="p-6 bg-gradient-to-br from-purple-100 to-pink-100 border-2 border-purple-300 rounded-2xl">
+                            <div className="flex items-center justify-between mb-3">
+                                <div>
+                                    <p className="text-sm text-purple-700 font-medium">Platform fee</p>
+                                    <p className="text-3xl font-bold text-purple-900">15%</p>
                                 </div>
-                                <div className="h-3 bg-white/50 rounded-full overflow-hidden">
-                                    <div className="h-full bg-gradient-to-r from-green-500 to-emerald-600 rounded-full" style={{ width: '85%' }} />
+                                <div className="text-right">
+                                    <p className="text-sm text-green-700 font-medium">You keep</p>
+                                    <p className="text-4xl font-bold text-green-800">85%</p>
                                 </div>
+                            </div>
+                            <div className="h-3 bg-white/50 rounded-full overflow-hidden">
+                                <div className="h-full bg-gradient-to-r from-green-500 to-emerald-600 rounded-full" style={{ width: '85%' }} />
                             </div>
                         </div>
                     </motion.div>
@@ -231,6 +215,6 @@ export default function LiveEventsPricing() {
                     </div>
                 </motion.div>
             </div>
-        </section>
+        </section >
     )
 }

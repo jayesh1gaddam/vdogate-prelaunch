@@ -63,9 +63,9 @@ export default function Hero() {
                 transition={{ delay: 0.2, duration: 0.7 }}
                 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-semibold leading-[1.2] tracking-tight"
               >
-                <span className="text-brand-black font-light">India's Platform for</span>
+                <span className="text-brand-black font-light">India’s Platform for</span>
                 <br />
-                <span className="text-gradient font-semibold">India's Freelancers</span>
+                <span className="text-gradient font-semibold">The World of Freelancers</span>
               </motion.h1>
 
               {/* Subheadline - Lighter Color & Font Weight */}
@@ -75,13 +75,13 @@ export default function Hero() {
                 transition={{ delay: 0.3, duration: 0.7 }}
                 className="text-base md:text-lg xl:text-xl 2xl:text-2xl text-neutral-gray leading-relaxed max-w-xl xl:max-w-2xl 2xl:max-w-3xl mx-auto lg:mx-0 font-light"
               >
-                Make money from your skills <br /> not spend money to promote them.
+                Make money from your skills — not spend money on ads to promote them.
                 <br />
-                <span className="font-semibold text-brand-black">No Ads • No Algorithm • No Commission on Your Services</span>
+                <span className="font-semibold text-brand-black">No Ads • No Algorithm • No Commission on Your Services.</span>
                 <br />
-                <span className="text-sm">Get discovered by category and location — reach clients near you or across India.</span>
+                <span className="text-sm">Show your skill. Get discovered. Connect directly with buyers and viewers.</span>
                 <br />
-                <span className="text-sm font-semibold text-portal-primary">Free for buyers & viewers, always.</span>
+                <span className="text-sm font-semibold text-portal-primary">Join as Founding Freelancer | Find My Freelancer</span>
               </motion.p>
 
               {/* Community Trust Badge with Avatar Stack */}
