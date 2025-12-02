@@ -46,7 +46,7 @@ export default function LiveEventsPricing() {
                     </motion.div>
 
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black mb-4">
-                        LIVE EVENTS <br /> DETAILED PRICING & ENTITLEMENTS
+                        LIVE EVENTS <br /> <span className="text-2xl md:text-3xl lg:text-4xl">DETAILED PRICING & ENTITLEMENTS</span>
                     </h2>
                     <p className="text-lg md:text-xl text-neutral-gray max-w-3xl mx-auto leading-relaxed">
                         Earn directly through paid live events
@@ -96,8 +96,24 @@ export default function LiveEventsPricing() {
                             <div className="flex items-start gap-3 p-4 bg-white/80 rounded-xl">
                                 <CheckCircle2 className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
                                 <div>
+                                    <p className="font-semibold text-brand-black">Freelancer decides duration</p>
+                                    <p className="text-sm text-neutral-gray">You control how long your event runs</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-start gap-3 p-4 bg-white/80 rounded-xl">
+                                <CheckCircle2 className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                                <div>
+                                    <p className="font-semibold text-brand-black">Minimum event ticket price: ₹99/hr</p>
+                                    <p className="text-sm text-neutral-gray">To be paid by event attendee. Go higher as you grow</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-start gap-3 p-4 bg-white/80 rounded-xl">
+                                <CheckCircle2 className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                                <div>
                                     <p className="font-semibold text-brand-black">Event activation fee: ₹199 per event</p>
-                                    <p className="text-sm text-neutral-gray">One-time fee per event you create</p>
+                                    <p className="text-sm text-neutral-gray">To be paid by Host/Freelancer</p>
                                 </div>
                             </div>
                         </div>
@@ -107,9 +123,10 @@ export default function LiveEventsPricing() {
                                 <div>
                                     <p className="text-sm text-purple-700 font-medium">Platform fee</p>
                                     <p className="text-3xl font-bold text-purple-900">15%</p>
+                                    <p className="text-xs text-purple-600 mt-1">of ticket revenue</p>
                                 </div>
                                 <div className="text-right">
-                                    <p className="text-sm text-green-700 font-medium">You keep</p>
+                                    <p className="text-sm text-green-700 font-medium">Freelancer keeps</p>
                                     <p className="text-4xl font-bold text-green-800">85%</p>
                                 </div>
                             </div>
@@ -207,10 +224,6 @@ export default function LiveEventsPricing() {
                             <h3 className="text-2xl md:text-3xl font-bold text-brand-black mb-4">
                                 Monetize instantly, minimum ₹99/hour or higher as per your value
                             </h3>
-
-                            <p className="text-base md:text-lg text-neutral-gray leading-relaxed">
-                                No complicated pricing tiers. No hidden fees. Just straightforward earnings that respect your expertise.
-                            </p>
                         </div>
                     </div>
                 </motion.div>

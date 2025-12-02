@@ -6,9 +6,9 @@ import { Video, Eye, Database, Sparkles } from 'lucide-react'
 const addons = [
   {
     icon: Video,
-    title: 'Additional Video Upload Minutes',
-    description: 'Increase portfolio beyond 40 minutes',
-    pricing: '₹25 per additional 10 minutes',
+    title: 'Additional Video Upload Minutes (Storage)',
+    description: 'Increase portfolio Videos beyond 40 minutes',
+    pricing: '₹100 per additional 40 minutes',
     color: 'from-purple-400 to-indigo-500',
     bgColor: 'from-purple-50 to-indigo-50',
     borderColor: 'border-purple-200',
@@ -17,7 +17,7 @@ const addons = [
     icon: Eye,
     title: 'Additional Viewer Delivery / Watch-Time',
     description: 'Increase viewer consumption beyond 4,000 mins',
-    pricing: '₹125 per additional 1,000 minutes',
+    pricing: '₹150 per additional 1,000 minutes',
     color: 'from-blue-400 to-cyan-500',
     bgColor: 'from-blue-50 to-cyan-50',
     borderColor: 'border-blue-200',
@@ -52,7 +52,7 @@ export default function PricingAddons() {
           className="inline-block mb-4"
         >
           <div className="px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 border border-purple-200 rounded-full">
-            <span className="text-sm font-bold text-purple-700 uppercase tracking-wide">Add-Ons (Optional — Pay Only If You Grow)</span>
+            <span className="text-sm font-bold text-purple-700 uppercase tracking-wide">ADD-ONS (OPTIONAL — PAY ONLY AS YOU GROW)</span>
           </div>
         </motion.div>
 

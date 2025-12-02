@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
-import PremiumMessage from '@/components/PremiumMessage'
 import PWAProvider from '@/components/PWAProvider'
 import MobileLayoutWrapper from '@/components/MobileLayoutWrapper'
 import SeeRealSkills from '@/components/SeeRealSkills'
@@ -11,10 +10,6 @@ import ForInfluencers from '@/components/ForInfluencers'
 // Lazy load below-fold components with loading states
 const FreelancerCategories = dynamic(() => import('@/components/FreelancerCategories'), {
   loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
-})
-
-const ProblemSolution = dynamic(() => import('@/components/ProblemSolution'), {
-  loading: () => <div className="h-96 bg-white animate-pulse" />
 })
 
 const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
@@ -53,12 +48,10 @@ export default function Home() {
 
           {/* Above-fold content - loaded immediately */}
           <Hero />
-          <PremiumMessage />
 
           {/* Below-fold content - lazy loaded */}
           <SeeRealSkills />
           <FreelancerCategories />
-          <ProblemSolution />
           <HowItWorks />
           <PlatformPricing />
           <LiveEventsPricing />

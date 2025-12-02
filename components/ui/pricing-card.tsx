@@ -14,8 +14,8 @@ export default function PricingCard() {
       items: [
         'Upload up to 40 minutes of video each month',
         'Videos stored & visible for 2 months',
-        'If total remains within 40 minutes, videos are never purged',
-        'Exceeding 40 minutes auto-removes only the oldest video'
+        'Videos are never deleted if total stays within 40 minutes',
+        'Exceeding 40 minutes replaces only the oldest video'
       ]
     },
     {

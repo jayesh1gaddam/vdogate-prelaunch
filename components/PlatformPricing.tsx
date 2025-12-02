@@ -18,52 +18,6 @@ export default function PlatformPricing() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b98108_1px,transparent_1px),linear-gradient(to_bottom,#10b98108_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
 
       <div className="container-custom relative z-10">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-8"
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="inline-block mb-4"
-          >
-            <div className="px-4 py-2 bg-gradient-to-r from-emerald-100 to-green-100 border border-emerald-200 rounded-full">
-              <span className="text-sm font-bold text-emerald-700 uppercase tracking-wide">Platform Pricing</span>
-            </div>
-          </motion.div>
-
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-black mb-6">
-            One Simple Subscription.
-            <br />
-            <span className="text-gradient">The World Is Your Market.</span>
-          </h2>
-          <p className="text-xl text-neutral-gray max-w-2xl mx-auto">
-            Everything you need to showcase your skills and get hired.
-          </p>
-        </motion.div>
-
-        {/* Context Paragraphs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="max-w-4xl mx-auto text-center mb-12"
-        >
-          <p className="text-base md:text-lg text-neutral-gray leading-relaxed mb-6">
-            Yet most depend on social media where algorithms and ad budgets limit opportunity.
-          </p>
-          <p className="text-base md:text-lg font-semibold text-brand-black leading-relaxed mb-8">
-            VDOgate is built for this moment — India's own platform that values skill over ad spend.
-          </p>
-        </motion.div>
-
         {/* Pricing Card */}
         <PricingCard />
 

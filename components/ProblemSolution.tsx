@@ -260,68 +260,6 @@ export default function ProblemSolution() {
       )}
 
       <div className="container-custom relative z-10">
-        {/* Animated Heading Section */}
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOptions}
-          className="text-center mb-16 max-w-5xl mx-auto"
-        >
-          {/* Line 1 */}
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOptions}
-            className="mb-2"
-          >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-neutral-gray">
-              The freelance struggle is real
-            </h2>
-          </motion.div>
-
-          {/* Line 2 */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mb-2"
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gradient">
-              Spending money to make money
-            </h2>
-          </motion.div>
-
-          {/* Line 3 */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.8, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mb-8"
-          >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-black">
-              VDOgate changes everything
-            </h2>
-          </motion.div>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 1.0, duration: 0.6 }}
-            className="text-lg md:text-xl text-neutral-gray leading-relaxed max-w-3xl mx-auto"
-          >
-            Across India, millions of freelancers depend on social media to find clients.
-            <span className="block mt-2 font-semibold text-brand-black">
-              But visibility shouldn't cost you, it should earn you.
-            </span>
-          </motion.p>
-        </motion.div>
-
         {/* Premium Split Comparison - Problem vs Solution */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-20 relative items-stretch">
           {/* Animated Comparison Divider Line - Desktop Only */}
@@ -420,57 +358,7 @@ export default function ProblemSolution() {
                   ))}
                 </div>
 
-                {/* Enhanced "Pay More" Badge */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.9, duration: 0.5 }}
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  className="relative mt-8 p-6 bg-gradient-to-br from-red-50 via-red-100 to-orange-100 border-2 border-red-300/60 rounded-2xl overflow-hidden shadow-lg group/badge"
-                >
-                  {/* Subtle animated background gradient */}
-                  <motion.div
-                    animate={{
-                      backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                    }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0 bg-gradient-to-r from-red-200/30 via-orange-200/30 to-red-200/30 opacity-50"
-                    style={{ backgroundSize: '200% 100%' }}
-                  />
 
-                  {/* Content */}
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-center gap-3 mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-md">
-                        <TrendingDown className="w-5 h-5 text-white" />
-                      </div>
-                      <p className="text-lg md:text-xl font-bold text-red-700">Spend More on Ads</p>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-red-600">
-                      <X className="w-4 h-4" />
-                      <p className="text-sm md:text-base font-semibold">Still no guarantee of results</p>
-                    </div>
-                    <div className="mt-3 pt-3 border-t border-red-300/40">
-                      <p className="text-xs text-red-500 font-medium">The endless cycle of paid promotion</p>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Enhanced Summary */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 1.1, duration: 0.5 }}
-                  className="mt-8 p-5 glass bg-white/60 backdrop-blur-lg rounded-2xl border border-red-200/60 shadow-md"
-                >
-                  <p className="text-sm md:text-base text-center leading-relaxed">
-                    Visibility depends on <span className="font-bold text-red-600">ads, algorithms, and follower counts</span>
-                    <br />
-                    <span className="text-neutral-gray">— not your actual skill.</span>
-                  </p>
-                </motion.div>
               </div>
 
               {/* Shine Sweep Effect */}
@@ -569,43 +457,6 @@ export default function ProblemSolution() {
                     </motion.div>
                   ))}
                 </div>
-
-                {/* Enhanced Promise Badge */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 1.1, duration: 0.5 }}
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  className="relative mt-8 p-6 bg-portal-gradient rounded-2xl overflow-hidden shadow-lg group/badge"
-                >
-                  {/* Subtle animated background gradient */}
-                  <motion.div
-                    animate={{
-                      backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                    }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0 bg-gradient-to-r from-orange-400/20 via-amber-400/20 to-orange-400/20 opacity-50"
-                    style={{ backgroundSize: '200% 100%' }}
-                  />
-
-                  {/* Content */}
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-center gap-3 mb-3">
-                      <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-md">
-                        <Sparkles className="w-5 h-5 text-white" />
-                      </div>
-                      <p className="text-lg md:text-xl font-bold text-white">Earn More, Keep More</p>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-white/95">
-                      <CheckCircle2 className="w-4 h-4" />
-                      <p className="text-sm md:text-base font-semibold">100% of your service fees, guaranteed</p>
-                    </div>
-                    <div className="mt-3 pt-3 border-t border-white/20">
-                      <p className="text-xs text-white/90 font-medium">No hidden fees, no commission cuts</p>
-                    </div>
-                  </div>
-                </motion.div>
 
                 {/* Enhanced Summary */}
                 <motion.div
@@ -751,10 +602,6 @@ export default function ProblemSolution() {
                         </li>
                       ))}
                     </ul>
-
-                    <p className="text-base md:text-lg text-portal-primary font-bold italic mt-4">
-                      Your work decides your visibility <br /> not platform politics.
-                    </p>
 
                     {/* Feature Pills */}
                     <div className="flex flex-wrap gap-2 mt-4">
