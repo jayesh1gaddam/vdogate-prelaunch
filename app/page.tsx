@@ -12,6 +12,10 @@ const FreelancerCategories = dynamic(() => import('@/components/FreelancerCatego
   loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
 })
 
+const ProblemSolution = dynamic(() => import('@/components/ProblemSolution'), {
+  loading: () => <div className="h-96 bg-white animate-pulse" />
+})
+
 const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
   loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
 })
@@ -52,6 +56,7 @@ export default function Home() {
           {/* Below-fold content - lazy loaded */}
           <SeeRealSkills />
           <FreelancerCategories />
+          <ProblemSolution />
           <HowItWorks />
           <PlatformPricing />
           <LiveEventsPricing />

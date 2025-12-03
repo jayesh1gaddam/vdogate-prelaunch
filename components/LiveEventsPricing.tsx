@@ -121,13 +121,13 @@ export default function LiveEventsPricing() {
                         <div className="p-6 bg-gradient-to-br from-purple-100 to-pink-100 border-2 border-purple-300 rounded-2xl">
                             <div className="flex items-center justify-between mb-3">
                                 <div>
+                                    <p className="text-sm text-green-700 font-medium">Freelancer keeps</p>
+                                    <p className="text-4xl font-bold text-green-800">85%</p>
+                                </div>
+                                <div className="text-right">
                                     <p className="text-sm text-purple-700 font-medium">Platform fee</p>
                                     <p className="text-3xl font-bold text-purple-900">15%</p>
                                     <p className="text-xs text-purple-600 mt-1">of ticket revenue</p>
-                                </div>
-                                <div className="text-right">
-                                    <p className="text-sm text-green-700 font-medium">Freelancer keeps</p>
-                                    <p className="text-4xl font-bold text-green-800">85%</p>
                                 </div>
                             </div>
                             <div className="h-3 bg-white/50 rounded-full overflow-hidden">

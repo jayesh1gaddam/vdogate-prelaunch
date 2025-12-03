@@ -8,30 +8,30 @@ const freelancerSteps = [
   {
     number: '01',
     icon: Video,
-    title: 'Upload Videos, Show Real Skill',
-    description: 'Upload videos that showcase your real skills and build trust with potential clients.',
-    detail: 'Show real skill and build trust through authentic video demonstrations.',
+    title: 'Upload Videos',
+    description: 'Show real skill and build trust',
+    detail: 'Upload videos that showcase your authentic work and expertise.',
   },
   {
     number: '02',
     icon: MapPin,
-    title: 'Get Discovered by Category & Location',
-    description: 'Get discovered by category & location (online / offline / hybrid).',
-    detail: 'No ads, no algorithms, no boosting or suppression. Fair discovery for everyone.',
+    title: 'Get Discovered',
+    description: 'By category & location (online / offline / hybrid)',
+    detail: 'Clients find you based on your skills, location, and service type.',
   },
   {
     number: '03',
     icon: MessageSquare,
     title: 'Connect Directly',
-    description: 'Connect directly with clients, no middlemen, no commission.',
-    detail: 'Direct communication and zero commission on your services.',
+    description: 'No middlemen, no commission',
+    detail: 'Direct communication with clients. Zero platform fees on services.',
   },
   {
     number: '04',
     icon: IndianRupee,
     title: 'Host Optional Paid Live Events',
-    description: 'Monetize instantly through live workshops, training, coaching, and more.',
-    detail: 'Host optional paid live events, monetize instantly with 85% revenue share.',
+    description: 'Monetize instantly',
+    detail: 'Earn through live workshops, training, and coaching sessions.',
   },
 ]
 
@@ -298,6 +298,19 @@ export default function HowItWorks() {
             )
           })}
         </div>
+
+        {/* Tagline */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="text-center mt-12 mb-8"
+        >
+          <p className="text-xl md:text-2xl font-semibold text-brand-black">
+            One platform. Two sides. <span className="text-gradient">Freelancers showcase. Buyers discover. Everyone wins.</span>
+          </p>
+        </motion.div>
 
         {/* Bottom CTA Section */}
         <motion.div

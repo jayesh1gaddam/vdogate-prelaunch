@@ -25,17 +25,6 @@ export default function SeeRealSkills() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-12"
                 >
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/50 rounded-full mb-6"
-                    >
-                        <Sparkles className="w-4 h-4 text-blue-600" />
-                        <span className="text-sm font-semibold text-blue-800">For Buyers & Viewers</span>
-                    </motion.div>
-
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black mb-4">
                         See Real Skills — Not Just Profiles
                     </h2>

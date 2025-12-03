@@ -150,6 +150,28 @@ export default function PricingCard() {
             </div>
           </div>
 
+          {/* Live Events Pricing */}
+          <motion.div
+            className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-2xl p-6 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 1.0 }}
+          >
+            <h4 className="text-lg font-bold text-purple-900 mb-4 text-center">Optional Live Events (in pricing page)</h4>
+            <div className="flex items-center justify-between">
+              <div className="text-center flex-1">
+                <p className="text-sm text-purple-700 font-medium mb-1">You keep</p>
+                <p className="text-3xl font-bold text-green-700">85%</p>
+              </div>
+              <div className="w-px h-12 bg-purple-300"></div>
+              <div className="text-center flex-1">
+                <p className="text-sm text-purple-700 font-medium mb-1">VDOgate fee</p>
+                <p className="text-3xl font-bold text-purple-900">15%</p>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Bottom Notice */}
           <motion.div
             className="bg-gradient-to-r from-emerald-50 via-green-50 to-emerald-50 border-l-4 border-emerald-500 rounded-xl p-5"

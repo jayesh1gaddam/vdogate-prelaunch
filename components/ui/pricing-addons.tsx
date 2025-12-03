@@ -22,15 +22,6 @@ const addons = [
     bgColor: 'from-blue-50 to-cyan-50',
     borderColor: 'border-blue-200',
   },
-  {
-    icon: Database,
-    title: 'Additional Storage',
-    description: 'Retain more video content permanently',
-    pricing: 'Pricing aligned with capacity usage model',
-    color: 'from-green-400 to-emerald-500',
-    bgColor: 'from-green-50 to-emerald-50',
-    borderColor: 'border-green-200',
-  },
 ]
 
 export default function PricingAddons() {
@@ -65,7 +56,7 @@ export default function PricingAddons() {
       </motion.div>
 
       {/* Addons Grid */}
-      <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
+      <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10 justify-items-center">
         {addons.map((addon, index) => {
           const Icon = addon.icon
           return (
@@ -132,8 +123,7 @@ export default function PricingAddons() {
             {[
               'Keep subscription cost low',
               'Support high-growth creators only when needed',
-              'No forced upgrades',
-              'No penalties for growing fast'
+              'No forced upgrades'
             ].map((item, index) => (
               <li key={index} className="flex items-start gap-3">
                 <div className="w-5 h-5 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
