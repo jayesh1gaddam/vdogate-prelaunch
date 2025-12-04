@@ -260,6 +260,36 @@ export default function ProblemSolution() {
       )}
 
       <div className="container-custom relative z-10">
+        {/* New Header Block */}
+        <div className="text-center mb-16 max-w-4xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black mb-6"
+          >
+            VDOgate Changes Everything
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="space-y-4 text-lg md:text-xl text-neutral-gray leading-relaxed"
+          >
+            <p>
+              Freelancers struggle with visibility, commissions, algorithms and marketing costs.
+            </p>
+            <p>
+              While Buyers struggle to trust text-only profiles and random listings.
+            </p>
+            <p className="font-semibold text-brand-black">
+              VDOgate solves both sides fairly and transparently.
+            </p>
+          </motion.div>
+        </div>
+
         {/* Premium Split Comparison - Problem vs Solution */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-20 relative items-stretch">
           {/* Animated Comparison Divider Line - Desktop Only */}
@@ -330,7 +360,7 @@ export default function ProblemSolution() {
                       <AlertCircle className="w-8 h-8 text-white" />
                     </div>
                   </motion.div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-red-700">The Common Problem</h3>
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-red-700">Problems faced by Freelancers</h3>
                 </motion.div>
 
                 {/* Enhanced Problem Points */}
@@ -490,297 +520,6 @@ export default function ProblemSolution() {
             </div>
           </motion.div>
         </div>
-
-        {/* Benefit Cards Grid with 3D Tilt Effect + Stats */}
-        {/* Removed benefit cards section */}
-
-        {/* Value Proposition Statement - Enhanced */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="max-w-6xl mx-auto mb-20"
-        >
-          <div className="relative">
-            {/* Main Container */}
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Left: Problem Statement with Visual */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="relative"
-              >
-                <div className="relative glass bg-gradient-to-br from-red-50 via-white to-orange-50/30 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-red-200/40 shadow-elevation-3 overflow-hidden">
-                  {/* Background decoration */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-300/20 to-transparent rounded-full blur-2xl" />
-                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tl from-orange-300/20 to-transparent rounded-full blur-2xl" />
-
-                  {/* Icon */}
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
-                    className="relative w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg"
-                  >
-                    <AlertCircle className="w-8 h-8 text-white" />
-                  </motion.div>
-
-                  {/* Content */}
-                  <div className="relative z-10">
-                    <h4 className="text-lg md:text-xl font-bold text-red-700 mb-4 uppercase tracking-wide">The Problem</h4>
-                    <ul className="space-y-3">
-                      {[
-                        'You have the skill, but no budget to advertise.',
-                        'Platforms hide you unless you pay for "boosts".',
-                        'You compete with thousands of text-only profiles.',
-                        'Middlemen take a cut of your hard-earned money.'
-                      ].map((item, index) => (
-                        <li key={index} className="flex items-start gap-3">
-                          <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <X className="w-4 h-4 text-red-600" />
-                          </div>
-                          <span className="text-lg text-neutral-gray-dark">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Bottom accent */}
-                  <motion.div
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.6, duration: 0.6 }}
-                    className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-500 to-orange-500 rounded-b-3xl"
-                  />
-                </div>
-              </motion.div>
-
-              {/* Right: Solution Statement with Visual */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className="relative"
-              >
-                <div className="relative glass bg-gradient-to-br from-orange-50 via-white to-amber-50/30 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-orange-200/40 shadow-elevation-3 overflow-hidden">
-                  {/* Background decoration */}
-                  <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-orange-300/20 to-transparent rounded-full blur-3xl" />
-                  <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tl from-amber-300/20 to-transparent rounded-full blur-3xl" />
-
-                  {/* Icon */}
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.6, type: "spring", stiffness: 200 }}
-                    className="relative w-16 h-16 bg-portal-gradient rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-portal-primary/40"
-                  >
-                    <Sparkles className="w-8 h-8 text-white" />
-                  </motion.div>
-
-                  {/* Content */}
-                  <div className="relative z-10">
-                    <h4 className="text-lg md:text-xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent mb-4 uppercase tracking-wide">The VDOgate Solution</h4>
-                    <ul className="space-y-3">
-                      {[
-                        'Showcase your skills with engaging video profiles.',
-                        'Get discovered by clients in your local area.',
-                        'Connect directly with clients, no middlemen.',
-                        'Keep 100% of your service fees, always.'
-                      ].map((item, index) => (
-                        <li key={index} className="flex items-start gap-3">
-                          <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <CheckCircle2 className="w-4 h-4 text-green-600" />
-                          </div>
-                          <span className="text-lg text-brand-black">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Feature Pills */}
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-orange-100 to-amber-100 border border-orange-200 rounded-full">
-                        <Video className="w-3.5 h-3.5 text-orange-600" />
-                        <span className="text-xs font-semibold text-orange-800">Video-First</span>
-                      </div>
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-orange-100 to-amber-100 border border-orange-200 rounded-full">
-                        <MapPin className="w-3.5 h-3.5 text-orange-600" />
-                        <span className="text-xs font-semibold text-orange-800">Location-Based</span>
-                      </div>
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-orange-100 to-amber-100 border border-orange-200 rounded-full">
-                        <IndianRupee className="w-3.5 h-3.5 text-orange-600" />
-                        <span className="text-xs font-semibold text-orange-800">Zero Commission</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bottom accent with shimmer */}
-                  <motion.div
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.8, duration: 0.6 }}
-                    className="absolute bottom-0 left-0 right-0 h-1.5 bg-portal-gradient rounded-b-3xl overflow-hidden"
-                  >
-                    <motion.div
-                      animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
-                      style={{ backgroundSize: '200% 100%' }}
-                    />
-                  </motion.div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Connecting Element */}
-            <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-              <motion.div
-                initial={{ scale: 0, rotate: 0 }}
-                whileInView={{ scale: 1, rotate: 180 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.7, duration: 0.6, type: "spring" }}
-                className="w-12 h-12 bg-white rounded-full shadow-elevation-3 border-4 border-orange-200 flex items-center justify-center"
-              >
-                <ArrowRight className="w-6 h-6 text-portal-primary" />
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Enhanced CTA Section - Redesigned */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-6xl mx-auto"
-        >
-          {/* Main Hero CTA Card */}
-          <div className="relative bg-gradient-to-br from-portal-primary via-orange-500 to-amber-500 rounded-3xl overflow-hidden shadow-2xl shadow-portal-primary/30">
-            {/* Premium Background Patterns */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.15),transparent_50%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.1),transparent_50%)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%]" style={{ animation: 'shimmer 3s infinite' }} />
-
-            {/* Animated Orbs - Optimized */}
-            <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '4s' }} />
-            <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '5s' }} />
-
-            {/* Content */}
-            <div className="relative z-10 px-8 md:px-12 lg:px-16 py-12 md:py-16 lg:py-20">
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md border border-white/40 rounded-full mb-8"
-              >
-                <Star className="w-4 h-4 text-white fill-white" />
-                <span className="text-sm font-bold text-white">India's First Video-First Freelance Platform</span>
-              </motion.div>
-
-              {/* Main Headline */}
-              <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6"
-              >
-                VDOgate is India's gateway where customers discover your talents
-              </motion.h3>
-
-              {/* Subtitle */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className="text-xl md:text-2xl lg:text-3xl text-white/95 font-semibold mb-12 max-w-4xl"
-              >
-                Fairly, transparently, and without algorithm bias.
-              </motion.p>
-
-              {/* Feature Grid */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="grid md:grid-cols-3 gap-4 mb-12"
-              >
-                <div className="flex items-center gap-3 px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl">
-                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Video className="w-5 h-5 text-white" />
-                  </div>
-                  <span className="text-sm md:text-base font-semibold text-white">Video Profiles</span>
-                </div>
-                <div className="flex items-center gap-3 px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl">
-                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-white" />
-                  </div>
-                  <span className="text-sm md:text-base font-semibold text-white">Location-Based</span>
-                </div>
-                <div className="flex items-center gap-3 px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl">
-                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <IndianRupee className="w-5 h-5 text-white" />
-                  </div>
-                  <span className="text-sm md:text-base font-semibold text-white">Zero Commission</span>
-                </div>
-              </motion.div>
-
-              {/* CTA Buttons */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.7, duration: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 mb-8"
-              >
-                <motion.button
-                  onClick={() => scrollToSection('founding-creator')}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group px-8 py-4 bg-white text-portal-primary rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3"
-                >
-                  <Zap className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-                  Join as a founding freelancer
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </motion.button>
-              </motion.div>
-
-              {/* Trust Indicators */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-                className="flex flex-wrap items-center justify-start gap-6 text-sm text-white/90"
-              >
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-white" />
-                  <span>No credit card required</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-white" />
-                  <span>Secure platform</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-white" />
-                  <span>500+ creators joining</span>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

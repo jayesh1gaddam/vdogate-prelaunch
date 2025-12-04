@@ -7,8 +7,8 @@ const addons = [
   {
     icon: Video,
     title: 'Additional Video Upload Minutes (Storage)',
-    description: 'Increase portfolio Videos beyond 40 minutes',
-    pricing: '₹100 per additional 40 minutes',
+    description: 'Increase portfolio Videos beyond 80 minutes',
+    pricing: '₹100 per additional 80 minutes',
     color: 'from-purple-400 to-indigo-500',
     bgColor: 'from-purple-50 to-indigo-50',
     borderColor: 'border-purple-200',
@@ -152,9 +152,7 @@ export default function PricingAddons() {
         transition={{ delay: 0.5 }}
         className="text-center max-w-4xl mx-auto"
       >
-        <p className="text-sm md:text-base text-neutral-gray-dark leading-relaxed mb-4">
-          All add-ons require the base <span className="font-bold text-emerald-600">₹2,999/month subscription</span> • Use as needed to maximize your income
-        </p>
+
         <p className="text-sm md:text-base text-neutral-gray">
           <span className="font-semibold text-brand-black">Pre-launch registration is free</span> - Followed by one month free trial
         </p>

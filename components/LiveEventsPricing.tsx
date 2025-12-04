@@ -46,7 +46,7 @@ export default function LiveEventsPricing() {
                     </motion.div>
 
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black mb-4">
-                        LIVE EVENTS <br /> <span className="text-2xl md:text-3xl lg:text-4xl">DETAILED PRICING & ENTITLEMENTS</span>
+                        LIVE EVENTS <br /> <span className="text-xl md:text-2xl lg:text-3xl">DETAILED PRICING & ENTITLEMENTS</span>
                     </h2>
                     <p className="text-lg md:text-xl text-neutral-gray max-w-3xl mx-auto leading-relaxed">
                         Earn directly through paid live events

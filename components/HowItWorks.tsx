@@ -29,7 +29,7 @@ const freelancerSteps = [
   {
     number: '04',
     icon: IndianRupee,
-    title: 'Host Optional Paid Live Events',
+    title: 'Host Paid Live Events',
     description: 'Monetize instantly',
     detail: 'Earn through live workshops, training, and coaching sessions.',
   },

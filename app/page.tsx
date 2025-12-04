@@ -22,6 +22,10 @@ const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
 
 
 
+const PortfolioPromo = dynamic(() => import('@/components/PortfolioPromo'), {
+  loading: () => <div className="h-64 bg-gray-50 animate-pulse" />
+})
+
 const PlatformPricing = dynamic(() => import('@/components/PlatformPricing'), {
   loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
 })
@@ -58,6 +62,7 @@ export default function Home() {
           <FreelancerCategories />
           <ProblemSolution />
           <HowItWorks />
+          <PortfolioPromo />
           <PlatformPricing />
           <LiveEventsPricing />
           <ForInfluencers />

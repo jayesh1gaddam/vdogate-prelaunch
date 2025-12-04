@@ -12,10 +12,10 @@ export default function PricingCard() {
       category: 'Video Portfolio',
       color: 'from-purple-500 to-indigo-600',
       items: [
-        'Upload up to 40 minutes of video each month',
+        'Upload up to 80 minutes of video each month',
         'Videos stored & visible for 2 months',
-        'Videos are never deleted if total stays within 40 minutes',
-        'Exceeding 40 minutes replaces only the oldest video'
+        'Videos are never deleted if total stays within 80 minutes',
+        'Exceeding 80 minutes replaces only the oldest video'
       ]
     },
     {
@@ -24,22 +24,22 @@ export default function PricingCard() {
       color: 'from-orange-500 to-amber-600',
       items: [
         'Based on category & location (online / offline / hybrid)',
-        'No algorithms, no suppression, no ad boosting'
+        'No algorithms, no suppression, no ad boosting, no sponsorships'
       ]
     },
     {
       icon: Eye,
       category: 'Viewer Delivery',
       color: 'from-blue-500 to-cyan-600',
-      items: ['4,000 minutes of viewer watch time per month']
+      items: ['4,000 minutes of viewer watch time of your videos per month']
     },
     {
       icon: MessageSquare,
       category: 'Earnings & Communication',
       color: 'from-green-500 to-emerald-600',
       items: [
-        'Direct buyer messaging',
-        'Zero commission on direct services'
+        'Direct buyer- seller contact messaging',
+        'Zero commission to VDOgate on direct services'
       ]
     }
   ]
@@ -158,7 +158,7 @@ export default function PricingCard() {
             viewport={{ once: true }}
             transition={{ delay: 1.0 }}
           >
-            <h4 className="text-lg font-bold text-purple-900 mb-4 text-center">Optional Live Events (in pricing page)</h4>
+            <h4 className="text-lg font-bold text-purple-900 mb-4 text-center">Live Events</h4>
             <div className="flex items-center justify-between">
               <div className="text-center flex-1">
                 <p className="text-sm text-purple-700 font-medium mb-1">You keep</p>
