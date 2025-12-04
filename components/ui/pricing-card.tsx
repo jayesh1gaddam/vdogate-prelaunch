@@ -12,7 +12,7 @@ export default function PricingCard() {
       category: 'Video Portfolio',
       color: 'from-purple-500 to-indigo-600',
       items: [
-        'Upload up to 80 minutes of video each month',
+        'Upload up to 40 minutes of video each month',
         'Videos stored & visible for 2 months',
         'Videos are never deleted if total stays within 80 minutes',
         'Exceeding 80 minutes replaces only the oldest video'
@@ -38,7 +38,7 @@ export default function PricingCard() {
       category: 'Earnings & Communication',
       color: 'from-green-500 to-emerald-600',
       items: [
-        'Direct buyer- seller contact messaging',
+        'Direct buyer- seller contact',
         'Zero commission to VDOgate on direct services'
       ]
     }
