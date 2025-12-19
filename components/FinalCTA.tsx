@@ -240,20 +240,16 @@ export default function FinalCTA() {
                     ))}
                   </ul>
 
-                  {/* Disabled Button */}
-                  <div className="relative">
-                    <button
-                      disabled
-                      className="w-full px-8 py-5 bg-slate-700/50 backdrop-blur border-2 border-slate-600/50 text-slate-300 rounded-2xl font-bold text-base md:text-lg cursor-not-allowed relative overflow-hidden shadow-inner"
-                    >
-                      <span className="flex items-center justify-center gap-2">
-                        Find My Freelancer
-                      </span>
-                    </button>
-                    <div className="absolute -top-3 -right-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-xl shadow-orange-500/50">
-                      Coming Soon
-                    </div>
-                  </div>
+                  {/* CTA Button */}
+                  <a
+                    href="https://app.vdogate.com/auth/register"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full px-8 py-5 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 text-white rounded-2xl font-bold text-base md:text-lg shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 group"
+                  >
+                    <span>Find My Freelancer</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </a>
                 </div>
               </div>
             </motion.div>

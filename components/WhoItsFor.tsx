@@ -579,16 +579,17 @@ export default function WhoItsFor() {
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </button>
 
-                <button
-                  type="button"
-                  disabled
-                  className="relative px-10 py-5 bg-white/10 text-white/60 rounded-2xl font-bold text-lg cursor-not-allowed border-2 border-white/20"
+                <a
+                  href="https://app.vdogate.com/auth/register"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-10 py-5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 border-2 border-cyan-400/30 flex items-center gap-2 group"
                 >
                   Find my freelancer
-                  <span className="absolute -top-3 -right-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
-                    Coming Soon
-                  </span>
-                </button>
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>

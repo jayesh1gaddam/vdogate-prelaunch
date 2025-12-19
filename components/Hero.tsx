@@ -134,7 +134,7 @@ export default function Hero() {
                 </a>
 
                 <a
-                  href="https://app.vdogate.com"
+                  href="https://app.vdogate.com/auth/register"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group px-7 py-3.5 bg-white border border-neutral-gray-lighter text-brand-gray-900 rounded-lg font-medium text-sm md:text-base hover:border-portal-primary hover:bg-portal-primary/3 transition-all duration-300 flex items-center justify-center gap-2"
