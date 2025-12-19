@@ -91,6 +91,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Resource Hints for Performance */}
+        <link rel="dns-prefetch" href="https://app.vdogate.com" />
+        <link rel="preconnect" href="https://app.vdogate.com" crossOrigin="anonymous" />
+
+        {/* Preload critical hero image */}
+        <link rel="preload" href="/hero_carousel.webp" as="image" type="image/webp" />
+
         {/* Favicons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon-192x192.png" type="image/png" sizes="192x192" />

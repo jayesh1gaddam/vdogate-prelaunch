@@ -1,49 +1,31 @@
 'use client'
 
-import { memo, useEffect, useState } from 'react'
+import { memo } from 'react'
 import Image from 'next/image'
 
-// Interactive hero carousel with scroll-triggered zoom effect and fade borders - Performance optimized
+// Interactive hero carousel - Performance optimized with CSS-only animations
 const HeroCarousel = memo(function HeroCarousel() {
-  const [scrollY, setScrollY] = useState(0)
-
-  // Track scroll position for parallax effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Calculate zoom based on scroll (1.6 to 1.8 scale) - Much more zoomed
-  const scale = 1.6 + Math.min(scrollY * 0.0003, 0.2)
-
-  // Calculate opposite scroll effect (parallax) - graphic moves up as page scrolls down
-  const translateY = -scrollY * 0.15
-
   return (
     <div className="relative w-full h-[700px] lg:h-[850px] xl:h-[950px] 2xl:h-[1050px] overflow-hidden rounded-3xl">
-      {/* Animated background glow - Optimized with CSS */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-200/30 via-amber-100/20 to-rose-200/30 rounded-3xl blur-2xl animate-pulse" style={{ animationDuration: '4s' }} />
+      {/* Static background glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-200/30 via-amber-100/20 to-rose-200/30 rounded-3xl blur-2xl" />
 
-      {/* SVG Graphic with scroll-triggered zoom - HEAVILY ZOOMED, scaled vertically only */}
+      {/* Hero Image - Static for better performance */}
       <div className="relative w-full h-full flex items-center justify-center">
         <div
           className="relative w-full"
           style={{
-            height: `${scale * 100}%`,
-            transform: `translateY(${translateY}px)`,
-            transition: 'all 0.1s ease-out',
-            willChange: 'transform',
+            height: '160%',
+            willChange: 'auto',
           }}
         >
           <Image
-            src="/hero_graphic_corousel.svg"
+            src="/hero_carousel.webp"
             alt="VDOgate Hero Carousel"
             fill
             className="object-contain"
             priority
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
       </div>

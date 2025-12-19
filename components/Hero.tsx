@@ -1,7 +1,7 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, Play, Sparkles } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import HeroCarousel from './HeroCarousel'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
@@ -92,16 +92,16 @@ export default function Hero() {
                 <div className="flex items-center">
                   <div className="flex -space-x-3">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center border-2 border-white shadow-md overflow-hidden">
-                      <Image src="/makeup.png" alt="Makeup Artist" width={60} height={60} className="object-cover w-full h-full" style={{ objectPosition: '55% 30%' }} />
+                      <Image src="/makeup.webp" alt="Makeup Artist" width={40} height={40} className="object-cover w-full h-full" style={{ objectPosition: '55% 30%' }} />
                     </div>
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center border-2 border-white shadow-md overflow-hidden">
-                      <Image src="/gym.png" alt="Fitness Coach" width={60} height={60} className="object-cover w-full h-full" style={{ objectPosition: '50% 30%' }} />
+                      <Image src="/gym.webp" alt="Fitness Coach" width={40} height={40} className="object-cover w-full h-full" style={{ objectPosition: '50% 30%' }} />
                     </div>
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center border-2 border-white shadow-md overflow-hidden">
-                      <Image src="/chef.png" alt="Chef" width={60} height={60} className="object-cover w-full h-full" style={{ objectPosition: '50% 30%' }} />
+                      <Image src="/chef.webp" alt="Chef" width={40} height={40} className="object-cover w-full h-full" style={{ objectPosition: '50% 30%' }} />
                     </div>
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center border-2 border-white shadow-md overflow-hidden">
-                      <Image src="/teacher.png" alt="Teacher" width={60} height={60} className="object-cover w-full h-full" style={{ objectPosition: '45% 30%' }} />
+                      <Image src="/teacher.webp" alt="Teacher" width={40} height={40} className="object-cover w-full h-full" style={{ objectPosition: '45% 30%' }} />
                     </div>
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-xs font-bold border-2 border-white shadow-md">+500</div>
                   </div>

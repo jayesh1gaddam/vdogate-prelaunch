@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
@@ -10,7 +10,7 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
+  const lastScrollY = useRef(0)
 
   // Handle scroll effect and navbar visibility with debounce
   useEffect(() => {
@@ -25,15 +25,15 @@ export default function Navigation() {
           setIsScrolled(currentScrollY > 20)
 
           // Show navbar when scrolling up, hide when scrolling down
-          if (currentScrollY < lastScrollY || currentScrollY < 100) {
+          if (currentScrollY < lastScrollY.current || currentScrollY < 100) {
             // Scrolling up or near top - show navbar
             setIsVisible(true)
-          } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          } else if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
             // Scrolling down and not near top - hide navbar
             setIsVisible(false)
           }
 
-          setLastScrollY(currentScrollY)
+          lastScrollY.current = currentScrollY
           ticking = false
         })
 
@@ -43,7 +43,7 @@ export default function Navigation() {
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScrollY])
+  }, [])
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {

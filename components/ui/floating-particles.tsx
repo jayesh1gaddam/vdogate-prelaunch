@@ -1,15 +1,25 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useMemo } from 'react'
+import { useMemo, useEffect, useState } from 'react'
 
 interface FloatingParticlesProps {
   count?: number
   className?: string
 }
 
-export default function FloatingParticles({ count = 20, className = '' }: FloatingParticlesProps) {
-  // Deterministic PRNG: mulberry32
+// Optimized floating particles using CSS animations instead of Framer Motion
+export default function FloatingParticles({ count = 6, className = '' }: FloatingParticlesProps) {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mediaQuery.matches)
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches)
+    mediaQuery.addEventListener('change', handler)
+    return () => mediaQuery.removeEventListener('change', handler)
+  }, [])
+
+  // Deterministic PRNG for consistent particle positions
   const rng = (seed: number) => {
     return () => {
       seed |= 0
@@ -20,87 +30,65 @@ export default function FloatingParticles({ count = 20, className = '' }: Floati
     }
   }
 
-  const particleProps = useMemo(() => {
-    const seedBase = 123456 + count * 101
+  const particles = useMemo(() => {
+    const seedBase = 123456
     return Array.from({ length: count }).map((_, i) => {
       const r = rng(seedBase + i)
-      const size = r() * 20 + 10
-      const left = r() * 100
-      const delay = r() * 5
-      const duration = r() * 10 + 15
-      const opacity = r() * 0.3 + 0.1
-      const x1 = r() * 100 - 50
-      const x2 = r() * 150 - 75
-      return { size, left, delay, duration, opacity, x1, x2 }
+      return {
+        left: r() * 100,
+        delay: r() * 8,
+        duration: r() * 10 + 15,
+        opacity: r() * 0.2 + 0.1,
+      }
     })
   }, [count])
 
-  const sparkleProps = useMemo(() => {
-    const len = Math.floor(count / 2)
-    const seedBase = 98765 + count * 13
-    return Array.from({ length: len }).map((_, i) => {
-      const r = rng(seedBase + i)
-      const left = r() * 100
-      const top = r() * 100
-      const delay = r() * 3
-      const duration = r() * 2 + 2
-      return { left, top, delay, duration }
-    })
-  }, [count])
+  // Don't render animations if user prefers reduced motion
+  if (prefersReducedMotion) {
+    return null
+  }
 
   return (
-    <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
-      {particleProps.map(({ size, left, delay, duration, opacity, x1, x2 }, index) => (
-        <motion.div
-          key={index}
-          className="absolute"
-          style={{
-            left: `${left}%`,
-            bottom: '-10%',
-            width: size,
-            height: size,
-          }}
-          initial={{ y: 0, opacity: 0 }}
-          animate={{
-            y: [0, -800, -1000],
-            opacity: [0, opacity, 0],
-            x: [0, x1, x2],
-          }}
-          transition={{
-            duration,
-            delay,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        >
-          {/* Rupee Symbol Particle */}
-          <div className="w-full h-full flex items-center justify-center text-orange-400/30 font-bold text-xs">
+    <>
+      <style jsx>{`
+        @keyframes float-up {
+          0% {
+            transform: translateY(0) translateX(0);
+            opacity: 0;
+          }
+          10% {
+            opacity: var(--particle-opacity);
+          }
+          90% {
+            opacity: var(--particle-opacity);
+          }
+          100% {
+            transform: translateY(-100vh) translateX(50px);
+            opacity: 0;
+          }
+        }
+        .particle {
+          animation: float-up var(--duration) linear infinite;
+          animation-delay: var(--delay);
+          will-change: transform, opacity;
+        }
+      `}</style>
+      <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
+        {particles.map((p, i) => (
+          <div
+            key={i}
+            className="particle absolute bottom-0 text-orange-400/30 font-bold text-sm"
+            style={{
+              left: `${p.left}%`,
+              '--delay': `${p.delay}s`,
+              '--duration': `${p.duration}s`,
+              '--particle-opacity': p.opacity,
+            } as React.CSSProperties}
+          >
             ₹
           </div>
-        </motion.div>
-      ))}
-
-      {/* Sparkle Particles */}
-      {sparkleProps.map(({ left, top, delay, duration }, index) => (
-        <motion.div
-          key={`sparkle-${index}`}
-          className="absolute w-1 h-1 bg-gradient-to-r from-orange-400 to-amber-400 rounded-full"
-          style={{
-            left: `${left}%`,
-            top: `${top}%`,
-          }}
-          animate={{
-            scale: [0, 1, 0],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration,
-            delay,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   )
 }
