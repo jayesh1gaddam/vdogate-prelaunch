@@ -3,6 +3,37 @@
 @tailwind utilities;
 
 /* ============================================
+   PERFORMANCE: GPU Acceleration & Optimization
+   Industry-grade 60fps animations (Apple/Google level)
+   ============================================ */
+
+/* Force GPU compositing for animated elements */
+.gpu-accelerated,
+[class*="animate-"],
+[class*="hover:scale"],
+[class*="transition-transform"] {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Contain paint operations for better performance */
+section {
+  contain: content;
+}
+
+/* Optimize blur elements - only repaint on scroll */
+[class*="blur-"] {
+  will-change: auto;
+  contain: strict;
+}
+
+/* Force GPU layer for gradient backgrounds */
+[class*="bg-gradient"] {
+  transform: translateZ(0);
+}
+
+/* ============================================
    PERFORMANCE: Reduced Motion Support
    Respects user accessibility preferences
    ============================================ */

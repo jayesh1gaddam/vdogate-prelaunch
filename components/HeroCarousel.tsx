@@ -1,7 +1,6 @@
 'use client'
 
 import { memo } from 'react'
-import Image from 'next/image'
 
 // Interactive hero carousel - Performance optimized with CSS-only animations
 const HeroCarousel = memo(function HeroCarousel() {
@@ -10,22 +9,21 @@ const HeroCarousel = memo(function HeroCarousel() {
       {/* Static background glow */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-200/30 via-amber-100/20 to-rose-200/30 rounded-3xl blur-2xl" />
 
-      {/* Hero Image - Static for better performance */}
+      {/* Hero Image - Using img tag for SVG (better performance than Next Image for SVGs) */}
       <div className="relative w-full h-full flex items-center justify-center">
         <div
           className="relative w-full"
           style={{
             height: '160%',
-            willChange: 'auto',
           }}
         >
-          <Image
-            src="/hero_carousel.webp"
+          {/* Using native img for SVG - no quality loss, better performance */}
+          <img
+            src="/hero_graphic_corousel.svg"
             alt="VDOgate Hero Carousel"
-            fill
-            className="object-contain"
-            priority
-            sizes="(max-width: 768px) 100vw, 50vw"
+            className="w-full h-full object-contain"
+            loading="eager"
+            decoding="async"
           />
         </div>
       </div>
