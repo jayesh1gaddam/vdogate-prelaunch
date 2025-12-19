@@ -8,29 +8,22 @@
    ============================================ */
 
 /* Force GPU compositing for animated elements */
-.gpu-accelerated,
-[class*="animate-"],
-[class*="hover:scale"],
-[class*="transition-transform"] {
+.gpu-accelerated {
   transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
-/* Contain paint operations for better performance */
-section {
-  contain: content;
+/* Optimized transitions - use GPU */
+.transition-transform,
+.transition-all {
+  will-change: transform;
 }
 
-/* Optimize blur elements - only repaint on scroll */
-[class*="blur-"] {
-  will-change: auto;
-  contain: strict;
-}
-
-/* Force GPU layer for gradient backgrounds */
-[class*="bg-gradient"] {
-  transform: translateZ(0);
+/* Smooth hover animations */
+[class*="hover:scale"] {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ============================================
