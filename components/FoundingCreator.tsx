@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { Award, Star, Zap, Users, CheckCircle2, Sparkles, TrendingUp, User, Mail, Phone, MapPin, Briefcase, Link as LinkIcon, MessageSquare } from 'lucide-react'
+import { Award, Star, Users, CheckCircle2, Sparkles, TrendingUp, User, Mail, Phone, MapPin, Briefcase, Link as LinkIcon, MessageSquare } from 'lucide-react'
 import Image from 'next/image'
 import { useIsMobile, usePlatform } from '@/hooks/usePWA'
 import { fadeInUp, scaleIn, staggerContainer, staggerItem, hoverLift, spring, shimmerAnimation } from '@/lib/animations'
@@ -58,7 +58,6 @@ const challengesOptions = [
 
 const benefits = [
   { icon: Award, title: 'Lifetime Premium Benefits', desc: 'Exclusive founding member perks', iconColor: 'text-yellow-400', bgColor: 'bg-yellow-400/20', hoverBg: 'group-hover:bg-yellow-400/30' },
-  { icon: Zap, title: 'Launch Advantage', desc: 'Priority in search rankings', iconColor: 'text-blue-400', bgColor: 'bg-blue-400/20', hoverBg: 'group-hover:bg-blue-400/30' },
   { icon: Users, title: 'Community Building', desc: 'Join freelancer community', iconColor: 'text-pink-400', bgColor: 'bg-pink-400/20', hoverBg: 'group-hover:bg-pink-400/30' },
   { icon: Star, title: 'Early Revenue Opportunity', desc: 'Launch day advantages', iconColor: 'text-green-400', bgColor: 'bg-green-400/20', hoverBg: 'group-hover:bg-green-400/30' },
 ]

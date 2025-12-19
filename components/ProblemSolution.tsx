@@ -181,7 +181,7 @@ export default function ProblemSolution() {
     { icon: CheckCircle2, text: 'Zero commission on direct services', delay: 0.3 },
     { icon: CheckCircle2, text: 'Video-first identity, real proof builds trust', delay: 0.4 },
     { icon: CheckCircle2, text: 'Direct communication, no middlemen', delay: 0.5 },
-    { icon: CheckCircle2, text: 'Free viewer access drives organic exposure', delay: 0.6 }
+    { icon: CheckCircle2, text: 'Host Live Events to earn instantly', delay: 0.6 }
   ]
 
   // Floating badges data

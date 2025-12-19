@@ -158,7 +158,10 @@ export default function PricingCard() {
             viewport={{ once: true }}
             transition={{ delay: 1.0 }}
           >
-            <h4 className="text-lg font-bold text-purple-900 mb-4 text-center">Live Events</h4>
+            <h4 className="text-lg font-bold text-purple-900 mb-4 text-center flex items-center justify-center gap-2">
+              <span className="text-3xl font-black text-purple-600">+</span>
+              <span>Live Events</span>
+            </h4>
             <div className="flex items-center justify-between">
               <div className="text-center flex-1">
                 <p className="text-sm text-purple-700 font-medium mb-1">You keep</p>
