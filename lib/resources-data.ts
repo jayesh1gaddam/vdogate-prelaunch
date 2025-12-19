@@ -39,8 +39,8 @@ export const SAMPLE_RESOURCES: Resource[] = [
     {
         id: 'blog-3',
         type: 'blog',
-        title: 'Understanding VDOgate\'s 40-Minute Video Upload System',
-        excerpt: 'Upload 40 minutes of video monthly. Videos stay for 2 months. If you stay within limits, they\'re never deleted. Learn how this system keeps your portfolio fresh and relevant.',
+        title: 'Understanding VDOgate\'s 80-Minute Video Upload System',
+        excerpt: 'Upload 80 minutes of video monthly. Videos stay for 2 months. If you stay within limits, they\'re never deleted. Learn how this system keeps your portfolio fresh and relevant.',
         category: 'Getting Started',
         tags: ['Video Upload', 'Storage', 'Portfolio Management'],
         author: {
@@ -227,8 +227,8 @@ export const SAMPLE_RESOURCES: Resource[] = [
         tags: ['Subscription', 'Pricing', 'Core Features'],
         date: '2025-11-01',
         question: 'How does the ₹2,999/month subscription work?',
-        excerpt: 'The ₹2,999/month subscription includes 40 mins video upload, 2-month storage, 4,000 mins viewer delivery, and zero commission on direct services.',
-        answer: 'The ₹2,999/month subscription (₹100/day) includes: (1) Upload up to 40 minutes of video monthly, (2) Videos stored for 2 months (never purged if within 40 min total), (3) 4,000 minutes of viewer watch time per month, (4) Discovery by category & location with no algorithms, (5) Direct buyer messaging, and (6) Zero commission on all direct services. This is a pre-launch offer for Founding Freelancers.',
+        excerpt: 'The ₹2,999/month subscription includes 80 mins video upload, 2-month storage, 4,000 mins viewer delivery, and zero commission on direct services.',
+        answer: 'The ₹2,999/month subscription (₹100/day) includes: (1) Upload up to 80 minutes of video monthly, (2) Videos stored for 2 months (never purged if within 80 min total), (3) 4,000 minutes of viewer watch time per month, (4) Discovery by category & location with no algorithms, (5) Direct buyer messaging, and (6) Zero commission on all direct services. This is a pre-launch offer for Founding Freelancers.',
         helpful: 342
     },
     {
@@ -241,7 +241,7 @@ export const SAMPLE_RESOURCES: Resource[] = [
         date: '2025-11-01',
         question: 'What are the live events pricing details?',
         excerpt: 'Live events have a ₹199 activation fee. You set the ticket price (min ₹99/hr). You keep 85% of revenue, platform fee is 15%. Payouts in 4 days.',
-        answer: 'Live events have a ₹199 activation fee per event. You decide the duration and set the ticket price (minimum ₹99/hour). VDOgate takes 15% platform fee, you keep 85%. Payouts are released within 4 days post-event after statutory deductions (TDS, etc.). Full refund to attendees if event fails due to technical issues.',
+        answer: 'Live events have a ₹199 activation fee per event. You decide the duration and set the ticket price (minimum ₹99/hour). VDOgate takes 15% platform fee, you keep 85%. Settlement to freelancer released within 4 days post statutory deductions (TDS, etc.). Full refund to attendees if event fails due to technical issues.',
         helpful: 289
     },
     {
@@ -260,14 +260,14 @@ export const SAMPLE_RESOURCES: Resource[] = [
     {
         id: 'faq-4',
         type: 'faq',
-        title: 'What happens if I exceed 40 minutes of video uploads?',
+        title: 'What happens if I exceed 80 minutes of video uploads?',
         category: 'Platform Features',
         faqCategory: 'Platform Features',
         tags: ['Video Upload', 'Storage', 'Limits'],
         date: '2025-11-01',
-        question: 'What happens if I exceed 40 minutes of video uploads?',
-        excerpt: 'If you exceed 40 minutes, the oldest video is removed to stay within limits. If you stay within 40 minutes total, videos are never purged.',
-        answer: 'If your total video portfolio exceeds 40 minutes, the system automatically removes only the oldest video to bring you back within the limit. If you stay within 40 minutes total, your videos are never purged. You can purchase additional upload minutes (₹25 per 10 minutes) if you need more.',
+        question: 'What happens if I exceed 80 minutes of video uploads?',
+        excerpt: 'If you exceed 80 minutes, the oldest video is removed to stay within limits. If you stay within 80 minutes total, videos are never purged.',
+        answer: 'If your total video portfolio exceeds 80 minutes, the system automatically removes only the oldest video to bring you back within the limit. If you stay within 80 minutes total, your videos are never purged. You can purchase additional upload minutes (₹25 per 10 minutes) if you need more.',
         helpful: 256
     },
     {
@@ -326,7 +326,7 @@ export const SAMPLE_RESOURCES: Resource[] = [
         id: 'announce-3',
         type: 'announcement',
         title: 'Video Upload & Storage Policy Clarification',
-        excerpt: 'Upload 40 minutes of video per month. Videos stored for 2 months. If total stays within 40 minutes, they\'re never deleted. Exceeding 40 minutes auto-removes oldest video only. Add-ons available for more storage.',
+        excerpt: 'Upload 80 minutes of video per month. Videos stored for 2 months. If total stays within 80 minutes, they\'re never deleted. Exceeding 80 minutes auto-removes oldest video only. Add-ons available for more storage.',
         category: 'Policy Changes',
         tags: ['Policy', 'Video Upload', 'Storage'],
         date: '2025-11-16',
