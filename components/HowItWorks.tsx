@@ -344,10 +344,12 @@ export default function HowItWorks() {
                   : "Find talented professionals who are ready to deliver quality work — browse authentic video portfolios and hire with confidence, completely free."}
               </p>
 
-              <motion.button
+              <motion.a
+                href="https://app.vdogate.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => document.getElementById('founding-creator')?.scrollIntoView({ behavior: 'smooth' })}
                 className={`group relative px-8 py-4 ${activeTab === 'freelancers' ? 'bg-gradient-to-r from-orange-500 to-amber-500 shadow-orange-500/30 hover:shadow-orange-500/40' : 'bg-gradient-to-r from-blue-500 to-cyan-500 shadow-blue-500/30 hover:shadow-blue-500/40'} text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-2`}
               >
                 <span className="relative z-10">
@@ -356,7 +358,7 @@ export default function HowItWorks() {
                     : 'Start finding freelancers now'}
                 </span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
-              </motion.button>
+              </motion.a>
 
               <motion.p
                 initial={{ opacity: 0 }}

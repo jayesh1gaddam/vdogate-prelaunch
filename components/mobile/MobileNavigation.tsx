@@ -39,7 +39,7 @@ export default function MobileNavigation({ showBottomNav = true }: MobileNavigat
     { id: 'how-it-works', label: 'How It Works', icon: Sparkles },
     { id: 'who-its-for', label: 'Who It\'s For', icon: Grid },
     { id: 'platform-pricing', label: 'Pricing', icon: User },
-    { id: 'founding-creator', label: 'Join Now', icon: Sparkles, highlight: true },
+    { id: 'join-app', label: 'Join Now', icon: Sparkles, highlight: true, isExternal: true },
   ]
 
   return (
@@ -134,26 +134,39 @@ export default function MobileNavigation({ showBottomNav = true }: MobileNavigat
               {/* Menu Items */}
               <div className="p-6 space-y-2">
                 {menuItems.map((item, index) => (
-                  <motion.button
-                    key={item.id}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => handleNavClick(item.id)}
-                    className={`w-full flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 tap-target ${
-                      item.highlight
-                        ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg'
-                        : 'bg-neutral-gray-lighter/50 text-neutral-gray-dark hover:bg-neutral-gray-lighter'
-                    }`}
-                  >
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                      item.highlight ? 'bg-white/20' : 'bg-white'
-                    }`}>
-                      <item.icon className={`w-5 h-5 ${item.highlight ? 'text-white' : 'text-orange-500'}`} />
-                    </div>
-                    <span className="font-semibold text-base">{item.label}</span>
-                  </motion.button>
+                  item.isExternal ? (
+                    <motion.a
+                      key={item.id}
+                      href="https://app.vdogate.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 tap-target bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg"
+                    >
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-white/20">
+                        <item.icon className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="font-semibold text-base">{item.label}</span>
+                    </motion.a>
+                  ) : (
+                    <motion.button
+                      key={item.id}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => handleNavClick(item.id)}
+                      className="w-full flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 tap-target bg-neutral-gray-lighter/50 text-neutral-gray-dark hover:bg-neutral-gray-lighter"
+                    >
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-white">
+                        <item.icon className="w-5 h-5 text-orange-500" />
+                      </div>
+                      <span className="font-semibold text-base">{item.label}</span>
+                    </motion.button>
+                  )
                 ))}
               </div>
 
@@ -180,35 +193,45 @@ export default function MobileNavigation({ showBottomNav = true }: MobileNavigat
             {[
               { id: 'home', icon: Home, label: 'Home' },
               { id: 'categories', icon: Grid, label: 'Categories' },
-              { id: 'join', icon: Sparkles, label: 'Join', highlight: true },
+              { id: 'join', icon: Sparkles, label: 'Join', highlight: true, isExternal: true },
               { id: 'menu', icon: Menu, label: 'Menu' },
             ].map((item) => (
-              <motion.button
-                key={item.id}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => {
-                  if (item.id === 'menu') {
-                    setIsDrawerOpen(true)
-                  } else if (item.id === 'home') {
-                    handleNavClick('hero')
-                  } else if (item.id === 'categories') {
-                    handleNavClick('who-its-for')
-                  } else if (item.id === 'join') {
-                    handleNavClick('founding-creator')
-                  }
-                  setActiveTab(item.id)
-                }}
-                className={`flex flex-col items-center justify-center px-4 py-2 rounded-xl transition-all duration-300 tap-target ${
-                  item.highlight
-                    ? 'bg-gradient-to-br from-orange-500 to-pink-500 text-white shadow-lg scale-110'
-                    : activeTab === item.id
+              item.isExternal ? (
+                <motion.a
+                  key={item.id}
+                  href="https://app.vdogate.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileTap={{ scale: 0.9 }}
+                  className="flex flex-col items-center justify-center px-4 py-2 rounded-xl transition-all duration-300 tap-target bg-gradient-to-br from-orange-500 to-pink-500 text-white shadow-lg scale-110"
+                >
+                  <item.icon className="w-6 h-6 mb-1 text-white" />
+                  <span className="text-xs font-medium">{item.label}</span>
+                </motion.a>
+              ) : (
+                <motion.button
+                  key={item.id}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => {
+                    if (item.id === 'menu') {
+                      setIsDrawerOpen(true)
+                    } else if (item.id === 'home') {
+                      handleNavClick('hero')
+                    } else if (item.id === 'categories') {
+                      handleNavClick('who-its-for')
+                    }
+                    setActiveTab(item.id)
+                  }}
+                  className={`flex flex-col items-center justify-center px-4 py-2 rounded-xl transition-all duration-300 tap-target ${
+                    activeTab === item.id
                     ? 'text-orange-500'
                     : 'text-neutral-gray'
-                }`}
-              >
-                <item.icon className={`w-6 h-6 mb-1 ${item.highlight ? 'text-white' : ''}`} />
-                <span className="text-xs font-medium">{item.label}</span>
-              </motion.button>
+                  }`}
+                >
+                  <item.icon className="w-6 h-6 mb-1" />
+                  <span className="text-xs font-medium">{item.label}</span>
+                </motion.button>
+              )
             ))}
           </div>
         </motion.div>

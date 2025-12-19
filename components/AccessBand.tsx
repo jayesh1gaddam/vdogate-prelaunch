@@ -4,11 +4,6 @@ import { motion } from 'framer-motion'
 import { Briefcase, Search, ArrowRight } from 'lucide-react'
 
 export default function AccessBand() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <section className="py-12 md:py-16 bg-gradient-to-r from-blue-50 via-white to-green-50">
       <div className="container-custom">
@@ -36,13 +31,15 @@ export default function AccessBand() {
                 <p className="text-neutral-gray">Showcase your skills & earn</p>
               </div>
             </div>
-            <button
-              onClick={() => scrollToSection('founding-creator')}
+            <a
+              href="https://app.vdogate.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full mt-4 px-6 py-3.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:shadow-lg hover:scale-[1.02] transition-all flex items-center justify-center gap-2"
             >
               Join as Freelancer
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </a>
           </motion.div>
 
           {/* Viewer Card */}
@@ -63,13 +60,15 @@ export default function AccessBand() {
                 <p className="text-neutral-gray">Find freelancers & services near you</p>
               </div>
             </div>
-            <button
-              onClick={() => scrollToSection('how-it-works')}
+            <a
+              href="https://app.vdogate.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full mt-4 px-6 py-3.5 bg-gradient-to-r from-green-600 to-emerald-700 text-white rounded-xl font-semibold hover:shadow-lg hover:scale-[1.02] transition-all flex items-center justify-center gap-2"
             >
               Explore Freelancers
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </a>
           </motion.div>
         </motion.div>
       </div>

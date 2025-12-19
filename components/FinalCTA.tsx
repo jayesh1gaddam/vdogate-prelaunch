@@ -370,11 +370,13 @@ export default function FinalCTA() {
                   </ul>
 
                   {/* CTA Button with Premium Interactions */}
-                  <motion.button
-                    onClick={() => document.getElementById('founding-creator')?.scrollIntoView({ behavior: 'smooth' })}
+                  <motion.a
+                    href="https://app.vdogate.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="relative w-full px-8 py-5 bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 text-white rounded-2xl font-bold text-base md:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group/button"
+                    className="relative w-full px-8 py-5 bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 text-white rounded-2xl font-bold text-base md:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group/button block text-center"
                   >
                     {/* Button Shine Effect */}
                     <motion.div
@@ -388,11 +390,11 @@ export default function FinalCTA() {
                         ease: "linear"
                       }}
                     />
-                    <span className="relative z-10 flex items-center gap-2">
+                    <span className="relative z-10 flex items-center justify-center gap-2">
                       Join as Founding Freelancer
                       <ArrowRight className="w-5 h-5 group-hover/button:translate-x-1 transition-transform" />
                     </span>
-                  </motion.button>
+                  </motion.a>
                 </div>
               </div>
             </motion.div>

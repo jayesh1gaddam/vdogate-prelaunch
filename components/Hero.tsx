@@ -9,11 +9,6 @@ import Image from 'next/image'
 export default function Hero() {
   const [isScrolled, setIsScrolled] = useState(false)
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   // Track scroll to hide scroll indicator - throttled for performance
   useEffect(() => {
     let ticking = false
@@ -83,7 +78,7 @@ export default function Hero() {
                 <br />
                 <span className="text-sm">Show your skill. Get discovered. Connect directly with buyers and viewers.</span>
                 <br />
-                <span className="text-sm font-semibold text-portal-primary">Join as Founding Freelancer | Find My Freelancer</span>
+                <span className="text-sm font-semibold text-green-600">Free for buyers & viewers, always.</span>
               </motion.p>
 
               {/* Community Trust Badge with Avatar Stack */}
@@ -128,21 +123,25 @@ export default function Hero() {
                 transition={{ delay: 0.5, duration: 0.7 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2"
               >
-                <button
-                  onClick={() => scrollToSection('founding-creator')}
+                <a
+                  href="https://app.vdogate.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group px-7 py-3.5 bg-portal-gradient text-white rounded-lg font-medium text-sm md:text-base hover:shadow-portal-sm transition-all duration-300 hover:scale-[1.01] flex items-center justify-center gap-2 shadow-md shadow-portal-primary/10"
                 >
                   Join as Founding Freelancer
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
 
-                <button
-                  onClick={() => scrollToSection('how-it-works')}
+                <a
+                  href="https://app.vdogate.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group px-7 py-3.5 bg-white border border-neutral-gray-lighter text-brand-gray-900 rounded-lg font-medium text-sm md:text-base hover:border-portal-primary hover:bg-portal-primary/3 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   Find My Freelancer
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
               </motion.div>
             </motion.div>
 

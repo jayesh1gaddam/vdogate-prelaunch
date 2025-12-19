@@ -12,10 +12,8 @@ export default function FloatingActionButton() {
       icon: UserPlus,
       label: 'Join as Freelancer',
       color: 'from-orange-500 to-pink-500',
-      onClick: () => {
-        document.getElementById('founding-creator')?.scrollIntoView({ behavior: 'smooth' })
-        setIsOpen(false)
-      },
+      href: 'https://app.vdogate.com',
+      isExternal: true,
     },
     {
       icon: Search,
@@ -69,13 +67,25 @@ export default function FloatingActionButton() {
                 </motion.div>
 
                 {/* Action Button */}
-                <motion.button
-                  whileTap={{ scale: 0.9 }}
-                  onClick={action.onClick}
-                  className={`w-14 h-14 rounded-full bg-gradient-to-br ${action.color} shadow-xl flex items-center justify-center text-white tap-target`}
-                >
-                  <action.icon className="w-6 h-6" />
-                </motion.button>
+                {action.isExternal ? (
+                  <motion.a
+                    href={action.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileTap={{ scale: 0.9 }}
+                    className={`w-14 h-14 rounded-full bg-gradient-to-br ${action.color} shadow-xl flex items-center justify-center text-white tap-target`}
+                  >
+                    <action.icon className="w-6 h-6" />
+                  </motion.a>
+                ) : (
+                  <motion.button
+                    whileTap={{ scale: 0.9 }}
+                    onClick={action.onClick}
+                    className={`w-14 h-14 rounded-full bg-gradient-to-br ${action.color} shadow-xl flex items-center justify-center text-white tap-target`}
+                  >
+                    <action.icon className="w-6 h-6" />
+                  </motion.button>
+                )}
               </motion.div>
             ))}
           </motion.div>

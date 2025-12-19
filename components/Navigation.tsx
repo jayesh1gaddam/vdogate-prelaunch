@@ -54,15 +54,6 @@ export default function Navigation() {
     }
   }, [isMobileMenuOpen])
 
-  const scrollToSection = (id: string) => {
-    setIsMobileMenuOpen(false)
-    const element = document.getElementById(id)
-    if (element) {
-      // Use scrollIntoView with block: 'start' to respect scroll-margin-top in CSS
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }
-
   const navLinks = [
     { label: 'Home', href: '/', isScroll: false },
     { label: 'About', href: '/about', isScroll: false },
@@ -133,13 +124,15 @@ export default function Navigation() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                <button
-                  onClick={() => scrollToSection('founding-creator')}
+                <a
+                  href="https://app.vdogate.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group px-6 py-3 bg-portal-gradient text-white rounded-xl font-semibold text-base hover:shadow-portal transition-all duration-300 hover:scale-[1.02] flex items-center gap-2 shadow-portal-xs"
                 >
                   Join the Platform
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
               </motion.div>
 
               {/* Mobile Menu Button */}
@@ -212,13 +205,15 @@ export default function Navigation() {
                     transition={{ delay: 0.2 }}
                     className="pt-6 border-t border-neutral-gray-lighter"
                   >
-                    <button
-                      onClick={() => scrollToSection('founding-creator')}
+                    <a
+                      href="https://app.vdogate.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full group px-6 py-4 bg-portal-gradient text-white rounded-xl font-semibold text-base hover:shadow-portal transition-all duration-300 flex items-center justify-center gap-2 shadow-portal-xs"
                     >
                       Join the Platform
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </a>
                   </motion.div>
 
                   {/* Brand Tagline */}

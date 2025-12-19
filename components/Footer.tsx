@@ -7,8 +7,8 @@ import { BRAND_LOGO } from '@/lib/brand'
 const footerLinks = {
   platform: [
     { label: 'How It Works', href: '#how-it-works' },
-    { label: 'For Freelancers', href: '#founding-creator' },
-    { label: 'Pricing', href: '#founding-creator' },
+    { label: 'For Freelancers', href: 'https://app.vdogate.com', isExternal: true },
+    { label: 'Pricing', href: '#platform-pricing' },
   ],
   company: [
     { label: 'About Us', href: '/about' },
@@ -74,6 +74,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
+                    {...(link.isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                     className="text-white/70 hover:text-portal-light transition-colors duration-200 text-sm"
                   >
                     {link.label}
