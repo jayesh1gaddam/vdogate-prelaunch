@@ -52,7 +52,7 @@ export default function GatewayHero() {
             {/* Freelancer Card */}
             <Link
               href="/freelancers"
-              className="group relative rounded-[28px] bg-gradient-to-br from-orange-500 via-orange-400 to-amber-400 p-6 md:p-8 h-[320px] md:h-[380px] lg:h-[420px] flex flex-col shadow-2xl shadow-orange-500/20 hover:shadow-orange-500/30 hover:scale-[1.02] transition-all duration-500 overflow-visible"
+              className="group relative rounded-[28px] bg-gradient-to-br from-orange-500 via-orange-400 to-amber-400 p-6 md:p-8 h-[320px] md:h-[380px] lg:h-[420px] flex flex-col shadow-2xl shadow-orange-500/20 hover:shadow-orange-500/30 hover:scale-[1.02] transition-all duration-500 overflow-hidden"
             >
               {/* Content */}
               <div className="relative z-10 flex-1">
@@ -91,13 +91,13 @@ export default function GatewayHero() {
                 </div>
               </div>
 
-              {/* Graphic Image - Extending beyond card */}
-              <div className="absolute -right-4 -bottom-4 w-[65%] h-[75%] pointer-events-none z-20">
+              {/* Graphic Image - Contained within card */}
+              <div className="absolute right-0 bottom-0 w-[60%] h-[85%] pointer-events-none z-0">
                 <Image
                   src="/images/Mask group.png"
                   alt="Freelancer profiles"
                   fill
-                  className="object-contain object-right-bottom drop-shadow-2xl"
+                  className="object-contain object-right-bottom"
                 />
               </div>
 
@@ -113,7 +113,7 @@ export default function GatewayHero() {
             {/* Services Card */}
             <Link
               href="/services"
-              className="group relative rounded-[28px] bg-gradient-to-br from-blue-500 via-blue-400 to-cyan-400 p-6 md:p-8 h-[320px] md:h-[380px] lg:h-[420px] flex flex-col shadow-2xl shadow-blue-500/20 hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-500 overflow-visible"
+              className="group relative rounded-[28px] bg-gradient-to-br from-blue-500 via-blue-400 to-cyan-400 p-6 md:p-8 h-[320px] md:h-[380px] lg:h-[420px] flex flex-col shadow-2xl shadow-blue-500/20 hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-500 overflow-hidden"
             >
               {/* Content */}
               <div className="relative z-10 flex-1">
@@ -152,13 +152,13 @@ export default function GatewayHero() {
                 </div>
               </div>
 
-              {/* Graphic Image - Extending beyond card */}
-              <div className="absolute -right-4 -bottom-4 w-[65%] h-[75%] pointer-events-none z-20">
+              {/* Graphic Image - Contained within card */}
+              <div className="absolute right-0 bottom-0 w-[60%] h-[85%] pointer-events-none z-0">
                 <Image
                   src="/images/Mask group-1.png"
                   alt="Discover services"
                   fill
-                  className="object-contain object-right-bottom drop-shadow-2xl"
+                  className="object-contain object-right-bottom"
                 />
               </div>
 
