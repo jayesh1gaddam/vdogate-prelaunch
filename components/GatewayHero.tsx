@@ -54,6 +54,17 @@ export default function GatewayHero() {
               href="/freelancers"
               className="group relative rounded-[28px] bg-gradient-to-br from-orange-500 via-orange-400 to-amber-400 p-6 md:p-8 h-[320px] md:h-[380px] lg:h-[420px] flex flex-col shadow-2xl shadow-orange-500/20 hover:shadow-orange-500/30 hover:scale-[1.02] transition-all duration-500 overflow-hidden"
             >
+              {/* Graphic Image - Background layer */}
+              <div className="absolute right-0 bottom-0 w-[55%] md:w-[50%] h-[70%] md:h-[75%]">
+                <Image
+                  src="/images/Mask group.png"
+                  alt="Freelancer profiles"
+                  fill
+                  className="object-contain object-right-bottom"
+                  priority
+                />
+              </div>
+
               {/* Content */}
               <div className="relative z-10 flex-1">
                 <p className="text-white/80 text-lg md:text-xl font-normal mb-1">
@@ -91,16 +102,6 @@ export default function GatewayHero() {
                 </div>
               </div>
 
-              {/* Graphic Image - Contained within card */}
-              <div className="absolute right-0 bottom-0 w-[60%] h-[85%] pointer-events-none z-0">
-                <Image
-                  src="/images/Mask group.png"
-                  alt="Freelancer profiles"
-                  fill
-                  className="object-contain object-right-bottom"
-                />
-              </div>
-
               {/* CTA Button */}
               <div className="relative z-10 mt-auto">
                 <span className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-orange-500 rounded-full font-semibold text-base shadow-xl shadow-black/10 group-hover:shadow-2xl group-hover:gap-3 transition-all duration-300">
@@ -115,6 +116,17 @@ export default function GatewayHero() {
               href="/services"
               className="group relative rounded-[28px] bg-gradient-to-br from-blue-500 via-blue-400 to-cyan-400 p-6 md:p-8 h-[320px] md:h-[380px] lg:h-[420px] flex flex-col shadow-2xl shadow-blue-500/20 hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-500 overflow-hidden"
             >
+              {/* Graphic Image - Background layer */}
+              <div className="absolute right-0 bottom-0 w-[55%] md:w-[50%] h-[70%] md:h-[75%]">
+                <Image
+                  src="/images/Mask group-1.png"
+                  alt="Discover services"
+                  fill
+                  className="object-contain object-right-bottom"
+                  priority
+                />
+              </div>
+
               {/* Content */}
               <div className="relative z-10 flex-1">
                 <p className="text-white/80 text-lg md:text-xl font-normal mb-1">
@@ -150,16 +162,6 @@ export default function GatewayHero() {
                     <span className="font-bold">500+</span> Freelancers joining
                   </p>
                 </div>
-              </div>
-
-              {/* Graphic Image - Contained within card */}
-              <div className="absolute right-0 bottom-0 w-[60%] h-[85%] pointer-events-none z-0">
-                <Image
-                  src="/images/Mask group-1.png"
-                  alt="Discover services"
-                  fill
-                  className="object-contain object-right-bottom"
-                />
               </div>
 
               {/* CTA Button */}
