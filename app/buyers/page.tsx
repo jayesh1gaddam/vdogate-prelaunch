@@ -6,39 +6,31 @@ import ServicesHeroV2 from '@/components/ServicesHeroV2'
 
 // Lazy load below-fold components with loading states
 const BuyerValueProps = dynamic(() => import('@/components/BuyerValueProps'), {
-  loading: () => <div className="h-96 bg-white animate-pulse" />
+  loading: () => <div className="h-64 bg-white animate-pulse" />
 })
 
 const BrowseCategoriesBlue = dynamic(() => import('@/components/BrowseCategoriesBlue'), {
-  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
-})
-
-const BuyerProblemSolution = dynamic(() => import('@/components/BuyerProblemSolution'), {
-  loading: () => <div className="h-96 bg-white animate-pulse" />
+  loading: () => <div className="h-64 bg-gray-50 animate-pulse" />
 })
 
 const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
-  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
+  loading: () => <div className="h-64 bg-gray-50 animate-pulse" />
 })
 
 const BuyerTestimonials = dynamic(() => import('@/components/BuyerTestimonials'), {
-  loading: () => <div className="h-96 bg-slate-900 animate-pulse" />
-})
-
-const BuyerBenefits = dynamic(() => import('@/components/BuyerBenefits'), {
-  loading: () => <div className="h-96 bg-white animate-pulse" />
+  loading: () => <div className="h-64 bg-slate-900 animate-pulse" />
 })
 
 const BuyerFinalCTA = dynamic(() => import('@/components/BuyerFinalCTA'), {
-  loading: () => <div className="h-96 bg-slate-900 animate-pulse" />
+  loading: () => <div className="h-64 bg-slate-900 animate-pulse" />
 })
 
 const FooterBlue = dynamic(() => import('@/components/FooterBlue'), {
-  loading: () => <div className="h-96 bg-slate-900 animate-pulse" />
+  loading: () => <div className="h-64 bg-slate-900 animate-pulse" />
 })
 
 const TermsFooter = dynamic(() => import('@/components/TermsFooter'), {
-  loading: () => <div className="h-32 bg-gray-50 animate-pulse" />
+  loading: () => <div className="h-16 bg-gray-50 animate-pulse" />
 })
 
 export const metadata = {
@@ -60,10 +52,8 @@ export default function BuyersPage() {
           {/* Below-fold content - lazy loaded */}
           <BuyerValueProps />
           <BrowseCategoriesBlue />
-          <BuyerProblemSolution />
           <HowItWorks defaultTab="customers" />
           <BuyerTestimonials />
-          <BuyerBenefits />
           <BuyerFinalCTA />
           <FooterBlue />
           <TermsFooter />
