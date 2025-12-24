@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import Navigation from '@/components/Navigation'
+import NavigationBlue from '@/components/NavigationBlue'
 import PWAProvider from '@/components/PWAProvider'
 import MobileLayoutWrapper from '@/components/MobileLayoutWrapper'
 import ServicesHeroV2 from '@/components/ServicesHeroV2'
@@ -51,8 +51,8 @@ export default function BuyersPage() {
     <PWAProvider>
       <MobileLayoutWrapper>
         <div className="min-h-screen">
-          {/* Navigation */}
-          <Navigation />
+          {/* Navigation - Blue theme for buyers */}
+          <NavigationBlue />
 
           {/* Above-fold content */}
           <ServicesHeroV2 />

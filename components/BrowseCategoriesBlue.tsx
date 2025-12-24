@@ -6,8 +6,8 @@ import Image from 'next/image'
 import { Sparkles, TrendingUp } from 'lucide-react'
 import { fadeInUp, scaleIn, staggerContainer, staggerItem, viewportOptions } from '@/lib/animations'
 
-// Dynamically import 3D component to avoid SSR issues
-const RotatingText3D = dynamic(() => import('@/components/ui/rotating-text-3d'), {
+// Dynamically import 3D component to avoid SSR issues - Blue version for buyers page
+const RotatingText3DBlue = dynamic(() => import('@/components/ui/rotating-text-3d-blue'), {
   ssr: false,
   loading: () => <div className="h-32 md:h-40 flex items-center justify-center"><span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Loading...</span></div>
 })
@@ -76,7 +76,7 @@ export default function BrowseCategoriesBlue() {
             <div className="flex flex-col items-center justify-center gap-2">
               <span className="whitespace-nowrap">Discover India's</span>
               <div className="w-full max-w-2xl">
-                <RotatingText3D
+                <RotatingText3DBlue
                   texts={categories}
                   rotationInterval={3000}
                 />
