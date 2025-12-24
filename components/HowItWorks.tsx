@@ -59,8 +59,12 @@ const customerSteps = [
   },
 ]
 
-export default function HowItWorks() {
-  const [activeTab, setActiveTab] = useState<'freelancers' | 'customers'>('freelancers')
+interface HowItWorksProps {
+  defaultTab?: 'freelancers' | 'customers'
+}
+
+export default function HowItWorks({ defaultTab = 'freelancers' }: HowItWorksProps) {
+  const [activeTab, setActiveTab] = useState<'freelancers' | 'customers'>(defaultTab)
 
   const activeSteps = activeTab === 'freelancers' ? freelancerSteps : customerSteps
   const activeColor = activeTab === 'freelancers'
