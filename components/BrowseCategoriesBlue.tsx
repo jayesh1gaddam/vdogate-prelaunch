@@ -29,7 +29,7 @@ export default function BrowseCategoriesBlue() {
   const categoryPeople = [
     { emoji: '🧘‍♀️', name: 'Priya', role: 'Yoga Trainer', specialty: '500+ Sessions', color: 'from-purple-400 to-purple-600', image: '/yoga.png', rating: '4.9' },
     { emoji: '💄', name: 'Neha', role: 'Makeup Artist', specialty: 'Bridal Expert', color: 'from-pink-400 to-rose-600', image: '/makeup.png', rating: '5.0' },
-    { emoji: '👨‍🍳', name: 'Arjun', role: 'Professional Chef', specialty: 'Italian Cuisine', color: 'from-orange-400 to-red-600', image: '/chef.png', rating: '4.8' },
+    { emoji: '👨‍🍳', name: 'Arjun', role: 'Professional Chef', specialty: 'Italian Cuisine', color: 'from-rose-400 to-red-600', image: '/chef.png', rating: '4.8' },
     { emoji: '📚', name: 'Anjali', role: 'Math Tutor', specialty: 'IIT Coaching', color: 'from-green-400 to-emerald-600', image: '/teacher.png', rating: '4.9' },
     { emoji: '💪', name: 'Rahul', role: 'Fitness Coach', specialty: 'Weight Loss', color: 'from-blue-400 to-cyan-600', image: '/gym.png', rating: '5.0' },
     { emoji: '📸', name: 'Vikram', role: 'Photographer', specialty: 'Weddings', color: 'from-indigo-400 to-violet-600', image: '/photograper.png', rating: '4.7' },
@@ -156,7 +156,7 @@ export default function BrowseCategoriesBlue() {
                     style={{
                       backgroundImage: `linear-gradient(to bottom right, ${person.color.includes('purple-400') ? '#a855f7, #7c3aed' :
                           person.color.includes('pink-400') ? '#ec4899, #be185d' :
-                            person.color.includes('orange-400') ? '#f97316, #c2410c' :
+                            person.color.includes('rose-400') ? '#fb7185, #dc2626' :
                               person.color.includes('green-400') ? '#10b981, #059669' :
                                 person.color.includes('blue-400') ? '#3b82f6, #1d4ed8' :
                                   '#8b5cf6, #6d28d9'
@@ -179,7 +179,7 @@ export default function BrowseCategoriesBlue() {
                           stopColor={
                             person.color.includes('purple-400') ? '#a855f7' :
                               person.color.includes('pink-400') ? '#ec4899' :
-                                person.color.includes('orange-400') ? '#f97316' :
+                                person.color.includes('rose-400') ? '#fb7185' :
                                   person.color.includes('green-400') ? '#10b981' :
                                     person.color.includes('blue-400') ? '#3b82f6' :
                                       '#8b5cf6'
@@ -190,7 +190,7 @@ export default function BrowseCategoriesBlue() {
                           stopColor={
                             person.color.includes('purple-400') ? '#7c3aed' :
                               person.color.includes('pink-400') ? '#be185d' :
-                                person.color.includes('orange-400') ? '#c2410c' :
+                                person.color.includes('rose-400') ? '#dc2626' :
                                   person.color.includes('green-400') ? '#059669' :
                                     person.color.includes('blue-400') ? '#1d4ed8' :
                                       '#6d28d9'

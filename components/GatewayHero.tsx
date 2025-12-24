@@ -111,9 +111,9 @@ export default function GatewayHero() {
               </div>
             </Link>
 
-            {/* Services Card */}
+            {/* Buyers Card */}
             <Link
-              href="/services"
+              href="/buyers"
               className="group relative rounded-[28px] bg-gradient-to-br from-blue-500 via-blue-400 to-cyan-400 p-6 md:p-8 h-[320px] md:h-[380px] lg:h-[420px] flex flex-col shadow-2xl shadow-blue-500/20 hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-500 overflow-hidden"
             >
               {/* Graphic Image - Background layer */}
@@ -133,7 +133,7 @@ export default function GatewayHero() {
                   India's Platform for
                 </p>
                 <h3 className="text-white text-3xl md:text-4xl lg:text-[42px] font-bold mb-3 leading-tight">
-                  India's Services
+                  India's Buyers
                 </h3>
                 <p className="text-white/70 text-base md:text-lg font-light">
                   Free for buyers & viewers, always.
@@ -159,7 +159,7 @@ export default function GatewayHero() {
                     </div>
                   </div>
                   <p className="ml-3 text-white text-sm font-medium">
-                    <span className="font-bold">500+</span> Freelancers joining
+                    <span className="font-bold">500+</span> Buyers discovering
                   </p>
                 </div>
               </div>
@@ -167,7 +167,7 @@ export default function GatewayHero() {
               {/* CTA Button */}
               <div className="relative z-10 mt-auto">
                 <span className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-blue-500 rounded-full font-semibold text-base shadow-xl shadow-black/10 group-hover:shadow-2xl group-hover:gap-3 transition-all duration-300">
-                  Discover Services
+                  Find Freelancers
                   <ArrowRight className="w-5 h-5" />
                 </span>
               </div>

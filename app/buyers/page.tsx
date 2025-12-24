@@ -33,8 +33,8 @@ const BuyerFinalCTA = dynamic(() => import('@/components/BuyerFinalCTA'), {
   loading: () => <div className="h-96 bg-slate-900 animate-pulse" />
 })
 
-const Footer = dynamic(() => import('@/components/Footer'), {
-  loading: () => <div className="h-96 bg-white animate-pulse" />
+const FooterBlue = dynamic(() => import('@/components/FooterBlue'), {
+  loading: () => <div className="h-96 bg-slate-900 animate-pulse" />
 })
 
 const TermsFooter = dynamic(() => import('@/components/TermsFooter'), {
@@ -42,11 +42,11 @@ const TermsFooter = dynamic(() => import('@/components/TermsFooter'), {
 })
 
 export const metadata = {
-  title: 'Discover Services | VDOgate - Find Skilled Freelancers',
+  title: 'For Buyers | VDOgate - Find Skilled Freelancers',
   description: 'Find skilled freelancers on VDOgate. Watch video portfolios, browse by category and location, and connect directly. Free for buyers, always.',
 }
 
-export default function ServicesPage() {
+export default function BuyersPage() {
   return (
     <PWAProvider>
       <MobileLayoutWrapper>
@@ -65,7 +65,7 @@ export default function ServicesPage() {
           <BuyerTestimonials />
           <BuyerBenefits />
           <BuyerFinalCTA />
-          <Footer />
+          <FooterBlue />
           <TermsFooter />
         </div>
       </MobileLayoutWrapper>
