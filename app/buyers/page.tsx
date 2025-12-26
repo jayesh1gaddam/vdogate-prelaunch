@@ -13,10 +13,6 @@ const BrowseCategoriesBlue = dynamic(() => import('@/components/BrowseCategories
   loading: () => <div className="h-64 bg-gray-50 animate-pulse" />
 })
 
-const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
-  loading: () => <div className="h-64 bg-gray-50 animate-pulse" />
-})
-
 const BuyerTestimonials = dynamic(() => import('@/components/BuyerTestimonials'), {
   loading: () => <div className="h-64 bg-slate-900 animate-pulse" />
 })
@@ -52,7 +48,6 @@ export default function BuyersPage() {
           {/* Below-fold content - lazy loaded */}
           <BuyerValueProps />
           <BrowseCategoriesBlue />
-          <HowItWorks defaultTab="customers" />
           <BuyerTestimonials />
           <BuyerFinalCTA />
           <FooterBlue />
