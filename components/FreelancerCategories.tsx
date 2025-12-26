@@ -3,216 +3,98 @@
 import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import { ArrowRight, Star, TrendingUp, Sparkles } from 'lucide-react'
-import { fadeInUp, scaleIn, staggerContainer, staggerItem, viewportOptions } from '@/lib/animations'
 
 // Dynamically import 3D component to avoid SSR issues
 const RotatingText3D = dynamic(() => import('@/components/ui/rotating-text-3d'), {
   ssr: false,
-  loading: () => <div className="h-32 md:h-40 flex items-center justify-center"><span className="text-gradient">Loading...</span></div>
+  loading: () => <div className="h-24 md:h-28 flex items-center justify-center"><span className="text-gradient text-3xl font-bold">Loading...</span></div>
 })
 
 export default function FreelancerCategories() {
   const categories = [
-    "Yoga Trainers 🧘‍♀️",
-    "Beauty Experts 💄",
-    "Chefs & Bakers 👨‍🍳",
-    "Tutors & Educators 📚",
-    "Fitness Coaches 💪",
-    "Photographers 📸",
-    "Designers ✨",
-    "Content Creators 🎥",
-    "Music Teachers 🎵",
-    "Dance Instructors 💃",
+    "Yoga Trainers",
+    "Beauty Experts",
+    "Chefs & Bakers",
+    "Tutors & Educators",
+    "Fitness Coaches",
+    "Photographers",
+    "Designers",
+    "Content Creators",
+    "Music Teachers",
+    "Dance Instructors",
   ]
 
   const categoryPeople = [
-    { emoji: '🧘‍♀️', name: 'Priya', role: 'Yoga Trainer', specialty: '500+ Sessions', color: 'from-purple-400 to-purple-600', image: '/yoga.png', rating: '4.9' },
-    { emoji: '💄', name: 'Neha', role: 'Makeup Artist', specialty: 'Bridal Expert', color: 'from-pink-400 to-rose-600', image: '/makeup.png', rating: '5.0' },
-    { emoji: '👨‍🍳', name: 'Arjun', role: 'Professional Chef', specialty: 'Italian Cuisine', color: 'from-orange-400 to-red-600', image: '/chef.png', rating: '4.8' },
-    { emoji: '📚', name: 'Anjali', role: 'Math Tutor', specialty: 'IIT Coaching', color: 'from-green-400 to-emerald-600', image: '/teacher.png', rating: '4.9' },
-    { emoji: '💪', name: 'Rahul', role: 'Fitness Coach', specialty: 'Weight Loss', color: 'from-blue-400 to-cyan-600', image: '/gym.png', rating: '5.0' },
-    { emoji: '📸', name: 'Vikram', role: 'Photographer', specialty: 'Weddings', color: 'from-indigo-400 to-violet-600', image: '/photograper.png', rating: '4.7' },
+    { role: 'Yoga Trainer', color: 'from-purple-400 to-purple-600', image: '/yoga.png' },
+    { role: 'Makeup Artist', color: 'from-pink-400 to-rose-600', image: '/makeup.png' },
+    { role: 'Chef', color: 'from-rose-400 to-red-600', image: '/chef.png' },
+    { role: 'Tutor', color: 'from-green-400 to-emerald-600', image: '/teacher.png' },
+    { role: 'Fitness Coach', color: 'from-blue-400 to-cyan-600', image: '/gym.png' },
+    { role: 'Photographer', color: 'from-indigo-400 to-violet-600', image: '/photograper.png' },
   ]
 
   return (
-    <section className="relative py-16 md:py-24 bg-gradient-to-br from-slate-50 via-gray-50/50 to-neutral-100/30 overflow-hidden">
-      {/* Premium Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_var(--tw-gradient-stops))] from-orange-100/30 via-transparent to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,_var(--tw-gradient-stops))] from-amber-100/20 via-transparent to-transparent" />
-
-      {/* Dot Pattern Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle,#f7682b15_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]" />
-
-      {/* Animated Orbs - Optimized with CSS */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-200/20 to-rose-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-tl from-amber-200/20 to-orange-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '1s' }} />
-      </div>
+    <section className="relative py-12 md:py-16 bg-slate-50 overflow-hidden">
+      {/* Simple Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white to-slate-50" />
 
       <div className="container-custom relative z-10">
+        {/* Header - Compact */}
         <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOptions}
-          className="text-center max-w-4xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-10"
         >
-          {/* Premium Badge */}
-          <motion.div
-            variants={scaleIn}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOptions}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-portal-primary/10 to-portal-light/10 border border-portal-primary/20 rounded-full px-6 py-2 mb-8"
-          >
-            <Sparkles className="w-4 h-4 text-portal-primary" />
-            <span className="text-sm font-semibold text-portal-primary">India's Top Freelance Talent</span>
-            <TrendingUp className="w-4 h-4 text-portal-primary" />
-          </motion.div>
-
-          {/* Heading */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black mb-6">
-            <div className="flex flex-col items-center justify-center gap-2">
-              <span className="whitespace-nowrap">Meet India's</span>
-              <div className="w-full max-w-2xl">
-                <RotatingText3D
-                  texts={categories}
-                  rotationInterval={3000}
-                />
-              </div>
-            </div>
+          {/* Heading with Rotating Text */}
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-black mb-2">
+            Meet India's
           </h2>
-
-          {/* Description */}
-          <motion.p
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOptions}
-            className="text-lg md:text-xl text-neutral-gray leading-relaxed max-w-3xl mx-auto"
-          >
-            From fitness trainers to creative professionals, VDOgate connects you with
-            <span className="font-semibold text-brand-black"> verified, skilled freelancers</span> across every category, all in one platform.
-          </motion.p>
+          <div className="w-full max-w-xl mx-auto">
+            <RotatingText3D
+              texts={categories}
+              rotationInterval={2500}
+            />
+          </div>
         </motion.div>
 
-        {/* Clean Minimal Category Cards - Portrait + Category Name Only */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOptions}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 mb-12"
-        >
+        {/* Category Cards - Simplified */}
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-5 max-w-5xl mx-auto">
           {categoryPeople.map((person, index) => (
             <motion.div
               key={index}
-              variants={staggerItem}
-              whileHover={{ y: -8, scale: 1.05 }}
-              className="group relative cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08, duration: 0.4 }}
+              whileHover={{ y: -4 }}
+              className="group cursor-pointer"
             >
-              {/* Minimal Card Container */}
-              <div className="relative flex flex-col items-center">
-
-                {/* Full Size Portrait Avatar - Allows Overflow from Top */}
-                <div className="relative w-full aspect-square mb-4">
-                  <motion.div
-                    className="relative w-full h-full"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  >
-                    {/* Static Gradient Border - Optimized */}
-                    <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${person.color} opacity-0 group-hover:opacity-40 transition-opacity duration-300`} />
-                    <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${person.color} opacity-20 blur-sm`} />
-
-                    {/* Image Container with Thin Border - Fixed */}
-                    <div className="absolute inset-[0.5px] rounded-3xl overflow-visible bg-white flex items-end justify-center pb-0 shadow-xl group-hover:shadow-2xl transition-all duration-500">
-                      <div className="relative w-full h-[120%]">
-                        <Image
-                          src={person.image}
-                          alt={person.role}
-                          fill
-                          className="object-contain object-bottom"
-                        />
-                      </div>
+              <div className="flex flex-col items-center">
+                {/* Portrait */}
+                <div className="relative w-full aspect-square mb-2">
+                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${person.color} opacity-10 group-hover:opacity-20 transition-opacity`} />
+                  <div className="absolute inset-0 rounded-2xl overflow-hidden bg-white shadow-md group-hover:shadow-lg transition-shadow">
+                    <div className="relative w-full h-[115%]">
+                      <Image
+                        src={person.image}
+                        alt={person.role}
+                        fill
+                        className="object-contain object-bottom"
+                      />
                     </div>
-
-                    {/* Premium Shine Effect on Hover */}
-                    <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none overflow-hidden">
-                      <div className="absolute -inset-full bg-gradient-to-r from-transparent via-white/40 to-transparent rotate-45 group-hover:inset-full transition-all duration-1000" />
-                    </div>
-                  </motion.div>
+                  </div>
                 </div>
 
-                {/* Category Name - Premium Gradient Text with Hand-Drawn Underline */}
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="w-full text-center"
-                >
-                  <h3
-                    className="text-lg md:text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-br pb-1"
-                    style={{
-                      backgroundImage: `linear-gradient(to bottom right, ${person.color.includes('purple-400') ? '#a855f7, #7c3aed' :
-                          person.color.includes('pink-400') ? '#ec4899, #be185d' :
-                            person.color.includes('orange-400') ? '#f97316, #c2410c' :
-                              person.color.includes('green-400') ? '#10b981, #059669' :
-                                person.color.includes('blue-400') ? '#3b82f6, #1d4ed8' :
-                                  '#8b5cf6, #6d28d9'
-                        })`
-                    }}
-                  >
-                    {person.role}
-                  </h3>
-                  {/* Hand-Drawn Style Underline */}
-                  <svg
-                    className="w-full h-2 mx-auto"
-                    viewBox="0 0 100 8"
-                    preserveAspectRatio="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs>
-                      <linearGradient id={`gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop
-                          offset="0%"
-                          stopColor={
-                            person.color.includes('purple-400') ? '#a855f7' :
-                              person.color.includes('pink-400') ? '#ec4899' :
-                                person.color.includes('orange-400') ? '#f97316' :
-                                  person.color.includes('green-400') ? '#10b981' :
-                                    person.color.includes('blue-400') ? '#3b82f6' :
-                                      '#8b5cf6'
-                          }
-                        />
-                        <stop
-                          offset="100%"
-                          stopColor={
-                            person.color.includes('purple-400') ? '#7c3aed' :
-                              person.color.includes('pink-400') ? '#be185d' :
-                                person.color.includes('orange-400') ? '#c2410c' :
-                                  person.color.includes('green-400') ? '#059669' :
-                                    person.color.includes('blue-400') ? '#1d4ed8' :
-                                      '#6d28d9'
-                          }
-                        />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      d="M 2,5 Q 8,3 15,4.5 T 30,5 Q 40,4 50,5 T 70,4.5 Q 80,5.5 90,4 T 98,5"
-                      fill="none"
-                      stroke={`url(#gradient-${index})`}
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      opacity="0.9"
-                    />
-                  </svg>
-                </motion.div>
-
+                {/* Role Name */}
+                <p className="text-xs md:text-sm font-medium text-neutral-gray-dark text-center">
+                  {person.role}
+                </p>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )
