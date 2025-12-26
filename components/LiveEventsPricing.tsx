@@ -14,15 +14,15 @@ export default function LiveEventsPricing() {
     ]
 
     return (
-        <section id="live-events-pricing" className="py-16 md:py-20 relative overflow-hidden bg-gradient-to-br from-purple-50 via-white to-pink-50/30">
+        <section id="live-events-pricing" className="py-16 md:py-20 relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-amber-50/30">
             {/* Background Elements */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-100/30 via-transparent to-transparent" />
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#a855f708_1px,transparent_1px),linear-gradient(to_bottom,#a855f708_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-100/30 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#f7682b08_1px,transparent_1px),linear-gradient(to_bottom,#f7682b08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
             {/* Floating Orbs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-20 left-10 w-96 h-96 rounded-full blur-3xl bg-gradient-to-br from-purple-300/20 to-pink-200/15 animate-pulse" style={{ animationDuration: '20s' }} />
-                <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full blur-3xl bg-gradient-to-tr from-pink-300/20 to-purple-200/15 animate-pulse" style={{ animationDuration: '18s' }} />
+                <div className="absolute top-20 left-10 w-96 h-96 rounded-full blur-3xl bg-gradient-to-br from-orange-300/20 to-amber-200/15 animate-pulse" style={{ animationDuration: '20s' }} />
+                <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full blur-3xl bg-gradient-to-tr from-amber-300/20 to-orange-200/15 animate-pulse" style={{ animationDuration: '18s' }} />
             </div>
 
             <div className="container-custom relative z-10">
@@ -39,10 +39,10 @@ export default function LiveEventsPricing() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 border border-purple-200 rounded-full mb-6"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-100 to-amber-100 border border-orange-200 rounded-full mb-6"
                     >
-                        <Video className="w-4 h-4 text-purple-600" />
-                        <span className="text-sm font-bold text-purple-800 uppercase tracking-wide">Live Events Pricing</span>
+                        <Video className="w-4 h-4 text-orange-600" />
+                        <span className="text-sm font-bold text-orange-800 uppercase tracking-wide">Live Events Pricing</span>
                     </motion.div>
 
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black mb-4">
@@ -68,9 +68,9 @@ export default function LiveEventsPricing() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.3 + index * 0.05 }}
-                            className="px-4 py-2 bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-full"
+                            className="px-4 py-2 bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-full"
                         >
-                            <span className="text-sm font-semibold text-purple-700">{type}</span>
+                            <span className="text-sm font-semibold text-orange-700">{type}</span>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -83,18 +83,18 @@ export default function LiveEventsPricing() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="glass bg-gradient-to-br from-white via-purple-50/30 to-pink-50/20 backdrop-blur-xl rounded-3xl p-8 border-2 border-purple-200/40 shadow-xl"
+                        className="glass bg-gradient-to-br from-white via-orange-50/30 to-amber-50/20 backdrop-blur-xl rounded-3xl p-8 border-2 border-orange-200/40 shadow-xl"
                     >
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg">
+                            <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-amber-600 rounded-2xl flex items-center justify-center shadow-lg">
                                 <IndianRupee className="w-7 h-7 text-white" />
                             </div>
-                            <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Pricing & Earnings</h3>
+                            <h3 className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Pricing & Earnings</h3>
                         </div>
 
                         <div className="space-y-4 mb-8">
                             <div className="flex items-start gap-3 p-4 bg-white/80 rounded-xl">
-                                <CheckCircle2 className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                                <CheckCircle2 className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
                                 <div>
                                     <p className="font-semibold text-brand-black">Freelancer decides duration</p>
                                     <p className="text-sm text-neutral-gray">You control how long your event runs</p>
@@ -102,7 +102,7 @@ export default function LiveEventsPricing() {
                             </div>
 
                             <div className="flex items-start gap-3 p-4 bg-white/80 rounded-xl">
-                                <CheckCircle2 className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                                <CheckCircle2 className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
                                 <div>
                                     <p className="font-semibold text-brand-black">Minimum event ticket price: ₹99/hr</p>
                                     <p className="text-sm text-neutral-gray">To be paid by event attendee. Go higher as you grow</p>
@@ -110,7 +110,7 @@ export default function LiveEventsPricing() {
                             </div>
 
                             <div className="flex items-start gap-3 p-4 bg-white/80 rounded-xl">
-                                <CheckCircle2 className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                                <CheckCircle2 className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
                                 <div>
                                     <p className="font-semibold text-brand-black">Event activation fee: ₹199 per event</p>
                                     <p className="text-sm text-neutral-gray">To be paid by Host/Freelancer</p>
@@ -118,16 +118,16 @@ export default function LiveEventsPricing() {
                             </div>
                         </div>
 
-                        <div className="p-6 bg-gradient-to-br from-purple-100 to-pink-100 border-2 border-purple-300 rounded-2xl">
+                        <div className="p-6 bg-gradient-to-br from-orange-100 to-amber-100 border-2 border-orange-300 rounded-2xl">
                             <div className="flex items-center justify-between mb-3">
                                 <div>
                                     <p className="text-sm text-green-700 font-medium">Freelancer keeps</p>
                                     <p className="text-4xl font-bold text-green-800">85%</p>
                                 </div>
                                 <div className="text-right">
-                                    <p className="text-sm text-purple-700 font-medium">Platform fee</p>
-                                    <p className="text-3xl font-bold text-purple-900">15%</p>
-                                    <p className="text-xs text-purple-600 mt-1">of ticket revenue</p>
+                                    <p className="text-sm text-orange-700 font-medium">Platform fee</p>
+                                    <p className="text-3xl font-bold text-orange-900">15%</p>
+                                    <p className="text-xs text-orange-600 mt-1">of ticket revenue</p>
                                 </div>
                             </div>
                             <div className="h-3 bg-white/50 rounded-full overflow-hidden">
@@ -204,10 +204,10 @@ export default function LiveEventsPricing() {
                     transition={{ delay: 0.4 }}
                     className="text-center max-w-4xl mx-auto"
                 >
-                    <div className="relative glass bg-gradient-to-br from-white via-purple-50/30 to-pink-50/20 backdrop-blur-xl rounded-3xl p-8 md:p-12 border-2 border-purple-200/40 shadow-2xl overflow-hidden">
+                    <div className="relative glass bg-gradient-to-br from-white via-orange-50/30 to-amber-50/20 backdrop-blur-xl rounded-3xl p-8 md:p-12 border-2 border-orange-200/40 shadow-2xl overflow-hidden">
                         {/* Background decoration */}
-                        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-300/20 to-transparent rounded-full blur-3xl" />
-                        <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tl from-pink-300/20 to-transparent rounded-full blur-3xl" />
+                        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-orange-300/20 to-transparent rounded-full blur-3xl" />
+                        <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tl from-amber-300/20 to-transparent rounded-full blur-3xl" />
 
                         <div className="relative z-10">
                             <motion.div
@@ -215,10 +215,10 @@ export default function LiveEventsPricing() {
                                 whileInView={{ scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
-                                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 border border-purple-200 rounded-full mb-6"
+                                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-100 to-amber-100 border border-orange-200 rounded-full mb-6"
                             >
-                                <Sparkles className="w-5 h-5 text-purple-600" />
-                                <span className="text-sm font-bold text-purple-800">Simple. Fair. Transparent.</span>
+                                <Sparkles className="w-5 h-5 text-orange-600" />
+                                <span className="text-sm font-bold text-orange-800">Simple. Fair. Transparent.</span>
                             </motion.div>
 
                             <h3 className="text-2xl md:text-3xl font-bold text-brand-black mb-4">

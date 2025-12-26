@@ -191,7 +191,7 @@ export default function ServicesHeroV2() {
                   className="absolute -left-2 top-1/4 bg-white rounded-lg shadow-md p-2 border border-blue-100"
                 >
                   <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                    <div className="w-7 h-7 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full flex items-center justify-center">
                       <Star className="w-3.5 h-3.5 text-white fill-white" />
                     </div>
                     <div>

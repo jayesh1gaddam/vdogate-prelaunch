@@ -38,7 +38,7 @@ const activeColor = { from: 'from-orange-500', to: 'to-amber-500', bg: 'bg-orang
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-orange-50/30">
+    <section id="how-it-works" className="relative py-16 md:py-20 lg:py-24 overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-orange-50/30">
       {/* Premium Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-100/20 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f7682b03_1px,transparent_1px),linear-gradient(to_bottom,#f7682b03_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
@@ -115,10 +115,10 @@ export default function HowItWorks() {
                     whileInView={{ scale: 1, rotate: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.15 + 0.3, type: "spring", stiffness: 150 }}
-                    className={`relative w-20 h-20 bg-gradient-to-br ${activeColor.from} ${activeColor.to} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                    className={`relative w-14 h-14 bg-gradient-to-br ${activeColor.from} ${activeColor.to} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent rounded-2xl" />
-                    <Icon className="w-10 h-10 text-white relative z-10" />
+                    <Icon className="w-7 h-7 text-white relative z-10" />
                   </motion.div>
 
                   {/* Title */}
