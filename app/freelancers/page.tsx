@@ -17,6 +17,10 @@ const PlatformPricing = dynamic(() => import('@/components/PlatformPricing'), {
   loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
 })
 
+const LiveEventsPricing = dynamic(() => import('@/components/LiveEventsPricing'), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
+})
+
 const Testimonials = dynamic(() => import('@/components/Testimonials'), {
   loading: () => <div className="h-64 bg-gray-50 animate-pulse" />
 })
@@ -53,6 +57,7 @@ export default function FreelancersPage() {
           <FreelancerCategories />
           <HowItWorks />
           <PlatformPricing />
+          <LiveEventsPricing />
           <Testimonials />
           <FinalCTA />
           <Footer />
