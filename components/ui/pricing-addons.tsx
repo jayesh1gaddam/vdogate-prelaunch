@@ -7,7 +7,7 @@ const addons = [
   {
     icon: Video,
     title: 'Additional Video Upload Minutes',
-    description: 'Increase portfolio beyond 80 minutes',
+    description: 'Increase portfolio beyond 40 minutes',
     pricing: '₹25 per additional 10 minutes',
     color: 'from-purple-400 to-indigo-500',
     bgColor: 'from-purple-50 to-indigo-50',

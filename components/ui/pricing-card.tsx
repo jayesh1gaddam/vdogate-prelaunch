@@ -12,10 +12,10 @@ export default function PricingCard() {
       category: 'Video Portfolio',
       color: 'from-purple-500 to-indigo-600',
       items: [
-        'Upload up to 80 minutes of video each month',
+        'Upload up to 40 minutes of video each month',
         'Videos stored & visible for 2 months',
-        'If total remains within 80 minutes, videos are never purged',
-        'Exceeding 80 minutes auto-removes only the oldest video'
+        'If total remains within 40 minutes, videos are never purged',
+        'Exceeding 40 minutes auto-removes only the oldest video'
       ]
     },
     {
