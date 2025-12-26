@@ -5,10 +5,6 @@ import PWAProvider from '@/components/PWAProvider'
 import MobileLayoutWrapper from '@/components/MobileLayoutWrapper'
 
 // Lazy load below-fold components with loading states
-const FreelancerCategories = dynamic(() => import('@/components/FreelancerCategories'), {
-  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
-})
-
 const HowItWorks = dynamic(() => import('@/components/HowItWorks'), {
   loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
 })
@@ -54,7 +50,6 @@ export default function FreelancersPage() {
           <Hero />
 
           {/* Below-fold content - lazy loaded */}
-          <FreelancerCategories />
           <HowItWorks />
           <PlatformPricing />
           <LiveEventsPricing />
