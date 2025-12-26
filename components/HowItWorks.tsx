@@ -1,8 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Video, MapPin, IndianRupee, Search, Users, MessageSquare, Sparkles, CheckCircle2 } from 'lucide-react'
-import { useState } from 'react'
+import { Video, MapPin, IndianRupee, MessageSquare, Sparkles, CheckCircle2 } from 'lucide-react'
 
 const freelancerSteps = [
   {
@@ -35,52 +34,19 @@ const freelancerSteps = [
   },
 ]
 
-const customerSteps = [
-  {
-    number: '01',
-    icon: Search,
-    title: 'Browse by Category & Location',
-    description: 'Search for freelancers in your city or across India, filtered by the service category you need.',
-    detail: 'Find verified professionals near you with authentic video profiles.',
-  },
-  {
-    number: '02',
-    icon: Users,
-    title: 'Watch Video Profiles',
-    description: 'Preview freelancer skills through their video portfolios before making any commitment.',
-    detail: 'See their work, understand their expertise, and make informed decisions.',
-  },
-  {
-    number: '03',
-    icon: MessageSquare,
-    title: 'Connect Directly',
-    description: 'Reach out to your chosen freelancer and discuss your project requirements directly.',
-    detail: 'No middleman. No platform fees. Direct communication for transparent collaboration.',
-  },
-]
+const activeColor = { from: 'from-orange-500', to: 'to-amber-500', bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-200' }
 
-interface HowItWorksProps {
-  defaultTab?: 'freelancers' | 'customers'
-}
-
-export default function HowItWorks({ defaultTab = 'freelancers' }: HowItWorksProps) {
-  const [activeTab, setActiveTab] = useState<'freelancers' | 'customers'>(defaultTab)
-
-  const activeSteps = activeTab === 'freelancers' ? freelancerSteps : customerSteps
-  const activeColor = activeTab === 'freelancers'
-    ? { from: 'from-orange-500', to: 'to-amber-500', bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-200' }
-    : { from: 'from-blue-500', to: 'to-cyan-500', bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-200' }
-
+export default function HowItWorks() {
   return (
-    <section id="how-it-works" className={`relative py-16 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-neutral-50 via-white ${activeTab === 'freelancers' ? 'to-orange-50/30' : 'to-blue-50/30'}`}>
+    <section id="how-it-works" className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-orange-50/30">
       {/* Premium Background Elements */}
-      <div className={`absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] ${activeTab === 'freelancers' ? 'from-orange-100/20' : 'from-blue-100/20'} via-transparent to-transparent`} />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-100/20 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f7682b03_1px,transparent_1px),linear-gradient(to_bottom,#f7682b03_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
       {/* Floating Orbs - Optimized with CSS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className={`absolute top-20 right-10 w-64 h-64 rounded-full blur-3xl ${activeTab === 'freelancers' ? 'bg-gradient-to-br from-orange-200/30 to-amber-200/20' : 'bg-gradient-to-br from-blue-200/30 to-cyan-200/20'} animate-pulse`} style={{ animationDuration: '20s' }} />
-        <div className="absolute bottom-20 left-10 w-80 h-80 rounded-full blur-3xl bg-gradient-to-tr from-blue-200/20 to-cyan-200/20 animate-pulse" style={{ animationDuration: '18s' }} />
+        <div className="absolute top-20 right-10 w-64 h-64 rounded-full blur-3xl bg-gradient-to-br from-orange-200/30 to-amber-200/20 animate-pulse" style={{ animationDuration: '20s' }} />
+        <div className="absolute bottom-20 left-10 w-80 h-80 rounded-full blur-3xl bg-gradient-to-tr from-amber-200/20 to-orange-200/20 animate-pulse" style={{ animationDuration: '18s' }} />
       </div>
 
       <div className="container-custom relative z-10">
@@ -90,146 +56,30 @@ export default function HowItWorks({ defaultTab = 'freelancers' }: HowItWorksPro
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          className="text-center mb-16"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className={`inline-flex items-center gap-2 px-4 py-2 ${activeTab === 'freelancers' ? 'bg-gradient-to-r from-orange-50 to-amber-50 border-orange-200/50' : 'bg-gradient-to-r from-blue-50 to-cyan-50 border-blue-200/50'} border rounded-full mb-6`}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-50 to-amber-50 border-orange-200/50 border rounded-full mb-6"
           >
-            <Sparkles className={`w-4 h-4 ${activeTab === 'freelancers' ? 'text-orange-600' : 'text-blue-600'}`} />
-            <span className={`text-sm font-semibold ${activeTab === 'freelancers' ? 'text-orange-800' : 'text-blue-800'}`}>Simple & Transparent Process</span>
+            <Sparkles className="w-4 h-4 text-orange-600" />
+            <span className="text-sm font-semibold text-orange-800">Simple & Transparent Process</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-black mb-6 tracking-tight">
-            How <span className={`bg-gradient-to-r ${activeTab === 'freelancers' ? 'from-orange-500 to-amber-500' : 'from-blue-500 to-cyan-500'} bg-clip-text text-transparent`}>VDOgate</span> Works
+            How <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">VDOgate</span> Works
           </h2>
 
           <p className="text-lg md:text-xl text-neutral-gray max-w-2xl mx-auto leading-relaxed">
-            Lifetime free for customers. Easy earnings for freelancers.
+            Simple process. Zero commission on your services.
           </p>
         </motion.div>
 
-        {/* Tab Switcher */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="flex flex-col items-center mb-16"
-        >
-          <p className="text-xs font-semibold text-neutral-gray mb-3">Choose your path:</p>
-          <div
-            className="flex flex-col sm:flex-row gap-3 w-full max-w-xl px-4"
-            role="tablist"
-            aria-label="How it works tabs"
-          >
-            <motion.button
-              onClick={() => setActiveTab('freelancers')}
-              whileHover={{ scale: 1.02, y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              className={`relative flex-1 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md overflow-hidden ${activeTab === 'freelancers'
-                ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-orange-500/30'
-                : 'bg-white text-neutral-gray-dark border-2 border-orange-200 hover:border-orange-400 shadow-neutral-gray-lighter/50'
-                }`}
-              role="tab"
-              aria-selected={activeTab === 'freelancers'}
-              id="tab-freelancers"
-              aria-controls="panel-freelancers"
-              tabIndex={activeTab === 'freelancers' ? 0 : -1}
-              onKeyDown={(e) => {
-                if (e.key === 'ArrowRight' || e.key === 'End') {
-                  setActiveTab('customers')
-                  document.getElementById('tab-customers')?.focus()
-                } else if (e.key === 'Home') {
-                  setActiveTab('freelancers')
-                  document.getElementById('tab-freelancers')?.focus()
-                }
-              }}
-            >
-              {activeTab === 'freelancers' && (
-                <motion.div
-                  layoutId="activeBorder"
-                  className="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500"
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                />
-              )}
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                <Video className="w-4 h-4" />
-                <span className="flex flex-col items-start">
-                  <span>For Freelancers</span>
-                  <span className={`text-[10px] font-normal ${activeTab === 'freelancers' ? 'text-white/90' : 'text-neutral-gray'}`}>
-                    Showcase & Earn
-                  </span>
-                </span>
-              </span>
-              {activeTab === 'freelancers' && (
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="absolute top-1.5 right-1.5 w-4 h-4 bg-white/20 rounded-full flex items-center justify-center"
-                >
-                  <CheckCircle2 className="w-3 h-3 text-white" />
-                </motion.div>
-              )}
-            </motion.button>
-
-            <motion.button
-              onClick={() => setActiveTab('customers')}
-              whileHover={{ scale: 1.02, y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              className={`relative flex-1 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md overflow-hidden ${activeTab === 'customers'
-                ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-blue-500/30'
-                : 'bg-white text-neutral-gray-dark border-2 border-blue-200 hover:border-blue-400 shadow-neutral-gray-lighter/50'
-                }`}
-              role="tab"
-              aria-selected={activeTab === 'customers'}
-              id="tab-customers"
-              aria-controls="panel-customers"
-              tabIndex={activeTab === 'customers' ? 0 : -1}
-              onKeyDown={(e) => {
-                if (e.key === 'ArrowLeft' || e.key === 'Home') {
-                  setActiveTab('freelancers')
-                  document.getElementById('tab-freelancers')?.focus()
-                } else if (e.key === 'End') {
-                  setActiveTab('customers')
-                  document.getElementById('tab-customers')?.focus()
-                }
-              }}
-            >
-              {activeTab === 'customers' && (
-                <motion.div
-                  layoutId="activeBorder"
-                  className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500"
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                />
-              )}
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                <Search className="w-4 h-4" />
-                <span className="flex flex-col items-start">
-                  <span>For Customers</span>
-                  <span className={`text-[10px] font-normal ${activeTab === 'customers' ? 'text-white/90' : 'text-neutral-gray'}`}>
-                    Find & Hire
-                  </span>
-                </span>
-              </span>
-              {activeTab === 'customers' && (
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="absolute top-1.5 right-1.5 w-4 h-4 bg-white/20 rounded-full flex items-center justify-center"
-                >
-                  <CheckCircle2 className="w-3 h-3 text-white" />
-                </motion.div>
-              )}
-            </motion.button>
-          </div>
-        </motion.div>
-
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {activeSteps.map((step, index) => {
+          {freelancerSteps.map((step, index) => {
             const Icon = step.icon
 
             return (
@@ -242,7 +92,7 @@ export default function HowItWorks({ defaultTab = 'freelancers' }: HowItWorksPro
                 className="group relative"
               >
                 {/* Connection Line (except last card) */}
-                {index < activeSteps.length - 1 && (
+                {index < freelancerSteps.length - 1 && (
                   <div className="hidden md:block absolute top-20 left-full w-8 h-0.5 bg-gradient-to-r from-neutral-300 to-transparent z-0" />
                 )}
 

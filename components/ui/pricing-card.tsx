@@ -38,7 +38,7 @@ export default function PricingCard() {
       category: 'Earnings & Communication',
       color: 'from-green-500 to-emerald-600',
       items: [
-        'Direct buyer- seller contact',
+        'Direct client contact',
         'Zero commission to VDOgate on direct services'
       ]
     }

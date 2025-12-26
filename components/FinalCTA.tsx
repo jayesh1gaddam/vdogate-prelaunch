@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import Link from 'next/link'
 
 export default function FinalCTA() {
   return (
@@ -44,13 +43,6 @@ export default function FinalCTA() {
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
 
-          {/* Secondary link (text only, not button) */}
-          <p className="mt-6 text-white/40 text-sm">
-            Looking to hire?{' '}
-            <Link href="/buyers" className="text-portal-light hover:underline">
-              Find freelancers
-            </Link>
-          </p>
         </motion.div>
       </div>
     </section>

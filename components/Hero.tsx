@@ -74,11 +74,9 @@ export default function Hero() {
                 <br />
                 <span className="font-semibold text-brand-black">No Ads • No Algorithm • No Commission on Your Services</span>
                 <br />
-                <span className="text-sm">Show your skills in videos. Get discovered by buyers for your services.</span>
+                <span className="text-sm">Show your skills in videos. Get discovered for your services.</span>
                 <br />
-                <span className="text-sm">And Earn more by hosting paid live events.</span>
-                <br />
-                <span className="text-sm font-semibold text-green-600">Free for buyers & viewers, always.</span>
+                <span className="text-sm">And earn more by hosting paid live events.</span>
               </motion.p>
 
               {/* Community Trust Badge with Avatar Stack */}
