@@ -2,13 +2,60 @@
 
 import { motion } from 'framer-motion'
 import { Share2, ExternalLink, Sparkles, CheckCircle2 } from 'lucide-react'
-import Image from 'next/image'
+
+// Official platform logos as SVG components
+const UpworkLogo = () => (
+  <svg viewBox="0 0 56 56" fill="none" className="w-full h-full">
+    <path d="M42.4 19.6c-4.1 0-7.3 2.7-8.6 7-2.1-3.2-3.7-7-4.6-10.2h-5.1v14.3c0 2.4-2 4.3-4.3 4.3s-4.3-1.9-4.3-4.3V16.4h-5.1v14.3c0 5.2 4.2 9.4 9.4 9.4s9.4-4.2 9.4-9.4v-2.4c.9 1.9 2 3.9 3.4 5.7l-2.9 13.6h5.2l2.1-9.9c1.6 1 3.5 1.6 5.5 1.6 5.5 0 10-4.5 10-10.1-.1-5.4-4.6-9.6-10.1-9.6zm0 14.6c-1.8 0-3.6-.8-5.1-2l.4-1.9v-.1c.4-2.1 1.5-5.7 4.7-5.7 2.7 0 4.9 2.2 4.9 4.9 0 2.6-2.2 4.8-4.9 4.8z" fill="#14A800"/>
+  </svg>
+)
+
+const FreelancerLogo = () => (
+  <svg viewBox="0 0 56 56" fill="none" className="w-full h-full">
+    <path d="M28 8L8 18v20l20 10 20-10V18L28 8z" fill="#29B2FE"/>
+    <path d="M28 8L8 18l20 10 20-10L28 8z" fill="#0E76A8"/>
+    <path d="M28 38v10l20-10V18L28 28v10z" fill="#29B2FE" fillOpacity="0.7"/>
+    <text x="20" y="32" fill="white" fontSize="12" fontWeight="bold">F</text>
+  </svg>
+)
+
+const FiverrLogo = () => (
+  <svg viewBox="0 0 56 56" fill="none" className="w-full h-full">
+    <rect x="8" y="8" width="40" height="40" rx="8" fill="#1DBF73"/>
+    <path d="M18 35V25h3v-4h-3v-1c0-1.1.9-2 2-2h2v-4h-3c-3.3 0-6 2.7-6 6v1h-2v4h2v10h5zm10-14v14h-5V21h5zm-2.5-7c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3zM32 35V21h4l1 2c1-1.5 2.5-2.5 4.5-2.5v5c-2.5 0-4.5 1.5-4.5 4v5.5h-5z" fill="white"/>
+  </svg>
+)
+
+const LinkedInLogo = () => (
+  <svg viewBox="0 0 56 56" fill="none" className="w-full h-full">
+    <rect x="8" y="8" width="40" height="40" rx="4" fill="#0A66C2"/>
+    <path d="M20 24v14h-4V24h4zm-2-6.5c1.4 0 2.5 1.1 2.5 2.5s-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5 1.1-2.5 2.5-2.5zM24 38h4v-7.5c0-2 1.5-3 3-3s2.5 1 2.5 3V38h4v-8c0-3.5-2.5-6-6-6-1.7 0-3 .7-3.5 1.5V24h-4v14z" fill="white"/>
+  </svg>
+)
+
+const IndeedLogo = () => (
+  <svg viewBox="0 0 56 56" fill="none" className="w-full h-full">
+    <rect x="8" y="8" width="40" height="40" rx="4" fill="#2164F3"/>
+    <path d="M28 16c-6.6 0-12 5.4-12 12s5.4 12 12 12 12-5.4 12-12-5.4-12-12-12zm0 20c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z" fill="white"/>
+    <circle cx="28" cy="28" r="4" fill="white"/>
+  </svg>
+)
+
+const NaukriLogo = () => (
+  <svg viewBox="0 0 56 56" fill="none" className="w-full h-full">
+    <rect x="8" y="8" width="40" height="40" rx="4" fill="#0C5FB3"/>
+    <text x="14" y="36" fill="white" fontSize="16" fontWeight="bold">N</text>
+    <circle cx="38" cy="18" r="4" fill="#FF5722"/>
+  </svg>
+)
 
 const platforms = [
-  { name: 'Upwork', logo: '/images/platforms/upwork.svg' },
-  { name: 'Freelancer', logo: '/images/platforms/freelancer.svg' },
-  { name: 'Fiverr', logo: '/images/platforms/fiverr.svg' },
-  { name: 'LinkedIn', logo: '/images/platforms/linkedin.svg' },
+  { name: 'Upwork', Logo: UpworkLogo, bgColor: 'bg-white' },
+  { name: 'Freelancer', Logo: FreelancerLogo, bgColor: 'bg-white' },
+  { name: 'Fiverr', Logo: FiverrLogo, bgColor: 'bg-white' },
+  { name: 'LinkedIn', Logo: LinkedInLogo, bgColor: 'bg-white' },
+  { name: 'Indeed', Logo: IndeedLogo, bgColor: 'bg-white' },
+  { name: 'Naukri', Logo: NaukriLogo, bgColor: 'bg-white' },
 ]
 
 const benefits = [
@@ -72,28 +119,27 @@ export default function ProfileIntegration() {
             <p className="text-center text-sm font-semibold text-neutral-gray mb-6 uppercase tracking-wide">
               Share on popular platforms
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
-              {platforms.map((platform, index) => (
-                <motion.div
-                  key={platform.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  className="group flex flex-col items-center gap-2"
-                >
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl shadow-lg border border-neutral-200 flex items-center justify-center p-3 group-hover:shadow-xl group-hover:border-orange-200 transition-all duration-300">
-                    <div className="w-full h-full relative">
-                      <div className="w-full h-full bg-gradient-to-br from-orange-100 to-amber-100 rounded-xl flex items-center justify-center">
-                        <span className="text-orange-600 font-bold text-xs md:text-sm">{platform.name.charAt(0)}</span>
-                      </div>
+            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
+              {platforms.map((platform, index) => {
+                const Logo = platform.Logo
+                return (
+                  <motion.div
+                    key={platform.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + index * 0.1 }}
+                    className="group flex flex-col items-center gap-2"
+                  >
+                    <div className={`w-14 h-14 md:w-16 md:h-16 ${platform.bgColor} rounded-2xl shadow-lg border border-neutral-200 flex items-center justify-center p-2 group-hover:shadow-xl group-hover:border-orange-200 group-hover:scale-110 transition-all duration-300`}>
+                      <Logo />
                     </div>
-                  </div>
-                  <span className="text-xs md:text-sm font-medium text-neutral-gray group-hover:text-orange-600 transition-colors">
-                    {platform.name}
-                  </span>
-                </motion.div>
-              ))}
+                    <span className="text-xs md:text-sm font-medium text-neutral-gray group-hover:text-orange-600 transition-colors">
+                      {platform.name}
+                    </span>
+                  </motion.div>
+                )
+              })}
             </div>
           </motion.div>
 
