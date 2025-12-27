@@ -58,7 +58,6 @@ export default function Navigation() {
     { label: 'Home', href: '/', isScroll: false },
     { label: 'About', href: '/about', isScroll: false },
     { label: 'Resources', href: '/resources', isScroll: false },
-    { label: 'Careers', href: '/careers', isScroll: false },
   ]
 
   return (
