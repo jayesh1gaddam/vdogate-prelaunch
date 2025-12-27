@@ -17,7 +17,7 @@ const addons = [
     icon: Eye,
     title: 'Additional Viewer Delivery / Watch-Time',
     description: 'Increase viewer consumption beyond 4,000 mins',
-    pricing: '₹125 per additional 1,000 minutes',
+    pricing: '₹150 per additional 1,000 minutes',
     color: 'from-blue-400 to-cyan-500',
     bgColor: 'from-blue-50 to-cyan-50',
     borderColor: 'border-blue-200',

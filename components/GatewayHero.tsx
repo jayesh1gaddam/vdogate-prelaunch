@@ -71,10 +71,10 @@ export default function GatewayHero() {
                   India's Platform for
                 </p>
                 <h3 className="text-white text-3xl md:text-4xl lg:text-[42px] font-bold mb-3 leading-tight">
-                  India's Freelancers
+                  the World of Freelancers
                 </h3>
                 <p className="text-white/70 text-base md:text-lg font-light">
-                  Make money from your skills
+                  Show your skills. Get discovered. Earn more.
                 </p>
 
                 {/* Avatar Stack */}
@@ -133,10 +133,10 @@ export default function GatewayHero() {
                   India's Platform for
                 </p>
                 <h3 className="text-white text-3xl md:text-4xl lg:text-[42px] font-bold mb-3 leading-tight">
-                  India's Buyers
+                  the World of Services
                 </h3>
                 <p className="text-white/70 text-base md:text-lg font-light">
-                  Free for buyers & viewers, always.
+                  Watch videos. Trust better. Hire confidently.
                 </p>
 
                 {/* Avatar Stack */}

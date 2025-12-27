@@ -172,7 +172,7 @@ export default function LiveEventsPricing() {
                                     <div>
                                         <h4 className="font-bold text-green-900 mb-2">Payout Timeline</h4>
                                         <p className="text-sm text-green-800 leading-relaxed mb-3">
-                                            Settlement released within <span className="font-bold">4 days</span> post statutory deductions (TDS etc.)
+                                            Freelancers' settlement released within <span className="font-bold">4 days</span> post statutory deductions (TDS etc.)
                                         </p>
                                         <div className="flex items-center gap-2 text-xs text-green-700">
                                             <div className="w-2 h-2 bg-green-500 rounded-full" />
