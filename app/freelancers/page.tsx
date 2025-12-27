@@ -17,7 +17,11 @@ const LiveEventsPricing = dynamic(() => import('@/components/LiveEventsPricing')
   loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
 })
 
-const Testimonials = dynamic(() => import('@/components/Testimonials'), {
+const ForInfluencers = dynamic(() => import('@/components/ForInfluencers'), {
+  loading: () => <div className="h-96 bg-slate-900 animate-pulse" />
+})
+
+const ProfileIntegration = dynamic(() => import('@/components/ProfileIntegration'), {
   loading: () => <div className="h-64 bg-gray-50 animate-pulse" />
 })
 
@@ -53,7 +57,8 @@ export default function FreelancersPage() {
           <HowItWorks />
           <PlatformPricing />
           <LiveEventsPricing />
-          <Testimonials />
+          <ForInfluencers />
+          <ProfileIntegration />
           <FinalCTA />
           <Footer />
           <TermsFooter />

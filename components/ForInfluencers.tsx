@@ -33,7 +33,7 @@ export default function ForInfluencers() {
                         className="inline-flex items-center gap-2 px-5 py-2.5 bg-purple-500/10 border border-purple-400/20 rounded-full mb-6 backdrop-blur-sm"
                     >
                         <Users className="w-4 h-4 text-purple-300" />
-                        <span className="text-sm font-semibold text-purple-200 uppercase tracking-wide">For Influencers & Large Creators</span>
+                        <span className="text-sm font-semibold text-purple-200 uppercase tracking-wide">For Freelancers & Large Creators</span>
                     </motion.div>
 
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
