@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ArrowRight } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import { BRAND_LOGO } from '@/lib/brand'
 
@@ -117,24 +117,6 @@ export default function Navigation() {
                 ))}
               </div>
 
-              {/* Desktop CTA */}
-              <motion.div
-                className="hidden lg:block"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.4 }}
-              >
-                <a
-                  href="https://app.vdogate.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group px-6 py-3 bg-portal-gradient text-white rounded-xl font-semibold text-base hover:shadow-portal transition-all duration-300 hover:scale-[1.02] flex items-center gap-2 shadow-portal-xs"
-                >
-                  Join the Platform
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </motion.div>
-
               {/* Mobile Menu Button */}
               <motion.button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -197,24 +179,6 @@ export default function Navigation() {
                       </motion.a>
                     ))}
                   </div>
-
-                  {/* Mobile CTA */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="pt-6 border-t border-neutral-gray-lighter"
-                  >
-                    <a
-                      href="https://app.vdogate.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full group px-6 py-4 bg-portal-gradient text-white rounded-xl font-semibold text-base hover:shadow-portal transition-all duration-300 flex items-center justify-center gap-2 shadow-portal-xs"
-                    >
-                      Join the Platform
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                  </motion.div>
 
                   {/* Brand Tagline */}
                   <motion.div

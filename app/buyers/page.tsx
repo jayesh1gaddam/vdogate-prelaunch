@@ -17,10 +17,6 @@ const HowItWorksBuyers = dynamic(() => import('@/components/HowItWorksBuyers'), 
   loading: () => <div className="h-64 bg-gray-50 animate-pulse" />
 })
 
-const BuyerTestimonials = dynamic(() => import('@/components/BuyerTestimonials'), {
-  loading: () => <div className="h-64 bg-slate-900 animate-pulse" />
-})
-
 const BuyerFinalCTA = dynamic(() => import('@/components/BuyerFinalCTA'), {
   loading: () => <div className="h-64 bg-slate-900 animate-pulse" />
 })
@@ -53,7 +49,6 @@ export default function BuyersPage() {
           <BuyerValueProps />
           <BrowseCategoriesBlue />
           <HowItWorksBuyers />
-          <BuyerTestimonials />
           <BuyerFinalCTA />
           <FooterBlue />
           <TermsFooter />

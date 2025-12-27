@@ -10,9 +10,9 @@ export default function GatewayHero() {
     <div className="min-h-screen min-h-[100dvh] overflow-hidden bg-gradient-to-b from-white via-orange-50/20 to-white flex flex-col">
       {/* Navigation */}
       <nav className="px-6 md:px-12 lg:px-20 py-3 md:py-5 flex-shrink-0">
-        <div className="max-w-[1400px] mx-auto flex items-center justify-between">
+        <div className="max-w-[1400px] mx-auto">
           {/* Logo */}
-          <Link href="/" className="relative w-[130px] md:w-[150px] h-[38px] md:h-[42px]">
+          <Link href="/" className="relative w-[130px] md:w-[150px] h-[38px] md:h-[42px] block">
             <Image
               src={BRAND_LOGO.paths.primary}
               alt="VDOgate"
@@ -21,16 +21,6 @@ export default function GatewayHero() {
               priority
             />
           </Link>
-
-          {/* Get Started CTA */}
-          <a
-            href="https://app.vdogate.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-orange-400 text-white rounded-full font-semibold text-sm shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/30 hover:scale-105 transition-all duration-300"
-          >
-            Get Started
-          </a>
         </div>
       </nav>
 
@@ -105,7 +95,7 @@ export default function GatewayHero() {
               {/* CTA Button */}
               <div className="relative z-10 mt-auto">
                 <span className="inline-flex items-center gap-2 px-6 md:px-8 py-2.5 md:py-3.5 bg-white text-orange-500 rounded-full font-semibold text-sm md:text-base shadow-xl shadow-black/10 group-hover:shadow-2xl group-hover:gap-3 transition-all duration-300">
-                  Get Started
+                  Know More
                   <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
                 </span>
               </div>
@@ -167,7 +157,7 @@ export default function GatewayHero() {
               {/* CTA Button */}
               <div className="relative z-10 mt-auto">
                 <span className="inline-flex items-center gap-2 px-6 md:px-8 py-2.5 md:py-3.5 bg-white text-blue-500 rounded-full font-semibold text-sm md:text-base shadow-xl shadow-black/10 group-hover:shadow-2xl group-hover:gap-3 transition-all duration-300">
-                  Find Freelancers
+                  Know More
                   <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
                 </span>
               </div>
