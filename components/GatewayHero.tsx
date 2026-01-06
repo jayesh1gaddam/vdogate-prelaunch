@@ -10,7 +10,7 @@ export default function GatewayHero() {
     <div className="min-h-screen min-h-[100dvh] overflow-hidden bg-gradient-to-b from-white via-orange-50/20 to-white flex flex-col">
       {/* Navigation */}
       <nav className="px-6 md:px-12 lg:px-20 py-3 md:py-5 flex-shrink-0">
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-[1400px] mx-auto flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative w-[130px] md:w-[150px] h-[38px] md:h-[42px] block">
             <Image
@@ -21,6 +21,16 @@ export default function GatewayHero() {
               priority
             />
           </Link>
+
+          {/* Login Button */}
+          <a
+            href="https://app.vdogate.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 md:px-6 py-2 md:py-2.5 border-2 border-orange-500 text-orange-500 rounded-full font-semibold text-sm hover:bg-orange-500 hover:text-white transition-all duration-300"
+          >
+            Login
+          </a>
         </div>
       </nav>
 
