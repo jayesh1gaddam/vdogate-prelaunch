@@ -26,7 +26,7 @@ export default function LiveEventsNav() {
           rel="noopener noreferrer"
           className="px-5 md:px-6 py-2 md:py-2.5 bg-gradient-to-r from-indigo-500 to-violet-500 text-white rounded-full font-semibold text-sm hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-[1.02] transition-all duration-300"
         >
-          Create Event – ₹299
+          Go Live Now
         </a>
       </div>
     </nav>
