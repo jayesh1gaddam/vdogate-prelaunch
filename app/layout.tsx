@@ -16,9 +16,9 @@ function getSafeMetadataBase(): URL {
 
 export const metadata: Metadata = {
   metadataBase: getSafeMetadataBase(),
-  title: 'VDOgate — India\'s Platform for Freelancers | No Ads, No Algorithm, 100% Earnings',
-  description: 'Discover and hire freelancers by category and location. Earn directly from clients. ₹3,000/month, no ads, no algorithm, no commission on your services.',
-  keywords: 'freelancer platform India, video portfolio, hire freelancers, freelance services, no commission platform, India freelance marketplace',
+  title: 'VDOgate Live Events — Easy to Host. Easy to Earn. | ₹299 per event',
+  description: 'Earn through live sessions. Create events, sell tickets, or invite attendees for free. ₹299 per live event. No monthly subscriptions. No commitments. 85% earnings to you.',
+  keywords: 'live events platform, host live sessions, sell tickets online, live workshops, online masterclass, earn from live events, no subscription events',
   applicationName: 'VDOgate',
   authors: [{ name: 'VDOgate' }],
   generator: 'Next.js',
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     title: 'VDOgate',
   },
   openGraph: {
-    title: 'VDOgate — India\'s Platform for Freelancers',
-    description: 'No ads, no algorithm, no commission. ₹3,000/month for direct client access. Discover freelancers by category and location.',
+    title: 'VDOgate Live Events — Easy to Host. Easy to Earn.',
+    description: 'Earn through live sessions. ₹299 per event. No subscriptions. 85% earnings to you. Create events, sell tickets, or invite attendees for free.',
     type: 'website',
     locale: 'en_IN',
     siteName: 'VDOgate',
@@ -54,14 +54,14 @@ export const metadata: Metadata = {
         url: '/vdogate_app_logo.png',
         width: 1200,
         height: 630,
-        alt: 'VDOgate - India\'s Platform for Freelancers',
+        alt: 'VDOgate Live Events - Easy to Host. Easy to Earn.',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VDOgate — India\'s Platform for Freelancers',
-    description: 'No ads, no algorithm, no commission. ₹3,000/month for direct client access.',
+    title: 'VDOgate Live Events — Easy to Host. Easy to Earn.',
+    description: 'Earn through live sessions. ₹299 per event. No subscriptions. 85% earnings to you.',
     images: ['/vdogate_app_logo.png'],
   },
   robots: {
@@ -77,8 +77,8 @@ export const viewport: Viewport = {
   maximumScale: 5,
   userScalable: true,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#F7682B' },
-    { media: '(prefers-color-scheme: dark)', color: '#F7682B' },
+    { media: '(prefers-color-scheme: light)', color: '#020617' },
+    { media: '(prefers-color-scheme: dark)', color: '#020617' },
   ],
   viewportFit: 'cover',
 }
