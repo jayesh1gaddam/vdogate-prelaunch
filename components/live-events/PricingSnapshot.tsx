@@ -2,133 +2,152 @@
 
 import { motion } from 'framer-motion'
 import { Check, ArrowRight } from 'lucide-react'
+import { SunBlob } from '@/components/ui/PlayfulBlob'
+import { Star, Confetti } from '@/components/ui/DecorativeAccent'
+
+const springTransition = {
+  type: "spring" as const,
+  stiffness: 400,
+  damping: 25
+}
 
 export default function PricingSnapshot() {
   return (
-    <section className="py-20 md:py-28 bg-slate-950 relative overflow-hidden">
-      {/* Background gradients */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
+    <section className="py-20 md:py-28 bg-playful-cream relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-10 right-10 w-32 opacity-50 pointer-events-none hidden lg:block">
+        <SunBlob color="yellow" animate className="w-full h-full" />
+      </div>
+      <div className="absolute bottom-10 left-10 hidden lg:block">
+        <Star color="purple" size="lg" />
+      </div>
 
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={springTransition}
           className="text-center mb-12"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-cyan-400 text-sm font-medium mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-playful-purple/10 border-2 border-playful-purple/30 rounded-full text-playful-purple text-sm font-bold mb-6">
             TRANSPARENT PRICING
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-            Simple, transparent pricing
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black tracking-tight">
+            Simple, transparent{' '}
+            <span className="text-playful-gradient">pricing</span>
           </h2>
         </motion.div>
 
-        {/* Pricing Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="rounded-3xl bg-gradient-to-b from-slate-800/80 to-slate-900/80 border border-slate-700 overflow-hidden"
-        >
-          {/* Event Creation Fee */}
-          <div className="p-6 md:p-8 border-b border-slate-700">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-1">
-                  Create a live event
-                </h3>
-                <p className="text-slate-400">One-time fee per event</p>
-              </div>
-              <div className="text-4xl md:text-5xl font-bold text-emerald-400">
-                ₹299
-              </div>
-            </div>
-          </div>
-
-          {/* Earning Models */}
-          <div className="p-6 md:p-8 border-b border-slate-700">
-            <h4 className="text-lg font-semibold text-white mb-4">Choose your earning model:</h4>
-            <div className="space-y-4">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-4 rounded-xl bg-slate-800/50 border border-slate-700">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full" />
-                  <span className="text-white font-medium">Paid tickets</span>
-                </div>
-                <span className="text-emerald-400 font-semibold">Starting from ₹99/hour</span>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-4 rounded-xl bg-slate-800/50 border border-slate-700">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-violet-400 rounded-full" />
-                  <span className="text-white font-medium">Free / Sponsored tickets</span>
-                </div>
-                <span className="text-violet-400 font-semibold">₹25 per attendee</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Platform Fee */}
-          <div className="p-6 md:p-8 border-b border-slate-700">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <h4 className="text-lg font-semibold text-white mb-1">Platform fee</h4>
-                <p className="text-slate-400">Deducted from ticket earnings</p>
-              </div>
-              <div className="text-2xl md:text-3xl font-bold text-slate-300">
-                15%
-              </div>
-            </div>
-          </div>
-
-          {/* Your Earnings */}
-          <div className="p-6 md:p-8 border-b border-slate-700 bg-emerald-500/5">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <h4 className="text-lg font-semibold text-emerald-400 mb-1">Your earnings</h4>
-                <p className="text-slate-400">After platform fee</p>
-              </div>
-              <div className="text-3xl md:text-4xl font-bold text-emerald-400">
-                85%
-              </div>
-            </div>
-          </div>
-
-          {/* Statutory Deductions */}
-          <div className="p-6 md:p-8">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <h4 className="text-lg font-semibold text-white mb-1">Statutory deductions</h4>
-                <p className="text-slate-400">TDS and/or TCS as applicable</p>
-              </div>
-              <div className="text-xl md:text-2xl font-semibold text-slate-400">
-                ~1-2%
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-10 text-center"
-        >
-          <a
-            href="https://app.vdogate.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-violet-500 text-white rounded-xl font-semibold text-lg hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-[1.02] transition-all duration-300"
+        {/* Bento Pricing Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Main Pricing Card - Purple */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={springTransition}
+            className="lg:col-span-2 bg-playful-purple rounded-3xl p-8 text-white shadow-playful-lg"
           >
-            Create a Live Event – ₹299
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </motion.div>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-2">Create a live event</h3>
+                <p className="text-white/70">One-time fee per event</p>
+              </div>
+              <div className="px-6 py-3 bg-playful-yellow rounded-2xl">
+                <span className="text-4xl md:text-5xl font-bold text-playful-purple-dark">₹299</span>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h4 className="text-lg font-bold text-white/90">Choose your earning model:</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-4 rounded-2xl bg-white/10 border border-white/20">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-3 h-3 bg-playful-mint rounded-full" />
+                    <span className="font-bold">Paid tickets</span>
+                  </div>
+                  <p className="text-playful-yellow font-semibold">Starting from ₹99/hour</p>
+                </div>
+                <div className="p-4 rounded-2xl bg-white/10 border border-white/20">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-3 h-3 bg-playful-pink rounded-full" />
+                    <span className="font-bold">Free / Sponsored</span>
+                  </div>
+                  <p className="text-playful-yellow font-semibold">₹25 per attendee</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Earnings Highlight - Yellow */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ ...springTransition, delay: 0.1 }}
+            className="bg-playful-yellow rounded-3xl p-8 text-center relative overflow-hidden shadow-playful-yellow"
+          >
+            {/* Confetti decoration */}
+            <div className="absolute inset-0 pointer-events-none opacity-30">
+              <Confetti />
+            </div>
+
+            <div className="relative z-10">
+              <p className="text-playful-purple-dark/70 font-bold mb-2">Your Earnings</p>
+              <div className="text-6xl md:text-7xl font-bold text-playful-purple-dark mb-2">85%</div>
+              <p className="text-playful-purple-dark/70">After platform fee</p>
+            </div>
+          </motion.div>
+
+          {/* Platform Fee Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ ...springTransition, delay: 0.2 }}
+            className="bg-white rounded-3xl p-6 border-2 border-gray-200 shadow-playful-card"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h4 className="font-bold text-brand-black mb-1">Platform fee</h4>
+                <p className="text-gray-500 text-sm">From ticket earnings</p>
+              </div>
+              <div className="text-3xl font-bold text-gray-400">15%</div>
+            </div>
+          </motion.div>
+
+          {/* Settlement Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ ...springTransition, delay: 0.3 }}
+            className="lg:col-span-2 bg-playful-mint rounded-3xl p-6 text-white"
+          >
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <Check className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg">Settlement in ~7 days</h4>
+                  <p className="text-white/70 text-sm">Statutory deductions (TDS/TCS ~1-2%)</p>
+                </div>
+              </div>
+              <a
+                href="https://app.vdogate.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-playful-mint rounded-full font-bold hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
+              >
+                Get Started
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

@@ -54,6 +54,22 @@ const config: Config = {
           white: '#FFFFFF',
           background: '#FAFAFA',
         },
+
+        // PLAYFUL COLOR PALETTE - WonderKids-inspired
+        playful: {
+          purple: '#8B5CF6',
+          'purple-light': '#A78BFA',
+          'purple-dark': '#7C3AED',
+          yellow: '#FCD34D',
+          'yellow-light': '#FDE68A',
+          'yellow-dark': '#F59E0B',
+          orange: '#F97316',
+          'orange-light': '#FB923C',
+          pink: '#EC4899',
+          mint: '#34D399',
+          sky: '#38BDF8',
+          cream: '#FFFBEB',
+        },
       },
       backgroundImage: {
         // PRIMARY PORTAL GRADIENT - Updated to Orange Theme
@@ -68,6 +84,11 @@ const config: Config = {
         // SUBTLE BACKGROUNDS
         'portal-subtle': 'linear-gradient(135deg, rgba(247,104,43,0.05) 0%, rgba(247,159,43,0.05) 100%)',
         'brand-mesh': 'radial-gradient(at 40% 20%, rgba(247,104,43,0.15) 0px, transparent 50%), radial-gradient(at 80% 80%, rgba(247,159,43,0.1) 0px, transparent 50%)',
+
+        // PLAYFUL GRADIENTS
+        'playful-gradient': 'linear-gradient(135deg, #8B5CF6 0%, #FCD34D 100%)',
+        'playful-purple-yellow': 'linear-gradient(to right, #8B5CF6 50%, #FCD34D 50%)',
+        'playful-cta': 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%)',
       },
       fontFamily: {
         // OFFICIAL TYPOGRAPHY SYSTEM
@@ -126,6 +147,9 @@ const config: Config = {
         'brand-md': '12px',
         'brand-lg': '16px',
         'brand-xl': '24px',
+        '4xl': '2rem',
+        '5xl': '2.5rem',
+        'blob': '60% 40% 30% 70% / 60% 30% 70% 40%',
       },
       boxShadow: {
         // PORTAL SHADOWS - Updated to Orange Theme
@@ -144,6 +168,12 @@ const config: Config = {
         'glow-portal': '0 0 20px rgba(247, 104, 43, 0.4)',
         'glow-vdo': '0 0 20px rgba(247, 104, 43, 0.4)',
         'glow-gate': '0 0 20px rgba(37, 99, 235, 0.4)',
+
+        // PLAYFUL SHADOWS
+        'playful': '0 8px 30px rgba(139, 92, 246, 0.2)',
+        'playful-yellow': '0 8px 30px rgba(252, 211, 77, 0.3)',
+        'playful-card': '0 4px 20px rgba(0, 0, 0, 0.08)',
+        'playful-lg': '0 20px 50px rgba(139, 92, 246, 0.25)',
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -154,6 +184,12 @@ const config: Config = {
         'fade-in': 'fadeIn 0.6s ease-out',
         'scale-in': 'scaleIn 0.4s ease-out',
         'spin-slow': 'spin 8s linear infinite',
+        // Playful animations
+        'wiggle': 'wiggle 0.5s ease-in-out',
+        'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
+        'blob-morph': 'blobMorph 8s ease-in-out infinite',
+        'float-rotate': 'floatRotate 6s ease-in-out infinite',
+        'pop-in': 'popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
       },
       keyframes: {
         float: {
@@ -174,6 +210,30 @@ const config: Config = {
         },
         scaleIn: {
           '0%': { transform: 'scale(0.9)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        // Playful keyframes
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(-3deg)' },
+          '75%': { transform: 'rotate(3deg)' },
+        },
+        bounceGentle: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' },
+        },
+        blobMorph: {
+          '0%, 100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
+          '50%': { borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%' },
+        },
+        floatRotate: {
+          '0%': { transform: 'translateY(0) rotate(0deg)' },
+          '50%': { transform: 'translateY(-15px) rotate(5deg)' },
+          '100%': { transform: 'translateY(0) rotate(0deg)' },
+        },
+        popIn: {
+          '0%': { transform: 'scale(0)', opacity: '0' },
+          '80%': { transform: 'scale(1.1)' },
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
       },

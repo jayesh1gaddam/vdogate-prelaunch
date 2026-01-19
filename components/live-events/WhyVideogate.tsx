@@ -2,45 +2,72 @@
 
 import { motion } from 'framer-motion'
 import { CreditCard, Sliders, ToggleLeft, Share, Clock, Sparkles } from 'lucide-react'
+import { Star } from '@/components/ui/DecorativeAccent'
 
 const benefits = [
   {
     icon: CreditCard,
     title: 'No monthly subscriptions',
-    description: 'Pay per event, not per month. No recurring charges.'
+    description: 'Pay per event, not per month. No recurring charges.',
+    color: 'purple'
   },
   {
     icon: Sliders,
     title: 'Full control over pricing',
-    description: 'Set your own ticket prices. Earn what you deserve.'
+    description: 'Set your own ticket prices. Earn what you deserve.',
+    color: 'yellow'
   },
   {
     icon: ToggleLeft,
     title: 'Paid or free events',
-    description: 'Host paid tickets or sponsored events. Your choice.'
+    description: 'Host paid tickets or sponsored events. Your choice.',
+    color: 'orange'
   },
   {
     icon: Share,
     title: 'No algorithms',
-    description: 'No reach restrictions. You control distribution.'
+    description: 'No reach restrictions. You control distribution.',
+    color: 'pink'
   },
   {
     icon: Clock,
     title: 'Fast settlements',
-    description: 'Get paid within 7 days after your event.'
+    description: 'Get paid within 7 days after your event.',
+    color: 'mint'
   },
   {
     icon: Sparkles,
     title: 'Simple platform',
-    description: 'Create events in minutes. No technical skills needed.'
+    description: 'Create events in minutes. No technical skills needed.',
+    color: 'sky'
   }
 ]
 
+const colorMap = {
+  purple: { bg: 'bg-purple-100', icon: 'bg-playful-purple', text: 'text-purple-700' },
+  yellow: { bg: 'bg-yellow-100', icon: 'bg-playful-yellow', text: 'text-yellow-700' },
+  orange: { bg: 'bg-orange-100', icon: 'bg-playful-orange', text: 'text-orange-700' },
+  pink: { bg: 'bg-pink-100', icon: 'bg-playful-pink', text: 'text-pink-700' },
+  mint: { bg: 'bg-emerald-100', icon: 'bg-playful-mint', text: 'text-emerald-700' },
+  sky: { bg: 'bg-sky-100', icon: 'bg-playful-sky', text: 'text-sky-700' }
+}
+
+const springTransition = {
+  type: "spring" as const,
+  stiffness: 400,
+  damping: 25
+}
+
 export default function WhyVideogate() {
   return (
-    <section className="py-20 md:py-28 bg-slate-950 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-t from-indigo-500/10 to-transparent rounded-full blur-[100px] pointer-events-none" />
+    <section className="py-20 md:py-28 bg-white relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-20 hidden lg:block">
+        <Star color="yellow" size="lg" />
+      </div>
+      <div className="absolute bottom-20 left-20 hidden lg:block">
+        <Star color="purple" size="md" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
@@ -48,16 +75,16 @@ export default function WhyVideogate() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={springTransition}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-400 text-sm font-medium mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-playful-mint/20 border-2 border-playful-mint/40 rounded-full text-emerald-600 text-sm font-bold mb-6">
             WHY VDOGATE
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black tracking-tight max-w-3xl mx-auto">
             You focus on your live session.
             <br />
-            <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="text-playful-gradient">
               We handle tickets and payments.
             </span>
           </h2>
@@ -65,36 +92,36 @@ export default function WhyVideogate() {
 
         {/* Benefits Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={benefit.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative p-6 md:p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-emerald-500/30 hover:bg-slate-800/50 transition-all duration-300"
-            >
-              {/* Hover glow */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+          {benefits.map((benefit, index) => {
+            const colors = colorMap[benefit.color as keyof typeof colorMap]
+            return (
+              <motion.div
+                key={benefit.title}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ ...springTransition, delay: index * 0.1 }}
+                className={`group relative p-6 md:p-8 rounded-3xl ${colors.bg} shadow-playful-card hover:shadow-lg transition-all duration-300 playful-card-hover`}
+              >
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <div className={`w-14 h-14 rounded-2xl ${colors.icon} flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}>
+                    <benefit.icon className="w-7 h-7 text-white" />
+                  </div>
 
-              <div className="relative z-10">
-                {/* Icon */}
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-                  <benefit.icon className="w-6 h-6 text-emerald-400" />
+                  {/* Title */}
+                  <h3 className={`text-lg md:text-xl font-bold ${colors.text} mb-2`}>
+                    {benefit.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-600 text-sm md:text-base">
+                    {benefit.description}
+                  </p>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-lg md:text-xl font-semibold text-white mb-2">
-                  {benefit.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-slate-400 text-sm md:text-base">
-                  {benefit.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

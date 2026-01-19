@@ -3,49 +3,57 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { BRAND_LOGO } from '@/lib/brand'
+import { WaveDivider } from '@/components/ui/PlayfulBlob'
 
 export default function LiveEventsFooter() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="py-8 md:py-12 bg-slate-900 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Logo and Copyright */}
-          <div className="flex items-center gap-4">
-            <Link href="/" className="relative w-[100px] h-[28px]">
-              <Image
-                src={BRAND_LOGO.paths.primary}
-                alt="VDOgate"
-                fill
-                className="object-contain object-left"
-              />
-            </Link>
-            <span className="text-slate-500 text-sm">
-              © {currentYear} VDOgate
-            </span>
-          </div>
+    <footer className="relative bg-white">
+      {/* Wave divider at top */}
+      <div className="absolute top-0 left-0 right-0 -translate-y-full overflow-hidden">
+        <WaveDivider color="purple" className="h-16 md:h-24" />
+      </div>
 
-          {/* Legal Links */}
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-            <a
-              href="#"
-              className="text-slate-400 hover:text-white transition-colors"
-            >
-              Terms & Conditions
-            </a>
-            <a
-              href="#"
-              className="text-slate-400 hover:text-white transition-colors"
-            >
-              Payout & Tax Policy
-            </a>
-            <a
-              href="mailto:hello@vdogate.com"
-              className="text-slate-400 hover:text-white transition-colors"
-            >
-              Contact / Support
-            </a>
+      <div className="bg-playful-purple pt-8 pb-6">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            {/* Logo and Copyright */}
+            <div className="flex items-center gap-4">
+              <Link href="/" className="relative w-[100px] h-[28px]">
+                <Image
+                  src={BRAND_LOGO.paths.primary}
+                  alt="VDOgate"
+                  fill
+                  className="object-contain object-left brightness-0 invert"
+                />
+              </Link>
+              <span className="text-white/70 text-sm">
+                © {currentYear} VDOgate
+              </span>
+            </div>
+
+            {/* Legal Links */}
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+              <a
+                href="#"
+                className="text-white/80 hover:text-playful-yellow transition-colors font-medium"
+              >
+                Terms & Conditions
+              </a>
+              <a
+                href="#"
+                className="text-white/80 hover:text-playful-yellow transition-colors font-medium"
+              >
+                Payout & Tax Policy
+              </a>
+              <a
+                href="mailto:hello@vdogate.com"
+                className="text-white/80 hover:text-playful-yellow transition-colors font-medium"
+              >
+                Contact / Support
+              </a>
+            </div>
           </div>
         </div>
       </div>
