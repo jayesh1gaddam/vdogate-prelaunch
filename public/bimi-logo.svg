@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>VDOgate</title>
+
+  <!-- Orange Background -->
+  <rect width="512" height="512" fill="#F97316"/>
+
+  <!-- Confetti dots -->
+  <circle cx="80" cy="60" r="4" fill="#8B5CF6"/>
+  <circle cx="120" cy="90" r="3" fill="#22D3EE"/>
+  <circle cx="60" cy="140" r="3" fill="#F472B6"/>
+  <circle cx="150" cy="50" r="2" fill="#FFFFFF"/>
+  <circle cx="40" cy="200" r="3" fill="#8B5CF6"/>
+  <circle cx="100" cy="180" r="2" fill="#22D3EE"/>
+
+  <circle cx="432" cy="60" r="4" fill="#22D3EE"/>
+  <circle cx="392" cy="90" r="3" fill="#8B5CF6"/>
+  <circle cx="452" cy="140" r="3" fill="#F472B6"/>
+  <circle cx="362" cy="50" r="2" fill="#FFFFFF"/>
+  <circle cx="472" cy="200" r="3" fill="#8B5CF6"/>
+  <circle cx="412" cy="180" r="2" fill="#22D3EE"/>
+
+  <circle cx="80" cy="452" r="4" fill="#22D3EE"/>
+  <circle cx="120" cy="422" r="3" fill="#8B5CF6"/>
+  <circle cx="60" cy="372" r="3" fill="#F472B6"/>
+  <circle cx="150" cy="462" r="2" fill="#FFFFFF"/>
+  <circle cx="40" cy="312" r="3" fill="#8B5CF6"/>
+  <circle cx="100" cy="332" r="2" fill="#22D3EE"/>
+
+  <circle cx="432" cy="452" r="4" fill="#8B5CF6"/>
+  <circle cx="392" cy="422" r="3" fill="#22D3EE"/>
+  <circle cx="452" cy="372" r="3" fill="#F472B6"/>
+  <circle cx="362" cy="462" r="2" fill="#FFFFFF"/>
+  <circle cx="472" cy="312" r="3" fill="#22D3EE"/>
+  <circle cx="412" cy="332" r="2" fill="#8B5CF6"/>
+
+  <!-- Confetti lines -->
+  <rect x="70" y="100" width="8" height="3" fill="#22D3EE" transform="rotate(45 74 101.5)"/>
+  <rect x="440" y="100" width="8" height="3" fill="#F472B6" transform="rotate(-30 444 101.5)"/>
+  <rect x="70" y="400" width="8" height="3" fill="#8B5CF6" transform="rotate(-45 74 401.5)"/>
+  <rect x="440" y="400" width="8" height="3" fill="#22D3EE" transform="rotate(30 444 401.5)"/>
+
+  <!-- Purple Play Button Shape (rounded triangle) -->
+  <path d="M256 116
+           C196 116 146 166 146 226
+           L146 286
+           C146 346 196 396 256 396
+           C286 396 346 366 376 326
+           L406 276
+           C426 246 426 216 406 186
+           L346 136
+           C316 116 286 116 256 116Z"
+        fill="#7C3AED"/>
+
+  <!-- Darker purple shadow/depth -->
+  <path d="M256 126
+           C206 126 156 176 156 236
+           L156 286
+           C156 336 196 386 256 386
+           C286 386 336 356 366 316
+           L396 266
+           C416 236 416 216 396 186
+           L346 146
+           C316 126 286 126 256 126Z"
+        fill="#8B5CF6"/>
+
+  <!-- White Play Triangle -->
+  <polygon points="230,200 230,312 320,256" fill="#FFFFFF"/>
+
+</svg>
