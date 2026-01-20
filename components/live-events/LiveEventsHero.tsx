@@ -121,99 +121,94 @@ export default function LiveEventsHero() {
                   className="object-contain"
                   priority
                 />
-              </div>
 
-              {/* Floating Stats Cards - Positioned at bottom of hero image */}
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[110%] max-w-[500px]">
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  {/* 85% Card */}
+                {/* 85% Card - Top Left */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ ...springTransition, delay: 0.5 }}
+                  className="absolute -left-4 sm:-left-8 lg:-left-12 top-[15%] z-10"
+                >
                   <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ ...springTransition, delay: 0.5 }}
-                    className="flex-1"
+                    animate={floatAnimation}
+                    className="glass-card-purple rounded-2xl p-3 sm:p-4 flex items-center gap-2 sm:gap-3 shadow-xl"
                   >
-                    <motion.div
-                      animate={floatAnimation}
-                      className="glass-card-purple rounded-2xl p-4 flex items-center gap-3 shadow-lg"
-                    >
-                      <div className="w-10 h-10 bg-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <svg className="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/>
-                        </svg>
-                      </div>
-                      <div>
-                        <div className="text-xl font-bold text-purple-700">85%</div>
-                        <div className="text-purple-600/70 text-xs">Earnings to you</div>
-                      </div>
-                    </motion.div>
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-lg sm:text-xl font-bold text-purple-700">85%</div>
+                      <div className="text-purple-600/70 text-[10px] sm:text-xs">Earnings to you</div>
+                    </div>
                   </motion.div>
+                </motion.div>
 
-                  {/* ₹299 Card */}
+                {/* ₹299 Card - Bottom Left */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ ...springTransition, delay: 0.6 }}
+                  className="absolute -left-2 sm:-left-6 lg:-left-8 bottom-[20%] z-10"
+                >
                   <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ ...springTransition, delay: 0.6 }}
-                    className="flex-1"
+                    animate={{
+                      y: [0, -10, 0],
+                      transition: {
+                        duration: 3.5,
+                        repeat: Infinity,
+                        ease: "easeInOut" as const,
+                        delay: 0.5
+                      }
+                    }}
+                    className="glass-card-yellow rounded-2xl p-3 sm:p-4 flex items-center gap-2 sm:gap-3 shadow-xl"
                   >
-                    <motion.div
-                      animate={{
-                        y: [0, -10, 0],
-                        transition: {
-                          duration: 3.5,
-                          repeat: Infinity,
-                          ease: "easeInOut" as const,
-                          delay: 0.5
-                        }
-                      }}
-                      className="glass-card-yellow rounded-2xl p-4 flex items-center gap-3 shadow-lg"
-                    >
-                      <div className="w-10 h-10 bg-yellow-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <svg className="w-5 h-5 text-yellow-600" viewBox="0 0 24 24" fill="currentColor">
-                          <circle cx="12" cy="8" r="3"/>
-                          <circle cx="7" cy="14" r="2.5"/>
-                          <circle cx="17" cy="14" r="2.5"/>
-                          <circle cx="12" cy="18" r="2"/>
-                        </svg>
-                      </div>
-                      <div>
-                        <div className="text-xl font-bold text-yellow-700">₹299</div>
-                        <div className="text-yellow-600/70 text-xs">Per event</div>
-                      </div>
-                    </motion.div>
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-yellow-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-600" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="8" r="3"/>
+                        <circle cx="7" cy="14" r="2.5"/>
+                        <circle cx="17" cy="14" r="2.5"/>
+                        <circle cx="12" cy="18" r="2"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-lg sm:text-xl font-bold text-yellow-700">₹299</div>
+                      <div className="text-yellow-600/70 text-[10px] sm:text-xs">Per event</div>
+                    </div>
                   </motion.div>
+                </motion.div>
 
-                  {/* 7 Days Card */}
+                {/* 7 Days Card - Right Side */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ ...springTransition, delay: 0.7 }}
+                  className="absolute -right-4 sm:-right-8 lg:-right-10 top-[40%] z-10"
+                >
                   <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ ...springTransition, delay: 0.7 }}
-                    className="flex-1"
+                    animate={{
+                      y: [0, -6, 0],
+                      transition: {
+                        duration: 2.8,
+                        repeat: Infinity,
+                        ease: "easeInOut" as const,
+                        delay: 1
+                      }
+                    }}
+                    className="glass-card-coral rounded-2xl p-3 sm:p-4 flex items-center gap-2 sm:gap-3 shadow-xl"
                   >
-                    <motion.div
-                      animate={{
-                        y: [0, -6, 0],
-                        transition: {
-                          duration: 2.8,
-                          repeat: Infinity,
-                          ease: "easeInOut" as const,
-                          delay: 1
-                        }
-                      }}
-                      className="glass-card-coral rounded-2xl p-4 flex items-center gap-3 shadow-lg"
-                    >
-                      <div className="w-10 h-10 bg-orange-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <svg className="w-5 h-5 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/>
-                        </svg>
-                      </div>
-                      <div>
-                        <div className="text-xl font-bold text-orange-700">7 Days</div>
-                        <div className="text-orange-600/70 text-xs">Settlement</div>
-                      </div>
-                    </motion.div>
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-orange-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-lg sm:text-xl font-bold text-orange-700">7 Days</div>
+                      <div className="text-orange-600/70 text-[10px] sm:text-xs">Settlement</div>
+                    </div>
                   </motion.div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </motion.div>
