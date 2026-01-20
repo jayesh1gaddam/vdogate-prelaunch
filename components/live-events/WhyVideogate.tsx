@@ -60,7 +60,7 @@ const springTransition = {
 
 export default function WhyVideogate() {
   return (
-    <section className="py-20 md:py-28 bg-white relative overflow-hidden">
+    <section className="py-10 md:py-14 bg-white relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-20 right-20 hidden lg:block">
         <Star color="yellow" size="lg" />

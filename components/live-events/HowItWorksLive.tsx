@@ -13,7 +13,7 @@ const springTransition = {
 
 export default function HowItWorksLive() {
   return (
-    <section id="how-it-works" className="py-20 md:py-28 bg-white relative overflow-hidden">
+    <section id="how-it-works" className="py-10 md:py-14 bg-white relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-20 right-0 w-40 opacity-40 pointer-events-none hidden lg:block">
         <CloudBlob color="yellow" animate className="w-full h-full" />

@@ -68,7 +68,7 @@ const floatAnimation = {
 
 export default function WhoIsThisFor() {
   return (
-    <section className="py-20 md:py-28 bg-playful-cream relative overflow-hidden">
+    <section className="py-10 md:py-14 bg-playful-cream relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating circles */}

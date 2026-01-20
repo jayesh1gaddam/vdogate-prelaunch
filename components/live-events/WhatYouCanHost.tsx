@@ -46,7 +46,7 @@ const springTransition = {
 
 export default function WhatYouCanHost() {
   return (
-    <section className="py-20 md:py-28 bg-playful-cream relative overflow-hidden">
+    <section className="py-10 md:py-14 bg-playful-cream relative overflow-hidden">
       {/* Decorative dots */}
       <div className="absolute top-10 left-10 hidden lg:block">
         <Sparkle color="purple" size="sm" />

@@ -12,7 +12,7 @@ const springTransition = {
 
 export default function LiveEventsCTA() {
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden">
+    <section className="py-10 md:py-14 relative overflow-hidden">
       {/* Split background */}
       <div className="absolute inset-0 bg-gradient-to-r from-playful-purple via-playful-purple to-playful-yellow" />
 
