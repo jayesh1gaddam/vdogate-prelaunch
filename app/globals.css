@@ -1076,13 +1076,35 @@ html {
   position: relative;
 }
 
+/* Apply mask directly to the image for true edge blending */
+.hero-image-container img {
+  -webkit-mask-image: radial-gradient(
+    ellipse 75% 75% at center,
+    black 30%,
+    rgba(0, 0, 0, 0.9) 45%,
+    rgba(0, 0, 0, 0.6) 60%,
+    rgba(0, 0, 0, 0.3) 75%,
+    transparent 90%
+  );
+  mask-image: radial-gradient(
+    ellipse 75% 75% at center,
+    black 30%,
+    rgba(0, 0, 0, 0.9) 45%,
+    rgba(0, 0, 0, 0.6) 60%,
+    rgba(0, 0, 0, 0.3) 75%,
+    transparent 90%
+  );
+}
+
+/* Fallback overlay for browsers without mask support */
 .hero-feather-mask {
   background: radial-gradient(
     ellipse 80% 80% at center,
-    transparent 40%,
-    rgba(255, 255, 255, 0.3) 60%,
-    rgba(255, 255, 255, 0.6) 75%,
-    rgba(255, 255, 255, 0.85) 88%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.4) 65%,
+    rgba(255, 255, 255, 0.7) 80%,
+    rgba(255, 255, 255, 0.95) 95%,
     rgba(255, 255, 255, 1) 100%
   );
 }

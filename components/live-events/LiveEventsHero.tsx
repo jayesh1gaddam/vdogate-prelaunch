@@ -174,14 +174,17 @@ export default function LiveEventsHero() {
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
               {/* Hero Image with feather effect */}
               <div className="relative aspect-square hero-image-container">
-                {/* Feather/fade overlay on edges */}
+                {/* Soft feather overlay for extra blending */}
                 <div className="absolute inset-0 z-[1] pointer-events-none hero-feather-mask" />
                 <Image
                   src="/hero_vec.png"
                   alt="VDOgate Live Events - Host live sessions and earn"
                   fill
-                  className="object-contain"
+                  className="object-contain drop-shadow-lg"
                   priority
+                  style={{
+                    filter: 'drop-shadow(0 10px 30px rgba(139, 92, 246, 0.15))'
+                  }}
                 />
 
                 {/* 85% Card - Top Left */}
