@@ -172,8 +172,10 @@ export default function LiveEventsHero() {
             className="relative order-2 flex justify-center lg:justify-end"
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
-              {/* Hero Image */}
-              <div className="relative aspect-square">
+              {/* Hero Image with feather effect */}
+              <div className="relative aspect-square hero-image-container">
+                {/* Feather/fade overlay on edges */}
+                <div className="absolute inset-0 z-[1] pointer-events-none hero-feather-mask" />
                 <Image
                   src="/hero_vec.png"
                   alt="VDOgate Live Events - Host live sessions and earn"
