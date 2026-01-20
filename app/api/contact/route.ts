@@ -301,8 +301,9 @@ Ticket ID: ${ticketId}
 `
 
     // Send email via Resend
+    // Note: Using Resend's default domain until vdogate.com is verified
     const { data, error } = await resend.emails.send({
-      from: 'VDOgate Contact <contact@vdogate.com>',
+      from: 'VDOgate Contact <onboarding@resend.dev>',
       to: ['admin@vdogate.com'],
       replyTo: email,
       subject: `[${ticketId}] ${categoryLabel}: ${subject}`,
