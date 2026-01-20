@@ -47,12 +47,12 @@ export default function LiveEventsFooter() {
               >
                 Privacy Policy
               </Link>
-              <a
-                href="mailto:support@vdogate.com"
+              <Link
+                href="/contact"
                 className="text-white/80 hover:text-playful-yellow transition-colors font-medium"
               >
-                Contact / Support
-              </a>
+                Contact Us
+              </Link>
             </div>
           </div>
         </div>
