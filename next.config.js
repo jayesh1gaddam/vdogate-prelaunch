@@ -204,7 +204,7 @@ const nextConfig = {
       exclude: ['error', 'warn'],
     } : false,
   },
-  // Security headers
+  // Security and caching headers
   async headers() {
     return [
       {
@@ -227,14 +227,38 @@ const nextConfig = {
             value: 'nosniff'
           },
           {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block'
+          },
+          {
             key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin'
+            value: 'strict-origin-when-cross-origin'
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=(self)'
+            value: 'camera=(), microphone=(), geolocation=(self), interest-cohort=()'
           },
         ],
+      },
+      // Static assets - long cache (1 year)
+      {
+        source: '/(.*)\\.(ico|png|jpg|jpeg|gif|webp|svg|woff|woff2|avif)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
+      },
+      // Next.js static files - immutable cache
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
       },
     ]
   },
