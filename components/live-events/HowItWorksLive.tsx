@@ -54,8 +54,12 @@ export default function HowItWorksLive() {
             className="relative p-6 md:p-8 rounded-3xl bg-playful-purple text-white shadow-playful-lg playful-card-hover"
           >
             <div className="flex items-start gap-4 mb-5">
-              <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                <span className="text-2xl font-bold">01</span>
+              {/* Creative Step Number */}
+              <div className="relative">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-white/30 to-white/10 flex items-center justify-center border-2 border-white/40 shadow-lg">
+                  <span className="text-3xl font-black text-white drop-shadow-sm">1</span>
+                </div>
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-playful-yellow rounded-full animate-pulse"></div>
               </div>
               <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center flex-shrink-0">
                 <Calendar className="w-7 h-7 text-playful-purple" />
@@ -63,7 +67,7 @@ export default function HowItWorksLive() {
             </div>
 
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <h3 className="text-2xl md:text-3xl font-bold">Create a Live Event</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-white">Create a Live Event</h3>
               <span className="px-3 py-1 bg-playful-yellow text-playful-purple-dark rounded-full font-bold text-lg">
                 ₹299
               </span>
@@ -85,43 +89,47 @@ export default function HowItWorksLive() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ ...springTransition, delay: 0.1 }}
-            className="relative p-6 md:p-8 rounded-3xl bg-playful-yellow text-playful-purple-dark shadow-playful-yellow playful-card-hover"
+            className="relative p-6 md:p-8 rounded-3xl bg-playful-yellow shadow-playful-yellow playful-card-hover"
           >
             <div className="flex items-start gap-4 mb-5">
-              <div className="w-12 h-12 rounded-2xl bg-playful-purple-dark/20 flex items-center justify-center flex-shrink-0">
-                <span className="text-2xl font-bold">02</span>
+              {/* Creative Step Number */}
+              <div className="relative">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-playful-purple/90 to-playful-purple flex items-center justify-center border-2 border-playful-purple shadow-lg">
+                  <span className="text-3xl font-black text-white drop-shadow-sm">2</span>
+                </div>
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-playful-orange rounded-full animate-pulse"></div>
               </div>
               <div className="w-14 h-14 rounded-2xl bg-playful-purple flex items-center justify-center flex-shrink-0">
                 <Ticket className="w-7 h-7 text-white" />
               </div>
             </div>
 
-            <h3 className="text-2xl md:text-3xl font-bold mb-2">Choose How You Earn</h3>
-            <p className="text-playful-purple-dark/70 mb-5">Pick one model per event</p>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-sm">Choose How You Earn</h3>
+            <p className="text-white/80 mb-5 drop-shadow-sm">Pick one model per event</p>
 
             <div className="grid grid-cols-1 gap-4">
               {/* Option A */}
-              <div className="p-4 rounded-2xl bg-white/80 border-2 border-playful-purple/20">
+              <div className="p-4 rounded-2xl bg-white/30 backdrop-blur-sm border-2 border-white/40">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-xl bg-playful-mint flex items-center justify-center">
                     <Ticket className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold">Paid Tickets</h4>
-                    <p className="text-sm text-playful-purple-dark/70">Starting from ₹99/hour</p>
+                    <h4 className="font-bold text-white drop-shadow-sm">Paid Tickets</h4>
+                    <p className="text-sm text-white/80">Starting from ₹99/hour</p>
                   </div>
                 </div>
               </div>
 
               {/* Option B */}
-              <div className="p-4 rounded-2xl bg-white/80 border-2 border-playful-purple/20">
+              <div className="p-4 rounded-2xl bg-white/30 backdrop-blur-sm border-2 border-white/40">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-xl bg-playful-pink flex items-center justify-center">
                     <Gift className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold">Free / Sponsored</h4>
-                    <p className="text-sm text-playful-purple-dark/70">You pay ₹25 per attendee</p>
+                    <h4 className="font-bold text-white drop-shadow-sm">Free / Sponsored</h4>
+                    <p className="text-sm text-white/80">You pay ₹25 per attendee</p>
                   </div>
                 </div>
               </div>
@@ -137,15 +145,19 @@ export default function HowItWorksLive() {
             className="relative p-6 md:p-8 rounded-3xl bg-playful-orange text-white shadow-lg playful-card-hover"
           >
             <div className="flex items-start gap-4 mb-5">
-              <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                <span className="text-2xl font-bold">03</span>
+              {/* Creative Step Number */}
+              <div className="relative">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-white/30 to-white/10 flex items-center justify-center border-2 border-white/40 shadow-lg">
+                  <span className="text-3xl font-black text-white drop-shadow-sm">3</span>
+                </div>
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-playful-yellow rounded-full animate-pulse"></div>
               </div>
               <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center flex-shrink-0">
                 <Share2 className="w-7 h-7 text-playful-orange" />
               </div>
             </div>
 
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">Share Your Event</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Share Your Event</h3>
             <p className="text-white/80 mb-4">Share your event link on:</p>
             <div className="flex flex-wrap gap-2">
               {['Instagram', 'WhatsApp', 'YouTube', 'Communities', 'Mailing lists'].map((platform) => (
@@ -165,15 +177,19 @@ export default function HowItWorksLive() {
             className="relative p-6 md:p-8 rounded-3xl bg-playful-mint text-white shadow-lg playful-card-hover"
           >
             <div className="flex items-start gap-4 mb-5">
-              <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                <span className="text-2xl font-bold">04</span>
+              {/* Creative Step Number */}
+              <div className="relative">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-white/30 to-white/10 flex items-center justify-center border-2 border-white/40 shadow-lg">
+                  <span className="text-3xl font-black text-white drop-shadow-sm">4</span>
+                </div>
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-playful-yellow rounded-full animate-pulse"></div>
               </div>
               <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center flex-shrink-0">
                 <Wallet className="w-7 h-7 text-playful-mint" />
               </div>
             </div>
 
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">Host & Earn</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Host & Earn</h3>
 
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div className="p-4 rounded-2xl bg-white/20 text-center">
