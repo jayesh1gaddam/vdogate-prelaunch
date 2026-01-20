@@ -2,41 +2,43 @@
 
 import { motion } from 'framer-motion'
 import { BookOpen, Dumbbell, Mic, Rocket, Megaphone } from 'lucide-react'
-import { Sparkle } from '@/components/ui/DecorativeAccent'
 
 const useCases = [
   {
     icon: BookOpen,
     title: 'Live workshops & masterclasses',
     bgColor: 'bg-playful-purple',
-    hoverBg: 'hover:bg-playful-purple-dark'
+    shadowColor: 'shadow-purple-500/30'
   },
   {
     icon: Dumbbell,
     title: 'Coaching & training sessions',
     bgColor: 'bg-playful-yellow',
-    hoverBg: 'hover:bg-playful-yellow-dark',
-    textDark: true
+    textDark: true,
+    shadowColor: 'shadow-yellow-500/30'
   },
   {
     icon: Mic,
     title: 'Performances & talks',
     bgColor: 'bg-playful-orange',
-    hoverBg: 'hover:bg-playful-orange/90'
+    shadowColor: 'shadow-orange-500/30'
   },
   {
     icon: Rocket,
     title: 'Product demos & launches',
     bgColor: 'bg-playful-pink',
-    hoverBg: 'hover:bg-playful-pink/90'
+    shadowColor: 'shadow-pink-500/30'
   },
   {
     icon: Megaphone,
     title: 'Affiliate or sponsored sessions',
     bgColor: 'bg-playful-mint',
-    hoverBg: 'hover:bg-playful-mint/90'
+    shadowColor: 'shadow-emerald-500/30'
   }
 ]
+
+// Triple the items for seamless infinite loop
+const tripleUseCases = [...useCases, ...useCases, ...useCases]
 
 const springTransition = {
   type: "spring" as const,
@@ -47,14 +49,6 @@ const springTransition = {
 export default function WhatYouCanHost() {
   return (
     <section className="py-10 md:py-14 bg-playful-cream relative overflow-hidden">
-      {/* Decorative dots */}
-      <div className="absolute top-10 left-10 hidden lg:block">
-        <Sparkle color="purple" size="sm" />
-      </div>
-      <div className="absolute bottom-10 right-10 hidden lg:block">
-        <Sparkle color="orange" size="md" />
-      </div>
-
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
@@ -62,7 +56,7 @@ export default function WhatYouCanHost() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={springTransition}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-playful-orange/10 border-2 border-playful-orange/30 rounded-full text-playful-orange text-sm font-bold mb-6">
             USE CASES
@@ -75,26 +69,37 @@ export default function WhatYouCanHost() {
             </span>
           </h2>
         </motion.div>
+      </div>
 
-        {/* Use Cases as colorful tags */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-          {useCases.map((useCase, index) => (
-            <motion.div
-              key={useCase.title}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ ...springTransition, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 2 : -2 }}
-              className={`group flex items-center gap-3 px-6 py-4 rounded-full ${useCase.bgColor} ${useCase.hoverBg} shadow-lg cursor-pointer transition-all duration-300`}
+      {/* Infinite Carousel - Full Width */}
+      <div className="relative overflow-hidden">
+        {/* Gradient fade masks on edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-playful-cream to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-playful-cream to-transparent z-10 pointer-events-none" />
+
+        {/* Animated carousel track */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex gap-4 md:gap-6 animate-marquee py-4"
+        >
+          {tripleUseCases.map((useCase, index) => (
+            <div
+              key={`${useCase.title}-${index}`}
+              className={`marquee-pill flex-shrink-0 flex items-center gap-3 px-6 py-4 rounded-full ${useCase.bgColor} shadow-lg ${useCase.shadowColor} cursor-pointer`}
             >
-              <useCase.icon className={`w-6 h-6 ${useCase.textDark ? 'text-playful-purple-dark' : 'text-white'}`} />
-              <span className={`font-bold text-base md:text-lg ${useCase.textDark ? 'text-playful-purple-dark' : 'text-white'}`}>
+              <useCase.icon
+                className={`w-6 h-6 ${useCase.textDark ? 'text-playful-purple-dark' : 'text-white'}`}
+                strokeWidth={2.5}
+              />
+              <span className={`font-bold text-base md:text-lg whitespace-nowrap ${useCase.textDark ? 'text-playful-purple-dark' : 'text-white'}`}>
                 {useCase.title}
               </span>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
