@@ -1,9 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, ChevronDown } from 'lucide-react'
-import { SunBlob, CloudBlob } from '@/components/ui/PlayfulBlob'
-import { Sparkle, Star } from '@/components/ui/DecorativeAccent'
+import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 
 const springTransition = {
   type: "spring" as const,
@@ -13,39 +12,33 @@ const springTransition = {
 
 export default function LiveEventsHero() {
   return (
-    <section className="min-h-screen pt-24 pb-16 relative overflow-hidden bg-white flex items-center">
-      {/* Decorative blob shapes */}
-      <div className="absolute top-20 right-0 md:right-10 w-48 md:w-72 lg:w-96 opacity-80 pointer-events-none">
-        <SunBlob color="yellow" animate className="w-full h-full" />
-      </div>
-      <div className="absolute bottom-10 left-0 md:left-10 w-40 md:w-56 lg:w-72 opacity-60 pointer-events-none">
-        <CloudBlob color="purple" animate className="w-full h-full" />
-      </div>
+    <section className="min-h-screen pt-24 pb-8 relative overflow-hidden">
+      {/* Background gradient - lavender to white */}
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-100/80 via-purple-50/50 to-white" />
 
-      {/* Small decorative elements */}
-      <div className="absolute top-40 left-20 hidden lg:block">
-        <Star color="yellow" size="md" />
-      </div>
-      <div className="absolute bottom-40 right-20 hidden lg:block">
-        <Sparkle color="purple" size="lg" />
-      </div>
-      <div className="absolute top-1/2 right-1/4 hidden md:block">
-        <Sparkle color="orange" size="sm" />
-      </div>
+      {/* Decorative glow effects */}
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-purple-300/30 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-yellow-300/25 rounded-full blur-[100px] translate-x-1/3" />
+      <div className="absolute bottom-1/4 left-1/4 w-[300px] h-[300px] bg-purple-400/20 rounded-full blur-[80px]" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
-          {/* Main content - takes 3 columns */}
-          <div className="lg:col-span-3 text-center lg:text-left">
+        {/* Main hero content */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[70vh]">
+          {/* Left column - Text content */}
+          <div className="text-center lg:text-left order-2 lg:order-1">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={springTransition}
+              className="mb-6"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-playful-purple/10 border-2 border-playful-purple/30 rounded-full text-playful-purple text-sm font-bold mb-6">
-                <span className="w-2 h-2 bg-playful-purple rounded-full animate-pulse" />
-                LIVE EVENTS
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 border border-purple-200 rounded-full text-purple-600 text-sm font-semibold">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                </span>
+                LIVE EVENTS PLATFORM
               </span>
             </motion.div>
 
@@ -54,110 +47,149 @@ export default function LiveEventsHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...springTransition, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-brand-black mb-6 tracking-tight leading-[1.1]"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight leading-[1.15]"
             >
-              Easy to{' '}
-              <span className="text-playful-purple">Host.</span>
+              <span className="hero-gradient-text">Go Live.</span>{' '}
+              <span className="text-gray-800">Build</span>
               <br />
-              Easy to{' '}
-              <span className="relative inline-block">
-                <span className="text-playful-orange">Earn.</span>
-                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 120 12" fill="none" stroke="#FCD34D" strokeWidth="4" strokeLinecap="round">
-                  <path d="M2,8 Q30,2 60,8 Q90,14 118,6" />
-                </svg>
-              </span>
+              <span className="text-gray-800 italic">Your Audience.</span>
+              <br />
+              <span className="hero-gradient-text">Earn in Real-Time.</span>
             </motion.h1>
 
-            {/* Subheadline */}
+            {/* Subtext */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...springTransition, delay: 0.2 }}
-              className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-xl mx-auto lg:mx-0 mb-4"
+              className="text-lg md:text-xl text-gray-600 max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed"
             >
-              Earn through live sessions. Create events, sell tickets, or invite attendees for free.
+              Host live classes, workshops, launches, or shows. Sell tickets or go free. Get paid directly.
             </motion.p>
 
-            {/* Price highlight */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ ...springTransition, delay: 0.3 }}
-              className="text-base md:text-lg text-gray-700 mb-8"
-            >
-              <span className="text-playful-purple font-bold text-2xl md:text-3xl">₹299</span>
-              <span className="text-gray-500"> per live event. No subscriptions. No commitments.</span>
-            </motion.p>
-
-            {/* CTAs */}
+            {/* CTA Button */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ ...springTransition, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              transition={{ ...springTransition, delay: 0.3 }}
+              className="mb-4"
             >
               <a
                 href="https://app.vdogate.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-playful-purple text-white rounded-full font-bold text-lg shadow-playful hover:shadow-playful-lg hover:scale-[1.03] transition-all duration-300 btn-shine"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-full font-bold text-lg shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 hover:scale-[1.02] transition-all duration-300"
               >
-                Create a Live Event – ₹299
+                Create Live Event – ₹299
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a
-                href="#how-it-works"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-playful-yellow/20 border-2 border-playful-yellow text-playful-purple-dark rounded-full font-bold text-lg hover:bg-playful-yellow/40 transition-all duration-300"
-              >
-                See How It Works
-                <ChevronDown className="w-5 h-5" />
-              </a>
             </motion.div>
+
+            {/* Caption */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ ...springTransition, delay: 0.4 }}
+              className="text-gray-500 text-sm"
+            >
+              No subscription • Pay per event
+            </motion.p>
           </div>
 
-          {/* Stats bento cards - takes 2 columns */}
+          {/* Right column - Hero Image */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ ...springTransition, delay: 0.5 }}
-            className="lg:col-span-2 grid grid-cols-2 gap-4"
+            transition={{ ...springTransition, delay: 0.3 }}
+            className="relative order-1 lg:order-2 flex justify-center lg:justify-end"
           >
-            {/* 85% Card - Large */}
-            <div className="col-span-2 bg-playful-purple rounded-3xl p-6 text-center playful-card-hover">
-              <div className="text-5xl md:text-6xl font-bold text-white mb-2">85%</div>
-              <div className="text-white/80 font-medium">Earnings to you</div>
-            </div>
+            {/* Hero graphic container */}
+            <div className="relative w-full max-w-lg lg:max-w-xl">
+              {/* Placeholder for hero image - replace with actual image when available */}
+              <div className="relative aspect-square">
+                {/* Glow behind image */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-400/30 via-transparent to-yellow-400/30 rounded-full blur-2xl scale-110" />
 
-            {/* ₹299 Card */}
-            <div className="bg-playful-yellow rounded-3xl p-5 text-center playful-card-hover">
-              <div className="text-3xl md:text-4xl font-bold text-playful-purple-dark mb-1">₹299</div>
-              <div className="text-playful-purple-dark/70 text-sm font-medium">Per event</div>
-            </div>
+                {/* Hero image - using the provided image path */}
+                <Image
+                  src="/hero-live-events.png"
+                  alt="VDOgate Live Events - Host live sessions and earn"
+                  fill
+                  className="object-contain relative z-10"
+                  priority
+                  onError={(e) => {
+                    // Fallback if image doesn't exist
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
 
-            {/* 7 Days Card */}
-            <div className="bg-playful-orange/20 border-2 border-playful-orange rounded-3xl p-5 text-center playful-card-hover">
-              <div className="text-3xl md:text-4xl font-bold text-playful-orange mb-1">7 days</div>
-              <div className="text-playful-orange/70 text-sm font-medium">Settlement</div>
+                {/* Fallback placeholder if no image */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-64 h-[500px] bg-gradient-to-b from-purple-100 to-purple-50 rounded-[3rem] border-4 border-purple-200 shadow-2xl flex items-center justify-center">
+                    <div className="text-center p-6">
+                      <div className="w-16 h-16 bg-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
+                      <p className="text-purple-600 font-medium text-sm">Live Stream</p>
+                      <p className="text-purple-400 text-xs mt-1">1124 watching</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
+        {/* Stats Cards - Glassmorphic */}
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-6 h-10 border-2 border-playful-purple/30 rounded-full flex items-start justify-center p-2"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...springTransition, delay: 0.5 }}
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 lg:mt-0"
         >
-          <div className="w-1.5 h-1.5 bg-playful-purple rounded-full" />
+          {/* 85% Card */}
+          <div className="glass-card-purple rounded-2xl p-6 flex items-center gap-4">
+            <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/>
+              </svg>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-purple-700">85%</div>
+              <div className="text-purple-600/70 text-sm">Earnings go directly to you</div>
+            </div>
+          </div>
+
+          {/* ₹299 Card */}
+          <div className="glass-card-yellow rounded-2xl p-6 flex items-center gap-4">
+            <div className="w-12 h-12 bg-yellow-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg className="w-6 h-6 text-yellow-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/>
+              </svg>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-yellow-700">₹299</div>
+              <div className="text-yellow-600/70 text-sm">Pay per event</div>
+            </div>
+          </div>
+
+          {/* 7 Days Card */}
+          <div className="glass-card-coral rounded-2xl p-6 flex items-center gap-4">
+            <div className="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg className="w-6 h-6 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+              </svg>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-orange-700">7 Days</div>
+              <div className="text-orange-600/70 text-sm">Fast settlement</div>
+            </div>
+          </div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }
