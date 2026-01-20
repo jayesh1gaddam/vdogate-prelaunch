@@ -27,7 +27,7 @@ export default function LiveEventsHero() {
         {/* Main hero content */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-4 items-center min-h-[70vh]">
           {/* Left column - Text content */}
-          <div className="text-center lg:text-left order-2 lg:order-1">
+          <div className="text-center lg:text-left order-1">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -109,7 +109,7 @@ export default function LiveEventsHero() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ ...springTransition, delay: 0.3 }}
-            className="relative order-1 lg:order-2 flex justify-center lg:justify-end"
+            className="relative order-2 flex justify-center lg:justify-end"
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
               {/* Hero Image */}
