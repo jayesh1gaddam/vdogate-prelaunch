@@ -180,11 +180,8 @@ export default function LiveEventsHero() {
                   src="/hero_vec.png"
                   alt="VDOgate Live Events - Host live sessions and earn"
                   fill
-                  className="object-contain drop-shadow-lg"
+                  className="object-contain"
                   priority
-                  style={{
-                    filter: 'drop-shadow(0 10px 30px rgba(139, 92, 246, 0.15))'
-                  }}
                 />
 
                 {/* 85% Card - Top Left */}
