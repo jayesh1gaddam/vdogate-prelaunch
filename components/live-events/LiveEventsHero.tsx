@@ -102,12 +102,10 @@ export default function LiveEventsHero() {
             transition={{ ...springTransition, delay: 0.3 }}
             className="relative order-1 lg:order-2 flex justify-center lg:justify-end"
           >
-            {/* Hero graphic container */}
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
               <div className="relative aspect-square">
-                {/* Hero image */}
                 <Image
-                  src="/hero_vector.PNG"
+                  src="/hero_vec.png"
                   alt="VDOgate Live Events - Host live sessions and earn"
                   fill
                   className="object-contain"
