@@ -35,19 +35,18 @@ export default function LiveEventsHero() {
               </span>
             </motion.div>
 
-            {/* Headline - Improved typography */}
+            {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...springTransition, delay: 0.1 }}
               className="text-[2.5rem] sm:text-5xl md:text-[3.5rem] lg:text-6xl font-bold mb-6 tracking-tight leading-[1.1]"
             >
-              <span className="hero-gradient-text">Go Live.</span>{' '}
-              <span className="text-gray-900">Build</span>
+              <span className="text-gray-900">Easy to </span>
+              <span className="hero-gradient-text">Host.</span>
               <br />
-              <span className="text-gray-900 italic font-semibold">Your Audience.</span>
-              <br />
-              <span className="hero-gradient-text">Earn in Real-Time.</span>
+              <span className="text-gray-900">Easy to </span>
+              <span className="hero-gradient-text">Earn.</span>
             </motion.h1>
 
             {/* Subtext */}
@@ -55,17 +54,28 @@ export default function LiveEventsHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...springTransition, delay: 0.2 }}
-              className="text-base md:text-lg lg:text-xl text-gray-600 max-w-md mx-auto lg:mx-0 mb-8 leading-relaxed"
+              className="text-base md:text-lg lg:text-xl text-gray-600 max-w-md mx-auto lg:mx-0 mb-4 leading-relaxed"
             >
-              Host live classes, workshops, launches, or shows. Sell tickets or go free. Get paid directly.
+              Earn through live sessions. Create events, sell tickets, or invite attendees for free.
             </motion.p>
 
-            {/* CTA Button */}
+            {/* Price highlight */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ...springTransition, delay: 0.25 }}
+              className="text-base md:text-lg text-gray-700 mb-8"
+            >
+              <span className="text-purple-600 font-bold text-xl md:text-2xl">₹299</span>
+              <span className="text-gray-500"> per live event. No monthly subscriptions. No commitments.</span>
+            </motion.p>
+
+            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...springTransition, delay: 0.3 }}
-              className="mb-3"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <a
                 href="https://app.vdogate.com"
@@ -73,20 +83,16 @@ export default function LiveEventsHero() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-400 text-white rounded-full font-bold text-lg shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/35 hover:scale-[1.02] transition-all duration-300"
               >
-                Create Live Event – ₹299
+                Create a Live Event
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
+              <a
+                href="#how-it-works"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-full font-semibold text-lg hover:border-purple-300 hover:text-purple-600 transition-all duration-300"
+              >
+                See How It Works
+              </a>
             </motion.div>
-
-            {/* Caption */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ ...springTransition, delay: 0.4 }}
-              className="text-gray-500 text-sm"
-            >
-              No subscription • Pay per event
-            </motion.p>
           </div>
 
           {/* Right column - Hero Image */}
