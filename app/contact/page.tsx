@@ -94,16 +94,36 @@ export default function ContactPage() {
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [ticketId, setTicketId] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError(null)
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
+
+      setTicketId(data.ticketId)
+      setIsSubmitted(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -223,12 +243,19 @@ export default function ContactPage() {
                     <CheckCircle className="w-8 h-8 text-green-600" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h3>
+                  {ticketId && (
+                    <div className="mb-4 px-4 py-2 bg-gray-100 rounded-lg inline-block">
+                      <p className="text-xs text-gray-500 mb-1">Your Ticket ID</p>
+                      <p className="text-lg font-mono font-bold text-purple-600">{ticketId}</p>
+                    </div>
+                  )}
                   <p className="text-gray-600 mb-6">
                     Thank you for reaching out. We&apos;ll get back to you within 24-48 hours.
                   </p>
                   <button
                     onClick={() => {
                       setIsSubmitted(false)
+                      setTicketId(null)
                       setFormData({ name: '', email: '', subject: '', category: '', message: '' })
                     }}
                     className="text-purple-600 font-medium hover:text-purple-700"
@@ -238,6 +265,11 @@ export default function ContactPage() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {error && (
+                    <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
+                      <p className="text-red-600 text-sm font-medium">{error}</p>
+                    </div>
+                  )}
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
