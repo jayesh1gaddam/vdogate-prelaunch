@@ -104,40 +104,16 @@ export default function LiveEventsHero() {
             className="relative order-1 lg:order-2 flex justify-center lg:justify-end"
           >
             {/* Hero graphic container */}
-            <div className="relative w-full max-w-lg lg:max-w-xl">
-              {/* Placeholder for hero image - replace with actual image when available */}
+            <div className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl">
               <div className="relative aspect-square">
-                {/* Glow behind image */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-400/30 via-transparent to-yellow-400/30 rounded-full blur-2xl scale-110" />
-
-                {/* Hero image - using the provided image path */}
+                {/* Hero image */}
                 <Image
-                  src="/hero-live-events.png"
+                  src="/hero_vector.PNG"
                   alt="VDOgate Live Events - Host live sessions and earn"
                   fill
-                  className="object-contain relative z-10"
+                  className="object-contain"
                   priority
-                  onError={(e) => {
-                    // Fallback if image doesn't exist
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                  }}
                 />
-
-                {/* Fallback placeholder if no image */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-64 h-[500px] bg-gradient-to-b from-purple-100 to-purple-50 rounded-[3rem] border-4 border-purple-200 shadow-2xl flex items-center justify-center">
-                    <div className="text-center p-6">
-                      <div className="w-16 h-16 bg-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      </div>
-                      <p className="text-purple-600 font-medium text-sm">Live Stream</p>
-                      <p className="text-purple-400 text-xs mt-1">1124 watching</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </motion.div>
