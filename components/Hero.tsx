@@ -70,7 +70,7 @@ export default function Hero() {
                 transition={{ delay: 0.3, duration: 0.7 }}
                 className="text-base md:text-lg xl:text-xl 2xl:text-2xl text-neutral-gray leading-relaxed max-w-xl xl:max-w-2xl 2xl:max-w-3xl mx-auto lg:mx-0 font-light"
               >
-                Make money from your skills — not spend money to promote them.
+                Make money from your skills - not spend money to promote them.
                 <br />
                 <span className="font-semibold text-brand-black">No Ads • No Algorithm • No Commission on Your Services</span>
                 <br />

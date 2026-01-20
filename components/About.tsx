@@ -167,7 +167,7 @@ export default function About() {
                   className="space-y-6 text-neutral-gray-dark leading-relaxed"
                 >
                   <p className="text-lg">
-                    We started VDOgate because we've seen it firsthand, talented creators, skilled professionals, passionate educators—all struggling to turn their expertise into sustainable income. Not because they lack skills, but because the platforms they depend on have broken incentives.
+                    We started VDOgate because we've seen it firsthand, talented creators, skilled professionals, passionate educators-all struggling to turn their expertise into sustainable income. Not because they lack skills, but because the platforms they depend on have broken incentives.
                   </p>
 
                   <p className="text-lg">
@@ -360,7 +360,7 @@ export default function About() {
             <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg">
               <div className="prose prose-lg max-w-none">
                 <p className="text-neutral-gray-dark leading-relaxed mb-6">
-                  Talented creators across India, makeup artists, fitness coaches, photographers, educators, consultants—struggle to convert their skills into sustainable income. They're stuck in a broken system:
+                  Talented creators across India, makeup artists, fitness coaches, photographers, educators, consultants-struggle to convert their skills into sustainable income. They're stuck in a broken system:
                 </p>
 
                 <div className="space-y-6 my-8">

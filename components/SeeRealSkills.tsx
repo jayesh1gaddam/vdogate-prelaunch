@@ -26,7 +26,7 @@ export default function SeeRealSkills() {
                     className="text-center mb-12"
                 >
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black mb-4">
-                        See Real Skills — Not Just Profiles
+                        See Real Skills - Not Just Profiles
                     </h2>
                     <p className="text-lg md:text-xl text-neutral-gray max-w-3xl mx-auto leading-relaxed">
                         Watch short videos, understand real ability, and choose confidently.
@@ -50,7 +50,7 @@ export default function SeeRealSkills() {
                         <Eye className="w-6 h-6 text-green-600" />
                         <div className="text-left">
                             <p className="text-lg font-bold text-green-800">Free forever for viewers & buyers.</p>
-                            <p className="text-sm text-green-700">Browse, watch, and connect — no charges, ever</p>
+                            <p className="text-sm text-green-700">Browse, watch, and connect - no charges, ever</p>
                         </div>
                     </div>
                 </motion.div>

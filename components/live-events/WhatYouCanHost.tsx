@@ -62,7 +62,7 @@ export default function WhatYouCanHost() {
             USE CASES
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black tracking-tight max-w-3xl mx-auto">
-            If people will attend a live session —
+            If people will attend a live session
             <br />
             <span className="text-playful-gradient">
               you can host it here.

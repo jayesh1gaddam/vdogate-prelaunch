@@ -47,7 +47,7 @@ export default function AmbassadorPage() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-lg text-neutral-gray-dark max-w-3xl mx-auto"
           >
-            India has over 50 million freelancers struggling to be discovered. The VDOgate Revolution empowers them — and you can be part of it.
+            India has over 50 million freelancers struggling to be discovered. The VDOgate Revolution empowers them - and you can be part of it.
           </motion.p>
         </div>
       </section>

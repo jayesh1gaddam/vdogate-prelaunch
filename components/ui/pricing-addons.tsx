@@ -43,7 +43,7 @@ export default function PricingAddons() {
           className="inline-block mb-4"
         >
           <div className="px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 border border-purple-200 rounded-full">
-            <span className="text-sm font-bold text-purple-700 uppercase tracking-wide">ADD-ONS (OPTIONAL — PAY ONLY AS YOU GROW)</span>
+            <span className="text-sm font-bold text-purple-700 uppercase tracking-wide">ADD-ONS (OPTIONAL - PAY ONLY AS YOU GROW)</span>
           </div>
         </motion.div>
 

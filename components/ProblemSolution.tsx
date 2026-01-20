@@ -219,7 +219,7 @@ export default function ProblemSolution() {
                   <p className="text-sm md:text-base text-center leading-relaxed">
                     Your <span className="font-bold text-green-700">skills, portfolio, and location</span>
                     <br />
-                    <span className="text-brand-black">determine your visibility — not your ad budget.</span>
+                    <span className="text-brand-black">determine your visibility - not your ad budget.</span>
                   </p>
                 </motion.div>
               </div>

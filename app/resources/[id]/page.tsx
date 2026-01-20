@@ -15,7 +15,7 @@ const blogPosts = [
   {
     id: 1,
     title: 'How Can a Freelancer Without an Establishment Promote Themselves?',
-    excerpt: 'Most freelancers start with only their skills and a laptop — but how do they promote themselves without ads, agencies, or an office? Here\'s the reality and the way forward.',
+    excerpt: 'Most freelancers start with only their skills and a laptop - but how do they promote themselves without ads, agencies, or an office? Here\'s the reality and the way forward.',
     category: 'Freelancing',
     author: 'VDOgate Team',
     authorBio: 'Platform Insights',
@@ -27,20 +27,20 @@ const blogPosts = [
     featured: true,
     content: `
       <div class="blog-intro mb-12 pb-8 border-b-2 border-neutral-gray-lighter">
-        <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-gray-dark">Not every freelancer starts with a studio, an office, or a team. Most begin with just <strong>a skill, a laptop, and determination</strong> — but soon hit a wall: visibility. How do you promote yourself as a <strong>freelancer in India</strong> when you don't have an establishment, clients, or ad budget?</p>
+        <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-gray-dark">Not every freelancer starts with a studio, an office, or a team. Most begin with just <strong>a skill, a laptop, and determination</strong> - but soon hit a wall: visibility. How do you promote yourself as a <strong>freelancer in India</strong> when you don't have an establishment, clients, or ad budget?</p>
       </div>
 
       <h2>The Visibility Struggle: What's Broken Today</h2>
-      <p>The internet promised opportunity for everyone. But in practice, <strong>online visibility for freelancers</strong> has become a <strong>pay-to-play game</strong>. Independent professionals are told to run ads, pay to boost profiles, or post endlessly to feed algorithms. It's exhausting — and unfair.</p>
+      <p>The internet promised opportunity for everyone. But in practice, <strong>online visibility for freelancers</strong> has become a <strong>pay-to-play game</strong>. Independent professionals are told to run ads, pay to boost profiles, or post endlessly to feed algorithms. It's exhausting - and unfair.</p>
 
-      <p>A graphic designer spends more time chasing reach than designing. A yoga instructor shares free content hoping for clients. A makeup artist struggles to find local clients. The problem isn't talent — it's <strong>the lack of affordable visibility for skilled professionals</strong>.</p>
+      <p>A graphic designer spends more time chasing reach than designing. A yoga instructor shares free content hoping for clients. A makeup artist struggles to find local clients. The problem isn't talent - it's <strong>the lack of affordable visibility for skilled professionals</strong>.</p>
 
       <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
       <h2>Why Traditional Platforms Fail Freelancers</h2>
-      <p>Most digital platforms were never designed for <strong>independent service providers</strong> — they were built for advertisers or marketplace commissions. Visibility depends on budgets, not skill. Freelancers who can't pay remain invisible to potential clients searching for services.</p>
+      <p>Most digital platforms were never designed for <strong>independent service providers</strong> - they were built for advertisers or marketplace commissions. Visibility depends on budgets, not skill. Freelancers who can't pay remain invisible to potential clients searching for services.</p>
 
-      <p>That's why platforms like <a href="/" class="text-portal-primary font-semibold hover:underline">VDOgate</a> are revolutionizing how freelancers connect with clients — through authentic <strong>video profiles</strong> that showcase real skills, not paid promotions.</p>
+      <p>That's why platforms like <a href="/" class="text-portal-primary font-semibold hover:underline">VDOgate</a> are revolutionizing how freelancers connect with clients - through authentic <strong>video profiles</strong> that showcase real skills, not paid promotions.</p>
 
       <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
@@ -56,7 +56,7 @@ const blogPosts = [
       <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
       <h2>Video Profiles: The New Digital Storefront for Freelancers</h2>
-      <p>Your screen is now your storefront. A hairstylist can demonstrate a cutting technique, a dance coach can teach a routine, a business consultant can share insights — all through <strong>professional video profiles</strong>. It's affordable, direct, and authentic.</p>
+      <p>Your screen is now your storefront. A hairstylist can demonstrate a cutting technique, a dance coach can teach a routine, a business consultant can share insights - all through <strong>professional video profiles</strong>. It's affordable, direct, and authentic.</p>
 
       <p>Unlike text-based portfolios or static images, <strong>video profiles on VDOgate</strong> allow potential clients to see your personality, communication style, and expertise before reaching out. This builds trust and filters for serious inquiries.</p>
 
@@ -68,7 +68,7 @@ const blogPosts = [
       <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
       <h2>Conclusion: The Future of Freelance Marketing</h2>
-      <p>Tomorrow's most successful <strong>freelancers and independent professionals</strong> won't have the biggest ad budgets or fancy offices — they'll have the strongest <strong>video presence and authentic client connections</strong>. <strong>Change is coming to India's freelance economy — one video profile at a time.</strong></p>
+      <p>Tomorrow's most successful <strong>freelancers and independent professionals</strong> won't have the biggest ad budgets or fancy offices - they'll have the strongest <strong>video presence and authentic client connections</strong>. <strong>Change is coming to India's freelance economy - one video profile at a time.</strong></p>
 
       <p>Ready to showcase your skills without paying for ads? <a href="/#founding-creator" class="text-portal-primary font-semibold hover:underline">Create your free video profile on VDOgate</a> and connect with clients in your city today.</p>
     `
@@ -87,11 +87,11 @@ const blogPosts = [
     image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop',
     content: `
       <div class="blog-intro mb-12 pb-8 border-b-2 border-neutral-gray-lighter">
-        <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-gray-dark">Freelancing sounds like freedom — no boss, no fixed hours, no ceiling on income. But for <strong>freelancers in India</strong> and worldwide, behind that freedom lie <strong>commissions, ad spends, and algorithm games</strong> that quietly drain earnings from <strong>independent professionals</strong>.</p>
+        <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-gray-dark">Freelancing sounds like freedom - no boss, no fixed hours, no ceiling on income. But for <strong>freelancers in India</strong> and worldwide, behind that freedom lie <strong>commissions, ad spends, and algorithm games</strong> that quietly drain earnings from <strong>independent professionals</strong>.</p>
       </div>
 
       <h2>The Unseen Expenses</h2>
-      <p>Every <strong>freelancer in India</strong> depends on platforms — job boards, <strong>freelance marketplaces</strong>, social media — but each has a cost, even if it doesn't look like one. <strong>Service providers</strong> struggle to maintain profitability when platform fees consume their hard-earned income.</p>
+      <p>Every <strong>freelancer in India</strong> depends on platforms - job boards, <strong>freelance marketplaces</strong>, social media - but each has a cost, even if it doesn't look like one. <strong>Service providers</strong> struggle to maintain profitability when platform fees consume their hard-earned income.</p>
 
       <div class="overflow-x-auto my-12">
         <table class="w-full border-collapse rounded-lg overflow-hidden shadow-sm">
@@ -130,12 +130,12 @@ const blogPosts = [
       <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
       <h2>The Algorithm Tax</h2>
-      <p>Even without paying upfront, <strong>Indian freelancers</strong> and <strong>service providers</strong> pay a hidden price — <strong>algorithmic dependence</strong>. What's seen or ignored depends on invisible filters that reward paid reach. For <strong>independent professionals</strong> trying to connect with <strong>local clients in India</strong>, this creates an unfair disadvantage.</p>
+      <p>Even without paying upfront, <strong>Indian freelancers</strong> and <strong>service providers</strong> pay a hidden price - <strong>algorithmic dependence</strong>. What's seen or ignored depends on invisible filters that reward paid reach. For <strong>independent professionals</strong> trying to connect with <strong>local clients in India</strong>, this creates an unfair disadvantage.</p>
 
       <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
       <h2>Why It Persists</h2>
-      <p>Traditional <strong>freelance platforms</strong> profit from keeping creators chasing visibility. Engagement benefits the platform — not the freelancer. <strong>Views don't equal clients; likes don't equal income.</strong> This is especially challenging for <strong>service providers</strong> seeking <strong>direct client connections</strong> without intermediaries.</p>
+      <p>Traditional <strong>freelance platforms</strong> profit from keeping creators chasing visibility. Engagement benefits the platform - not the freelancer. <strong>Views don't equal clients; likes don't equal income.</strong> This is especially challenging for <strong>service providers</strong> seeking <strong>direct client connections</strong> without intermediaries.</p>
 
       <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
@@ -152,13 +152,13 @@ const blogPosts = [
       <h2>Conclusion: Breaking Free from Hidden Costs</h2>
       <p><strong>Freelancers in India</strong> and <strong>independent professionals</strong> worldwide don't need to keep paying rent to the landlords of digital attention. <strong>True freedom begins when visibility stops being for sale.</strong></p>
 
-      <p>The future of freelancing is <strong>commission-free</strong>, built on <strong>video-based discovery</strong> and <strong>direct client connections</strong>. Ready to keep 100% of what you earn? <a href="/#founding-creator" class="text-portal-primary font-semibold hover:underline">Join VDOgate as a Founding Creator</a> and connect with <strong>local clients in India</strong> through your authentic <strong>video profile</strong> — no commissions, no ad spend, no algorithm games.</p>
+      <p>The future of freelancing is <strong>commission-free</strong>, built on <strong>video-based discovery</strong> and <strong>direct client connections</strong>. Ready to keep 100% of what you earn? <a href="/#founding-creator" class="text-portal-primary font-semibold hover:underline">Join VDOgate as a Founding Creator</a> and connect with <strong>local clients in India</strong> through your authentic <strong>video profile</strong> - no commissions, no ad spend, no algorithm games.</p>
     `
   },
   {
     id: 3,
     title: 'Why Most Freelancers Struggle to Be Seen Without Paying for Ads',
-    excerpt: 'Visibility today has become a paid privilege — but skill, not ad spend, should decide who gets discovered.',
+    excerpt: 'Visibility today has become a paid privilege - but skill, not ad spend, should decide who gets discovered.',
     category: 'Visibility',
     author: 'VDOgate Team',
     authorBio: 'Platform Insights',
@@ -204,16 +204,16 @@ const blogPosts = [
         </table>
       </div>
 
-      <p><strong>Indian freelancers</strong> and <strong>service providers</strong> who once relied on discovery now face a wall — built by ad models that reward budgets, not merit. Finding <strong>local clients in India</strong> becomes nearly impossible without paid advertising.</p>
+      <p><strong>Indian freelancers</strong> and <strong>service providers</strong> who once relied on discovery now face a wall - built by ad models that reward budgets, not merit. Finding <strong>local clients in India</strong> becomes nearly impossible without paid advertising.</p>
 
       <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
       <h2>The Trap</h2>
-      <p>Traditional <strong>freelance platforms</strong> promote the idea that visibility equals success. But visibility without conversion is vanity. <strong>Independent professionals</strong> might pay for thousands of impressions — and gain no paying <strong>local clients</strong>.</p>
+      <p>Traditional <strong>freelance platforms</strong> promote the idea that visibility equals success. But visibility without conversion is vanity. <strong>Independent professionals</strong> might pay for thousands of impressions - and gain no paying <strong>local clients</strong>.</p>
 
       <div class="bg-gradient-to-r from-orange-50 to-amber-50 border-l-4 border-portal-primary p-8 rounded-r-2xl my-12 shadow-sm">
         <p class="text-lg font-semibold text-brand-black mb-2">Key Insight for Service Providers</p>
-        <p class="text-base text-neutral-gray-dark mb-0">Visibility without conversion is vanity — you might pay for thousands of impressions and gain no paying clients. Real success comes from direct client connections, not paid reach.</p>
+        <p class="text-base text-neutral-gray-dark mb-0">Visibility without conversion is vanity - you might pay for thousands of impressions and gain no paying clients. Real success comes from direct client connections, not paid reach.</p>
       </div>
 
       <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
@@ -224,20 +224,20 @@ const blogPosts = [
       <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
       <h2>The Shift: Purposeful Reach Through Video</h2>
-      <p>The new question for <strong>independent professionals</strong> is: <strong>Where can I show my skill directly?</strong> On <a href="/" class="text-portal-primary font-semibold hover:underline">VDOgate</a>, your work speaks through <strong>video profiles</strong> — teaching, showing, demonstrating. <strong>Video-based discovery</strong> means you don't chase algorithms. Your expertise becomes your marketing, and <strong>local clients</strong> can find you based on authentic skill showcase.</p>
+      <p>The new question for <strong>independent professionals</strong> is: <strong>Where can I show my skill directly?</strong> On <a href="/" class="text-portal-primary font-semibold hover:underline">VDOgate</a>, your work speaks through <strong>video profiles</strong> - teaching, showing, demonstrating. <strong>Video-based discovery</strong> means you don't chase algorithms. Your expertise becomes your marketing, and <strong>local clients</strong> can find you based on authentic skill showcase.</p>
 
       <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
       <h2>Conclusion: Skill Over Spend</h2>
-      <p>Visibility should be earned through skill, not spend. <strong>Soon, freelancers in India won't need to boost posts to be seen — they'll just need to show their skill.</strong></p>
+      <p>Visibility should be earned through skill, not spend. <strong>Soon, freelancers in India won't need to boost posts to be seen - they'll just need to show their skill.</strong></p>
 
-      <p>The future belongs to <strong>independent professionals</strong> who leverage <strong>video profiles</strong> for authentic client discovery. Ready to be found by <strong>local clients in India</strong> based on your real skills? <a href="/#founding-creator" class="text-portal-primary font-semibold hover:underline">Create your free video profile on VDOgate</a> and experience <strong>commission-free</strong>, <strong>video-based discovery</strong> that puts talent first — no ads required.</p>
+      <p>The future belongs to <strong>independent professionals</strong> who leverage <strong>video profiles</strong> for authentic client discovery. Ready to be found by <strong>local clients in India</strong> based on your real skills? <a href="/#founding-creator" class="text-portal-primary font-semibold hover:underline">Create your free video profile on VDOgate</a> and experience <strong>commission-free</strong>, <strong>video-based discovery</strong> that puts talent first - no ads required.</p>
     `
   },
   {
     id: 4,
     title: 'Can You Really Grow Without Paying a Platform or Middleman?',
-    excerpt: 'Modern freelancing is filled with middlemen — platforms, agencies, aggregators. Can real independence exist without them?',
+    excerpt: 'Modern freelancing is filled with middlemen - platforms, agencies, aggregators. Can real independence exist without them?',
     category: 'Self-Promotion',
     author: 'VDOgate Team',
     authorBio: 'Platform Insights',
@@ -248,7 +248,7 @@ const blogPosts = [
     image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop',
     content: `
       <div class="blog-intro mb-12 pb-8 border-b-2 border-neutral-gray-lighter">
-        <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-gray-dark">Growing your freelance career without paying a platform or agency seems impossible — but why should it be? For <strong>freelancers in India</strong> and <strong>independent professionals</strong> everywhere, if your skill creates value, why must a middleman profit from every connection?</p>
+        <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-gray-dark">Growing your freelance career without paying a platform or agency seems impossible - but why should it be? For <strong>freelancers in India</strong> and <strong>independent professionals</strong> everywhere, if your skill creates value, why must a middleman profit from every connection?</p>
       </div>
 
       <h2>The Middleman Economy</h2>
@@ -260,13 +260,13 @@ const blogPosts = [
       <ol>
         <li>You join a <strong>freelance marketplace</strong> for free.</li>
         <li>You build reputation and connections with <strong>local clients in India</strong>.</li>
-        <li>The system monetizes your connections — via commissions, listings, or ads.</li>
+        <li>The system monetizes your connections - via commissions, listings, or ads.</li>
       </ol>
       <p>Soon, the <strong>direct client connections</strong> you built belong to the intermediary. As an <strong>independent professional</strong>, you lose control over your most valuable asset.</p>
 
       <div class="bg-gradient-to-r from-orange-50 to-amber-50 border-l-4 border-portal-primary p-8 rounded-r-2xl my-12 shadow-sm">
         <p class="text-lg font-semibold text-brand-black mb-2">Key Insight for Indian Freelancers</p>
-        <p class="text-base text-neutral-gray-dark mb-0">The client relationship you built belongs to the intermediary — not to you. True independence means owning your connections with local clients.</p>
+        <p class="text-base text-neutral-gray-dark mb-0">The client relationship you built belongs to the intermediary - not to you. True independence means owning your connections with local clients.</p>
       </div>
 
       <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
@@ -276,7 +276,7 @@ const blogPosts = [
       <ul>
         <li>Own <strong>direct client connections</strong> with <strong>local clients</strong></li>
         <li>Control how their work is seen through authentic <strong>video profiles</strong></li>
-        <li>Keep 100% of what they earn — <strong>commission-free</strong></li>
+        <li>Keep 100% of what they earn - <strong>commission-free</strong></li>
       </ul>
       <p><strong>Freelance platforms</strong> like <a href="/" class="text-portal-primary font-semibold hover:underline">VDOgate</a> should enable, not mediate. A fair system is a bridge, not a toll booth. <strong>Video-based discovery</strong> creates transparency without intermediaries taking a cut.</p>
 
@@ -288,14 +288,14 @@ const blogPosts = [
       <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
       <h2>The Road Ahead: Video-Based Discovery</h2>
-      <p>Imagine showing your skill through authentic <strong>video profiles</strong>, <strong>local clients in India</strong> connecting directly, and payments flowing transparently — <strong>without gatekeepers</strong>. That's where freelancing is headed.</p>
+      <p>Imagine showing your skill through authentic <strong>video profiles</strong>, <strong>local clients in India</strong> connecting directly, and payments flowing transparently - <strong>without gatekeepers</strong>. That's where freelancing is headed.</p>
 
       <p>On <a href="/" class="text-portal-primary font-semibold hover:underline">VDOgate</a>, <strong>independent professionals</strong> create compelling <strong>video profiles</strong> that showcase their expertise to <strong>local clients</strong>. No commissions. No algorithms. Just <strong>direct client connections</strong> based on authentic skill and <strong>video-based discovery</strong>.</p>
 
       <div class="my-12 border-t-2 border-neutral-gray-lighter"></div>
 
       <h2>Conclusion: The Stage, Not the Middleman</h2>
-      <p><strong>Freelancers in India</strong> and <strong>independent professionals</strong> don't need another middleman — they need a stage. Because when the middleman disappears, <strong>authentic growth finally begins.</strong></p>
+      <p><strong>Freelancers in India</strong> and <strong>independent professionals</strong> don't need another middleman - they need a stage. Because when the middleman disappears, <strong>authentic growth finally begins.</strong></p>
 
       <p>The future belongs to <strong>service providers</strong> who control their own destinies. Ready to own your client relationships and keep 100% of your earnings? <a href="/#founding-creator" class="text-portal-primary font-semibold hover:underline">Join VDOgate as a Founding Creator</a> and experience true independence through <strong>commission-free</strong>, <strong>video-based discovery</strong>. Connect with <strong>local clients</strong> directly, showcase your skills through authentic <strong>video profiles</strong>, and build a sustainable freelance career without middlemen taking their cut.</p>
     `

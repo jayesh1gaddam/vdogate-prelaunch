@@ -8,14 +8,14 @@ export default function BuyerBenefits() {
     {
       icon: Shield,
       title: 'Verified Profiles',
-      description: 'Every freelancer has video proof of skills — no fake claims, no surprises',
+      description: 'Every freelancer has video proof of skills - no fake claims, no surprises',
       color: 'from-blue-500 to-blue-600',
       shadowColor: 'shadow-blue-500/20'
     },
     {
       icon: Wallet,
       title: 'No Hidden Fees',
-      description: 'Browse, connect, hire — all completely free. Zero platform fees for buyers',
+      description: 'Browse, connect, hire - all completely free. Zero platform fees for buyers',
       color: 'from-green-500 to-emerald-600',
       shadowColor: 'shadow-green-500/20'
     },

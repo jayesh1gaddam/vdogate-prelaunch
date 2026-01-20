@@ -14,7 +14,7 @@ const trustElements = [
   {
     icon: Heart,
     title: 'Freelancer-First Economics',
-    description: 'Fair pricing and transparent terms — we succeed when you succeed',
+    description: 'Fair pricing and transparent terms - we succeed when you succeed',
     color: 'from-portal-light to-portal-lighter',
   },
 ]
@@ -54,7 +54,7 @@ const creatorReviews = [
     name: 'Vikram Singh',
     role: 'Business Coach',
     location: 'Pune',
-    review: "I was spending too much time converting casual followers into paying clients through endless messages. VDOgate brings me people who are actively looking for business coaching—they find me through search and come ready to discuss services.",
+    review: "I was spending too much time converting casual followers into paying clients through endless messages. VDOgate brings me people who are actively looking for business coaching-they find me through search and come ready to discuss services.",
     rating: 5,
     avatarBg: 'bg-gradient-to-br from-amber-400 to-orange-500',
     emoji: '📊',
@@ -74,7 +74,7 @@ const creatorReviews = [
     name: 'Arjun Malhotra',
     role: 'Marketing Consultant',
     location: 'Hyderabad',
-    review: "I was stuck in the content treadmill—constantly posting to stay visible. VDOgate gives me a professional profile that works 24/7. Clients find me through search when they need help, not based on my latest post.",
+    review: "I was stuck in the content treadmill-constantly posting to stay visible. VDOgate gives me a professional profile that works 24/7. Clients find me through search when they need help, not based on my latest post.",
     rating: 5,
     avatarBg: 'bg-gradient-to-br from-teal-400 to-cyan-500',
     emoji: '📈',
