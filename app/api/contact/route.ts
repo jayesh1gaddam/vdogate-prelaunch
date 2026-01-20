@@ -300,10 +300,126 @@ This email was sent from the VDOgate contact form.
 Ticket ID: ${ticketId}
 `
 
-    // Send email via Resend
-    // Note: Using Resend's default domain until vdogate.com is verified
-    const { data, error } = await resend.emails.send({
-      from: 'VDOgate Contact <onboarding@resend.dev>',
+    // Customer confirmation email HTML
+    const customerEmailHtml = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We've Received Your Message - ${ticketId}</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f3f4f6;">
+  <table role="presentation" style="width: 100%; border-collapse: collapse;">
+    <tr>
+      <td align="center" style="padding: 40px 20px;">
+        <table role="presentation" style="width: 100%; max-width: 600px; border-collapse: collapse;">
+
+          <!-- Header -->
+          <tr>
+            <td style="background: linear-gradient(135deg, #8B5CF6 0%, #F97316 100%); padding: 32px 40px; border-radius: 16px 16px 0 0; text-align: center;">
+              <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700;">
+                Thank You! 🎉
+              </h1>
+              <p style="margin: 12px 0 0; color: rgba(255,255,255,0.9); font-size: 16px;">
+                We've received your message
+              </p>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="background-color: #ffffff; padding: 40px;">
+              <p style="margin: 0 0 20px; color: #374151; font-size: 16px; line-height: 1.6;">
+                Hi <strong>${name.split(' ')[0]}</strong>,
+              </p>
+              <p style="margin: 0 0 24px; color: #374151; font-size: 16px; line-height: 1.6;">
+                Thank you for reaching out to VDOgate! We've received your support request and our team will get back to you as soon as possible.
+              </p>
+
+              <!-- Ticket Info Box -->
+              <div style="background-color: #f9fafb; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+                <table role="presentation" style="width: 100%;">
+                  <tr>
+                    <td>
+                      <p style="margin: 0 0 4px; color: #6B7280; font-size: 12px; text-transform: uppercase; font-weight: 600;">Your Ticket ID</p>
+                      <p style="margin: 0; color: #8B5CF6; font-size: 20px; font-weight: 700;">${ticketId}</p>
+                    </td>
+                    <td align="right">
+                      <span style="display: inline-block; padding: 6px 12px; background-color: ${categoryColor}; color: #ffffff; font-size: 12px; font-weight: 600; border-radius: 6px;">
+                        ${categoryLabel}
+                      </span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <!-- Summary -->
+              <div style="margin-bottom: 24px;">
+                <p style="margin: 0 0 8px; color: #6B7280; font-size: 13px; font-weight: 600;">Subject:</p>
+                <p style="margin: 0; color: #111827; font-size: 15px; font-weight: 500;">${subject}</p>
+              </div>
+
+              <div style="margin-bottom: 24px;">
+                <p style="margin: 0 0 8px; color: #6B7280; font-size: 13px; font-weight: 600;">Your Message:</p>
+                <div style="padding: 16px; background-color: #f9fafb; border-radius: 8px; border-left: 4px solid ${categoryColor};">
+                  <p style="margin: 0; color: #374151; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${message}</p>
+                </div>
+              </div>
+
+              <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 24px 0;">
+
+              <p style="margin: 0; color: #6B7280; font-size: 14px; line-height: 1.6;">
+                Please keep your ticket ID handy for future reference. You can reply to this email if you have any additional information to share.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color: #1F2937; padding: 24px 40px; border-radius: 0 0 16px 16px; text-align: center;">
+              <p style="margin: 0 0 8px; color: #ffffff; font-size: 14px; font-weight: 600;">
+                VDOgate - Live Events Made Simple
+              </p>
+              <p style="margin: 0; color: #9CA3AF; font-size: 12px;">
+                <a href="https://vdogate.com" style="color: #8B5CF6; text-decoration: none;">vdogate.com</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+`
+
+    // Customer confirmation email plain text
+    const customerEmailText = `
+Hi ${name.split(' ')[0]},
+
+Thank you for reaching out to VDOgate! We've received your support request and our team will get back to you as soon as possible.
+
+YOUR TICKET DETAILS
+-------------------
+Ticket ID: ${ticketId}
+Category: ${categoryLabel}
+Subject: ${subject}
+
+Your Message:
+${message}
+
+---
+Please keep your ticket ID handy for future reference. You can reply to this email if you have any additional information to share.
+
+VDOgate - Live Events Made Simple
+https://vdogate.com
+`
+
+    // Send email to admin via Resend
+    const { error: adminError } = await resend.emails.send({
+      from: 'VDOgate Contact <contact@vdogate.com>',
       to: ['admin@vdogate.com'],
       replyTo: email,
       subject: `[${ticketId}] ${categoryLabel}: ${subject}`,
@@ -311,12 +427,26 @@ Ticket ID: ${ticketId}
       text: emailText,
     })
 
-    if (error) {
-      console.error('Resend error:', error)
+    if (adminError) {
+      console.error('Resend admin email error:', adminError)
       return NextResponse.json(
         { error: 'Failed to send email. Please try again.' },
         { status: 500 }
       )
+    }
+
+    // Send confirmation email to customer
+    const { error: customerError } = await resend.emails.send({
+      from: 'VDOgate Support <contact@vdogate.com>',
+      to: [email],
+      subject: `We've received your message - ${ticketId}`,
+      html: customerEmailHtml,
+      text: customerEmailText,
+    })
+
+    if (customerError) {
+      console.error('Resend customer email error:', customerError)
+      // Don't fail the request if customer email fails, admin already received it
     }
 
     return NextResponse.json({
