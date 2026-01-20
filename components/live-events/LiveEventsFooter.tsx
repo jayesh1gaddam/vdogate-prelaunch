@@ -35,20 +35,20 @@ export default function LiveEventsFooter() {
 
             {/* Legal Links */}
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-              <a
-                href="#"
+              <Link
+                href="/terms"
                 className="text-white/80 hover:text-playful-yellow transition-colors font-medium"
               >
-                Terms & Conditions
-              </a>
-              <a
-                href="#"
+                Terms of Service
+              </Link>
+              <Link
+                href="/privacy"
                 className="text-white/80 hover:text-playful-yellow transition-colors font-medium"
               >
-                Payout & Tax Policy
-              </a>
+                Privacy Policy
+              </Link>
               <a
-                href="mailto:hello@vdogate.com"
+                href="mailto:support@vdogate.com"
                 className="text-white/80 hover:text-playful-yellow transition-colors font-medium"
               >
                 Contact / Support
