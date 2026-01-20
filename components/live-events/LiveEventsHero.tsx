@@ -22,6 +22,66 @@ const floatAnimation = {
 export default function LiveEventsHero() {
   return (
     <section className="min-h-screen pt-24 pb-8 relative overflow-hidden bg-white">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Large purple gradient orb - top left */}
+        <motion.div
+          animate={{
+            y: [0, -25, 0],
+            x: [0, 15, 0],
+            transition: { duration: 8, repeat: Infinity, ease: "easeInOut" as const }
+          }}
+          className="absolute -top-20 -left-20 w-80 h-80 bg-purple-200/40 rounded-full blur-3xl"
+        />
+
+        {/* Yellow/amber gradient orb - top right */}
+        <motion.div
+          animate={{
+            y: [0, 20, 0],
+            x: [0, -15, 0],
+            transition: { duration: 7, repeat: Infinity, ease: "easeInOut" as const, delay: 1 }
+          }}
+          className="absolute top-10 right-[10%] w-64 h-64 bg-amber-200/35 rounded-full blur-3xl"
+        />
+
+        {/* Pink gradient orb - middle left */}
+        <motion.div
+          animate={{
+            y: [0, -15, 0],
+            transition: { duration: 5, repeat: Infinity, ease: "easeInOut" as const, delay: 0.5 }
+          }}
+          className="absolute top-1/3 -left-10 w-48 h-48 bg-pink-200/30 rounded-full blur-3xl"
+        />
+
+        {/* Orange gradient orb - bottom right */}
+        <motion.div
+          animate={{
+            y: [0, 18, 0],
+            x: [0, -10, 0],
+            transition: { duration: 6, repeat: Infinity, ease: "easeInOut" as const, delay: 2 }
+          }}
+          className="absolute bottom-20 right-[5%] w-56 h-56 bg-orange-200/30 rounded-full blur-3xl"
+        />
+
+        {/* Small sky blue orb - center */}
+        <motion.div
+          animate={{
+            y: [0, -12, 0],
+            x: [0, 8, 0],
+            transition: { duration: 4.5, repeat: Infinity, ease: "easeInOut" as const, delay: 1.5 }
+          }}
+          className="absolute top-1/2 left-1/3 w-32 h-32 bg-sky-200/25 rounded-full blur-2xl"
+        />
+
+        {/* Small mint orb - bottom left */}
+        <motion.div
+          animate={{
+            y: [0, 10, 0],
+            transition: { duration: 5.5, repeat: Infinity, ease: "easeInOut" as const, delay: 0.8 }
+          }}
+          className="absolute bottom-32 left-[15%] w-40 h-40 bg-emerald-200/25 rounded-full blur-2xl"
+        />
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
         {/* Main hero content */}
