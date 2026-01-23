@@ -27,7 +27,7 @@ export default function PrivacyPolicy() {
             VDOgate Live Events Platform
           </p>
           <p className="text-sm text-gray-500 mt-2">
-            Last Updated: 20th January 2026
+            Last Updated: 21st January 2026
           </p>
         </div>
       </div>
@@ -36,319 +36,252 @@ export default function PrivacyPolicy() {
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="prose prose-lg prose-gray max-w-none">
           <p className="text-gray-700 leading-relaxed">
-            VDOgate (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;, or the &quot;Platform&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our live events platform.
+            This Privacy Policy describes how TalentGlow LLP (&quot;VDOgate&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) collects, uses, stores, discloses, and protects personal information of users (&quot;you&quot;, &quot;your&quot;) who access or use the VDOgate live events platform, including the website and mobile applications (collectively, the &quot;Platform&quot;).
           </p>
           <p className="text-gray-700 leading-relaxed">
-            By accessing or using VDOgate, you agree to this Privacy Policy. If you do not agree with the terms of this Privacy Policy, please do not access or use the Platform.
+            By accessing or using the Platform, you agree to the practices described in this Privacy Policy.
           </p>
 
           {/* Section 1 */}
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Information We Collect</h2>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">1.1 Personal Information</h3>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Scope &amp; Applicability</h2>
             <p className="text-gray-700 leading-relaxed">
-              We collect personal information that you voluntarily provide when you:
+              This Privacy Policy applies to:
             </p>
             <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Register for an account</li>
-              <li>Create or host live events</li>
-              <li>Purchase tickets for events</li>
-              <li>Contact our support team</li>
-              <li>Subscribe to our newsletters</li>
+              <li>Creators who create and host live events on the Platform; and</li>
+              <li>Attendees who access live events, whether through paid tickets or creator-issued free invitations.</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mt-4">
-              This information may include:
+              This Privacy Policy should be read together with the VDOgate Terms of Service, which govern platform usage, payments, and liability allocation.
             </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Full name</li>
-              <li>Email address</li>
-              <li>Phone number</li>
-              <li>Billing address</li>
-              <li>Payment information (processed securely via payment gateways)</li>
-              <li>PAN (for tax compliance, where applicable)</li>
-              <li>Bank account details (for creator settlements)</li>
-            </ul>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">1.2 Automatically Collected Information</h3>
-            <p className="text-gray-700 leading-relaxed">
-              When you access our Platform, we automatically collect certain information, including:
-            </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Device information (type, operating system, browser)</li>
-              <li>IP address and approximate location</li>
-              <li>Usage data (pages visited, features used, time spent)</li>
-              <li>Cookies and similar tracking technologies</li>
-              <li>Referral source</li>
-            </ul>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">1.3 Event-Related Information</h3>
-            <p className="text-gray-700 leading-relaxed">
-              For Creators, we collect:
-            </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Event details (title, description, schedule)</li>
-              <li>Ticket pricing and availability</li>
-              <li>Live stream content (during the event)</li>
-              <li>Attendance and engagement metrics</li>
-            </ul>
           </section>
 
           {/* Section 2 */}
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">2. How We Use Your Information</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Information We Collect</h2>
             <p className="text-gray-700 leading-relaxed">
-              We use the collected information for the following purposes:
+              We collect information necessary to operate the Platform, provide services, process payments, ensure security, and comply with legal obligations.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">2.1 Service Delivery</h3>
+            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">2.1 Information You Provide Directly</h3>
+            <p className="text-gray-700 leading-relaxed">
+              Depending on how you use VDOgate, we may collect:
+            </p>
             <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>To create and manage your account</li>
-              <li>To enable event creation, ticketing, and live streaming</li>
-              <li>To process payments and settlements</li>
-              <li>To send event confirmations and reminders</li>
-              <li>To provide customer support</li>
+              <li>Name</li>
+              <li>Email address</li>
+              <li>Mobile number</li>
+              <li>Account authentication credentials</li>
+              <li>Event details and configurations (for Creators)</li>
+              <li>Communications with customer support</li>
+            </ul>
+            <p className="text-gray-700 leading-relaxed mt-4 p-4 bg-amber-50 rounded-xl border border-amber-200">
+              <strong>Note:</strong> VDOgate does not store full credit card, debit card, UPI, or bank account details.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">2.2 Information Collected Automatically</h3>
+            <p className="text-gray-700 leading-relaxed">
+              When you access or use the Platform, VDOgate may automatically collect:
+            </p>
+            <ul className="list-disc pl-6 text-gray-700 space-y-2">
+              <li>Device information (device type, operating system, app version)</li>
+              <li>Log data (IP address, access timestamps, error logs)</li>
+              <li>Usage data (features used, screens accessed, session duration)</li>
+              <li>Diagnostic and crash data</li>
             </ul>
 
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">2.2 Platform Improvement</h3>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>To analyse usage patterns and improve features</li>
-              <li>To personalise your experience</li>
-              <li>To develop new products and services</li>
-              <li>To conduct research and analytics</li>
-            </ul>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">2.3 Communication</h3>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>To send transactional emails (receipts, confirmations)</li>
-              <li>To send promotional communications (with your consent)</li>
-              <li>To notify you of policy changes</li>
-              <li>To respond to inquiries and support requests</li>
-            </ul>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">2.4 Legal and Compliance</h3>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>To comply with applicable laws and regulations</li>
-              <li>To process tax deductions (TDS/TCS) as required by law</li>
-              <li>To prevent fraud and ensure platform security</li>
-              <li>To enforce our Terms of Service</li>
-            </ul>
+            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">2.3 Payment Information</h3>
+            <p className="text-gray-700 leading-relaxed">
+              Payments on VDOgate are processed through third-party payment service providers, such as Razorpay, Apple In-App Purchase, or Google Play Billing (where applicable).
+            </p>
+            <p className="text-gray-700 leading-relaxed mt-2">
+              VDOgate does not store sensitive payment credentials and relies on payment service providers for secure processing.
+            </p>
           </section>
 
           {/* Section 3 */}
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Information Sharing and Disclosure</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">3. How We Use Information</h2>
             <p className="text-gray-700 leading-relaxed">
-              We do not sell your personal information. We may share your information in the following circumstances:
-            </p>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">3.1 With Your Consent</h3>
-            <p className="text-gray-700 leading-relaxed">
-              We may share information when you explicitly consent to such sharing.
-            </p>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">3.2 Service Providers</h3>
-            <p className="text-gray-700 leading-relaxed">
-              We engage trusted third-party service providers to perform functions on our behalf:
+              VDOgate uses collected information for the following purposes:
             </p>
             <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Payment processors (for secure payment handling)</li>
-              <li>Cloud hosting providers (for data storage)</li>
-              <li>Email service providers (for communications)</li>
-              <li>Analytics providers (for usage insights)</li>
-              <li>Customer support tools</li>
+              <li>Creating and managing user accounts</li>
+              <li>Enabling event creation, hosting, ticketing, and access</li>
+              <li>Processing payments, refunds, and settlements</li>
+              <li>Complying with tax, accounting, and regulatory requirements</li>
+              <li>Fraud prevention, security monitoring, and risk management</li>
+              <li>Responding to customer support requests and resolving disputes</li>
+              <li>Monitoring and improving platform performance and reliability</li>
             </ul>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">3.3 Event Transactions</h3>
-            <p className="text-gray-700 leading-relaxed">
-              When you purchase a ticket, limited information (name, email) may be shared with the event Creator for event management purposes. Creators are bound by confidentiality obligations.
-            </p>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">3.4 Legal Requirements</h3>
-            <p className="text-gray-700 leading-relaxed">
-              We may disclose information if required by law, court order, or government request, or to:
-            </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Protect our rights, property, or safety</li>
-              <li>Prevent fraud or illegal activities</li>
-              <li>Comply with legal obligations</li>
-              <li>Respond to lawful requests from public authorities</li>
-            </ul>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">3.5 Business Transfers</h3>
-            <p className="text-gray-700 leading-relaxed">
-              In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of the transaction, with appropriate notice provided.
+            <p className="text-gray-700 leading-relaxed mt-4 p-4 bg-green-50 rounded-xl border border-green-200">
+              <strong>Important:</strong> VDOgate does not use personal data for advertising or algorithmic content promotion.
             </p>
           </section>
 
           {/* Section 4 */}
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Data Security</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Legal Basis for Processing</h2>
             <p className="text-gray-700 leading-relaxed">
-              We implement industry-standard security measures to protect your information:
+              VDOgate processes personal data based on one or more of the following legal grounds:
             </p>
             <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>SSL/TLS encryption for data transmission</li>
-              <li>Encrypted storage for sensitive data</li>
-              <li>Regular security audits and assessments</li>
-              <li>Access controls and authentication measures</li>
-              <li>Secure payment processing through PCI-DSS compliant gateways</li>
-              <li>Employee training on data protection</li>
+              <li>User consent</li>
+              <li>Performance of a contract (Terms of Service)</li>
+              <li>Compliance with legal obligations</li>
+              <li>Legitimate interests such as platform security, fraud prevention, and integrity</li>
             </ul>
-            <p className="text-gray-700 leading-relaxed mt-4">
-              While we strive to protect your information, no method of transmission over the Internet is 100% secure. We cannot guarantee absolute security but are committed to implementing reasonable safeguards.
-            </p>
           </section>
 
           {/* Section 5 */}
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Data Retention</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Data Sharing &amp; Disclosure</h2>
             <p className="text-gray-700 leading-relaxed">
-              We retain your personal information for as long as necessary to:
+              VDOgate may share personal information only as necessary with:
             </p>
             <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Provide our services to you</li>
-              <li>Comply with legal obligations (tax records: 7 years)</li>
-              <li>Resolve disputes and enforce agreements</li>
-              <li>Maintain business records</li>
+              <li>Payment processors and financial institutions</li>
+              <li>Cloud hosting, streaming, and infrastructure providers</li>
+              <li>Security, analytics, and customer support service providers</li>
+              <li>Government authorities or regulators, where required by law</li>
             </ul>
-            <p className="text-gray-700 leading-relaxed mt-4">
-              Upon account deletion request, we will delete or anonymise your personal information within 30 days, except where retention is required by law.
+            <p className="text-gray-700 leading-relaxed mt-4 p-4 bg-purple-50 rounded-xl border border-purple-200">
+              <strong>We do not sell, rent, or trade personal data to third parties.</strong>
             </p>
           </section>
 
           {/* Section 6 */}
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Your Rights and Choices</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. User-Generated Content &amp; Live Events</h2>
             <p className="text-gray-700 leading-relaxed">
-              You have the following rights regarding your personal information:
+              Live event content, including video streams, chats, messages, and reactions, is created and controlled by independent Creators.
             </p>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">6.1 Access and Portability</h3>
-            <p className="text-gray-700 leading-relaxed">
-              You can request a copy of your personal data in a structured, machine-readable format.
+            <p className="text-gray-700 leading-relaxed mt-2">
+              VDOgate does not pre-moderate live content and does not assume responsibility for user-generated content.
             </p>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">6.2 Correction</h3>
-            <p className="text-gray-700 leading-relaxed">
-              You can update or correct your account information at any time through your account settings.
-            </p>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">6.3 Deletion</h3>
-            <p className="text-gray-700 leading-relaxed">
-              You can request deletion of your account and associated personal data, subject to legal retention requirements.
-            </p>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">6.4 Marketing Opt-Out</h3>
-            <p className="text-gray-700 leading-relaxed">
-              You can unsubscribe from marketing communications at any time by clicking the &quot;unsubscribe&quot; link in emails or contacting us.
-            </p>
-
-            <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">6.5 Cookie Preferences</h3>
-            <p className="text-gray-700 leading-relaxed">
-              You can manage cookie preferences through your browser settings. Note that disabling cookies may affect Platform functionality.
-            </p>
-
-            <p className="text-gray-700 leading-relaxed mt-4">
-              To exercise any of these rights, please contact us at{' '}
-              <a href="mailto:privacy@vdogate.com" className="text-purple-600 hover:text-purple-700 font-medium">
-                privacy@vdogate.com
-              </a>
+            <p className="text-gray-700 leading-relaxed mt-2">
+              Content may be reviewed, restricted, or removed if reported and found to violate applicable laws or platform policies.
             </p>
           </section>
 
           {/* Section 7 */}
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Cookies and Tracking Technologies</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Data Retention</h2>
             <p className="text-gray-700 leading-relaxed">
-              We use cookies and similar technologies to:
+              VDOgate retains personal information only for as long as necessary to:
             </p>
             <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li><strong>Essential Cookies:</strong> Required for Platform functionality (authentication, security)</li>
-              <li><strong>Analytics Cookies:</strong> Help us understand usage patterns and improve our services</li>
-              <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
-              <li><strong>Marketing Cookies:</strong> Used to deliver relevant advertisements (with consent)</li>
+              <li>provide the Platform and related services;</li>
+              <li>comply with legal, accounting, and regulatory requirements;</li>
+              <li>resolve disputes and enforce agreements.</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mt-4">
-              You can control cookies through your browser settings. Most browsers allow you to block or delete cookies.
+              Data relating to payments, settlements, chargebacks, or disputes may be retained longer where required by law.
             </p>
           </section>
 
           {/* Section 8 */}
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Third-Party Links</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. User Rights &amp; Account Deletion</h2>
             <p className="text-gray-700 leading-relaxed">
-              Our Platform may contain links to third-party websites or services. We are not responsible for the privacy practices of these third parties. We encourage you to review their privacy policies before providing any personal information.
+              Users may request:
             </p>
+            <ul className="list-disc pl-6 text-gray-700 space-y-2">
+              <li>access to their personal data;</li>
+              <li>correction of inaccurate or incomplete information;</li>
+              <li>deletion of their account, subject to legal and contractual obligations.</li>
+            </ul>
+            <p className="text-gray-700 leading-relaxed mt-4">
+              Account deletion requests may be made through in-app settings or by contacting support.
+            </p>
+            <p className="text-gray-700 leading-relaxed mt-2">
+              Certain information may be retained after account deletion for:
+            </p>
+            <ul className="list-disc pl-6 text-gray-700 space-y-2">
+              <li>legal compliance,</li>
+              <li>fraud prevention,</li>
+              <li>enforcement of VDOgate&apos;s Terms of Service.</li>
+            </ul>
           </section>
 
           {/* Section 9 */}
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Children&apos;s Privacy</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Security Measures</h2>
             <p className="text-gray-700 leading-relaxed">
-              VDOgate is not intended for users under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have collected information from a child, we will take steps to delete such information promptly.
+              VDOgate implements reasonable administrative, technical, and organisational safeguards to protect personal data against unauthorised access, misuse, loss, or alteration.
+            </p>
+            <p className="text-gray-700 leading-relaxed mt-2">
+              However, no electronic system is completely secure, and absolute security cannot be guaranteed.
             </p>
           </section>
 
           {/* Section 10 */}
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">10. International Data Transfers</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Children &amp; Minor Access</h2>
             <p className="text-gray-700 leading-relaxed">
-              Your information may be transferred to and processed in countries other than your country of residence. We ensure appropriate safeguards are in place to protect your information in accordance with this Privacy Policy.
+              VDOgate does not permit individuals under 18 years of age to create accounts, host events, or make payments on the Platform.
+            </p>
+            <p className="text-gray-700 leading-relaxed mt-2">
+              Minors may access live events only under the supervision, consent, and responsibility of a parent or legal guardian, acting through an adult account holder.
+            </p>
+            <p className="text-gray-700 leading-relaxed mt-2">
+              VDOgate does not knowingly collect personal information directly from minors.
+            </p>
+            <p className="text-gray-700 leading-relaxed mt-2">
+              If VDOgate becomes aware that personal data of a minor has been collected directly without appropriate consent, reasonable steps will be taken to delete such information.
+            </p>
+            <p className="text-gray-700 leading-relaxed mt-2">
+              Responsibility for content suitability and parental consent rests with the Creator and the parent or guardian.
             </p>
           </section>
 
           {/* Section 11 */}
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Changes to This Privacy Policy</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">11. International Data Transfers</h2>
             <p className="text-gray-700 leading-relaxed">
-              We may update this Privacy Policy from time to time. We will notify you of material changes by:
-            </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Posting the updated policy on our Platform</li>
-              <li>Updating the &quot;Last Updated&quot; date</li>
-              <li>Sending email notification for significant changes</li>
-            </ul>
-            <p className="text-gray-700 leading-relaxed mt-4">
-              Your continued use of the Platform after changes constitutes acceptance of the updated Privacy Policy.
+              Personal information may be stored or processed on servers located outside your state or country, subject to applicable data protection laws and safeguards.
             </p>
           </section>
 
           {/* Section 12 */}
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Grievance Officer</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Third-Party Links &amp; Services</h2>
             <p className="text-gray-700 leading-relaxed">
-              In accordance with the Information Technology Act, 2000 and applicable rules, the Grievance Officer for privacy-related concerns is:
+              The Platform may contain links to third-party websites or services.
             </p>
-            <div className="mt-4 p-6 bg-gray-50 rounded-xl">
-              <p className="text-gray-700"><strong>Name:</strong> Grievance Officer, VDOgate</p>
-              <p className="text-gray-700"><strong>Email:</strong>{' '}
-                <a href="mailto:grievance@vdogate.com" className="text-purple-600 hover:text-purple-700">
-                  grievance@vdogate.com
-                </a>
-              </p>
-              <p className="text-gray-700"><strong>Response Time:</strong> Within 30 days of receipt</p>
-            </div>
+            <p className="text-gray-700 leading-relaxed mt-2">
+              VDOgate is not responsible for the privacy practices or content of such third parties.
+            </p>
           </section>
 
           {/* Section 13 */}
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">13. Contact Us</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">13. Changes to This Privacy Policy</h2>
             <p className="text-gray-700 leading-relaxed">
-              If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us:
+              VDOgate may update this Privacy Policy from time to time.
+            </p>
+            <p className="text-gray-700 leading-relaxed mt-2">
+              Material changes will be communicated through the Platform or by other appropriate means.
+            </p>
+            <p className="text-gray-700 leading-relaxed mt-2">
+              Continued use of the Platform constitutes acceptance of the updated Privacy Policy.
+            </p>
+          </section>
+
+          {/* Section 14 */}
+          <section className="mt-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">14. Contact Information</h2>
+            <p className="text-gray-700 leading-relaxed">
+              For privacy-related questions or requests, please contact:
             </p>
             <div className="mt-4 p-6 bg-gray-50 rounded-xl space-y-2">
+              <p className="text-gray-700"><strong>VDOgate is operated by TalentGlow LLP</strong></p>
               <p className="text-gray-700"><strong>Email:</strong>{' '}
-                <a href="mailto:privacy@vdogate.com" className="text-purple-600 hover:text-purple-700">
-                  privacy@vdogate.com
-                </a>
-              </p>
-              <p className="text-gray-700"><strong>General Support:</strong>{' '}
                 <a href="mailto:support@vdogate.com" className="text-purple-600 hover:text-purple-700">
                   support@vdogate.com
                 </a>
               </p>
-              <p className="text-gray-700"><strong>Address:</strong> Mumbai, Maharashtra, India</p>
             </div>
           </section>
 
@@ -358,19 +291,19 @@ export default function PrivacyPolicy() {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <h4 className="font-semibold text-gray-800 mb-2">What we collect</h4>
-                <p className="text-gray-600 text-sm">Account details, event data, payment info, usage analytics</p>
+                <p className="text-gray-600 text-sm">Name, email, phone, account credentials, event details, device &amp; usage data</p>
               </div>
               <div>
                 <h4 className="font-semibold text-gray-800 mb-2">How we use it</h4>
-                <p className="text-gray-600 text-sm">Service delivery, payments, communications, platform improvement</p>
+                <p className="text-gray-600 text-sm">Service delivery, payments, compliance, security, support, platform improvement</p>
               </div>
               <div>
                 <h4 className="font-semibold text-gray-800 mb-2">Who we share with</h4>
-                <p className="text-gray-600 text-sm">Service providers, event creators (limited), legal authorities (when required)</p>
+                <p className="text-gray-600 text-sm">Payment processors, hosting providers, security services, regulators (when required)</p>
               </div>
               <div>
                 <h4 className="font-semibold text-gray-800 mb-2">Your rights</h4>
-                <p className="text-gray-600 text-sm">Access, correction, deletion, opt-out of marketing</p>
+                <p className="text-gray-600 text-sm">Access, correction, deletion of personal data (subject to legal requirements)</p>
               </div>
             </div>
           </section>
@@ -382,7 +315,7 @@ export default function PrivacyPolicy() {
         <div className="max-w-4xl mx-auto px-6 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-500">
-              &copy; {new Date().getFullYear()} VDOgate. All rights reserved.
+              &copy; {new Date().getFullYear()} VDOgate (TalentGlow LLP). All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <Link
