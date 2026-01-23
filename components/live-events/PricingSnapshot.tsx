@@ -81,13 +81,13 @@ export default function PricingSnapshot() {
             </div>
           </motion.div>
 
-          {/* Earnings Highlight - Yellow */}
+          {/* Earnings Highlight - Yellow with tiered pricing */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ ...springTransition, delay: 0.1 }}
-            className="bg-playful-yellow rounded-3xl p-8 text-center relative overflow-hidden shadow-playful-yellow"
+            className="bg-playful-yellow rounded-3xl p-6 relative overflow-hidden shadow-playful-yellow"
           >
             {/* Confetti decoration */}
             <div className="absolute inset-0 pointer-events-none opacity-30">
@@ -95,13 +95,29 @@ export default function PricingSnapshot() {
             </div>
 
             <div className="relative z-10">
-              <p className="text-white font-bold mb-2 drop-shadow-sm">Your Earnings</p>
-              <div className="text-6xl md:text-7xl font-bold text-white mb-2 drop-shadow-sm">85%</div>
-              <p className="text-white/80 drop-shadow-sm">After platform fee</p>
+              <p className="text-playful-purple-dark font-bold mb-4 text-center">Your Earnings</p>
+
+              {/* Tiered pricing display */}
+              <div className="space-y-3">
+                <div className="bg-white/50 rounded-xl p-3">
+                  <p className="text-xs text-playful-purple-dark/70 mb-1">Below ₹199</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-3xl font-bold text-playful-purple-dark">85%</span>
+                    <span className="text-sm text-playful-purple-dark/70">you keep</span>
+                  </div>
+                </div>
+                <div className="bg-white/70 rounded-xl p-3 border-2 border-playful-purple/30">
+                  <p className="text-xs text-playful-purple-dark/70 mb-1">₹199 & above</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-3xl font-bold text-playful-purple-dark">90%</span>
+                    <span className="text-sm text-playful-purple-dark/70">you keep</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Platform Fee Card */}
+          {/* Platform Fee Card - Tiered */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -109,12 +125,16 @@ export default function PricingSnapshot() {
             transition={{ ...springTransition, delay: 0.2 }}
             className="bg-white rounded-3xl p-6 border-2 border-gray-200 shadow-playful-card"
           >
-            <div className="flex items-center justify-between">
-              <div>
-                <h4 className="font-bold text-brand-black mb-1">Platform fee</h4>
-                <p className="text-gray-500 text-sm">From ticket earnings</p>
+            <h4 className="font-bold text-brand-black mb-3">Platform fee</h4>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-gray-600">Below ₹199</span>
+                <span className="font-bold text-gray-500">15%</span>
               </div>
-              <div className="text-3xl font-bold text-gray-400">15%</div>
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-gray-600">₹199 & above</span>
+                <span className="font-bold text-playful-purple">10%</span>
+              </div>
             </div>
           </motion.div>
 

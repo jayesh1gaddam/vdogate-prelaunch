@@ -104,32 +104,32 @@ export default function HowItWorksLive() {
               </div>
             </div>
 
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-sm">Choose How You Earn</h3>
-            <p className="text-white/80 mb-5 drop-shadow-sm">Pick one model per event</p>
+            <h3 className="text-2xl md:text-3xl font-bold text-playful-purple-dark mb-2">Choose How You Earn</h3>
+            <p className="text-playful-purple-dark/70 mb-5">Pick one model per event</p>
 
             <div className="grid grid-cols-1 gap-4">
               {/* Option A */}
-              <div className="p-4 rounded-2xl bg-white/30 backdrop-blur-sm border-2 border-white/40">
+              <div className="p-4 rounded-2xl bg-white/50 backdrop-blur-sm border-2 border-playful-purple/30">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-xl bg-playful-mint flex items-center justify-center">
                     <Ticket className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white drop-shadow-sm">Paid Tickets</h4>
-                    <p className="text-sm text-white/80">Starting from ₹99/hour</p>
+                    <h4 className="font-bold text-playful-purple-dark">Paid Tickets</h4>
+                    <p className="text-sm text-playful-purple-dark/70">Starting from ₹99/hour</p>
                   </div>
                 </div>
               </div>
 
               {/* Option B */}
-              <div className="p-4 rounded-2xl bg-white/30 backdrop-blur-sm border-2 border-white/40">
+              <div className="p-4 rounded-2xl bg-white/50 backdrop-blur-sm border-2 border-playful-purple/30">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-xl bg-playful-pink flex items-center justify-center">
                     <Gift className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white drop-shadow-sm">Free / Sponsored</h4>
-                    <p className="text-sm text-white/80">You pay ₹25 per attendee</p>
+                    <h4 className="font-bold text-playful-purple-dark">Free / Sponsored</h4>
+                    <p className="text-sm text-playful-purple-dark/70">You pay ₹25 per attendee</p>
                   </div>
                 </div>
               </div>
@@ -191,14 +191,42 @@ export default function HowItWorksLive() {
 
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Host & Earn</h3>
 
-            <div className="grid grid-cols-2 gap-4 mb-4">
-              <div className="p-4 rounded-2xl bg-white/20 text-center">
-                <div className="text-3xl font-bold mb-1">85%</div>
-                <p className="text-sm text-white/80">Earnings to you</p>
+            <div className="space-y-3 mb-4">
+              {/* Tier 1: Below ₹199 */}
+              <div className="p-4 rounded-2xl bg-white/20">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm font-medium text-white/90">Tickets below ₹199</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="flex-1 text-center">
+                    <div className="text-2xl font-bold text-playful-yellow">85%</div>
+                    <p className="text-xs text-white/70">You keep</p>
+                  </div>
+                  <div className="w-px h-10 bg-white/30"></div>
+                  <div className="flex-1 text-center">
+                    <div className="text-2xl font-bold text-white/80">15%</div>
+                    <p className="text-xs text-white/70">Platform fee</p>
+                  </div>
+                </div>
               </div>
-              <div className="p-4 rounded-2xl bg-white/10 text-center">
-                <div className="text-3xl font-bold mb-1">15%</div>
-                <p className="text-sm text-white/80">Platform fee</p>
+
+              {/* Tier 2: ₹199 and above */}
+              <div className="p-4 rounded-2xl bg-white/30 border-2 border-playful-yellow/50">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm font-medium text-white">Tickets ₹199 & above</span>
+                  <span className="px-2 py-0.5 bg-playful-yellow text-playful-purple-dark text-xs font-bold rounded-full">Best Value</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="flex-1 text-center">
+                    <div className="text-2xl font-bold text-playful-yellow">90%</div>
+                    <p className="text-xs text-white/70">You keep</p>
+                  </div>
+                  <div className="w-px h-10 bg-white/30"></div>
+                  <div className="flex-1 text-center">
+                    <div className="text-2xl font-bold text-white/80">10%</div>
+                    <p className="text-xs text-white/70">Platform fee</p>
+                  </div>
+                </div>
               </div>
             </div>
 

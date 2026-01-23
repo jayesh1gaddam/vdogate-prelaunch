@@ -69,7 +69,7 @@ const jsonLd = {
       featureList: [
         'Host live workshops and masterclasses',
         'Sell tickets or invite for free',
-        '85% earnings to creators',
+        'Up to 90% earnings to creators (tiered pricing)',
         '7-day settlement',
         'No monthly subscriptions'
       ]
@@ -90,7 +90,7 @@ const jsonLd = {
           name: 'How much do creators earn from ticket sales?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Creators keep 85% of all ticket sales. VDOgate charges a 15% platform fee.'
+            text: 'Creators keep 85% of ticket sales below ₹199 (15% platform fee) and 90% of ticket sales ₹199 and above (10% platform fee). The more you charge, the more you keep.'
           }
         },
         {

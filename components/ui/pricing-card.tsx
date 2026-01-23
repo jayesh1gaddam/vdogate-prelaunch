@@ -150,7 +150,7 @@ export default function PricingCard() {
             </div>
           </div>
 
-          {/* Live Events Pricing */}
+          {/* Live Events Pricing - Tiered */}
           <motion.div
             className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-2xl p-6 mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -162,15 +162,39 @@ export default function PricingCard() {
               <span className="text-3xl font-black text-purple-600">+</span>
               <span>Live Events</span>
             </h4>
-            <div className="flex items-center justify-between">
-              <div className="text-center flex-1">
-                <p className="text-sm text-purple-700 font-medium mb-1">You keep</p>
-                <p className="text-3xl font-bold text-green-700">85%</p>
+            <div className="space-y-3">
+              {/* Tier 1: Below ₹199 */}
+              <div className="bg-white/60 rounded-xl p-3">
+                <p className="text-xs text-purple-600 font-medium mb-2">Tickets below ₹199</p>
+                <div className="flex items-center justify-between">
+                  <div className="text-center flex-1">
+                    <p className="text-2xl font-bold text-green-700">85%</p>
+                    <p className="text-xs text-purple-700">You keep</p>
+                  </div>
+                  <div className="w-px h-10 bg-purple-200"></div>
+                  <div className="text-center flex-1">
+                    <p className="text-2xl font-bold text-purple-800">15%</p>
+                    <p className="text-xs text-purple-700">Platform fee</p>
+                  </div>
+                </div>
               </div>
-              <div className="w-px h-12 bg-purple-300"></div>
-              <div className="text-center flex-1">
-                <p className="text-sm text-purple-700 font-medium mb-1">VDOgate fee</p>
-                <p className="text-3xl font-bold text-purple-900">15%</p>
+              {/* Tier 2: ₹199 and above */}
+              <div className="bg-white/80 rounded-xl p-3 border border-green-200">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-xs text-purple-600 font-medium">Tickets ₹199 & above</p>
+                  <span className="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-bold rounded-full">Best Value</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="text-center flex-1">
+                    <p className="text-2xl font-bold text-green-700">90%</p>
+                    <p className="text-xs text-purple-700">You keep</p>
+                  </div>
+                  <div className="w-px h-10 bg-purple-200"></div>
+                  <div className="text-center flex-1">
+                    <p className="text-2xl font-bold text-purple-800">10%</p>
+                    <p className="text-xs text-purple-700">Platform fee</p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>

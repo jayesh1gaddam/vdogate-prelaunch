@@ -170,9 +170,9 @@ export const SAMPLE_RESOURCES: Resource[] = [
         id: 'story-2',
         type: 'story',
         title: 'Yoga Instructor Reaches 100+ Students Through Live Events',
-        excerpt: 'Priya discovered VDOgate\'s live events feature and transformed her local yoga studio into a pan-India online business while keeping 85% of ticket revenue.',
+        excerpt: 'Priya discovered VDOgate\'s live events feature and transformed her local yoga studio into a pan-India online business while keeping up to 90% of ticket revenue.',
         category: 'Revenue Milestone',
-        tags: ['Yoga', 'Live Events', '85% Revenue Share'],
+        tags: ['Yoga', 'Live Events', 'Up to 90% Revenue'],
         date: '2025-11-13',
         readTime: '5 min read',
         views: 3800,
@@ -189,7 +189,7 @@ export const SAMPLE_RESOURCES: Resource[] = [
                 'Minimum ₹99/hour pricing'
             ]
         },
-        quote: 'Live events changed everything. I can now teach students from anywhere in India without leaving my home studio. The 85% revenue share means I actually make money.'
+        quote: 'Live events changed everything. I can now teach students from anywhere in India without leaving my home studio. Keeping up to 90% of ticket revenue means I actually make money.'
     },
     {
         id: 'story-3',
@@ -237,11 +237,11 @@ export const SAMPLE_RESOURCES: Resource[] = [
         title: 'What are the live events pricing details?',
         category: 'Live Events',
         faqCategory: 'Live Events',
-        tags: ['Live Events', 'Pricing', '85% Revenue'],
+        tags: ['Live Events', 'Pricing', 'Tiered Revenue'],
         date: '2025-11-01',
         question: 'What are the live events pricing details?',
-        excerpt: 'Live events have a ₹199 activation fee. You set the ticket price (min ₹99/hr). You keep 85% of revenue, platform fee is 15%. Payouts in 4 days.',
-        answer: 'Live events have a ₹199 activation fee per event. You decide the duration and set the ticket price (minimum ₹99/hour). VDOgate takes 15% platform fee, you keep 85%. Settlement to freelancer released within 4 days post statutory deductions (TDS, etc.). Full refund to attendees if event fails due to technical issues.',
+        excerpt: 'Live events have a ₹299 fee per event. Tiered platform fees: 15% for tickets below ₹199, only 10% for tickets ₹199+. You keep up to 90%.',
+        answer: 'Live events have a ₹299 fee per event. Tiered platform fees apply: For tickets priced below ₹199, platform fee is 15% (you keep 85%). For tickets priced ₹199 and above, platform fee drops to just 10% (you keep 90%). Settlement within ~7 days post statutory deductions (TDS/TCS ~1-2%). Full refund to attendees if event fails due to technical issues.',
         helpful: 289
     },
     {
@@ -279,8 +279,8 @@ export const SAMPLE_RESOURCES: Resource[] = [
         tags: ['Zero Commission', 'Earnings', 'Direct Services'],
         date: '2025-11-01',
         question: 'Does VDOgate take commission on my services?',
-        excerpt: 'No commission on direct services. You keep 100% of earnings. We only charge the monthly subscription. Live events have a 15% platform fee.',
-        answer: 'No. VDOgate charges zero commission on direct services. You communicate directly with clients and handle payments yourself. We only charge the ₹2,999/month subscription. For live events, we take 15% platform fee (you keep 85%), but direct 1-on-1 services have zero commission.',
+        excerpt: 'No commission on direct services. For live events, tiered fees apply: 15% below ₹199, only 10% for ₹199+. You keep up to 90%.',
+        answer: 'No. VDOgate charges zero commission on direct services. You communicate directly with clients and handle payments yourself. For live events, tiered platform fees apply: 15% for tickets below ₹199 (you keep 85%), and only 10% for tickets ₹199 and above (you keep 90%). The more you charge, the more you keep.',
         helpful: 395
     },
     {
@@ -302,7 +302,7 @@ export const SAMPLE_RESOURCES: Resource[] = [
         id: 'announce-1',
         type: 'announcement',
         title: 'Live Events Feature Now Available for All Freelancers',
-        excerpt: 'Host paid workshops, training sessions, coaching, performances, and more. Set your own ticket price (min ₹99/hour), pay ₹199 activation per event, and keep 85% of revenue. Payouts in 4 days.',
+        excerpt: 'Host paid workshops, training sessions, coaching, performances, and more. Set your own ticket price (min ₹99/hour), pay ₹299 per event, and keep up to 90% of revenue with tiered pricing. Payouts in ~7 days.',
         category: 'New Features',
         tags: ['Live Events', 'Feature Launch', 'Monetization'],
         date: '2025-11-20',
@@ -337,7 +337,7 @@ export const SAMPLE_RESOURCES: Resource[] = [
         id: 'announce-4',
         type: 'announcement',
         title: 'Zero Commission Policy Confirmed for All Direct Services',
-        excerpt: 'VDOgate will never take commission on your direct services. You keep 100% of what you earn from 1-on-1 clients. We only charge the ₹2,999/month subscription. Live events have 15% platform fee (you keep 85%).',
+        excerpt: 'VDOgate will never take commission on your direct services. You keep 100% of what you earn from 1-on-1 clients. Live events have tiered fees: 15% below ₹199, only 10% for ₹199+ (you keep up to 90%).',
         category: 'Platform Updates',
         tags: ['Zero Commission', 'Policy', 'Transparency'],
         date: '2025-11-14',

@@ -201,7 +201,7 @@ export default function LiveEventsHero() {
                       </svg>
                     </div>
                     <div>
-                      <div className="text-lg sm:text-xl font-bold text-purple-700">85%</div>
+                      <div className="text-lg sm:text-xl font-bold text-purple-700">Up to 90%</div>
                       <div className="text-purple-600/70 text-[10px] sm:text-xs">Earnings to you</div>
                     </div>
                   </motion.div>
